@@ -81,16 +81,7 @@
       }"
         id="contact-form-component"
       >
-        <form
-          netlify
-          netlify-honeypot="message_1"
-          x-ref="form"
-          class="space-y-4 text-xl mt-8 max-w-3xl"
-          name="contact"
-          method="POST"
-          x-bind:hidden="submitted"
-          x-on:submit.prevent="submitForm($refs)"
-        >
+        <form netlify netlify-honeypot="message_1" x-ref="form" class="space-y-4 text-xl mt-8 max-w-3xl" name="contact" method="POST">
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
             <label for="contact-name" class="font-bold lg:pt-4 lg:text-right lg:w-28">Name:</label>
             <input
