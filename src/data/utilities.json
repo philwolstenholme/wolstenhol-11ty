@@ -1,0 +1,7 @@
+{
+  "header": {
+    "introLink": "text-yellow-400 underline hocus:text-yellow-500 hue-rotate",
+    "introButton": "block flex-shrink-0 border border-current hocus:text-yellow-500 font-bold px-4 py-1 rounded select-none text-yellow-400",
+    "introButtonIcon": "icon mr-2"
+  }
+}

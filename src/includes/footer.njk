@@ -1,0 +1,58 @@
+<hr class="hidden" />
+<footer role="contentinfo" class="bg-binding-dark text-yellow-400 text-xs py-16">
+  <div class="max-w-6xl mx-auto space-y-5 px-5 sm:px-2">
+    <div class="hue-rotate space-y-2">
+      <p>
+        &copy; {{ build.timestamp | dateToFormat('yyyy') }} Phil Wolstenholme unless otherwise stated (such as Creative Commons license
+        images within articles)
+      </p>
+      <p>
+        Built with the
+        <abbr title="Tailwind Eleventy Alpine" class="no-underline">TEA</abbr>
+        stack <span aria-hidden="true">🍵</span>: Tailwind CSS, Eleventy, and a little bit of Alpine.js. Hosted on Netlify.
+      </p>
+      <p><i>I’ve been listening to</i> data provided by the last.fm API, Artist photos provided by Spotify.</p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <p id="homepage-lighthouse-scores" class="hue-rotate">Homepage Lighthouse scores (%):</p>
+      <ul class="no-list p-0 flex flex-wrap gap-2" aria-describedby="homepage-lighthouse-scores">
+        <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
+          <span class="sr-only">Performance: </span><span>95</span><span class="sr-only">%</span>
+        </li>
+        <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
+          <span class="sr-only">Accessibility: </span><span>100</span><span class="sr-only">%</span>
+        </li>
+        <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
+          <span class="sr-only">Best practices: </span><span>100</span><span class="sr-only">%</span>
+        </li>
+        <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
+          <span class="sr-only">SEO: </span><span>100</span><span class="sr-only">%</span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="space-x-3 hue-rotate">
+      <button
+        onclick="document.querySelectorAll('style,link[rel=\'stylesheet\']').forEach(item => item.remove());
+      document.querySelectorAll('[style]').forEach(item => item.removeAttribute('style'));
+      document.querySelectorAll('[class]').forEach(item => item.removeAttribute('class'));"
+        class="underline"
+      >
+        View page without CSS
+      </button>
+      <button
+        onclick="
+        document.querySelectorAll('script').forEach(item => item.remove());
+        document.querySelectorAll('[onclick]').forEach(item => item.removeAttribute('onclick'));
+        var html = document.querySelector('html');
+        var new_html = html.cloneNode(true);
+        html.parentNode.replaceChild(new_html, html);
+      "
+        class="underline"
+      >
+        Use page without (most) JS
+      </button>
+    </p>
+  </div>
+</footer>

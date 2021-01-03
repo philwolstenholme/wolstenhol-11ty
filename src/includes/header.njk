@@ -1,0 +1,59 @@
+<header role="banner" class="w-full h-12 sticky top-0 z-20 bg-binding-dark text-white py-2 px-5 sm:px-2">
+  <div class="max-w-6xl mx-auto flex space-x-4">
+    <a href="{{ build.url }}" rel="home" class="block flex-shrink-0">
+      <img
+        alt="Phil Wolstenholme"
+        class="bg-yellow-300 rounded-full"
+        src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,f_auto,w_240/v1545084898/avatar_egzcjk.png"
+        width="32"
+        height="32"
+      />
+    </a>
+    {# // @TODO replace with logic from?
+    https://taylor.callsen.me/modern-navigation-menus-with-css-position-sticky-and-intersectionobservers/ #}
+    <nav
+      class="flex flex-1 items-center overflow-hidden"
+      role="navigation"
+      tabindex="-1"
+      aria-labelledby="in-page-navigation"
+      x-data="{
+        active: null,
+      }"
+      x-init="() => {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            const id = entry.target.getAttribute('data-section');
+            const activeClass = 'text-yellow-300';
+            if (entry.intersectionRatio > 0) {
+              console.log(entry.intersectionRatio);
+              $el.querySelector(`a[href='#${id}']`).parentElement.classList.add(activeClass);
+            } else {
+              $el.querySelector(`a[href='#${id}']`).parentElement.classList.remove(activeClass);
+            }
+          });
+        }, {
+          rootMargin: '-120px 0px 0px 0px'
+        });
+        document.querySelectorAll('[data-section]').forEach((section) => {
+          observer.observe(section);
+        });
+      }"
+    >
+      <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
+      <ul class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars">
+        {%- for item in navigation.items -%}
+        <li>
+          <a
+            href="{{ item.href }}"
+            class="font-bold font-serif underline hocus:text-yellow-300"
+            @click="active = '{{ item.href }}'.replace('#', '')"
+          >
+            {{ item.title }}
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </div>
+  <div class="-mx-5 sm:-mx-2 bg-binding-dark h-3 transform shadow-hard" style="--tw-skew-y: -0.3deg !important"></div>
+</header>

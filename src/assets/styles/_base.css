@@ -1,0 +1,86 @@
+/**
+ * Smoothly animate the scroll position, instead of a straight jump.
+ */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5em;
+}
+
+:root {
+  --scrollbar-width: calc(100vw - 100%);
+}
+
+/**
+ * Disable animations if the user has turned on the a11y option for reduced motion due to
+ * vestibular disorders etc.
+ *
+ * @link https://css-tricks.com/introduction-reduced-motion-media-query/#article-header-id-3
+ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01s !important;
+    transition-duration: 0.01s !important;
+  }
+}
+
+/**
+ * ::selection selector: color, background, cursor, and outline.
+ */
+::selection {
+  @apply bg-yellow-300 text-black;
+}
+
+/**
+ * `x-cloak` attributes are removed from elements when Alpine initializes.
+ * This is useful for hiding pre-initialized DOM.
+ *
+ * @link https://github.com/alpinejs/alpine#x-cloak
+ *
+ */
+[x-cloak] {
+  @apply hidden;
+}
+
+/**
+ * Selectively disable the default focus style by selecting for the case when the polyfill
+ * is loaded and [data-focus-visible-added] attribute is not applied to the element:
+ *
+ * @link https://github.com/WICG/focus-visible#2-update-your-css
+ */
+.js-focus-visible :focus:not([data-focus-visible-added]) {
+  @apply outline-none;
+}
+
+.hue-rotate,
+.hue-rotate-links a {
+  animation: hue-rotate 30s infinite;
+  animation-delay: 5s;
+}
+
+@keyframes hue-rotate {
+  0% {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  100% {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+
+a {
+  transition: all 0.25 ease-in-out;
+}
+
+.bg-binding-dark,
+.bg-binding-dark:after,
+.bg-binding-dark:before {
+  background-color: #171717;
+  background-image: url('https://res.cloudinary.com/wolstenh/image/upload/c_crop,f_auto,h_200,w_200,q_auto:eco/v1473712910/binding_dark_im2rpa.png');
+}
+
+.bg-subtle-grunge,
+.bg-subtle-grunge:after,
+.bg-subtle-grunge:before {
+  background-color: #f4f4f4;
+  background-image: url('https://res.cloudinary.com/wolstenh/image/upload/c_crop,f_auto,h_200,w_200,q_auto:eco/v1473712910/subtle_grunge_ux3r0f.png');
+}

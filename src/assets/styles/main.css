@@ -1,0 +1,51 @@
+@import 'tailwindcss/base';
+@import '_base.css';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+  @responsive {
+    .scrolling-touch {
+      -webkit-overflow-scrolling: touch;
+    }
+    .scrolling-auto {
+      -webkit-overflow-scrolling: auto;
+    }
+    .hide-scrollbars {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .hide-scrollbars::-webkit-scrollbar {
+      width: 0px;
+      height: 0;
+    }
+  }
+}
+
+.icon {
+  position: relative;
+  top: -0.0625em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url('/assets/fonts/roboto-slab-v12-latin-regular.woff2') format('woff2'),
+    url('/assets/fonts/roboto-slab-v12-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Roboto Slab Bold'), local('RobotoSlab-Bold'), url('/assets/fonts/roboto-slab-v12-latin-700.woff2') format('woff2'),
+    url('/assets/fonts/roboto-slab-v12-latin-700.woff') format('woff');
+}

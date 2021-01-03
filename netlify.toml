@@ -1,0 +1,25 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "src/functions"
+
+[dev]
+  command = "npm run start"
+  publish = "dist"
+# Proxy Cloudinary
+[[redirects]]
+  from = "/cloudinary/:image"
+  to = "https://res.cloudinary.com/wolstenh/image/:image"
+  status = 200
+
+# Proxy Lambda functions
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Redirect to custom 404
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404

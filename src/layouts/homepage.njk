@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang }}" class="bg-white antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {%- if seo.title -%}
+      {{ seo.title }}
+      {%- else -%}
+      {{ title }} | {{ meta.title }}
+      {%- endif -%}
+    </title>
+    <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
+    {% include "meta.njk" %}
+  </head>
+  <body class="text-gray-900 leading-normal overflow-x-hidden">
+    <p class="sr-only"><a href="#content">Skip to main content</a>.</p>
+    <div role="document" class="min-h-screen flex flex-col">
+      {% include "header.njk" %} {% include "homepage/homepage-header.njk" %}
+      <div class="-mb-6 -mt-6 -skew-y-1 transform z-10">
+        <div class="bg-binding-dark h-12"></div>
+        <div class="bg-subtle-grunge h-12"></div>
+      </div>
+      <main class="flex-grow w-full bg-subtle-grunge outline-none" id="content" tabindex="-1">
+        <div class="mx-auto max-w-6xl px-5 sm:px-2 py-10 lg:pb-28">
+          {{ content | safe }}
+        </div>
+      </main>
+      {% include "footer.njk" %}
+    </div>
+    <script src="{{ '/assets/main.js' | url }}" defer></script>
+    <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
+  </body>
+</html>

@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Taylor Swift",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": null,
+        "features": {
+          "tempo": 130.033
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/b1627ca86690d2c5b6cc2fb1039a31014e96a22b"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
+      }
+    }
+  },
+  {
+    "name": "Sufjan Stevens",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": "https://p.scdn.co/mp3-preview/577c6a7a87f75bc9ec7422b0522fe1f2594b1450?cid=80b5e4fb6d094537affbaa76cee75f63",
+        "features": {
+          "tempo": 132.285
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/db6979ecd0d3f2e27d6fb6ff254bcaf0ba134b82"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/4MXUO7sVCaFgFjoTI5ox5c"
+      }
+    }
+  },
+  {
+    "name": "The Bravery",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": null,
+        "features": {
+          "tempo": 166.137
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/d24aea6175873b4b5c403a0d1b977fa775d40066"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/2bcrMsFlF632EQ6VZERWFu"
+      }
+    }
+  },
+  {
+    "name": "Mount Kimbie",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": null,
+        "features": {
+          "tempo": 79.992
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/51bc5cae9f0dd01f91b0066f7e81203f3afc9df5"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3NUtpWpGDoffm3RCGhSHtl"
+      }
+    }
+  },
+  {
+    "name": "The Vines",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": null,
+        "features": {
+          "tempo": 138.811
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/49e553864ab27388a3231ac990fa6df0ec7b0b08"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/7vkiEK5D7Gf0z4M1Va0CXD"
+      }
+    }
+  },
+  {
+    "name": "OK Go",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": null,
+        "features": {
+          "tempo": 145.729
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/30a9f3d5c164a7cf089f74afa412493451c6cbe2"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3hozsZ9hqNq7CoBGYNlFTz"
+      }
+    }
+  },
+  {
+    "name": "Cage the Elephant",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": null,
+        "features": {
+          "tempo": 113.945
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/916f93764f7eb0844265843df1c7632d25df4c41"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/26T3LtbuGT1Fu9m0eRq5X3"
+      }
+    }
+  },
+  {
+    "name": "Stand Atlantic",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": "https://p.scdn.co/mp3-preview/1580495c19dac1029c97c724a8724d02254da1ff?cid=80b5e4fb6d094537affbaa76cee75f63",
+        "features": {
+          "tempo": 131.915
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/fb97d136eaa1a683b770379a9478a9ddbcc2cc98"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/1W2Fv4YUnjC8hx2qQd6fGh"
+      }
+    }
+  },
+  {
+    "name": "TV on the Radio",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": "https://p.scdn.co/mp3-preview/b0959470bdca1b510ad728f7beeb9bcce79d75b6?cid=80b5e4fb6d094537affbaa76cee75f63",
+        "features": {
+          "tempo": 175.986
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/f89202009ce77a4163097785d46a0f88ae21aa16"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/3HJIB8sYPyxrFGuwvKXSLR"
+      }
+    }
+  },
+  {
+    "name": "White Lies",
+    "lastfm": {
+      "image": [
+        {
+          "size": "large",
+          "#text": "https://lastfm.freetls.fastly.net/i/u/174s/2a96cbd8b46e442fc41c2b86b821562f.png"
+        }
+      ]
+    },
+    "spotify": {
+      "top_tracks": {
+        "preview_url": "https://p.scdn.co/mp3-preview/fa6bed92e97df7b714c606f11449c027a339bfa9?cid=80b5e4fb6d094537affbaa76cee75f63",
+        "features": {
+          "tempo": 108.004
+        }
+      },
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/998ff6a069cf9e9d3b9aa8bddc31dfbf721faf6d"
+        }
+      ],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/6ssXMmc5EOUrauZxirM910"
+      }
+    }
+  }
+]

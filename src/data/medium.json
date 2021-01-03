@@ -1,0 +1,88 @@
+{
+  "payload": {
+    "references": {
+      "Post": {
+        "c3bc4a4e08c2": {
+          "id": "c3bc4a4e08c2",
+          "title": "Avoiding missing image src values when using the Drupal Bamboo Twig module with Stage File Proxy",
+          "uniqueSlug": "avoiding-missing-image-src-values-when-using-the-drupal-bamboo-twig-module-with-stage-file-proxy-c3bc4a4e08c2",
+          "content": {
+            "subtitle": "Bamboo Twig is a great Drupal module which gives you a lot of extra Twig functions to work with Drupal specific functionality in Twig…"
+          }
+        },
+        "c9b9c2568046": {
+          "id": "c9b9c2568046",
+          "title": "Companies using utility-first CSS in production",
+          "uniqueSlug": "companies-using-utility-first-css-in-production-c9b9c2568046",
+          "content": {
+            "subtitle": "This is a list I put together while doing research while we were considering a trial of utility-first CSS in the Drupal team at CTI…"
+          }
+        },
+        "3d7e28ed9e61": {
+          "id": "3d7e28ed9e61",
+          "title": "Tips for using Kint in Drupal Twig development",
+          "uniqueSlug": "tips-for-using-kint-in-drupal-twig-development-3d7e28ed9e61",
+          "content": {
+            "subtitle": "I’d always known about Kint, but I’d never really used it until recently. The standard dump(thing_to_dump) command was good enough, but a…"
+          }
+        },
+        "e4559d158562": {
+          "id": "e4559d158562",
+          "title": "Using join, include, and attributes in YAML (.yml) files with Data Transform Plugin for Pattern Lab",
+          "uniqueSlug": "using-join-include-and-attributes-in-yaml-yml-files-with-data-transform-plugin-for-pattern-lab-e4559d158562",
+          "content": {
+            "subtitle": "Aleksip’s Data Transform Plugin (DTP) is a tremendous tool for people using Pattern Lab and Drupal together. It allows you to emulate…"
+          }
+        },
+        "769688ac8034": {
+          "id": "769688ac8034",
+          "title": "Passing values from a Drupal Paragraphs item to a custom module’s form via Bamboo Twig",
+          "uniqueSlug": "passing-values-from-a-drupal-paragraphs-item-to-a-custom-modules-form-via-bamboo-twig-769688ac8034",
+          "content": {
+            "subtitle": "At work I’m one sprint into a new project where we have decided to use Pattern Lab and component-based design for the first time. It’s…"
+          }
+        },
+        "f2399790852b": {
+          "id": "f2399790852b",
+          "title": "Wolstenhol.me as a Vue application",
+          "uniqueSlug": "wolstenhol-me-as-a-vue-application-f2399790852b",
+          "content": {
+            "subtitle": "Some notes for the Manchester FRED show and tell session:"
+          }
+        },
+        "a32352669535": {
+          "id": "a32352669535",
+          "title": "lasttramfrom.co.uk beta",
+          "uniqueSlug": "lasttramfrom-co-uk-beta-a32352669535",
+          "content": {
+            "subtitle": "Note: the beta.lasttramfrom.co.uk URL is no longer valid, just use https://lasttramfrom.com instead."
+          }
+        },
+        "493b61512343": {
+          "id": "493b61512343",
+          "title": "Enable Views contextual filter page <title> overriding in Drupal 8",
+          "uniqueSlug": "enable-views-contextual-filter-page-title-overriding-in-drupal-8-493b61512343",
+          "content": {
+            "subtitle": "Views in Drupal doesn’t seem to support a contextual filter value overriding the <title> of a view being displayed as a page. The heading…"
+          }
+        },
+        "580a85845360": {
+          "id": "580a85845360",
+          "title": "Deleting inaccessible VMs from the VirtualBox GUI via the command line",
+          "uniqueSlug": "deleting-inaccessible-vms-from-the-virtualbox-gui-via-the-command-line-580a85845360",
+          "content": {
+            "subtitle": "I recently had a big clear out of my Virtual Machines directory and deleted quite a few VMs that I wasn’t using anymore. Perhaps I should…"
+          }
+        },
+        "a880d1c4bd07": {
+          "id": "a880d1c4bd07",
+          "title": "Stuff to take to Glastonbury (other than the obvious)",
+          "uniqueSlug": "stuff-to-take-to-glastonbury-other-than-the-obvious-a880d1c4bd07",
+          "content": {
+            "subtitle": "Tent, sleeping bag, clothes… you should probably pack these, but here are a few more esoteric (or unnecessary) items that I seem to pack…"
+          }
+        }
+      }
+    }
+  }
+}
