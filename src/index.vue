@@ -82,12 +82,12 @@
         id="contact-form-component"
       >
         <form
+          netlify
+          netlify-honeypot="message_1"
           x-ref="form"
           class="space-y-4 text-xl mt-8 max-w-3xl"
           name="contact"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="message_1"
           x-bind:hidden="submitted"
           x-on:submit.prevent="submitForm($refs)"
         >
