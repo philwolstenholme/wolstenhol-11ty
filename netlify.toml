@@ -9,7 +9,7 @@
 
 # Proxy Cloudinary
 [[redirects]]
-  from = "/cloudinary/:*"
+  from = "/cloudinary/*"
   to = "https://res.cloudinary.com/wolstenh/:splat"
   status = 200
 
