@@ -6,10 +6,11 @@
 [dev]
   command = "npm run start"
   publish = "dist"
+
 # Proxy Cloudinary
 [[redirects]]
   from = "/cloudinary/:image"
-  to = "https://res.cloudinary.com/wolstenh/image/:image"
+  to = "https://res.cloudinary.com/wolstenh/:image"
   status = 200
 
 # Proxy Lambda functions
