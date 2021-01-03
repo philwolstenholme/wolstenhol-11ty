@@ -154,14 +154,14 @@
           </p>
           <div hidden x-bind:hidden="!error" x-cloak class="font-bold text-red-800 lg:ml-32 space-y-2">
             <p>Oops, it looks like there's been some sort of error:</p>
-            <textarea
+            <div
               x-text="error"
               class="bg-black block text-base font-mono p-5 rounded shadow-hard text-green-300 w-full"
               rows="5"
               readonly
               x-ref="error"
-              x-on:focus="$refs.error.select()"
-            ></textarea>
+              x-on:click="window.getSelection().selectAllChildren($refs.error);"
+            ></div>
           </div>
           <div hidden aria-hidden="true">
             <label>
