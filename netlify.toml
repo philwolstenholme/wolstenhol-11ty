@@ -9,8 +9,8 @@
 
 # Proxy Cloudinary
 [[redirects]]
-  from = "/cloudinary/:image"
-  to = "https://res.cloudinary.com/wolstenh/:image"
+  from = "/cloudinary/:*"
+  to = "https://res.cloudinary.com/wolstenh/:splat"
   status = 200
 
 # Proxy Lambda functions
