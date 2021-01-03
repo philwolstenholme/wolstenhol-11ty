@@ -92,7 +92,11 @@
           x-on:submit.prevent="submitForm($refs)"
         >
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
-            <label for="contact-name" class="font-bold lg:pt-4 lg:text-right lg:w-28">Name:</label>
+            <label for="contact-name" class="font-bold lg:pt-4 lg:text-right lg:w-28"
+              >Name:<sup class="text-red-800"
+                ><span aria-hidden="">*</span><span class="sr-only">(this field is required)</span></sup
+              ></label
+            >
             <input
               required
               id="contact-name"
@@ -105,7 +109,11 @@
             />
           </p>
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
-            <label for="contact-email" class="lg:pt-4 font-bold lg:text-right lg:w-28">Email:</label>
+            <label for="contact-email" class="lg:pt-4 font-bold lg:text-right lg:w-28"
+              >Email:<sup class="text-red-800"
+                ><span aria-hidden="">*</span><span class="sr-only">(this field is required)</span></sup
+              ></label
+            >
             <input
               required
               id="contact-email"
@@ -118,7 +126,11 @@
             />
           </p>
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
-            <label for="contact-subject" class="lg:pt-4 font-bold lg:text-right lg:w-28">Subject:</label>
+            <label for="contact-subject" class="lg:pt-4 font-bold lg:text-right lg:w-28"
+              >Subject:<sup class="text-red-800"
+                ><span aria-hidden="">*</span><span class="sr-only">(this field is required)</span></sup
+              ></label
+            >
             <input
               required
               id="contact-subject"
@@ -130,7 +142,11 @@
             />
           </p>
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
-            <label for="contact-message" class="lg:pt-4 font-bold lg:text-right lg:w-28">Message:</label>
+            <label for="contact-message" class="lg:pt-4 font-bold lg:text-right lg:w-28"
+              >Message:<sup class="text-red-800"
+                ><span aria-hidden="">*</span><span class="sr-only">(this field is required)</span></sup
+              ></label
+            >
             <textarea
               required
               id="contact-message"
@@ -146,7 +162,6 @@
             <button
               type="submit"
               class="flex items-center bg-yellow-300 hocus:bg-yellow-400 px-4 py-2 rounded shadow-hard font-bold space-x-2 select-none"
-              :disabled="isSubmitting"
             >
               <icon name="paperPlane"></icon>
               <span>Send</span>
