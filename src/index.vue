@@ -32,10 +32,7 @@
       <pw-lede>Tweets by me, <a href="https://twitter.com/intent/user?user_id=38276082" class="font-bold">@philw_</a>.</pw-lede>
     </section>
 
-    <section data-section="places" class="space-y-3">
-      <pw-section-heading title="Places" icon="mapMarkerAlt" />
-      <pw-lede>Nice places.</pw-lede>
-    </section>
+    <pw-places :places="this.foursquare.response.venues.items"></pw-places>
 
     <section data-section="contact">
       <pw-section-heading title="Contact" icon="envelope" />
@@ -94,7 +91,7 @@
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
             <label for="contact-name" class="font-bold lg:pt-4 lg:text-right lg:w-28"
               >Name:<sup class="text-red-800"
-                ><span aria-hidden="">*</span><span class="sr-only">(this field is required)</span></sup
+                ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
               ></label
             >
             <input
@@ -111,7 +108,7 @@
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
             <label for="contact-email" class="lg:pt-4 font-bold lg:text-right lg:w-28"
               >Email:<sup class="text-red-800"
-                ><span aria-hidden="">*</span><span class="sr-only">(this field is required)</span></sup
+                ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
               ></label
             >
             <input
@@ -128,7 +125,7 @@
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
             <label for="contact-subject" class="lg:pt-4 font-bold lg:text-right lg:w-28"
               >Subject:<sup class="text-red-800"
-                ><span aria-hidden="">*</span><span class="sr-only">(this field is required)</span></sup
+                ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
               ></label
             >
             <input
@@ -144,7 +141,7 @@
           <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
             <label for="contact-message" class="lg:pt-4 font-bold lg:text-right lg:w-28"
               >Message:<sup class="text-red-800"
-                ><span aria-hidden="">*</span><span class="sr-only">(this field is required)</span></sup
+                ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
               ></label
             >
             <textarea
@@ -204,6 +201,7 @@ import PwSpeaking from './includes/pw-speaking.vue';
 import PwCardTestimonial from './includes/pw-card-testimonial.vue';
 import PwCardTalk from './includes/pw-card-talk.vue';
 import Icon from './includes/icon.vue';
+import PwPlaces from './includes/pw-places.vue';
 
 export default {
   data: {
@@ -219,6 +217,7 @@ export default {
     PwCardTestimonial,
     PwCardTalk,
     Icon,
+    PwPlaces,
   },
 };
 </script>
