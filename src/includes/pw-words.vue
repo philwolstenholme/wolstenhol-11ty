@@ -1,8 +1,9 @@
 <script>
 import PwLede from './pw-lede.vue';
 import PwCardMedium from './pw-card-medium.vue';
-import PwHorizontalScroller from './pw-horizontal-scroller.vue';
 import PwSectionHeading from './pw-section-heading.vue';
+import PwSimpleScroller from './pw-simple-scroller.vue';
+import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
 
 export default {
   props: {
@@ -14,8 +15,9 @@ export default {
   components: {
     PwLede,
     PwCardMedium,
-    PwHorizontalScroller,
     PwSectionHeading,
+    PwSimpleScroller,
+    PwSimpleScrollerItem,
   },
 };
 </script>
@@ -25,14 +27,10 @@ export default {
     <pw-section-heading title="Words" icon="penAlt" />
     <pw-lede class="mt-3">Blog posts from Medium (until I build my own blog!)</pw-lede>
 
-    <pw-horizontal-scroller :items="posts" :items-row="3" class="mt-5">
-      <template slot-scope="{ item }">
-        <pw-card-medium :post="item" />
-      </template>
-      <div slot="no-more-offscreen-cards">
-        ➜ Read more on
-        <a href="http://medium.com/@philw_" class="b bg-black-10 br2 dib pa1 ph2 black">Medium</a>…
-      </div>
-    </pw-horizontal-scroller>
+    <pw-simple-scroller class="mt-5" style="--items: 3">
+      <pw-simple-scroller-item fit-to-grid v-for="(post, index) in posts" :key="index">
+        <pw-card-medium class="h-full" :post="post" />
+      </pw-simple-scroller-item>
+    </pw-simple-scroller>
   </section>
 </template>
