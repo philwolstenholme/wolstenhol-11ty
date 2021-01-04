@@ -16,6 +16,10 @@ module.exports = {
           DEFAULT: '#228665',
           dark: '#1e785a',
         },
+        foursquare: {
+          DEFAULT: '#DC3068',
+          dark: '#ce225a',
+        },
       },
       boxShadow: {
         hard: '2px 2px 0 rgba(0,0,0,.15)',

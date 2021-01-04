@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <article class="card__foursquare relative flex overflow-hidden w-full rounded shadow-hard">
+  <article class="relative flex overflow-hidden w-full rounded shadow-hard">
     <a :href="place.url" class="text-white bg-foursquare hocus:bg-foursquare-dark p-5 no-underline w-full">
       <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
         <span aria-hidden="true">
