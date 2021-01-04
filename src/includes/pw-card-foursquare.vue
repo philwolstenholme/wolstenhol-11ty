@@ -17,7 +17,14 @@ export default {
 
 <template>
   <article class="relative flex overflow-hidden w-full rounded shadow-hard">
-    <a :href="place.url" class="text-white bg-foursquare hocus:bg-foursquare-dark p-5 no-underline w-full">
+    <component
+      :is="place.url ? 'a' : 'div'"
+      :href="place.url"
+      class="text-white bg-foursquare p-5 no-underline w-full"
+      :class="{
+        'hocus:bg-foursquare-dark': place.url,
+      }"
+    >
       <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
         <span aria-hidden="true">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="3.5329999923706055 12 46.933998107910156 44">
@@ -32,6 +39,6 @@ export default {
         <p v-text="place.tipHint" />
         <p v-text="formattedAddress" />
       </div>
-    </a>
+    </component>
   </article>
 </template>
