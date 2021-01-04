@@ -35,23 +35,3 @@ export default {
     </a>
   </article>
 </template>
-
-<style lang="scss" scoped>
-.card__foursquare {
-  background-color: #f94877;
-  transition: background-color 150ms;
-
-  .soc-i {
-    fill: darken(#f94877, 10%);
-  }
-
-  a:hover,
-  a:focus {
-    .soc-i {
-      fill: darken(#f94877, 20%);
-    }
-
-    background-color: darken(#f94877, 10%);
-  }
-}
-</style>
