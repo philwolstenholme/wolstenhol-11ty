@@ -64,7 +64,7 @@
         class="transition-colors font-bold ml-1 px-2 py-1 rounded shadow-hard text-white"
         v-bind:class="{
           'bg-medium hocus:bg-medium-dark': theme === 'medium',
-          'bg-pink-500 hocus:bg-pink-600': theme === 'testimonial',
+          'bg-pink-600 hocus:bg-pink-700': theme === 'testimonial',
         }"
         x-on:click="scrollRight()"
       >

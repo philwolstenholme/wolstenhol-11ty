@@ -1,11 +1,13 @@
 <script>
 import PwLede from './pw-lede.vue';
 import PwSectionHeading from './pw-section-heading.vue';
+import icon from './icon.vue';
 
 export default {
   components: {
     PwLede,
     PwSectionHeading,
+    icon,
   },
 };
 </script>

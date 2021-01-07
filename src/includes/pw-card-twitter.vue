@@ -132,12 +132,8 @@ export default {
 
 <style lang="scss" scoped>
 .card__twitter {
-  background-color: #3197e5;
+  background-color: #1876be;
   transition: all 150ms ease-in-out;
-
-  .soc-i {
-    fill: darken(#3197e5, 10%);
-  }
 }
 
 .card__twitter__tweet-text {
