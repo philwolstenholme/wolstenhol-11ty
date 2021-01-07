@@ -24,6 +24,10 @@
   .links-underline a {
     text-decoration: underline;
   }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
 }
 
 .icon {

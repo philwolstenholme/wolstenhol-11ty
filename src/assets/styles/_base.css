@@ -1,8 +1,4 @@
-/**
- * Smoothly animate the scroll position, instead of a straight jump.
- */
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 5em;
 }
 
@@ -83,4 +79,8 @@ a {
 .bg-subtle-grunge:before {
   background-color: #f4f4f4;
   background-image: url('https://res.cloudinary.com/wolstenh/image/upload/c_crop,f_auto,h_200,w_200,q_auto:eco/v1473712910/subtle_grunge_ux3r0f.png');
+}
+
+button {
+  user-select: none;
 }

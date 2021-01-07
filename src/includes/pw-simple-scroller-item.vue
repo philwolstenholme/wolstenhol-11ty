@@ -1,6 +1,6 @@
 <template>
   <li
-    class="scroller-item snap-center flex-grow-0 flex-shrink-0 mb-3"
+    class="scroller-item relative snap-center flex-grow-0 flex-shrink-0 mb-3"
     :class="{
       'scroller-item--fit-to-grid': fitToGrid,
     }"
@@ -16,6 +16,12 @@ export default {
       type: Boolean,
       required: false,
       default: false,
+    },
+    isFirst: {
+      type: Boolean,
+    },
+    isLast: {
+      type: Boolean,
     },
   },
 };
