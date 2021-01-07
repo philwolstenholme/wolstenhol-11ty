@@ -20,6 +20,10 @@
       height: 0;
     }
   }
+
+  .links-underline a {
+    text-decoration: underline;
+  }
 }
 
 .icon {

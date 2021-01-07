@@ -11,6 +11,9 @@
       {%- endif -%}
     </title>
     <link inline rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
+    <script>
+      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
+    </script>
     <link rel="preconnect" href="https://res.cloudinary.com" />
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
