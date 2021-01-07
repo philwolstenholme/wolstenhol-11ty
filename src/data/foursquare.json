@@ -3,6 +3,31 @@
     "venues": {
       "items": [
         {
+          "name": "Hotel SP34",
+          "url": "http://www.brochner-hotels.dk/our-hotels/sp34/",
+          "tipHint": "People talk about wine, trendy, happy hour.",
+          "location": {
+            "formattedAddress": [
+              "Sankt Peders Stræde 34 (Vester Voldgade)",
+              "1453",
+              "Danmark"
+            ]
+          }
+        },
+        {
+          "name": "Kalaset",
+          "url": "http://www.kalaset.dk",
+          "tipHint": "People talk about pancakes, vegan food, cozy.",
+          "location": {
+            "city": "København K",
+            "formattedAddress": [
+              "Vendersgade 16",
+              "1363 København K",
+              "Danmark"
+            ]
+          }
+        },
+        {
           "name": "Pllek",
           "url": "http://www.pllek.nl",
           "tipHint": "People talk about lively, scenic views, good for dates.",
@@ -217,39 +242,13 @@
         {
           "name": "Brasão Cervejaria",
           "url": "http://www.brasao.pt",
-          "tipHint": "People talk about trendy, lively, cozy.",
+          "tipHint": "People talk about trendy, lively, good for dates.",
           "location": {
             "city": "Porto",
             "formattedAddress": [
               "Rua Ramalho Ortigão, 28",
               "4000-407 Porto",
               "Portugal"
-            ]
-          }
-        },
-        {
-          "name": "The Passenger Hostel",
-          "tipHint": "People talk about great value.",
-          "location": {
-            "city": "Porto",
-            "formattedAddress": [
-              "Estacao de Sao Bento Praca Almeida Garrett, União de Freguesias do Centro",
-              "4000-330 Porto",
-              "Portugal"
-            ]
-          }
-        },
-        {
-          "name": "YES",
-          "url": "https://www.yes-manchester.com",
-          "tipHint": "People talk about concerts, good for singles.",
-          "location": {
-            "city": "Manchester",
-            "formattedAddress": [
-              "38 Charles St",
-              "Manchester",
-              "Greater Manchester",
-              "M1 7DB"
             ]
           }
         }
