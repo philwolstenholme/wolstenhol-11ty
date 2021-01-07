@@ -19,7 +19,7 @@ export default {
 
 <template>
   <section
-    data-section="speaking"
+    data-section="tweets"
     x-data="{}"
     x-init="() => {
       if (window.innerWidth > 767) {
