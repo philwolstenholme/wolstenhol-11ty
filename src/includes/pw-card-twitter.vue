@@ -66,6 +66,7 @@ export default {
         class="w-full"
         loading="lazy"
         crossorigin="anonymous"
+        alt=""
       />
       <span
         v-if="['video', 'animated_gif'].includes(tweetMedia.type)"
