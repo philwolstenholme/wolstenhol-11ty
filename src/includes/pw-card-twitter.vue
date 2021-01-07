@@ -59,14 +59,14 @@ export default {
       <span class="sr-only">Tweet media</span>
       <img
         :src="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:400,f_auto,q_auto/${tweetMedia.media_url_https}`"
-        :dsrcset="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:800,f_auto,q_auto/${tweetMedia.media_url_https} 2x, https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:1200,f_auto,q_auto/${tweetMedia.media_url_https} 3x`"
+        :srcset="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:800,f_auto,q_auto/${tweetMedia.media_url_https} 2x, https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:1200,f_auto,q_auto/${tweetMedia.media_url_https} 3x`"
         sizes="368px"
         :width="tweetMedia.sizes.large.w"
         :height="tweetMedia.sizes.large.h"
         class="w-full"
         loading="lazy"
         crossorigin="anonymous"
-        alt=""
+        :alt="tweetMedia.ext_alt_text || ''"
       />
       <span
         v-if="['video', 'animated_gif'].includes(tweetMedia.type)"

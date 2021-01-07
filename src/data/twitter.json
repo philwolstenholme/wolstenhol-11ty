@@ -12,10 +12,7 @@
           "url": "https://t.co/xMkgy5PT6H",
           "expanded_url": "https://www.nytimes.com/2021/01/06/us/politics/russia-cyber-hack.html",
           "display_url": "nytimes.com/2021/01/06/us/…",
-          "indices": [
-            242,
-            265
-          ]
+          "indices": [242, 265]
         }
       ]
     },
@@ -41,10 +38,7 @@
           "name": "Ian Dunt",
           "id": 21202851,
           "id_str": "21202851",
-          "indices": [
-            3,
-            11
-          ]
+          "indices": [3, 11]
         }
       ],
       "urls": []
@@ -55,10 +49,7 @@
       "id_str": "1346136206497763328",
       "full_text": "This is beyond my comprehension. For four fucking years we've listened to these cretinous buffoons in government bang on about taking control of our borders. And the first time there is actually a good reason to do it, they utterly fail to do so. https://t.co/ezalh5gGvF",
       "truncated": false,
-      "display_text_range": [
-        0,
-        246
-      ],
+      "display_text_range": [0, 246],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -68,10 +59,7 @@
             "url": "https://t.co/ezalh5gGvF",
             "expanded_url": "https://twitter.com/AlexInAir/status/1346054603423567872",
             "display_url": "twitter.com/AlexInAir/stat…",
-            "indices": [
-              247,
-              270
-            ]
+            "indices": [247, 270]
           }
         ]
       },
@@ -96,10 +84,7 @@
                 "url": "https://t.co/VBCTn4csRW",
                 "expanded_url": "https://www.canburypress.com/products/how-to-be-a-liberal-by-ian-dunt-hardback-ISBN9781912454419",
                 "display_url": "canburypress.com/products/how-t…",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -109,16 +94,13 @@
                 "url": "https://t.co/wOraaKxK8o",
                 "expanded_url": "http://Politics.co.uk",
                 "display_url": "Politics.co.uk",
-                "indices": [
-                  36,
-                  59
-                ]
+                "indices": [36, 59]
               }
             ]
           }
         },
         "protected": false,
-        "followers_count": 313216,
+        "followers_count": 313217,
         "friends_count": 4103,
         "listed_count": 3267,
         "created_at": "Wed Feb 18 14:58:28 +0000 2009",
@@ -139,6 +121,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/1019495827839078400/YicoZp0G_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/1019495827839078400/YicoZp0G_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/21202851/1610036080",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "990000",
         "profile_sidebar_border_color": "DFDFDF",
         "profile_sidebar_fill_color": "F3F3F3",
@@ -170,18 +154,12 @@
         "id_str": "1346054603423567872",
         "full_text": "There’s no travel ban — UK stopped short of it despite “genuine fears” over new #COVID19 strain.\n\nPassengers are able to easily travel  between UK and S Africa via transit airports\n\n(And yet still, for passengers arriving to UK: no tests, no screening, no measures - 1 year on) https://t.co/vuZS0Kv6th",
         "truncated": false,
-        "display_text_range": [
-          0,
-          277
-        ],
+        "display_text_range": [0, 277],
         "entities": {
           "hashtags": [
             {
               "text": "COVID19",
-              "indices": [
-                80,
-                88
-              ]
+              "indices": [80, 88]
             }
           ],
           "symbols": [],
@@ -191,10 +169,7 @@
               "url": "https://t.co/vuZS0Kv6th",
               "expanded_url": "https://twitter.com/ShelaghFogarty/status/1346037722931220480",
               "display_url": "twitter.com/ShelaghFogarty…",
-              "indices": [
-                278,
-                301
-              ]
+              "indices": [278, 301]
             }
           ]
         },
@@ -219,10 +194,7 @@
                   "url": "https://t.co/R6oAFULemx",
                   "expanded_url": "http://aviationanalyst.co.uk",
                   "display_url": "aviationanalyst.co.uk",
-                  "indices": [
-                    0,
-                    23
-                  ]
+                  "indices": [0, 23]
                 }
               ]
             },
@@ -233,7 +205,7 @@
           "protected": false,
           "followers_count": 49346,
           "friends_count": 4331,
-          "listed_count": 371,
+          "listed_count": 370,
           "created_at": "Fri Sep 17 16:10:41 +0000 2010",
           "favourites_count": 8133,
           "utc_offset": null,
@@ -252,6 +224,8 @@
           "profile_image_url": "http://pbs.twimg.com/profile_images/1150499500701732864/QvF1xNaM_normal.jpg",
           "profile_image_url_https": "https://pbs.twimg.com/profile_images/1150499500701732864/QvF1xNaM_normal.jpg",
           "profile_banner_url": "https://pbs.twimg.com/profile_banners/191881312/1458769499",
+          "profile_image_extensions_alt_text": null,
+          "profile_banner_extensions_alt_text": null,
           "profile_link_color": "0303FF",
           "profile_sidebar_border_color": "000000",
           "profile_sidebar_fill_color": "616161",
@@ -278,7 +252,7 @@
           "display": "twitter.com/ShelaghFogarty…"
         },
         "retweet_count": 804,
-        "favorite_count": 1570,
+        "favorite_count": 1571,
         "favorited": false,
         "retweeted": false,
         "possibly_sensitive": false,
@@ -313,10 +287,7 @@
           "name": "Alex White",
           "id": 379222014,
           "id_str": "379222014",
-          "indices": [
-            3,
-            17
-          ]
+          "indices": [3, 17]
         }
       ],
       "urls": [],
@@ -324,10 +295,7 @@
         {
           "id": 1345861722595332000,
           "id_str": "1345861722595332096",
-          "indices": [
-            105,
-            128
-          ],
+          "indices": [105, 128],
           "media_url": "http://pbs.twimg.com/media/Eq12GyQXEAAtzfX.jpg",
           "media_url_https": "https://pbs.twimg.com/media/Eq12GyQXEAAtzfX.jpg",
           "url": "https://t.co/LAjwnal91s",
@@ -368,10 +336,7 @@
         {
           "id": 1345861722595332000,
           "id_str": "1345861722595332096",
-          "indices": [
-            105,
-            128
-          ],
+          "indices": [105, 128],
           "media_url": "http://pbs.twimg.com/media/Eq12GyQXEAAtzfX.jpg",
           "media_url_https": "https://pbs.twimg.com/media/Eq12GyQXEAAtzfX.jpg",
           "url": "https://t.co/LAjwnal91s",
@@ -403,7 +368,8 @@
           "source_status_id": 1345861724843475000,
           "source_status_id_str": "1345861724843474945",
           "source_user_id": 379222014,
-          "source_user_id_str": "379222014"
+          "source_user_id_str": "379222014",
+          "ext_alt_text": null
         }
       ]
     },
@@ -413,10 +379,7 @@
       "id_str": "1345861724843474945",
       "full_text": "When we said 'flatten the curve' we should probably have specified 'along the X axis' https://t.co/LAjwnal91s",
       "truncated": false,
-      "display_text_range": [
-        0,
-        85
-      ],
+      "display_text_range": [0, 85],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -426,10 +389,7 @@
           {
             "id": 1345861722595332000,
             "id_str": "1345861722595332096",
-            "indices": [
-              86,
-              109
-            ],
+            "indices": [86, 109],
             "media_url": "http://pbs.twimg.com/media/Eq12GyQXEAAtzfX.jpg",
             "media_url_https": "https://pbs.twimg.com/media/Eq12GyQXEAAtzfX.jpg",
             "url": "https://t.co/LAjwnal91s",
@@ -466,10 +426,7 @@
           {
             "id": 1345861722595332000,
             "id_str": "1345861722595332096",
-            "indices": [
-              86,
-              109
-            ],
+            "indices": [86, 109],
             "media_url": "http://pbs.twimg.com/media/Eq12GyQXEAAtzfX.jpg",
             "media_url_https": "https://pbs.twimg.com/media/Eq12GyQXEAAtzfX.jpg",
             "url": "https://t.co/LAjwnal91s",
@@ -497,7 +454,8 @@
                 "h": 480,
                 "resize": "fit"
               }
-            }
+            },
+            "ext_alt_text": "test alt for curve"
           }
         ]
       },
@@ -522,10 +480,7 @@
                 "url": "https://t.co/rJDfr6RNvn",
                 "expanded_url": "http://flint-global.com",
                 "display_url": "flint-global.com",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -555,6 +510,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/1254486449396895745/nsA4xkI3_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/1254486449396895745/nsA4xkI3_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/379222014/1607878426",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "1B95E0",
         "profile_sidebar_border_color": "000000",
         "profile_sidebar_fill_color": "000000",
@@ -573,14 +530,14 @@
       "place": null,
       "contributors": null,
       "is_quote_status": false,
-      "retweet_count": 30573,
-      "favorite_count": 180988,
+      "retweet_count": 30574,
+      "favorite_count": 180991,
       "favorited": false,
       "retweeted": false,
       "possibly_sensitive": false,
       "lang": "en"
     },
-    "retweet_count": 30573,
+    "retweet_count": 30574,
     "favorite_count": 0,
     "user": {
       "id_str": "38276082",
@@ -602,10 +559,7 @@
           "name": "Edwin Hayward 🦄 🗡",
           "id": 45010849,
           "id_str": "45010849",
-          "indices": [
-            3,
-            19
-          ]
+          "indices": [3, 19]
         }
       ],
       "urls": []
@@ -616,10 +570,7 @@
       "id_str": "1344691904164855816",
       "full_text": "UK Government just released 70 pages of case studies today, showing how the borders will operate after 1 January 2021.\n\nThey're essentially hardcore porn for red tape fetishists.\n\nDoomed, we are. Doomed.\n\n(e.g. exporting fish; exporting mechanical goods)\nhttps://t.co/zWpkdGJeim https://t.co/lD8y4iWRcv",
       "truncated": false,
-      "display_text_range": [
-        0,
-        278
-      ],
+      "display_text_range": [0, 278],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -629,20 +580,14 @@
             "url": "https://t.co/zWpkdGJeim",
             "expanded_url": "https://www.gov.uk/government/publications/the-border-operating-model",
             "display_url": "gov.uk/government/pub…",
-            "indices": [
-              255,
-              278
-            ]
+            "indices": [255, 278]
           }
         ],
         "media": [
           {
             "id": 1344691002741813200,
             "id_str": "1344691002741813250",
-            "indices": [
-              279,
-              302
-            ],
+            "indices": [279, 302],
             "media_url": "http://pbs.twimg.com/media/EqlNV68W8AIYmyI.jpg",
             "media_url_https": "https://pbs.twimg.com/media/EqlNV68W8AIYmyI.jpg",
             "url": "https://t.co/lD8y4iWRcv",
@@ -679,10 +624,7 @@
           {
             "id": 1344691002741813200,
             "id_str": "1344691002741813250",
-            "indices": [
-              279,
-              302
-            ],
+            "indices": [279, 302],
             "media_url": "http://pbs.twimg.com/media/EqlNV68W8AIYmyI.jpg",
             "media_url_https": "https://pbs.twimg.com/media/EqlNV68W8AIYmyI.jpg",
             "url": "https://t.co/lD8y4iWRcv",
@@ -710,15 +652,13 @@
                 "h": 447,
                 "resize": "fit"
               }
-            }
+            },
+            "ext_alt_text": null
           },
           {
             "id": 1344691125337153500,
             "id_str": "1344691125337153536",
-            "indices": [
-              279,
-              302
-            ],
+            "indices": [279, 302],
             "media_url": "http://pbs.twimg.com/media/EqlNdDpXYAAyQ0x.png",
             "media_url_https": "https://pbs.twimg.com/media/EqlNdDpXYAAyQ0x.png",
             "url": "https://t.co/lD8y4iWRcv",
@@ -746,7 +686,8 @@
                 "h": 150,
                 "resize": "crop"
               }
-            }
+            },
+            "ext_alt_text": null
           }
         ]
       },
@@ -771,10 +712,7 @@
                 "url": "https://t.co/gs6HUMdKkW",
                 "expanded_url": "https://www.amazon.co.uk/gp/product/B07Z1FTRQW/",
                 "display_url": "amazon.co.uk/gp/product/B07…",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -804,6 +742,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/1251181178364755968/p-jeZ6z7_normal.png",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/1251181178364755968/p-jeZ6z7_normal.png",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/45010849/1587738604",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "0000FF",
         "profile_sidebar_border_color": "65B0DA",
         "profile_sidebar_fill_color": "EEEEEE",
@@ -851,10 +791,7 @@
           "url": "https://t.co/nivHe42zS9",
           "expanded_url": "https://twitter.com/uk_domain_names/status/1345149939064713217",
           "display_url": "twitter.com/uk_domain_name…",
-          "indices": [
-            278,
-            301
-          ]
+          "indices": [278, 301]
         }
       ]
     },
@@ -880,10 +817,7 @@
           "name": "James Felton",
           "id": 2904913023,
           "id_str": "2904913023",
-          "indices": [
-            3,
-            14
-          ]
+          "indices": [3, 14]
         }
       ],
       "urls": []
@@ -894,10 +828,7 @@
       "id_str": "1344249371580379136",
       "full_text": "The internet is a cool place where you can watch peer-reviewed trials get dismissed as bullshit and an account set up on Tuesday say “I’m a nurse and all the hospitals are empty covid isn’t real” accompanied with a screengrab of holby city get 5,000 retweets",
       "truncated": false,
-      "display_text_range": [
-        0,
-        258
-      ],
+      "display_text_range": [0, 258],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -925,10 +856,7 @@
                 "url": "https://t.co/Hc2Dz03EvQ",
                 "expanded_url": "https://amzn.to/2HHtW08",
                 "display_url": "amzn.to/2HHtW08",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -938,36 +866,27 @@
                 "url": "https://t.co/1AtY1YTVZM",
                 "expanded_url": "https://linktr.ee/SunburnJamesFelton",
                 "display_url": "linktr.ee/SunburnJamesFe…",
-                "indices": [
-                  24,
-                  47
-                ]
+                "indices": [24, 47]
               },
               {
                 "url": "https://t.co/WEinPBVSbx",
                 "expanded_url": "http://bit.ly/2mWy7yv",
                 "display_url": "bit.ly/2mWy7yv",
-                "indices": [
-                  93,
-                  116
-                ]
+                "indices": [93, 116]
               },
               {
                 "url": "https://t.co/83zuzC7LO0",
                 "expanded_url": "http://amzn.to/2lev9V0",
                 "display_url": "amzn.to/2lev9V0",
-                "indices": [
-                  125,
-                  148
-                ]
+                "indices": [125, 148]
               }
             ]
           }
         },
         "protected": false,
-        "followers_count": 272271,
+        "followers_count": 272278,
         "friends_count": 3518,
-        "listed_count": 825,
+        "listed_count": 826,
         "created_at": "Thu Dec 04 11:06:45 +0000 2014",
         "favourites_count": 183493,
         "utc_offset": null,
@@ -986,6 +905,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/863860130009546754/-2Zr0kqI_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/863860130009546754/-2Zr0kqI_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/2904913023/1592303608",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "1DA1F2",
         "profile_sidebar_border_color": "C0DEED",
         "profile_sidebar_fill_color": "DDEEF6",
@@ -1005,7 +926,7 @@
       "contributors": null,
       "is_quote_status": false,
       "retweet_count": 1978,
-      "favorite_count": 14472,
+      "favorite_count": 14473,
       "favorited": false,
       "retweeted": false,
       "lang": "en"
@@ -1032,10 +953,7 @@
           "name": "James Felton",
           "id": 2904913023,
           "id_str": "2904913023",
-          "indices": [
-            3,
-            14
-          ]
+          "indices": [3, 14]
         }
       ],
       "urls": []
@@ -1046,10 +964,7 @@
       "id_str": "1344325698928914432",
       "full_text": "once again shocked that the exponential spread of an airborne disease wasn't stopped by a \"no drinking unless you eat a egg\" policy",
       "truncated": false,
-      "display_text_range": [
-        0,
-        131
-      ],
+      "display_text_range": [0, 131],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -1077,10 +992,7 @@
                 "url": "https://t.co/Hc2Dz03EvQ",
                 "expanded_url": "https://amzn.to/2HHtW08",
                 "display_url": "amzn.to/2HHtW08",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -1090,36 +1002,27 @@
                 "url": "https://t.co/1AtY1YTVZM",
                 "expanded_url": "https://linktr.ee/SunburnJamesFelton",
                 "display_url": "linktr.ee/SunburnJamesFe…",
-                "indices": [
-                  24,
-                  47
-                ]
+                "indices": [24, 47]
               },
               {
                 "url": "https://t.co/WEinPBVSbx",
                 "expanded_url": "http://bit.ly/2mWy7yv",
                 "display_url": "bit.ly/2mWy7yv",
-                "indices": [
-                  93,
-                  116
-                ]
+                "indices": [93, 116]
               },
               {
                 "url": "https://t.co/83zuzC7LO0",
                 "expanded_url": "http://amzn.to/2lev9V0",
                 "display_url": "amzn.to/2lev9V0",
-                "indices": [
-                  125,
-                  148
-                ]
+                "indices": [125, 148]
               }
             ]
           }
         },
         "protected": false,
-        "followers_count": 272271,
+        "followers_count": 272278,
         "friends_count": 3518,
-        "listed_count": 825,
+        "listed_count": 826,
         "created_at": "Thu Dec 04 11:06:45 +0000 2014",
         "favourites_count": 183493,
         "utc_offset": null,
@@ -1138,6 +1041,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/863860130009546754/-2Zr0kqI_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/863860130009546754/-2Zr0kqI_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/2904913023/1592303608",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "1DA1F2",
         "profile_sidebar_border_color": "C0DEED",
         "profile_sidebar_fill_color": "DDEEF6",
@@ -1184,10 +1089,7 @@
           "url": "https://t.co/NTVU405Am7",
           "expanded_url": "https://twitter.com/jlengstorf/status/1344314200349315072",
           "display_url": "twitter.com/jlengstorf/sta…",
-          "indices": [
-            54,
-            77
-          ]
+          "indices": [54, 77]
         }
       ]
     },
@@ -1213,10 +1115,7 @@
           "name": "Devutopia",
           "id": 135857034,
           "id_str": "135857034",
-          "indices": [
-            3,
-            11
-          ]
+          "indices": [3, 11]
         }
       ],
       "urls": []
@@ -1227,10 +1126,7 @@
       "id_str": "1344050170137292801",
       "full_text": "4/ ..and/or doesn't have a clue how to manage the crisis in front of it. What I don't expect is the free ride the mainstream media have given them over these failures. Each time they bought the distraction hook, line and sinker. They didn't challenge the wisdom or..",
       "truncated": false,
-      "display_text_range": [
-        0,
-        266
-      ],
+      "display_text_range": [0, 266],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -1258,10 +1154,7 @@
                 "url": "https://t.co/o207mZoe6e",
                 "expanded_url": "https://www.facebook.com/dravalblog",
                 "display_url": "facebook.com/dravalblog",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -1291,6 +1184,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/1267915582470578177/mVXglctI_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/1267915582470578177/mVXglctI_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/135857034/1586963149",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "A5C4BF",
         "profile_sidebar_border_color": "181909",
         "profile_sidebar_fill_color": "6C8889",
@@ -1337,10 +1232,7 @@
           "name": "Devutopia",
           "id": 135857034,
           "id_str": "135857034",
-          "indices": [
-            3,
-            11
-          ]
+          "indices": [3, 11]
         }
       ],
       "urls": []
@@ -1351,10 +1243,7 @@
       "id_str": "1344050165502636038",
       "full_text": "1/ Memory test - do you remember..\n- Dyson ventilators?\n- Nightingale hospitals?\n- Putting \"a ring around care homes\" to keep them safe?\n- The \"world beating\" test and trace app?\n- Laptops for all the kids who don't have one to school at home?",
       "truncated": false,
-      "display_text_range": [
-        0,
-        243
-      ],
+      "display_text_range": [0, 243],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -1382,10 +1271,7 @@
                 "url": "https://t.co/o207mZoe6e",
                 "expanded_url": "https://www.facebook.com/dravalblog",
                 "display_url": "facebook.com/dravalblog",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -1415,6 +1301,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/1267915582470578177/mVXglctI_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/1267915582470578177/mVXglctI_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/135857034/1586963149",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "A5C4BF",
         "profile_sidebar_border_color": "181909",
         "profile_sidebar_fill_color": "6C8889",
@@ -1461,10 +1349,7 @@
           "name": "Harry Roberts",
           "id": 24765829,
           "id_str": "24765829",
-          "indices": [
-            3,
-            15
-          ]
+          "indices": [3, 15]
         }
       ],
       "urls": []
@@ -1475,10 +1360,7 @@
       "id_str": "1344093274982768651",
       "full_text": "🧵 A lot of my clients stress about Critical CSS. It’s very difficult and error-prone to retrofit to a site, yet a lot of tools make a huge deal of it. The thing is, it’s not always that effective…",
       "truncated": false,
-      "display_text_range": [
-        0,
-        196
-      ],
+      "display_text_range": [0, 196],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -1506,10 +1388,7 @@
                 "url": "https://t.co/SkXW7xO51i",
                 "expanded_url": "https://csswizardry.com",
                 "display_url": "csswizardry.com",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -1539,6 +1418,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/1265585417849634816/OqwdR83A_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/1265585417849634816/OqwdR83A_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/24765829/1463856551",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "F43059",
         "profile_sidebar_border_color": "FFFFFF",
         "profile_sidebar_fill_color": "FFFFFF",
@@ -1585,10 +1466,7 @@
           "name": "James Felton",
           "id": 2904913023,
           "id_str": "2904913023",
-          "indices": [
-            3,
-            14
-          ]
+          "indices": [3, 14]
         }
       ],
       "urls": [],
@@ -1596,10 +1474,7 @@
         {
           "id": 1343476965026787300,
           "id_str": "1343476965026787328",
-          "indices": [
-            59,
-            82
-          ],
+          "indices": [59, 82],
           "media_url": "http://pbs.twimg.com/media/EqT9LoBXcAAaQaj.jpg",
           "media_url_https": "https://pbs.twimg.com/media/EqT9LoBXcAAaQaj.jpg",
           "url": "https://t.co/nWqngqjzIM",
@@ -1640,10 +1515,7 @@
         {
           "id": 1343476965026787300,
           "id_str": "1343476965026787328",
-          "indices": [
-            59,
-            82
-          ],
+          "indices": [59, 82],
           "media_url": "http://pbs.twimg.com/media/EqT9LoBXcAAaQaj.jpg",
           "media_url_https": "https://pbs.twimg.com/media/EqT9LoBXcAAaQaj.jpg",
           "url": "https://t.co/nWqngqjzIM",
@@ -1675,15 +1547,13 @@
           "source_status_id": 1343476970902990800,
           "source_status_id_str": "1343476970902990848",
           "source_user_id": 2904913023,
-          "source_user_id_str": "2904913023"
+          "source_user_id_str": "2904913023",
+          "ext_alt_text": null
         },
         {
           "id": 1343476965072842800,
           "id_str": "1343476965072842754",
-          "indices": [
-            59,
-            82
-          ],
+          "indices": [59, 82],
           "media_url": "http://pbs.twimg.com/media/EqT9LoMWMAIxRJe.jpg",
           "media_url_https": "https://pbs.twimg.com/media/EqT9LoMWMAIxRJe.jpg",
           "url": "https://t.co/nWqngqjzIM",
@@ -1715,7 +1585,8 @@
           "source_status_id": 1343476970902990800,
           "source_status_id_str": "1343476970902990848",
           "source_user_id": 2904913023,
-          "source_user_id_str": "2904913023"
+          "source_user_id_str": "2904913023",
+          "ext_alt_text": null
         }
       ]
     },
@@ -1725,10 +1596,7 @@
       "id_str": "1343476970902990848",
       "full_text": "A story in two incredibly predictable acts https://t.co/nWqngqjzIM",
       "truncated": false,
-      "display_text_range": [
-        0,
-        42
-      ],
+      "display_text_range": [0, 42],
       "entities": {
         "hashtags": [],
         "symbols": [],
@@ -1738,10 +1606,7 @@
           {
             "id": 1343476965026787300,
             "id_str": "1343476965026787328",
-            "indices": [
-              43,
-              66
-            ],
+            "indices": [43, 66],
             "media_url": "http://pbs.twimg.com/media/EqT9LoBXcAAaQaj.jpg",
             "media_url_https": "https://pbs.twimg.com/media/EqT9LoBXcAAaQaj.jpg",
             "url": "https://t.co/nWqngqjzIM",
@@ -1778,10 +1643,7 @@
           {
             "id": 1343476965026787300,
             "id_str": "1343476965026787328",
-            "indices": [
-              43,
-              66
-            ],
+            "indices": [43, 66],
             "media_url": "http://pbs.twimg.com/media/EqT9LoBXcAAaQaj.jpg",
             "media_url_https": "https://pbs.twimg.com/media/EqT9LoBXcAAaQaj.jpg",
             "url": "https://t.co/nWqngqjzIM",
@@ -1809,15 +1671,13 @@
                 "h": 680,
                 "resize": "fit"
               }
-            }
+            },
+            "ext_alt_text": null
           },
           {
             "id": 1343476965072842800,
             "id_str": "1343476965072842754",
-            "indices": [
-              43,
-              66
-            ],
+            "indices": [43, 66],
             "media_url": "http://pbs.twimg.com/media/EqT9LoMWMAIxRJe.jpg",
             "media_url_https": "https://pbs.twimg.com/media/EqT9LoMWMAIxRJe.jpg",
             "url": "https://t.co/nWqngqjzIM",
@@ -1845,7 +1705,8 @@
                 "h": 1278,
                 "resize": "fit"
               }
-            }
+            },
+            "ext_alt_text": null
           }
         ]
       },
@@ -1870,10 +1731,7 @@
                 "url": "https://t.co/Hc2Dz03EvQ",
                 "expanded_url": "https://amzn.to/2HHtW08",
                 "display_url": "amzn.to/2HHtW08",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -1883,36 +1741,27 @@
                 "url": "https://t.co/1AtY1YTVZM",
                 "expanded_url": "https://linktr.ee/SunburnJamesFelton",
                 "display_url": "linktr.ee/SunburnJamesFe…",
-                "indices": [
-                  24,
-                  47
-                ]
+                "indices": [24, 47]
               },
               {
                 "url": "https://t.co/WEinPBVSbx",
                 "expanded_url": "http://bit.ly/2mWy7yv",
                 "display_url": "bit.ly/2mWy7yv",
-                "indices": [
-                  93,
-                  116
-                ]
+                "indices": [93, 116]
               },
               {
                 "url": "https://t.co/83zuzC7LO0",
                 "expanded_url": "http://amzn.to/2lev9V0",
                 "display_url": "amzn.to/2lev9V0",
-                "indices": [
-                  125,
-                  148
-                ]
+                "indices": [125, 148]
               }
             ]
           }
         },
         "protected": false,
-        "followers_count": 272271,
+        "followers_count": 272278,
         "friends_count": 3518,
-        "listed_count": 825,
+        "listed_count": 826,
         "created_at": "Thu Dec 04 11:06:45 +0000 2014",
         "favourites_count": 183493,
         "utc_offset": null,
@@ -1931,6 +1780,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/863860130009546754/-2Zr0kqI_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/863860130009546754/-2Zr0kqI_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/2904913023/1592303608",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "1DA1F2",
         "profile_sidebar_border_color": "C0DEED",
         "profile_sidebar_fill_color": "DDEEF6",
@@ -1992,17 +1843,11 @@
       "hashtags": [
         {
           "text": "turingscheme",
-          "indices": [
-            40,
-            53
-          ]
+          "indices": [40, 53]
         },
         {
           "text": "Erasmus",
-          "indices": [
-            76,
-            84
-          ]
+          "indices": [76, 84]
         }
       ],
       "symbols": [],
@@ -2012,10 +1857,7 @@
           "name": "Prof Paul James Cardwell",
           "id": 1460350147,
           "id_str": "1460350147",
-          "indices": [
-            3,
-            15
-          ]
+          "indices": [3, 15]
         }
       ],
       "urls": []
@@ -2026,25 +1868,16 @@
       "id_str": "1342917640797483008",
       "full_text": "Some details about the #turingscheme as a replacement for  #Erasmus are now out. Here are my initial thoughts, from an institutional and education perspective more than costs. /1 https://t.co/spyopjc2W8",
       "truncated": false,
-      "display_text_range": [
-        0,
-        178
-      ],
+      "display_text_range": [0, 178],
       "entities": {
         "hashtags": [
           {
             "text": "turingscheme",
-            "indices": [
-              23,
-              36
-            ]
+            "indices": [23, 36]
           },
           {
             "text": "Erasmus",
-            "indices": [
-              59,
-              67
-            ]
+            "indices": [59, 67]
           }
         ],
         "symbols": [],
@@ -2054,10 +1887,7 @@
             "url": "https://t.co/spyopjc2W8",
             "expanded_url": "https://twitter.com/jim_dickinson/status/1342850650309353474",
             "display_url": "twitter.com/jim_dickinson/…",
-            "indices": [
-              179,
-              202
-            ]
+            "indices": [179, 202]
           }
         ]
       },
@@ -2082,10 +1912,7 @@
                 "url": "https://t.co/qmRjZkGZed",
                 "expanded_url": "https://www.strath.ac.uk/staff/cardwellpauljamesprofessor/",
                 "display_url": "strath.ac.uk/staff/cardwell…",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -2115,6 +1942,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/826486763581480961/8TW7zn6Q_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/826486763581480961/8TW7zn6Q_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/1460350147/1602768913",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "1DA1F2",
         "profile_sidebar_border_color": "C0DEED",
         "profile_sidebar_fill_color": "DDEEF6",
@@ -2146,10 +1975,7 @@
         "id_str": "1342850650309353474",
         "full_text": "Turing replacement for Eramsus+ details out https://t.co/tHzVlxRIJY",
         "truncated": false,
-        "display_text_range": [
-          0,
-          43
-        ],
+        "display_text_range": [0, 43],
         "entities": {
           "hashtags": [],
           "symbols": [],
@@ -2159,10 +1985,7 @@
             {
               "id": 1342850640834408400,
               "id_str": "1342850640834408448",
-              "indices": [
-                44,
-                67
-              ],
+              "indices": [44, 67],
               "media_url": "http://pbs.twimg.com/media/EqLDiwlXMAAWkEK.jpg",
               "media_url_https": "https://pbs.twimg.com/media/EqLDiwlXMAAWkEK.jpg",
               "url": "https://t.co/tHzVlxRIJY",
@@ -2199,10 +2022,7 @@
             {
               "id": 1342850640834408400,
               "id_str": "1342850640834408448",
-              "indices": [
-                44,
-                67
-              ],
+              "indices": [44, 67],
               "media_url": "http://pbs.twimg.com/media/EqLDiwlXMAAWkEK.jpg",
               "media_url_https": "https://pbs.twimg.com/media/EqLDiwlXMAAWkEK.jpg",
               "url": "https://t.co/tHzVlxRIJY",
@@ -2230,15 +2050,13 @@
                   "h": 680,
                   "resize": "fit"
                 }
-              }
+              },
+              "ext_alt_text": null
             },
             {
               "id": 1342850644386975700,
               "id_str": "1342850644386975744",
-              "indices": [
-                44,
-                67
-              ],
+              "indices": [44, 67],
               "media_url": "http://pbs.twimg.com/media/EqLDi90XEAA9K7t.jpg",
               "media_url_https": "https://pbs.twimg.com/media/EqLDi90XEAA9K7t.jpg",
               "url": "https://t.co/tHzVlxRIJY",
@@ -2266,15 +2084,13 @@
                   "h": 680,
                   "resize": "fit"
                 }
-              }
+              },
+              "ext_alt_text": null
             },
             {
               "id": 1342850647763398700,
               "id_str": "1342850647763398656",
-              "indices": [
-                44,
-                67
-              ],
+              "indices": [44, 67],
               "media_url": "http://pbs.twimg.com/media/EqLDjKZXMAAOT39.jpg",
               "media_url_https": "https://pbs.twimg.com/media/EqLDjKZXMAAOT39.jpg",
               "url": "https://t.co/tHzVlxRIJY",
@@ -2302,7 +2118,8 @@
                   "h": 2048,
                   "resize": "fit"
                 }
-              }
+              },
+              "ext_alt_text": null
             }
           ]
         },
@@ -2327,10 +2144,7 @@
                   "url": "https://t.co/ABmNu4lHA0",
                   "expanded_url": "https://wonkhe.com/staff/jim-dickinson/",
                   "display_url": "wonkhe.com/staff/jim-dick…",
-                  "indices": [
-                    0,
-                    23
-                  ]
+                  "indices": [0, 23]
                 }
               ]
             },
@@ -2339,7 +2153,7 @@
             }
           },
           "protected": false,
-          "followers_count": 8256,
+          "followers_count": 8257,
           "friends_count": 3946,
           "listed_count": 112,
           "created_at": "Thu May 17 08:41:56 +0000 2007",
@@ -2360,6 +2174,8 @@
           "profile_image_url": "http://pbs.twimg.com/profile_images/1221148524383014917/-_kjwUKX_normal.jpg",
           "profile_image_url_https": "https://pbs.twimg.com/profile_images/1221148524383014917/-_kjwUKX_normal.jpg",
           "profile_banner_url": "https://pbs.twimg.com/profile_banners/6100082/1605603558",
+          "profile_image_extensions_alt_text": null,
+          "profile_banner_extensions_alt_text": null,
           "profile_link_color": "FF00FF",
           "profile_sidebar_border_color": "FFFFFF",
           "profile_sidebar_fill_color": "F5F0F4",
@@ -2386,7 +2202,7 @@
         "lang": "en"
       },
       "retweet_count": 1391,
-      "favorite_count": 2219,
+      "favorite_count": 2218,
       "favorited": false,
       "retweeted": false,
       "possibly_sensitive": false,
@@ -2428,10 +2244,7 @@
       "hashtags": [
         {
           "text": "Brexit",
-          "indices": [
-            120,
-            127
-          ]
+          "indices": [120, 127]
         }
       ],
       "symbols": [],
@@ -2441,10 +2254,7 @@
           "name": "Green💚Molly",
           "id": 726372601,
           "id_str": "726372601",
-          "indices": [
-            3,
-            19
-          ]
+          "indices": [3, 19]
         }
       ],
       "urls": []
@@ -2455,25 +2265,16 @@
       "id_str": "1342137083801038850",
       "full_text": "EU Commission providing a helpful graphic to remind us of everything we’re losing today because of #Brexit\n\nA useful contrast to the Prime Minister’s bluster\n\n#BrexitDeal https://t.co/HN1HQMObGu",
       "truncated": false,
-      "display_text_range": [
-        0,
-        170
-      ],
+      "display_text_range": [0, 170],
       "entities": {
         "hashtags": [
           {
             "text": "Brexit",
-            "indices": [
-              99,
-              106
-            ]
+            "indices": [99, 106]
           },
           {
             "text": "BrexitDeal",
-            "indices": [
-              159,
-              170
-            ]
+            "indices": [159, 170]
           }
         ],
         "symbols": [],
@@ -2483,10 +2284,7 @@
           {
             "id": 1342137066629582800,
             "id_str": "1342137066629582851",
-            "indices": [
-              171,
-              194
-            ],
+            "indices": [171, 194],
             "media_url": "http://pbs.twimg.com/media/EqA6jRhXUAMRpZB.jpg",
             "media_url_https": "https://pbs.twimg.com/media/EqA6jRhXUAMRpZB.jpg",
             "url": "https://t.co/HN1HQMObGu",
@@ -2523,10 +2321,7 @@
           {
             "id": 1342137066629582800,
             "id_str": "1342137066629582851",
-            "indices": [
-              171,
-              194
-            ],
+            "indices": [171, 194],
             "media_url": "http://pbs.twimg.com/media/EqA6jRhXUAMRpZB.jpg",
             "media_url_https": "https://pbs.twimg.com/media/EqA6jRhXUAMRpZB.jpg",
             "url": "https://t.co/HN1HQMObGu",
@@ -2554,15 +2349,13 @@
                 "h": 680,
                 "resize": "fit"
               }
-            }
+            },
+            "ext_alt_text": null
           },
           {
             "id": 1342137066650546200,
             "id_str": "1342137066650546182",
-            "indices": [
-              171,
-              194
-            ],
+            "indices": [171, 194],
             "media_url": "http://pbs.twimg.com/media/EqA6jRmXMAYSX_f.jpg",
             "media_url_https": "https://pbs.twimg.com/media/EqA6jRmXMAYSX_f.jpg",
             "url": "https://t.co/HN1HQMObGu",
@@ -2590,7 +2383,8 @@
                 "h": 680,
                 "resize": "fit"
               }
-            }
+            },
+            "ext_alt_text": null
           }
         ]
       },
@@ -2615,10 +2409,7 @@
                 "url": "https://t.co/VuB7jOCIGH",
                 "expanded_url": "http://mollymep.org.uk",
                 "display_url": "mollymep.org.uk",
-                "indices": [
-                  0,
-                  23
-                ]
+                "indices": [0, 23]
               }
             ]
           },
@@ -2648,6 +2439,8 @@
         "profile_image_url": "http://pbs.twimg.com/profile_images/1284500182504222721/uzPFgGyl_normal.jpg",
         "profile_image_url_https": "https://pbs.twimg.com/profile_images/1284500182504222721/uzPFgGyl_normal.jpg",
         "profile_banner_url": "https://pbs.twimg.com/profile_banners/726372601/1598184255",
+        "profile_image_extensions_alt_text": null,
+        "profile_banner_extensions_alt_text": null,
         "profile_link_color": "12A838",
         "profile_sidebar_border_color": "000000",
         "profile_sidebar_fill_color": "DDEEF6",
