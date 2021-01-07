@@ -22,14 +22,16 @@ export default {
     data-section="speaking"
     x-data="{}"
     x-init="() => {
-      loadjs(['https://unpkg.com/colcade@0/colcade.js'], 'colcade');
+      if (window.innerWidth > 767) {
+        loadjs(['https://unpkg.com/colcade@0/colcade.js'], 'colcade');
 
-      loadjs.ready('colcade', function() {
-        var colcade = new Colcade( '.tweets', {
-          columns: '.tweets__col',
-          items: '.tweets__item'
+        loadjs.ready('colcade', function() {
+          var colcade = new Colcade( '.tweets', {
+            columns: '.tweets__col',
+            items: '.tweets__item'
+          });
         });
-      });
+      }
     }"
   >
     <pw-section-heading title="Tweets" icon="twitter" />
