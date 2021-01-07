@@ -61,6 +61,8 @@ export default {
         :src="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:400,f_auto,q_auto/${tweetMedia.media_url_https}`"
         :dsrcset="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:800,f_auto,q_auto/${tweetMedia.media_url_https} 2x, https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:1200,f_auto,q_auto/${tweetMedia.media_url_https} 3x`"
         sizes="368px"
+        :width="tweetMedia.sizes.large.w"
+        :height="tweetMedia.sizes.large.h"
         class="w-full"
         loading="lazy"
         crossorigin="anonymous"
