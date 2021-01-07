@@ -1,11 +1,11 @@
 // import 'focus-visible'
 import 'alpinejs';
+import 'wicg-inert';
 
 window.loadjs = require('loadjs');
 
 // twitter-intents
 // quicklink
-// alpine
 
 // howler for the music stuff
 

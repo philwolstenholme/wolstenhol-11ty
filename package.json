@@ -76,6 +76,7 @@
     "tailwindcss-scroll-snap": "^1.0.3",
     "twitter-intents": "git+https://github.com/BrandwatchLtd/twitter-intents.git",
     "twitter-text": "^3.1.0",
-    "vue-markdown": "^2.2.4"
+    "vue-markdown": "^2.2.4",
+    "wicg-inert": "^3.1.0"
   }
 }
