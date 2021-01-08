@@ -86,7 +86,7 @@ export default {
       </div>
     </a>
 
-    <div class="m-4 mt-0 font-serif leading-snug links-underline">
+    <div class="m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3">
       <vue-markdown :source="linkedText"></vue-markdown>
     </div>
 
@@ -187,5 +187,10 @@ a.twitter-intent:hover {
 
 .play-button {
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.7));
+}
+
+.lists-decorated ul,
+.lists-decorated ol {
+  list-style-type: disc;
 }
 </style>
