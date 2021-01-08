@@ -64,7 +64,8 @@
         class="transition-colors font-bold ml-1 px-2 py-1 rounded shadow-hard text-white"
         v-bind:class="{
           'bg-medium hocus:bg-medium-dark': theme === 'medium',
-          'bg-pink-600 hocus:bg-pink-700': theme === 'testimonial',
+          'bg-purple-600 hocus:bg-purple-700': theme === 'testimonial',
+          'bg-foursquare hocus:bg-foursquare': theme === 'foursquare',
         }"
         x-on:click="scrollRight()"
       >

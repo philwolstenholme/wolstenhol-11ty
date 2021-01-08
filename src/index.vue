@@ -28,9 +28,9 @@
       <pw-lede>Photos and videos from Instagram.</pw-lede>
     </section>
 
-    <pw-tweets :tweets="this.twitter"></pw-tweets>
-
     <pw-places :places="this.foursquare.response.venues.items"></pw-places>
+
+    <pw-tweets :tweets="this.twitter"></pw-tweets>
 
     <pw-contact></pw-contact>
 
