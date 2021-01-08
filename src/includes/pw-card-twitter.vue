@@ -86,9 +86,7 @@ export default {
       </div>
     </a>
 
-    <div class="m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3">
-      <vue-markdown :source="linkedText"></vue-markdown>
-    </div>
+    <vue-markdown class="m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3" :source="linkedText"></vue-markdown>
 
     <div class="card__twitter__tweet-actions px-4 py-3 text-sm space-x-3">
       <a :href="`https://twitter.com/intent/tweet?in_reply_to=${originalTweet.id_str}&related=philw_`" class="twitter-intent">
@@ -131,7 +129,7 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .card__twitter {
   background-color: #1876be;
   transition: all 150ms ease-in-out;
@@ -192,5 +190,6 @@ a.twitter-intent:hover {
 .lists-decorated ul,
 .lists-decorated ol {
   list-style-type: disc;
+  padding-left: 2em;
 }
 </style>
