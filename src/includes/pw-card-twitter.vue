@@ -58,6 +58,7 @@ export default {
     <p>
       <a v-if="tweetMedia" :href="tweetMedia.expanded_url" class="block relative w-full">
         <span class="sr-only">Tweet media</span>
+        <br class="hidden" />
         <img
           :src="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:400,f_auto,q_auto/${tweetMedia.media_url_https}`"
           :srcset="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:800,f_auto,q_auto/${tweetMedia.media_url_https} 2x, https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:1200,f_auto,q_auto/${tweetMedia.media_url_https} 3x`"

@@ -70,6 +70,7 @@ export default {
               ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
             ></label
           >
+          <br class="hidden" />
           <input
             required
             id="contact-name"
@@ -87,6 +88,7 @@ export default {
               ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
             ></label
           >
+          <br class="hidden" />
           <input
             required
             id="contact-email"
@@ -104,6 +106,7 @@ export default {
               ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
             ></label
           >
+          <br class="hidden" />
           <input
             required
             id="contact-subject"
@@ -120,6 +123,7 @@ export default {
               ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
             ></label
           >
+          <br class="hidden" />
           <textarea
             required
             id="contact-message"
