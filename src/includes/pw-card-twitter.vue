@@ -57,7 +57,7 @@ export default {
   <div class="card__twitter shadow-hard rounded overflow-hidden text-white font-bold">
     <p>
       <a v-if="tweetMedia" :href="tweetMedia.expanded_url" class="block relative w-full">
-        <p class="sr-only">Tweet media</p>
+        <span class="sr-only">Tweet media</span>
         <img
           :src="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:400,f_auto,q_auto/${tweetMedia.media_url_https}`"
           :srcset="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:800,f_auto,q_auto/${tweetMedia.media_url_https} 2x, https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:1200,f_auto,q_auto/${tweetMedia.media_url_https} 3x`"
