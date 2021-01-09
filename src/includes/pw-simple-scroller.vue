@@ -14,7 +14,6 @@
         let observer = new IntersectionObserver((entries, observer) => {
           entries.forEach(entry => {
             const target = entry.target === firstListItem ? 'left' : 'right';
-            console.log(entry);
             if (entry.intersectionRatio < 0.95) {
               this.overflowing[target] = true;
             } else {
