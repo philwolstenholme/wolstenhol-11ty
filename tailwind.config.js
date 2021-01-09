@@ -54,10 +54,12 @@ module.exports = {
     extend: {
       textColor: ['hocus', 'group-hocus'],
       backgroundColor: ['hocus', 'group-hocus'],
-      transform: ['hover', 'focus', 'hocus'],
+      transform: ['hover', 'focus', 'hocus', 'group-hocus'],
+      translate: ['hover', 'focus', 'hocus', 'group-hocus'],
       height: ['hover', 'focus', 'hocus', 'group-hocus'],
       textDecoration: ['hocus', 'group-hocus'],
       opacity: ['hocus', 'group-hocus'],
+      rotate: ['hocus', 'group-hocus'],
     },
   },
   plugins: [

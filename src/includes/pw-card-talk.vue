@@ -10,14 +10,14 @@ export default {
 </script>
 
 <template>
-  <article class="overflow-hidden rounded shadow-hard" style="min-width: 272px">
-    <component :is="href ? 'a' : 'div'" :href="href" class="block group aspect-h-9 aspect-w-16 bg-black w-full overflow-hidden">
+  <article class="overflow-hidden rounded shadow-hard bg-purple-700" style="min-width: 272px">
+    <component :is="href ? 'a' : 'div'" :href="href" class="block group aspect-h-9 aspect-w-16 w-full overflow-hidden">
       <h3 class="sr-only">{{ talk }}</h3>
       <img
         v-if="image"
-        class="object-cover opacity-70 transition-opacity"
+        class="talk-image object-cover transition-opacity"
         :class="{
-          'group-hocus:opacity-40': href,
+          'group-hocus:opacity-20': href,
         }"
         :src="image"
         width="272"
@@ -25,8 +25,13 @@ export default {
         loading="lazy"
         alt=""
       />
-      <div class="flex flex-col justify-end">
-        <dl class="flex flex-col justify-end p-4 bg-gradient-to-t from-black text-white uppercase font-serif text-xs h-full">
+      <div class="flex flex-col justify-end p-4 bg-gradient-to-t from-black text-white uppercase font-serif text-xs h-full">
+        <dl
+          class="flex flex-col justify-end"
+          :class="{
+            'transition-transform group-hocus:transform group-hocus:-translate-y-1': href,
+          }"
+        >
           <dt class="sr-only">Event</dt>
           <dd class="font-bold" v-text="event"></dd>
           <dt class="sr-only">Talk</dt>
@@ -37,3 +42,9 @@ export default {
     </component>
   </article>
 </template>
+
+<style>
+.talk-image {
+  mix-blend-mode: luminosity;
+}
+</style>

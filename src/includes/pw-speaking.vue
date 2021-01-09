@@ -33,7 +33,7 @@ export default {
         <pw-card-talk
           event="DrupalCon Europe 2020"
           talk="Write Better CSS by Stopping Writing Any More CSS! (Tailwind)"
-          image="https://res.cloudinary.com/wolstenh/image/upload/c_scale,f_auto,h_306,q_auto:good/v1609264863/one-offs/player.vimeo.com_video_488934231.png"
+          image="https://res.cloudinary.com/wolstenh/image/upload/c_fill,f_auto,g_center,h_306,q_auto:good,w_544,y_0/v1610202401/one-offs/EoyOVx4XMAEHdx_.jpg"
         ></pw-card-talk>
       </pw-simple-scroller-item>
       <pw-simple-scroller-item fit-to-grid>
