@@ -19,6 +19,19 @@
       width: 0px;
       height: 0;
     }
+
+    .items-1 {
+      --items: 1;
+    }
+    .items-2 {
+      --items: 2;
+    }
+    .items-3 {
+      --items: 3;
+    }
+    .items-4 {
+      --items: 4;
+    }
   }
 
   .links-underline a {

@@ -14,19 +14,29 @@
         let observer = new IntersectionObserver((entries, observer) => {
           entries.forEach(entry => {
             const target = entry.target === firstListItem ? 'left' : 'right';
-            console.log(entry.intersectionRatio);
-            if (entry.intersectionRatio != 1) {
+            console.log(entry);
+            if (entry.intersectionRatio < 0.95) {
               this.overflowing[target] = true;
             } else {
               this.overflowing[target] = false;
             }
           });
-        }, {threshold: 1});
+        }, 
+        {
+          root: this.$refs.scroller,
+          threshold: 0.95
+        });
 
         observer.observe(firstListItem);
         observer.observe(lastListItem);
 
-        this.scrollAmount = this.$refs.scroller.offsetWidth / 2;
+        if (this.scrollAmount === null) {
+          if ('scrollFull' in this.$el.dataset) {
+            this.scrollAmount = this.$refs.scroller.offsetWidth;
+          } else {
+            this.scrollAmount = this.$refs.scroller.offsetWidth / 2;
+          }
+        }
       },
       scrollRight() {
         this.$refs.scroller.scrollLeft += this.scrollAmount;
@@ -77,7 +87,7 @@
 
 <style scoped>
 .scroller-affordance {
-  background: radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0)) 0 100%;
+  background: radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 0 100%;
 }
 </style>
 

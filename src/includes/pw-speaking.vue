@@ -28,7 +28,7 @@ export default {
   <section data-section="speaking">
     <pw-section-heading title="Speaking" icon="chalkboardTeacher" />
     <pw-lede class="mt-3">Talks I've given at conferences or other events. I'll link to slides or videos where they are available.</pw-lede>
-    <pw-simple-scroller class="mt-5" style="--items: 3" theme="testimonial">
+    <pw-simple-scroller class="mt-5 items-1 md:items-2 xl:items-3" theme="testimonial">
       <pw-simple-scroller-item>
         <pw-card-talk
           event="DrupalCon Europe 2020"
