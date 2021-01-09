@@ -58,6 +58,7 @@
       v-bind:class="themeTextClasses"
       x-on:click="scrollLeft()"
     >
+      <span class="sr-only">Scroll backwards</span>
       <svg
         class="transform-gpu translate-transform"
         :class="randomRotationClass"
@@ -99,6 +100,7 @@
       v-bind:class="themeTextClasses"
       x-on:click="scrollRight()"
     >
+      <span class="sr-only">Scroll forward</span>
       <svg
         class="transform-gpu translate-transform"
         :class="randomRotationClass"
