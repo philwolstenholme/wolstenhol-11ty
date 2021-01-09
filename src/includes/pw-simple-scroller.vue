@@ -51,7 +51,7 @@
       hidden
       x-bind:hidden="false"
       x-bind:inert="!overflowing.left"
-      class="md:block group -left-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
+      class="hidden md:block group -left-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
       x-bind:class="{
         'opacity-0': !overflowing.left,
       }"
@@ -93,7 +93,7 @@
       hidden
       x-bind:hidden="false"
       x-bind:inert="!overflowing.right"
-      class="md:block group -right-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
+      class="hidden md:block group -right-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
       x-bind:class="{
         'opacity-0': !overflowing.right,
       }"
