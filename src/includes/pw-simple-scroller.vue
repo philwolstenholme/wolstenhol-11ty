@@ -21,7 +21,7 @@
               this.overflowing[target] = false;
             }
           });
-        }, 
+        },
         {
           root: this.$refs.scroller,
           threshold: 0.95

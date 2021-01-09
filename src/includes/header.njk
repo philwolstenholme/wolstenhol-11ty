@@ -27,7 +27,7 @@
             const activeClass = 'text-yellow-300';
             const $activeItem = $el.querySelector(`a[href='#${id}']`).parentElement;
             if (entry.intersectionRatio > 0) {
-              $activeItem.scrollIntoView();
+              $activeItem.classList.add(activeClass);
             } else {
               $activeItem.classList.remove(activeClass);
             }
