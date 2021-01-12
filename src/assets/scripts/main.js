@@ -1,13 +1,12 @@
 // import 'focus-visible'
 import 'alpinejs';
 import 'wicg-inert';
+import 'what-input';
 
 window.loadjs = require('loadjs');
 
 // twitter-intents
 // quicklink
-
-// howler for the music stuff
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

@@ -77,6 +77,7 @@
     "twitter-intents": "git+https://github.com/BrandwatchLtd/twitter-intents.git",
     "twitter-text": "^3.1.0",
     "vue-markdown": "^2.2.4",
+    "what-input": "^5.2.10",
     "wicg-inert": "^3.1.0"
   }
 }

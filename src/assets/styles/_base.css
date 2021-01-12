@@ -84,3 +84,8 @@ a {
 button {
   user-select: none;
 }
+
+[data-whatintent='mouse'] *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
