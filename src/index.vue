@@ -12,16 +12,7 @@
 
     <pw-speaking></pw-speaking>
 
-    <section data-section="music" class="space-y-3">
-      <pw-section-heading title="Music" icon="headphones" />
-      <pw-lede
-        >What I've been listening to recently, via Last.fm and Spotify. Click an artist to hear a preview of their
-        music<sup>*</sup>.</pw-lede
-      >
-      <small class="text-xs uppercase font-serif"
-        ><sup>*</sup>If the Spotify API contains a preview clip – some artists seem to have opted out of this.</small
-      >
-    </section>
+    <pw-music :artists="this.lastfm"></pw-music>
 
     <section data-section="photos" class="space-y-3">
       <pw-section-heading title="Photos" icon="cameraRetro" />
@@ -49,6 +40,7 @@ import Icon from './includes/icon.vue';
 import PwPlaces from './includes/pw-places.vue';
 import PwTweets from './includes/pw-tweets.vue';
 import PwContact from './includes/pw-contact.vue';
+import PwMusic from './includes/pw-music.vue';
 
 export default {
   data: {
@@ -67,6 +59,7 @@ export default {
     PwPlaces,
     PwTweets,
     PwContact,
+    PwMusic,
   },
 };
 </script>

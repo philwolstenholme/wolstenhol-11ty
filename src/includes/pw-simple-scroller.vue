@@ -2,8 +2,9 @@
   <div
     data-scroller
     class="relative"
-    x-data="{
+    v-bind:x-data="`{
       scrollAmount: null,
+      scrollFull: ${this.scrollFull},
       overflowing: {
         left: false,
         right: true,
@@ -31,7 +32,7 @@
         observer.observe(lastListItem);
 
         if (this.scrollAmount === null) {
-          if ('scrollFull' in this.$el.dataset) {
+          if (this.scrollFull) {
             this.scrollAmount = this.$refs.scroller.offsetWidth;
           } else {
             this.scrollAmount = this.$refs.scroller.offsetWidth / 2;
@@ -44,14 +45,13 @@
       scrollLeft() {
         this.$refs.scroller.scrollLeft -= this.scrollAmount;
       }
-    }"
+    }`"
     x-init="init"
   >
     <button
       hidden
-      x-bind:hidden="false"
       x-bind:inert="!overflowing.left"
-      class="hidden md:block group -left-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
+      class="hidden md:block md:no-js:hidden group -left-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
       x-bind:class="{
         'opacity-0': !overflowing.left,
       }"
@@ -91,9 +91,8 @@
     </div>
     <button
       hidden
-      x-bind:hidden="false"
       x-bind:inert="!overflowing.right"
-      class="hidden md:block group -right-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
+      class="hidden md:block md:no-js:hidden group -right-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
       x-bind:class="{
         'opacity-0': !overflowing.right,
       }"
@@ -115,9 +114,8 @@
     </button>
     <div
       hidden
-      x-bind:hidden="false"
       x-bind:inert="!overflowing.right"
-      class="float-right font-bold mt-3 rounded text-gray-500 text-sm transition-opacity duration-300"
+      class="no-js:hidden js:block float-right font-bold mt-3 rounded text-gray-500 text-sm transition-opacity duration-300"
       x-bind:class="{ 'opacity-0': !overflowing.right }"
     >
       There's more!
@@ -127,6 +125,7 @@
           'bg-medium hocus:bg-medium-dark': theme === 'medium',
           'bg-purple-700 hocus:bg-purple-700': theme === 'testimonial',
           'bg-foursquare hocus:bg-foursquare': theme === 'foursquare',
+          'bg-green-700 hocus:bg-green-600': theme === 'spotify',
         }"
         x-on:click="scrollRight()"
       >
@@ -148,6 +147,10 @@ export default {
     theme: {
       type: String,
     },
+    scrollFull: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     randomRotationClass() {
@@ -166,6 +169,7 @@ export default {
         'text-medium hocus:text-medium-dark': this.theme === 'medium',
         'text-purple-700 hocus:text-purple-800': this.theme === 'testimonial',
         'text-foursquare hocus:text-foursquare-dark': this.theme === 'foursquare',
+        'text-green-700 hocus:text-green-800': this.theme === 'spotify',
       };
     },
   },

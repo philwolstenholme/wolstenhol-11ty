@@ -32,6 +32,15 @@
     .items-4 {
       --items: 4;
     }
+    .items-5 {
+      --items: 5;
+    }
+    .items-6 {
+      --items: 6;
+    }
+    .items-7 {
+      --items: 7;
+    }
   }
 
   .links-underline a {

@@ -20,6 +20,10 @@ module.exports = {
           DEFAULT: '#DC3068',
           dark: '#ce225a',
         },
+        spotify: {
+          DEFAULT: '#1DB954',
+          dark: '#1aa64b',
+        },
       },
       boxShadow: {
         hard: '2px 2px 0 rgba(0,0,0,.15)',
@@ -52,6 +56,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      display: ['js', 'no-js'],
       textColor: ['hocus', 'group-hocus'],
       backgroundColor: ['hocus', 'group-hocus'],
       transform: ['hover', 'focus', 'hocus', 'group-hocus'],
@@ -67,12 +72,19 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-scroll-snap'),
     require('tailwindcss-interaction-variants'),
-    // plugin(function ({ addVariant, e }) {
-    //   addVariant('target', ({ modifySelectors, separator }) => {
-    //     modifySelectors(({ className }) => {
-    //       return `.${e(`target${separator}${className}`)}:target`;
-    //     });
-    //   });
-    // }),
+    plugin(function ({ addVariant, e }) {
+      addVariant('js', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.js .${e(`js${separator}${className}`)}`;
+        });
+      });
+    }),
+    plugin(function ({ addVariant, e }) {
+      addVariant('no-js', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.no-js .${e(`no-js${separator}${className}`)}`;
+        });
+      });
+    }),
   ],
 };

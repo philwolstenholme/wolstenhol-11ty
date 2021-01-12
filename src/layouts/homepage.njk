@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}" class="bg-white antialiased scroll-smooth overflow-x-hidden">
+<html lang="{{ meta.lang }}" class="no-js bg-white antialiased scroll-smooth overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,12 +15,14 @@
     <link inline rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
     <script>
       {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
+      document.querySelector('html').classList.remove('no-js');
+      document.querySelector('html').classList.add('js');
     </script>
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
     {% include "meta.njk" %}
   </head>
-  <body class="text-gray-900 leading-normal overscroll-x-none overflow-x-hidden">
+  <body class="text-gray-900 leading-normal overscroll-x-none">
     <p class="sr-only"><a href="#content">Skip to main content</a>.</p>
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %} {% include "homepage/homepage-header.njk" %}
