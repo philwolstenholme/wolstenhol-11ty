@@ -66,6 +66,7 @@ export default {
             index: this.index,
           });
         } else {
+          this.playing = false;
           $dispatch('stop-preview', {
             src: this.previewUrl,
             index: this.index,
@@ -93,10 +94,13 @@ export default {
     x-on:stopped-preview.window="stoppedPreview($event)"
     x-on:preview-progress.window="previewProgress($event)"
     v-bind:style="`animation-duration: ${tempoAnimationDuration}s;`"
-    class="relative flex overflow-hidden card--music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
+    class="relative group flex overflow-hidden card--music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
   >
     <div class="absolute z-10 font-bold text-xs p-2 bottom-0 left-0">
-      <a :href="music.spotify.external_urls.spotify" class="card--music__caption relative inline-block p-1 px-2 text-yellow-300">
+      <a
+        :href="music.spotify.external_urls.spotify"
+        class="card--music__caption relative inline-block p-1 px-2 text-yellow-300 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1"
+      >
         <h3 class="relative text-black z-10" v-text="music.name" />
       </a>
     </div>

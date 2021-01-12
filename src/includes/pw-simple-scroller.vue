@@ -51,9 +51,9 @@
     <button
       hidden
       x-bind:inert="!overflowing.left"
-      class="hidden md:block md:no-js:hidden group -left-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
+      class="hidden md:block md:no-js:hidden group -left-12 absolute bottom-5 top-0 w-8 transform-gpu transition-all translate-x-12"
       x-bind:class="{
-        'opacity-0': !overflowing.left,
+        'opacity-0 translate-x-12': !overflowing.left,
       }"
       v-bind:class="themeTextClasses"
       x-on:click="scrollLeft()"
@@ -92,9 +92,9 @@
     <button
       hidden
       x-bind:inert="!overflowing.right"
-      class="hidden md:block md:no-js:hidden group -right-12 absolute bottom-5 top-0 w-8 transition-opacity duration-300"
+      class="hidden md:block md:no-js:hidden group -right-12 absolute bottom-5 top-0 w-8 transform-gpu transition-all -translate-x-12"
       x-bind:class="{
-        'opacity-0': !overflowing.right,
+        'opacity-0 -translate-x-12': !overflowing.right,
       }"
       v-bind:class="themeTextClasses"
       x-on:click="scrollRight()"
