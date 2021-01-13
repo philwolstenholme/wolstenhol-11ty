@@ -14,9 +14,7 @@
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
     <link inline rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
     <script>
-      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
-      document.querySelector('html').classList.remove('no-js');
-      document.querySelector('html').classList.add('js');
+      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %} document.querySelector('html').classList.remove('no-js'); document.querySelector('html').classList.add('js');
     </script>
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
@@ -38,6 +36,10 @@
       {% include "footer.njk" %}
     </div>
     <script src="{{ '/assets/main.js' | url }}" defer></script>
+    <script type="module">
+      import whatInput from 'https://cdn.skypack.dev/what-input';
+      import wicgInert from 'https://cdn.skypack.dev/wicg-inert';
+    </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
   </body>
 </html>

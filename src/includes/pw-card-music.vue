@@ -102,6 +102,7 @@ export default {
         class="card--music__caption relative inline-block p-1 px-2 text-yellow-300 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1"
       >
         <h3 class="relative text-black z-10" v-text="music.name" />
+        <span class="sr-only">(Spotify artist page)</span>
       </a>
     </div>
 
@@ -128,7 +129,7 @@ export default {
       x-on:click.prevent="musicCardButtonPress($dispatch)"
     >
       <div class="absolute p-2 top-0 left-0">
-        <span class="sr-only">Play a 30 second preview of {{ music.name }}</span>
+        <span class="sr-only">{{ music.name }} (30 second preview)</span>
         <icon name="pause" icon-size="xs" x-show="isPlaying" />
         <span x-cloak>
           <icon name="play" icon-size="xs" x-show="!isPlaying" />

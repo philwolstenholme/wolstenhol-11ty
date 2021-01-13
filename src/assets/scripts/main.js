@@ -1,11 +1,9 @@
-// import 'focus-visible'
 import 'alpinejs';
-import 'wicg-inert';
-import 'what-input';
+// import 'wicg-inert';
+// import 'what-input';
+import Horizon from '@mintuz/horizon';
+window.Horizon = Horizon;
 
-window.loadjs = require('loadjs');
-
-// twitter-intents
 // quicklink
 
 if ('serviceWorker' in navigator) {

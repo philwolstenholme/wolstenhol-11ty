@@ -1,0 +1,44 @@
+diff --git a/node_modules/@mintuz/horizon/dist/index.js b/node_modules/@mintuz/horizon/dist/index.js
+index 9c449af..ed630d8 100644
+--- a/node_modules/@mintuz/horizon/dist/index.js
++++ b/node_modules/@mintuz/horizon/dist/index.js
+@@ -47,7 +47,7 @@ exports.default = function (config) {
+                     visibleState = true;
+ 
+                     if (config.onEntry) {
+-                        config.onEntry();
++                        config.onEntry(entry);
+                     }
+ 
+                     if (config.triggerOnce) {
+@@ -60,7 +60,7 @@ exports.default = function (config) {
+                     visibleState = false;
+ 
+                     if (config.onExit) {
+-                        config.onExit();
++                        config.onExit(entry);
+                     }
+                 }
+             }
+diff --git a/node_modules/@mintuz/horizon/src/index.js b/node_modules/@mintuz/horizon/src/index.js
+index 7064ac5..50fb98b 100644
+--- a/node_modules/@mintuz/horizon/src/index.js
++++ b/node_modules/@mintuz/horizon/src/index.js
+@@ -40,7 +40,7 @@ export default (config) => {
+                     visibleState = true;
+ 
+                     if (config.onEntry) {
+-                        config.onEntry();
++                        config.onEntry(entry);
+                     }
+ 
+                     if (config.triggerOnce) {
+@@ -53,7 +53,7 @@ export default (config) => {
+                     visibleState = false;
+ 
+                     if (config.onExit) {
+-                        config.onExit();
++                        config.onExit(entry);
+                     }
+                 }
+             }

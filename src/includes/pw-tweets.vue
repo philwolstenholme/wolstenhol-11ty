@@ -21,23 +21,37 @@ export default {
   <section
     data-section="tweets"
     x-data="{
-      init() {
+      colcade() {
         if (window.innerWidth > 767) {
-          requestIdleCallback(() => {
-            loadjs(['https://cdn.jsdelivr.net/npm/colcade@0.2.0/colcade.min.js'], 'colcade');
-
-            loadjs.ready('colcade', function() {
-              var colcade = new Colcade( '.tweets-grid', {
-                columns: '.tweets-grid__col',
-                items: '.tweets-grid__item'
-              });
+          loadjs(['https://cdn.jsdelivr.net/npm/colcade@0.2.0/colcade.min.js'], 'colcade');
+          loadjs.ready('colcade', function() {
+            var colcade = new Colcade( '.tweets-grid', {
+              columns: '.tweets-grid__col',
+              items: '.tweets-grid__item'
             });
           });
         }
+      },
+      twitterIntents() {
+        loadjs(['https://cdn.jsdelivr.net/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.min.js'], 'twitter-intents');
+        loadjs.ready('twitter-intents', function() {
+          const intents = new TwitterIntents();
+          intents.register();
+        });
+      },
+      init() {
+        const observed = Horizon({
+          toObserve: this.$el,
+          triggerOnce: true,
+          onEntry(entry) {
+            entry.target.__x.$data.colcade()
+            entry.target.__x.$data.twitterIntents()
+          },
+        });
       }
     }"
     x-init="init()"
-    x-on:resize.window.debounce="init()"
+    x-on:resize.window.debounce="colcade()"
   >
     <pw-section-heading title="Tweets" icon="twitter" />
     <pw-lede class="mt-3">Tweets by me, <a href="https://twitter.com/intent/user?user_id=38276082" class="font-bold">@philw_</a>.</pw-lede>
