@@ -29,7 +29,7 @@ export default {
         <dl
           class="flex flex-col justify-end"
           :class="{
-            'transition-transform group-hocus:transform group-hocus:-translate-y-1': href,
+            'transition-transform group-hocus:transform-gpu group-hocus:-translate-y-1': href,
           }"
         >
           <dt class="sr-only">Event</dt>
