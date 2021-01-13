@@ -1,10 +1,10 @@
-const htmlmin = require('html-minifier')
+const htmlmin = require('html-minifier');
 
 module.exports = {
   htmlmin: (content, outputPath) => {
     // bail if not production env
     if (process.env.ELEVENTY_ENV !== 'production') {
-      return content
+      return content;
     }
 
     // returned minified content from html files
@@ -13,11 +13,13 @@ module.exports = {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
-      })
+        minifyCSS: true,
+        minifyJS: true,
+      });
 
-      return minified
+      return minified;
     }
 
-    return content
+    return content;
   },
-}
+};
