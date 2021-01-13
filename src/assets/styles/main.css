@@ -79,3 +79,9 @@
   src: local('Roboto Slab Bold'), local('RobotoSlab-Bold'), url('/assets/fonts/roboto-slab-v12-latin-700.woff2') format('woff2'),
     url('/assets/fonts/roboto-slab-v12-latin-700.woff') format('woff');
 }
+
+/* purgecss ignore */
+[data-whatintent='mouse'] *:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
