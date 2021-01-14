@@ -1,4 +1,4 @@
-const htmlmin = require('html-minifier');
+const htmlmin = require('html-minifier-terser');
 
 module.exports = {
   htmlmin: (content, outputPath) => {
@@ -15,6 +15,9 @@ module.exports = {
         collapseWhitespace: true,
         minifyCSS: true,
         minifyJS: true,
+        sortAttributes: true,
+        sortClassName: true,
+        customEventAttributes: [/^on[a-z]{3,}$/, /^x-[a-z:.\d]{3,}$/],
       });
 
       return minified;
