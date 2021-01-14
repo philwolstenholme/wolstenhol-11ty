@@ -34,25 +34,13 @@
 
     <p class="space-x-3 hue-rotate">
       <button
-        onclick="document.querySelectorAll('style,link[rel=\'stylesheet\']').forEach(item => item.remove());
-      document.querySelectorAll('[style]:not([x-show])').forEach(item => item.removeAttribute('style'));
-      document.querySelectorAll('[class]').forEach(item => item.removeAttribute('class'));"
+        x-data="{clicked:false}"
+        x-on:click="if (clicked) { location.reload(); return; }; clicked = true; document.querySelectorAll('style,link[rel=\'stylesheet\']').forEach(item => item.remove()); document.querySelectorAll('[style]:not([x-show])').forEach(item => item.removeAttribute('style')); document.querySelectorAll('[class]').forEach(item => item.removeAttribute('class')); window.scrollTo(0,0);"
         class="underline"
+        x-text="clicked ? 'Reload the page to restore the CSS' : $el.innerText"
       >
         View page without CSS
       </button>
-      <!-- <button
-        onclick="
-        document.querySelectorAll('script').forEach(item => item.remove());
-        document.querySelectorAll('[onclick]').forEach(item => item.removeAttribute('onclick'));
-        var html = document.querySelector('html');
-        var new_html = html.cloneNode(true);
-        html.parentNode.replaceChild(new_html, html);
-      "
-        class="underline"
-      >
-        Use page without (most) JS
-      </button> -->
     </p>
   </div>
 </footer>
