@@ -17,7 +17,6 @@ module.exports = {
         minifyJS: true,
         sortAttributes: true,
         sortClassName: true,
-        customEventAttributes: [/^on[a-z]{3,}$/, /^x-[a-z:.\d]{3,}$/],
       });
 
       return minified;
