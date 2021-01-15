@@ -70,10 +70,15 @@ export default {
         },
         timeupdate($event, $dispatch) {
           const progress = Math.round((($event.target.currentTime / $event.target.duration) + Number.EPSILON) * 100) / 100;
-          $dispatch('preview-progress', {
-            src: $event.target.src,
-            progress: progress,
-          });
+
+          if (Number.isNaN(progress)) {
+            return;
+          } else {
+            $dispatch('preview-progress', {
+              src: $event.target.src,
+              progress: progress,
+            });
+          }
         }
       }"
       x-init="init($watch, $dispatch)"

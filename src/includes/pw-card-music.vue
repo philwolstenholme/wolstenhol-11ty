@@ -59,6 +59,13 @@ export default {
       progress: 0,
       previewUrl: '${this.previewUrl}',
       index: ${this.index},
+      init($refs, $nextTick) {
+        $nextTick(() => {
+          if ($refs['playButton']) {
+            $refs['playButton'].setAttribute('role', 'button');
+          }
+        });
+      },
       musicCardButtonPress ($dispatch) {
         if (!this.isPlaying) {
           $dispatch('play-preview', {
@@ -66,7 +73,6 @@ export default {
             index: this.index,
           });
         } else {
-          this.playing = false;
           $dispatch('stop-preview', {
             src: this.previewUrl,
             index: this.index,
@@ -93,16 +99,18 @@ export default {
     x-on:playing-preview.window="playingPreview($event)"
     x-on:stopped-preview.window="stoppedPreview($event)"
     x-on:preview-progress.window="previewProgress($event)"
+    x-on:keydown.escape.window="if (isPlaying) { musicCardButtonPress($dispatch) }"
+    x-init="init($refs, $nextTick)"
     v-bind:style="`animation-duration: ${tempoAnimationDuration}s;`"
     class="relative group flex overflow-hidden card--music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
   >
+    <h3 class="sr-only">{{ music.name }}</h3>
     <div class="absolute z-10 font-bold text-xs p-2 bottom-0 left-0">
       <a
         :href="music.spotify.external_urls.spotify"
         class="card--music__caption relative inline-block p-1 px-2 text-yellow-300 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1"
       >
-        <h3 class="relative text-black z-10" v-text="music.name" />
-        <span class="sr-only">(Spotify artist page)</span>
+        <span class="relative text-black z-10">{{ music.name }}<span class="sr-only">(Spotify artist page)</span></span>
       </a>
     </div>
 
@@ -126,13 +134,16 @@ export default {
       v-bind:href="music.spotify.top_tracks.preview_url"
       target="spotify-preview"
       class="absolute inset-0 text-yellow-300"
+      x-ref="playButton"
       x-on:click.prevent="musicCardButtonPress($dispatch)"
+      x-on:keydown.space.prevent="musicCardButtonPress($dispatch)"
+      x-on:keydown.enter.prevent="musicCardButtonPress($dispatch)"
     >
       <div class="absolute p-2 top-0 left-0">
-        <span class="sr-only">{{ music.name }} (30 second preview)</span>
-        <icon name="pause" icon-size="xs" x-show="isPlaying" />
+        <span class="sr-only">Play 30 second preview of {{ music.name }}</span>
+        <icon name="play" icon-size="xs" x-show="!isPlaying" />
         <span x-cloak>
-          <icon name="play" icon-size="xs" x-show="!isPlaying" />
+          <icon name="pause" icon-size="xs" x-show="isPlaying" />
         </span>
       </div>
     </a>
