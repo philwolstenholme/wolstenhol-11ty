@@ -14,10 +14,7 @@
 
     <pw-music :artists="this.lastfm"></pw-music>
 
-    <section data-section="photos" class="space-y-3">
-      <pw-section-heading title="Photos" icon="cameraRetro" />
-      <pw-lede>Photos and videos from Instagram.</pw-lede>
-    </section>
+    <pw-photos :photos="this.instagram"></pw-photos>
 
     <pw-places :places="this.foursquare.response.venues.items"></pw-places>
 
@@ -41,6 +38,7 @@ import PwPlaces from './includes/pw-places.vue';
 import PwTweets from './includes/pw-tweets.vue';
 import PwContact from './includes/pw-contact.vue';
 import PwMusic from './includes/pw-music.vue';
+import PwPhotos from './includes/pw-photos.vue';
 
 export default {
   data: {
@@ -60,6 +58,7 @@ export default {
     PwTweets,
     PwContact,
     PwMusic,
+    PwPhotos,
   },
 };
 </script>

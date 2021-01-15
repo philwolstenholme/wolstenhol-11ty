@@ -1,7 +1,6 @@
 <script>
 import PwLede from './pw-lede.vue';
 import PwCardFoursquare from './pw-card-foursquare.vue';
-import PwHorizontalScroller from './pw-horizontal-scroller.vue';
 import PwSimpleScroller from './pw-simple-scroller.vue';
 import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
 import PwSectionHeading from './pw-section-heading.vue';
@@ -16,7 +15,6 @@ export default {
   components: {
     PwLede,
     PwCardFoursquare,
-    PwHorizontalScroller,
     PwSectionHeading,
     PwSimpleScroller,
     PwSimpleScrollerItem,

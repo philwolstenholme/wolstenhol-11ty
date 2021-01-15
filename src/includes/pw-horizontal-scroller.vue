@@ -135,42 +135,6 @@ export default {
 </template>
 
 <style lang="scss">
-.custom-scrollbars {
-  &::-webkit-scrollbar {
-    width: 9px;
-    height: 9px;
-  }
-  &::-webkit-scrollbar-button {
-    width: 0;
-    height: 0;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #b4b4b4;
-    border: 0 none #b4b4b4;
-    border-radius: 50px;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: darken(#b4b4b4, 20%);
-  }
-  &::-webkit-scrollbar-thumb:active {
-    background: darken(#b4b4b4, 40%);
-  }
-  &::-webkit-scrollbar-track {
-    background: transparent;
-    border: 0 none #fff;
-    border-radius: 45px;
-  }
-  &::-webkit-scrollbar-track:hover {
-    background: transparent;
-  }
-  &::-webkit-scrollbar-track:active {
-    background: transparent;
-  }
-  &::-webkit-scrollbar-corner {
-    background: transparent;
-  }
-}
-
 .pw-horizontal-scroller__button {
   width: 3em;
   margin-bottom: 60px;

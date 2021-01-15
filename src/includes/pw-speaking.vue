@@ -2,7 +2,6 @@
 import PwLede from './pw-lede.vue';
 import PwCardTestimonial from './pw-card-testimonial.vue';
 import PwCardTalk from './pw-card-talk.vue';
-import PwHorizontalScroller from './pw-horizontal-scroller.vue';
 import PwSectionHeading from './pw-section-heading.vue';
 import PwSimpleScroller from './pw-simple-scroller.vue';
 import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
