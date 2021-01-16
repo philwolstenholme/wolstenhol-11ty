@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <section data-section="music">
+  <section data-section="photos">
     <pw-section-heading title="Photos" icon="cameraRetro" />
     <pw-lede class="mt-3">Photos and videos from Instagram.</pw-lede>
 
