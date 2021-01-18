@@ -61,7 +61,7 @@ export default {
 
 <template>
   <figure
-    tabindex="1"
+    tabindex="0"
     x-data="{playing:false}"
     class="group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
   >
@@ -88,9 +88,12 @@ export default {
           :srcset="cloudinarySrcSet"
           :key="post.id"
           :alt="post.caption.text"
+          width="368"
+          height="368"
           sizes="368px"
           class="w-full transition-opacity group-hocus:opacity-50"
           loading="lazy"
+          decoding="async"
         />
       </template>
       <figcaption
