@@ -93,7 +93,6 @@ export default {
           sizes="368px"
           class="w-full transition-opacity group-hocus:opacity-50"
           loading="lazy"
-          decoding="async"
         />
       </template>
       <figcaption
