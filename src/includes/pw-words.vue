@@ -24,7 +24,7 @@ export default {
 
 <template>
   <section data-section="words">
-    <pw-section-heading title="Words" icon="penAlt" />
+    <pw-section-heading title="Words" icon="penAlt" section="words" />
     <pw-lede class="mt-3">Blog posts from Medium (until I build my own blog!)</pw-lede>
 
     <pw-simple-scroller class="mt-5 items-1 md:items-2 lg:items-3" :scroll-full="true" theme="medium">

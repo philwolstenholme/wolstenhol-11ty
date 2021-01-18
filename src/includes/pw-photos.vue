@@ -33,7 +33,7 @@ export default {
 
 <template>
   <section data-section="photos">
-    <pw-section-heading title="Photos" icon="cameraRetro" />
+    <pw-section-heading title="Photos" icon="cameraRetro" section="photos" />
     <pw-lede class="mt-3">Photos and videos from Instagram.</pw-lede>
 
     <pw-simple-scroller class="mt-5 items-1 sm:items-2 md:items-3" :scroll-full="true" theme="spotify">

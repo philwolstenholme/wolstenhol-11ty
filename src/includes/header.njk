@@ -21,33 +21,32 @@
         active: null,
       }"
       x-init="() => {
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            const id = entry.target.getAttribute('data-section');
-            const activeClass = 'text-yellow-300';
-            const $activeItem = $el.querySelector(`a[href='#${id}']`).parentElement;
-            if (entry.intersectionRatio > 0) {
-              $activeItem.classList.add(activeClass);
-            } else {
-              $activeItem.classList.remove(activeClass);
-            }
-          });
+        let headingsInView = [];
+        const io = new IntersectionObserver(entries => {
+          const exitedElements = entries.filter(entry => !entry.isIntersecting).map(entry => entry.target);
+          const enteredElements = entries.filter(entry => entry.isIntersecting).map(entry => entry.target);
+          headingsInView = headingsInView.filter(h => !exitedElements.includes(h));
+          headingsInView.push(...enteredElements);
+          if(headingsInView.length > 0) {
+            const navigationApp = document.querySelector('header nav').__x;
+            const sectionId = this.active = headingsInView[0].dataset.section;
+            navigationApp.$data.active = sectionId;
+          }
         }, {
           rootMargin: '-120px 0px 0px 0px'
         });
-        document.querySelectorAll('[data-section]').forEach((section) => {
-          observer.observe(section);
-        });
+        document.querySelectorAll('h2').forEach(heading => io.observe(heading));  
       }"
     >
       <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
       <ul class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars">
-        {%- for item in navigation.items -%}
+        {%- for item in navigation.items -%} {% set id = item.href.replace('#', '') %}
         <li>
           <a
             href="{{ item.href }}"
             class="font-bold font-serif underline hocus:text-yellow-300"
-            @click="active = '{{ item.href }}'.replace('#', '')"
+            x-bind:class="{'text-yellow-300': active === '{{ id }}'}"
+            x-on:click="active = '{{ id }}'"
           >
             {{ item.title }}
           </a>

@@ -24,7 +24,7 @@ export default {
 
 <template>
   <section data-section="music">
-    <pw-section-heading title="Music" icon="headphones" />
+    <pw-section-heading title="Music" icon="headphones" section="music" />
     <pw-lede class="mt-3"
       >What I've been listening to recently, via Last.fm and Spotify. Click an artist to hear a preview of their music<sup>*</sup>.</pw-lede
     >

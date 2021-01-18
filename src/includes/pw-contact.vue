@@ -14,7 +14,7 @@ export default {
 
 <template>
   <section data-section="contact">
-    <pw-section-heading title="Contact" icon="envelope" />
+    <pw-section-heading title="Contact" icon="envelope" section="contact" />
     <pw-lede class="mt-3">Get in touch</pw-lede>
     <p class="mt-3">
       You can send me a
