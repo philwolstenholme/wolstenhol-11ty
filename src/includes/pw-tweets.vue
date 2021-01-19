@@ -6,7 +6,7 @@ import PwCardTwitter from './pw-card-twitter.vue';
 export default {
   props: {
     tweets: {
-      type: Object,
+      type: Array,
     },
   },
   components: {

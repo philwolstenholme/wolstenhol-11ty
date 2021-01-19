@@ -42,7 +42,7 @@ export default {
       required: true,
     },
     iconSize: {
-      default: 'm',
+      default: '1x',
     },
   },
   computed: {
