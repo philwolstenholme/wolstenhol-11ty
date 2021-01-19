@@ -35,7 +35,20 @@
       </main>
       {% include "footer.njk" %}
     </div>
-    <script src="{{ '/assets/main.js' | url }}" defer></script>
+    <!-- <script src="{{ '/assets/main.js' | url }}" defer></script> -->
+    <script>
+      const loader = function () {
+        loadjs('{{ '/assets/main.js' | url }}');
+      };
+
+      setTimeout(function () {
+        'requestIdleCallback' in window
+          ? requestIdleCallback(function () {
+              loader();
+            })
+          : loader();
+      }, 1000);
+    </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
   </body>
 </html>
