@@ -95,15 +95,15 @@ button {
     height: 0;
   }
   &::-webkit-scrollbar-thumb {
-    background: #b4b4b4;
-    border: 0 none #b4b4b4;
+    background: #848584;
+    border: 0 none #848584;
     border-radius: 50px;
   }
   &::-webkit-scrollbar-thumb:hover {
-    background: darken(#b4b4b4, 20%);
+    background: darken(#848584, 20%);
   }
   &::-webkit-scrollbar-thumb:active {
-    background: darken(#b4b4b4, 40%);
+    background: darken(#848584, 40%);
   }
   &::-webkit-scrollbar-track {
     background: transparent;
