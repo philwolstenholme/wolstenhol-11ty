@@ -28,7 +28,7 @@
       /* 
        * https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
        */
-      body > main > section + section {
+      body main section + section {
         content-visibility: auto;
         /* Add vertical space for each "phantom" */
         contain-intrinsic-size: 10px 500px;
@@ -95,7 +95,7 @@
         });
       });
 
-      let sections = document.querySelectorAll('body > main > section');
+      let sections = document.querySelectorAll('body main section');
 
       sections.forEach(el => {
         iObs.observe(el);
