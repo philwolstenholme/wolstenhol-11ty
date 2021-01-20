@@ -38,6 +38,7 @@
         x-on:click="if (clicked) { location.reload(); return; }; clicked = true; document.querySelectorAll('style,link[rel=\'stylesheet\']').forEach(item => item.remove()); document.querySelectorAll('[style]:not([x-show])').forEach(item => item.removeAttribute('style')); document.querySelectorAll('[class]').forEach(item => item.removeAttribute('class'));"
         class="underline"
         x-text="clicked ? 'Reload the page to restore the CSS' : $el.innerText"
+        x-bind:aria-label="clicked ? 'Reload the page to restore the CSS' : $el.getAttribute('aria-label')"
         aria-label="View page without CSS"
       >
         View page without CSS
