@@ -4,6 +4,7 @@ import PwSimpleScroller from './pw-simple-scroller.vue';
 import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
 import PwSectionHeading from './pw-section-heading.vue';
 import PwCardMusic from './pw-card-music.vue';
+import PwSection from './pw-section.vue';
 
 export default {
   props: {
@@ -18,12 +19,13 @@ export default {
     PwSimpleScroller,
     PwSimpleScrollerItem,
     PwCardMusic,
+    PwSection,
   },
 };
 </script>
 
 <template>
-  <section data-section="music">
+  <pw-section section-key="music">
     <pw-section-heading title="Music" icon="headphones" section="music" />
     <pw-lede class="mt-3"
       >What I've been listening to recently, via Last.fm and Spotify. Click an artist to hear a preview of their music<sup>*</sup>.</pw-lede
@@ -93,5 +95,5 @@ export default {
     </pw-simple-scroller>
 
     <iframe x-data="{}" x-init="$el.remove()" class="js:hidden" name="spotify-preview" title="Spotify preview"></iframe>
-  </section>
+  </pw-section>
 </template>

@@ -4,6 +4,7 @@ import PwCardMedium from './pw-card-medium.vue';
 import PwSectionHeading from './pw-section-heading.vue';
 import PwSimpleScroller from './pw-simple-scroller.vue';
 import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
+import PwSection from './pw-section.vue';
 
 export default {
   props: {
@@ -18,12 +19,13 @@ export default {
     PwSectionHeading,
     PwSimpleScroller,
     PwSimpleScrollerItem,
+    PwSection,
   },
 };
 </script>
 
 <template>
-  <section data-section="words">
+  <pw-section section-key="words">
     <pw-section-heading title="Words" icon="penAlt" section="words" />
     <pw-lede class="mt-3">Blog posts from Medium (until I build my own blog!)</pw-lede>
 
@@ -32,5 +34,5 @@ export default {
         <pw-card-medium class="h-full" :post="post" />
       </pw-simple-scroller-item>
     </pw-simple-scroller>
-  </section>
+  </pw-section>
 </template>

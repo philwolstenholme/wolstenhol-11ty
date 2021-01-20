@@ -26,9 +26,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.scroller-item--fit-to-grid {
-  width: calc((100% - (1.25rem * (var(--items) - 1))) / var(--items));
-}
-</style>

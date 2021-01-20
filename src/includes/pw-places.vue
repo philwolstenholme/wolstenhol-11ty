@@ -4,6 +4,7 @@ import PwCardFoursquare from './pw-card-foursquare.vue';
 import PwSimpleScroller from './pw-simple-scroller.vue';
 import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
 import PwSectionHeading from './pw-section-heading.vue';
+import PwSection from './pw-section.vue';
 
 export default {
   props: {
@@ -18,12 +19,13 @@ export default {
     PwSectionHeading,
     PwSimpleScroller,
     PwSimpleScrollerItem,
+    PwSection,
   },
 };
 </script>
 
 <template>
-  <section data-section="places">
+  <pw-section section-key="places">
     <pw-section-heading title="Places" icon="mapMarkerAlt" section="places" />
     <pw-lede class="mt-3">Nice places that I've been to and that you might like</pw-lede>
 
@@ -32,5 +34,5 @@ export default {
         <pw-card-foursquare class="h-full" :place="place" />
       </pw-simple-scroller-item>
     </pw-simple-scroller>
-  </section>
+  </pw-section>
 </template>

@@ -4,6 +4,7 @@ import PwSimpleScroller from './pw-simple-scroller.vue';
 import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
 import PwSectionHeading from './pw-section-heading.vue';
 import PwCardInstagram from './pw-card-instagram.vue';
+import PwSection from './pw-section.vue';
 import filter from 'lodash/filter';
 
 export default {
@@ -19,6 +20,7 @@ export default {
     PwSimpleScroller,
     PwSimpleScrollerItem,
     PwCardInstagram,
+    PwSection,
   },
 
   computed: {
@@ -32,7 +34,7 @@ export default {
 </script>
 
 <template>
-  <section data-section="photos">
+  <pw-section section-key="photos">
     <pw-section-heading title="Photos" icon="cameraRetro" section="photos" />
     <pw-lede class="mt-3">Photos and videos from Instagram.</pw-lede>
 
@@ -41,5 +43,5 @@ export default {
         <pw-card-instagram :post="post" :index="index"></pw-card-instagram>
       </pw-simple-scroller-item>
     </pw-simple-scroller>
-  </section>
+  </pw-section>
 </template>

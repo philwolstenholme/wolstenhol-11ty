@@ -112,27 +112,29 @@
         />
       </svg>
     </button>
-    <div
-      hidden
-      x-bind:inert="!overflowing.right"
-      class="no-js:hidden js:block float-right font-bold mt-3 rounded text-gray-500 text-sm transition-all transform-gpu duration-300"
-      x-bind:class="{
+    <div class="u-flex justify-end">
+      <div
+        hidden
+        x-bind:inert="!overflowing.right"
+        class="no-js:hidden js:block float-right font-bold mt-3 rounded text-gray-500 text-sm transition-all transform-gpu duration-300"
+        x-bind:class="{
         'opacity-0 translate-y-4': !overflowing.right
       }"
-    >
-      There's more!
-      <button
-        class="transition-colors font-bold ml-1 px-2 py-1 rounded shadow-hard text-white"
-        v-bind:class="{
-          'bg-medium hocus:bg-medium-dark': theme === 'medium',
-          'bg-purple-700 hocus:bg-purple-700': theme === 'testimonial',
-          'bg-foursquare hocus:bg-foursquare': theme === 'foursquare',
-          'bg-green-700 hocus:bg-green-600': theme === 'spotify',
-        }"
-        x-on:click="scrollRight()"
       >
-        scroll this way ➜
-      </button>
+        There's more!
+        <button
+          class="transition-colors font-bold ml-1 px-2 py-1 rounded shadow-hard text-white"
+          v-bind:class="{
+            'bg-medium hocus:bg-medium-dark': theme === 'medium',
+            'bg-purple-700 hocus:bg-purple-700': theme === 'testimonial',
+            'bg-foursquare hocus:bg-foursquare': theme === 'foursquare',
+            'bg-green-700 hocus:bg-green-600': theme === 'spotify',
+          }"
+          x-on:click="scrollRight()"
+        >
+          scroll this way ➜
+        </button>
+      </div>
     </div>
   </div>
 </template>

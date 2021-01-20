@@ -2,6 +2,7 @@
 import PwLede from './pw-lede.vue';
 import PwSectionHeading from './pw-section-heading.vue';
 import PwCardTwitter from './pw-card-twitter.vue';
+import PwSection from './pw-section.vue';
 
 export default {
   props: {
@@ -13,13 +14,14 @@ export default {
     PwLede,
     PwSectionHeading,
     PwCardTwitter,
+    PwSection,
   },
 };
 </script>
 
 <template>
-  <section
-    data-section="tweets"
+  <pw-section
+    section-key="tweets"
     x-data="{
       colcade() {
         if (window.innerWidth > 767) {
@@ -64,5 +66,5 @@ export default {
         <pw-card-twitter :tweet="tweet" />
       </div>
     </div>
-  </section>
+  </pw-section>
 </template>

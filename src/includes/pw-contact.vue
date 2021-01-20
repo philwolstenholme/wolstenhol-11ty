@@ -138,7 +138,7 @@ export default {
           <span class="lg:block lg:w-28"></span>
           <button
             type="submit"
-            class="flex items-center bg-yellow-300 hocus:bg-yellow-400 px-4 py-2 rounded shadow-hard font-bold space-x-2 select-none"
+            class="mb-0.5 flex items-center bg-yellow-300 hocus:bg-yellow-400 px-4 py-2 rounded shadow-hard font-bold space-x-2 select-none"
           >
             <icon name="paperPlane"></icon>
             <span>Send</span>

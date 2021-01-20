@@ -5,6 +5,7 @@ import PwCardTalk from './pw-card-talk.vue';
 import PwSectionHeading from './pw-section-heading.vue';
 import PwSimpleScroller from './pw-simple-scroller.vue';
 import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
+import PwSection from './pw-section.vue';
 
 export default {
   props: {
@@ -19,12 +20,13 @@ export default {
     PwCardTalk,
     PwSimpleScroller,
     PwSimpleScrollerItem,
+    PwSection,
   },
 };
 </script>
 
 <template>
-  <section data-section="speaking">
+  <pw-section section-key="speaking">
     <pw-section-heading title="Speaking" icon="chalkboardTeacher" section="speaking" />
     <pw-lede class="mt-3">Talks I've given at conferences or other events. I'll link to slides or videos where they are available.</pw-lede>
     <pw-simple-scroller class="mt-5 items-1 md:items-2 xl:items-3" theme="testimonial">
@@ -123,5 +125,5 @@ export default {
         ></pw-card-talk>
       </pw-simple-scroller-item>
     </pw-simple-scroller>
-  </section>
+  </pw-section>
 </template>
