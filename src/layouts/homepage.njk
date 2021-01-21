@@ -93,19 +93,6 @@
         });
       });
     </script>
-    <script>
-      const loader = function () {
-        loadjs('{{ '/assets/main.js' | url }}');
-      };
-
-      (function () {
-        'requestIdleCallback' in window
-          ? requestIdleCallback(function () {
-              loader();
-            })
-          : loader();
-      })();
-    </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
   </body>
 </html>
