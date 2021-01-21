@@ -98,13 +98,13 @@
         loadjs('{{ '/assets/main.js' | url }}');
       };
 
-      setTimeout(function () {
+      (function () {
         'requestIdleCallback' in window
           ? requestIdleCallback(function () {
               loader();
             })
           : loader();
-      }, 1000);
+      })();
     </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
   </body>
