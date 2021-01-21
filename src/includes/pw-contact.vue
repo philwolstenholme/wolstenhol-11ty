@@ -21,39 +21,7 @@ export default {
       <a href="https://twitter.com/messages/compose?recipient_id=38276082" class="underline">direct message on Twitter</a> or drop me an
       email via this contact form (all fields are required).
     </p>
-    <div
-      x-data="{
-        submitted: false,
-        error: null,
-        submitForm($refs) {
-          const data = new FormData($refs.form)
-          data.append('form-name', $refs.form.getAttribute('name'));
-          fetch('/', {
-            method: 'POST',
-            body: data,
-          })
-          .then(response => {
-            if (!response.ok) {
-              return Promise.reject({
-                status: response.status,
-                statusText: response.statusText,
-                url: response.url,
-              })
-            }
-            return response;
-          })
-          .then(() => {
-            this.submitted = true;
-            this.error = null;
-          })
-          .catch(error => {
-            this.error = JSON.stringify(error, null, 2);
-            console.error('Contact form error: ', error);
-          })
-        }
-      }"
-      id="contact-form-component"
-    >
+    <div x-data="PwContact()" id="contact-form-component">
       <form
         netlify
         netlify-honeypot="message_1"
@@ -62,7 +30,7 @@ export default {
         name="contact"
         method="POST"
         x-bind:hidden="submitted"
-        x-on:submit.prevent="submitForm($refs)"
+        x-on:submit.prevent="submitForm()"
       >
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
           <label for="contact-name" class="font-bold lg:pt-4 lg:text-right lg:w-28"

@@ -54,53 +54,15 @@ export default {
 
 <template>
   <div
-    v-bind:x-data="`{
-      isPlaying: false,
-      progress: 0,
-      previewUrl: '${this.previewUrl}',
-      index: ${this.index},
-      init($refs, $nextTick) {
-        $nextTick(() => {
-          if ($refs['playButton']) {
-            $refs['playButton'].setAttribute('role', 'button');
-          }
-        });
-      },
-      musicCardButtonPress ($dispatch) {
-        if (!this.isPlaying) {
-          $dispatch('play-preview', {
-            src: this.previewUrl,
-            index: this.index,
-          });
-        } else {
-          $dispatch('stop-preview', {
-            src: this.previewUrl,
-            index: this.index,
-          });
-        }
-      },
-      playingPreview($event) {
-        if ($event.detail.src === this.previewUrl) {
-          this.isPlaying = true;
-        }
-      },
-      stoppedPreview($event) {
-        if ($event.detail.src === this.previewUrl) {
-          this.isPlaying = false;
-        }
-      },
-      previewProgress($event) {
-        if ($event.detail.src === this.previewUrl) {
-          this.progress = $event.detail.progress;
-        }
-      }
-    }`"
+    :data-index="index"
+    :data-preview-url="previewUrl"
+    x-data="PwCardMusic($el)"
     x-bind:class="{ isPlaying: isPlaying }"
     x-on:playing-preview.window="playingPreview($event)"
     x-on:stopped-preview.window="stoppedPreview($event)"
     x-on:preview-progress.window="previewProgress($event)"
     x-on:keydown.escape.window="if (isPlaying) { musicCardButtonPress($dispatch) }"
-    x-init="init($refs, $nextTick)"
+    x-init="init()"
     v-bind:style="`animation-duration: ${tempoAnimationDuration}s;`"
     class="relative group flex overflow-hidden card--music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
   >

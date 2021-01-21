@@ -40,48 +40,10 @@ export default {
       hidden
       class="inline w-0 h-0"
       x-bind:src="src"
-      x-data="{
-        isPlaying: false,
-        src: null,
-        init($watch, $dispatch, $refs) {
-          $watch('isPlaying', value => {
-            $dispatch(value ? 'playing-preview' : 'stopped-preview', {
-              src: this.src,
-            });
-          })
-        },
-        play(detail) {
-          this.isPlaying = false;
-          this.src = detail.src;
-          $el.play();
-        },
-        playing() {
-          this.isPlaying = true;
-        },
-        pause() {
-          $el.pause();
-          this.isPlaying = false;
-        },
-        ended() {
-          this.isPlaying = false;
-          this.src = null;
-        },
-        timeupdate($event, $dispatch) {
-          const progress = Math.round((($event.target.currentTime / $event.target.duration) + Number.EPSILON) * 100) / 100;
-
-          if (Number.isNaN(progress)) {
-            return;
-          } else {
-            $dispatch('preview-progress', {
-              src: $event.target.src,
-              progress: progress,
-            });
-          }
-        }
-      }"
-      x-init="init($watch, $dispatch)"
-      x-on:play-preview.window="play($event.detail)"
-      x-on:stop-preview.window="pause()"
+      x-data="PwMusic()"
+      x-init="init($dispatch)"
+      x-on:play-preview.window="play($event.detail, $el)"
+      x-on:stop-preview.window="pause($el)"
       x-on:pause="pause()"
       x-on:ended="ended()"
       x-on:playing="playing()"

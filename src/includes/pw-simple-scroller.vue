@@ -1,53 +1,5 @@
 <template>
-  <div
-    data-scroller
-    class="relative"
-    v-bind:x-data="`{
-      scrollAmount: null,
-      scrollFull: ${this.scrollFull},
-      overflowing: {
-        left: false,
-        right: true,
-      },
-      init() {
-        const firstListItem = $el.querySelector('.scroller > li:first-child');
-        const lastListItem = $el.querySelector('.scroller > li:last-child');
-
-        let observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            const target = entry.target === firstListItem ? 'left' : 'right';
-            if (entry.intersectionRatio < 0.95) {
-              this.overflowing[target] = true;
-            } else {
-              this.overflowing[target] = false;
-            }
-          });
-        },
-        {
-          root: this.$refs.scroller,
-          threshold: 0.95
-        });
-
-        observer.observe(firstListItem);
-        observer.observe(lastListItem);
-
-        if (this.scrollAmount === null) {
-          if (this.scrollFull) {
-            this.scrollAmount = this.$refs.scroller.offsetWidth;
-          } else {
-            this.scrollAmount = this.$refs.scroller.offsetWidth / 2;
-          }
-        }
-      },
-      scrollRight() {
-        this.$refs.scroller.scrollLeft += this.scrollAmount;
-      },
-      scrollLeft() {
-        this.$refs.scroller.scrollLeft -= this.scrollAmount;
-      }
-    }`"
-    x-init="init"
-  >
+  <div data-scroller class="relative" :data-scroll-full="scrollFull" x-data="PwSimpleScroller($el)" x-init="init()">
     <button
       hidden
       x-bind:inert="!overflowing.left"
