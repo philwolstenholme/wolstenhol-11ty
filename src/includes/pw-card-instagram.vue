@@ -1,5 +1,6 @@
 <script>
 import icon from './icon.vue';
+const cloudinary = require('cloudinary').v2;
 
 export default {
   components: {
@@ -19,11 +20,8 @@ export default {
 
   computed: {
     cloudinaryUrl: function () {
-      let original = this.post.images.standard_resolution.url;
-
-      let cloudinaryPrefix = `https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:${this.width},f_auto,q_auto:best/`;
-
-      return cloudinaryPrefix + encodeURIComponent(original);
+      let public_id = `11ty/instagram/${this.post.id}`;
+      return cloudinary.url(public_id, { width: this.width, quality: 'auto', fetch_format: 'auto' });
     },
 
     cloudinarySrcSet: function () {
@@ -96,9 +94,35 @@ export default {
         />
       </template>
       <figcaption
-        class="absolute transform-gpu transition-transform translate-y-full max-h-full overflow-y-auto group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
+        class="absolute space-y-3 transform-gpu transition-transform translate-y-full max-h-full overflow-y-auto group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
       >
-        {{ post.caption.text }}
+        <div v-if="post.likes.count > 0 || post.comments.count > 0 || post.location.name" class="space-y-2">
+          <p v-if="post.likes.count > 0 || post.comments.count > 0">
+            <template v-if="post.likes.count > 0">
+              <svg class="icon text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="3.5329999923706055 12 46.933998107910156 44">
+                <path
+                  d="M38.723,12c-7.187,0-11.16,7.306-11.723,8.131C26.437,19.306,22.504,12,15.277,12C8.791,12,3.533,18.163,3.533,24.647 C3.533,39.964,21.891,55.907,27,56c5.109-0.093,23.467-16.036,23.467-31.353C50.467,18.163,45.209,12,38.723,12z"
+                />
+              </svg>
+              <span class="inline-block mr-2" v-text="post.likes.count" />
+            </template>
+            <template v-if="post.comments.count > 0">
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 2 32 29.986000061035156">
+                <path
+                  d="M16 2c8.837 0 16 5.82 16 13s-7.163 13-16 13c-.85 0-1.682-.054-2.495-.158C10.068 31.28 5.965 31.895 2 31.986v-.84c2.142-1.05 4-2.962 4-5.146 0-.305-.024-.604-.068-.897C2.312 22.72 0 19.08 0 15 0 7.82 7.163 2 16 2z"
+                />
+              </svg>
+              <span class="inline-block" v-text="post.comments.count" />
+            </template>
+          </p>
+          <p v-if="post.location.name">
+            <icon name="mapMarkerAlt" class="inline-block mr-1" />
+            <span v-text="post.location.name" />
+          </p>
+        </div>
+        <p v-if="post.caption.text">
+          {{ post.caption.text }}
+        </p>
       </figcaption>
     </div>
   </figure>

@@ -61,6 +61,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@11ty/eleventy-cache-assets": "^2.0.4",
     "@11ty/eleventy-plugin-vue": "^0.2.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-brands-svg-icons": "^5.10.1",
@@ -70,6 +71,7 @@
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/typography": "^0.3.1",
     "alpinejs": "^2.7.0",
+    "cloudinary": "^1.23.0",
     "html-minifier-terser": "^5.1.1",
     "js-yaml": "^3.14.1",
     "loadjs": "^4.2.0",
