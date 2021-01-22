@@ -35,7 +35,13 @@ module.exports = async function () {
     location: {
       name: edge.node.location ? edge.node.location.name : null,
     },
-    isVideo: edge.node.is_video,
+    videos: edge.node.is_video
+      ? {
+          standard_resolution: {
+            url: edge.node.video_url,
+          },
+        }
+      : null,
     accessibilityCaption: edge.node.accessibility_caption,
   }));
 

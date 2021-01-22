@@ -33,47 +33,24 @@ export default {
       return `${this.cloudinaryUrl.replace(this.width, this.width * 2)} 2x, ${this.cloudinaryUrl.replace(this.width, this.width * 3)} 3x`;
     },
   },
-
-  watch: {
-    playing: function (value) {
-      if (value) {
-        if (this.$refs.video) this.$refs.video.play();
-      } else {
-        if (this.$refs.video) this.$refs.video.pause();
-      }
-    },
-  },
-
-  created() {
-    // var motionQuery = matchMedia('(prefers-reduced-motion)');
-    // motionQuery.addListener(this.handleReduceMotionChanged);
-    // this.handleReduceMotionChanged(motionQuery);
-  },
-
-  methods: {
-    handleReduceMotionChanged: function (e) {
-      if (e.matches) {
-        this.playing = false;
-      } else {
-        this.playing = true;
-      }
-    },
-  },
 };
 </script>
 
 <template>
   <figure
     tabindex="0"
-    x-data="{playing:false}"
+    v-bind:x-data="post.videos ? '{ playing: false }' : null"
+    v-bind:x-on:mouseenter="post.videos ? '$refs.video.play()' : null"
+    v-bind:x-on:focus="post.videos ? '$refs.video.play()' : null"
+    v-bind:x-on:mouseout="post.videos ? '$refs.video.pause()' : null"
+    v-bind:x-on:blur="post.videos ? '$refs.video.pause()' : null"
     class="group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
   >
-    <div class="flex-col justify-center shadow-hard" x-on:mouseover="playing = !playing" x-on:mouseout="playing = !playing">
+    <div class="flex-col justify-center shadow-hard">
       <template v-if="post.videos">
         <video
           x-ref="video"
           :poster="cloudinaryUrl"
-          x-bind:autoplay="playing"
           muted
           loop
           playsinline
@@ -99,7 +76,7 @@ export default {
         />
       </template>
       <figcaption
-        class="absolute space-y-3 transform-gpu transition-transform translate-y-full max-h-full overflow-y-auto group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
+        class="absolute pointer-events-none space-y-3 transform-gpu transition-transform translate-y-full max-h-full overflow-y-auto group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
       >
         <div v-if="post.likes.count > 0 || post.comments.count > 0 || post.location.name" class="space-y-2">
           <p v-if="post.likes.count > 0 || post.comments.count > 0">
