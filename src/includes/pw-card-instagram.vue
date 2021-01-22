@@ -21,7 +21,12 @@ export default {
   computed: {
     cloudinaryUrl: function () {
       let public_id = `11ty/instagram/${this.post.id}`;
-      return cloudinary.url(public_id, { width: this.width, quality: 'auto', fetch_format: 'auto' });
+      return cloudinary.url(public_id, {
+        secure: true,
+        width: this.width,
+        quality: 'auto',
+        fetch_format: 'auto',
+      });
     },
 
     cloudinarySrcSet: function () {
