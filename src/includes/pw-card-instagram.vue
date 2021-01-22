@@ -16,6 +16,7 @@ export default {
   data: () => ({
     playing: true,
     width: 400,
+    blurryUri: '',
   }),
 
   computed: {
@@ -71,8 +72,11 @@ export default {
           width="368"
           height="368"
           sizes="368px"
-          class="w-full transition-opacity group-hocus:opacity-50"
+          class="has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
           loading="lazy"
+          decoding="async"
+          crossorigin="anonymous"
+          :style="`background-image:url(&quot;${post.svgPlaceholder}&quot;)`"
         />
       </template>
       <figcaption

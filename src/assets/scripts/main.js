@@ -236,3 +236,16 @@ window.PwHeader = () => {
     },
   };
 };
+
+document.body.addEventListener(
+  'load',
+  e => {
+    if (e.target.tagName != 'IMG' || !e.target.classList.contains('has-blurry-placeholder')) {
+      return;
+    }
+
+    // Remove the blurry placeholder.
+    e.target.style.backgroundImage = 'none';
+  },
+  true
+);

@@ -20,10 +20,12 @@ export default {
           'group-hocus:opacity-20': href,
         }"
         :src="image"
+        alt=""
         width="272"
         height="153"
         loading="lazy"
-        alt=""
+        decoding="async"
+        crossorigin="anonymous"
       />
       <div class="flex flex-col justify-end p-4 bg-gradient-to-t from-black text-white uppercase font-serif text-xs h-full">
         <dl
