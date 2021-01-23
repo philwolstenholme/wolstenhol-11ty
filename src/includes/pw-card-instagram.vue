@@ -57,6 +57,7 @@ export default {
           playsinline
           disablePictureInPicture
           disableRemotePlayback
+          preload="none"
           class="w-full h-full transition-opacity group-hocus:opacity-50"
         >
           <source :src="post.videos.standard_resolution.url" type="video/mp4" />
