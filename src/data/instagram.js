@@ -39,7 +39,7 @@ module.exports = async function () {
 
   const posts = response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
     const svgPlaceholder = await fetchBase64
-      .remote(`https://res.cloudinary.com/wolstenh/image/upload/f_auto,q_auto,w_40/v1/11ty/instagram/${edge.node.id}.jpg`)
+      .remote(`https://res.cloudinary.com/wolstenh/image/upload/f_auto,q_50,w_30/v1/11ty/instagram/${edge.node.id}.jpg`)
       .then(data => {
         let svg = `<svg xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
