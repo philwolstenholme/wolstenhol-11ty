@@ -138,4 +138,8 @@ $backgroundBufer: 30px;
     transform: translateY(calc(0% + #{$backgroundBufer}));
   }
 }
+
+.card__instagram img {
+  content-visibility: auto;
+}
 </style>

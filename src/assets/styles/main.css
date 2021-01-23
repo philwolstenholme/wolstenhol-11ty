@@ -93,3 +93,7 @@ footer {
 .scroller-item--fit-to-grid {
   width: calc((100% - (1.25rem * (var(--items) - 1))) / var(--items));
 }
+
+.has-blurry-placeholder {
+  background-size: cover;
+}
