@@ -68,7 +68,7 @@ export default {
           :src="cloudinaryUrl"
           :srcset="cloudinarySrcSet"
           :key="post.id"
-          :alt="post.caption.text"
+          :alt="post.accessibilityCaption ? post.accessibilityCaption : ''"
           width="368"
           height="368"
           sizes="368px"
