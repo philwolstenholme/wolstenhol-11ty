@@ -45,7 +45,7 @@ module.exports = async function () {
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                   viewBox="0 0 50 50">
                   <filter id="b" color-interpolation-filters="sRGB">
-                    <feGaussianBlur stdDeviation=".5"></feGaussianBlur>
+                    <feGaussianBlur stdDeviation=".9"></feGaussianBlur>
                     <feComponentTransfer>
                       <feFuncA type="discrete" tableValues="1 1"></feFuncA>
                     </feComponentTransfer>
