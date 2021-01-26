@@ -23,7 +23,7 @@
       /* 
        * https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
        */
-      body main section + section {
+      body main .section-wrapper + .section-wrapper > section {
         content-visibility: auto;
         contain-intrinsic-size: 10px 500px;
       }
@@ -80,7 +80,7 @@
         });
       });
 
-      let sections = document.querySelectorAll('body main section');
+      let sections = document.querySelectorAll('body main .section-wrapper section');
 
       sections.forEach(el => {
         iObs.observe(el);

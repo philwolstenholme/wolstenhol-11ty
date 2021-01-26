@@ -72,7 +72,7 @@ export default {
         :href="music.external_urls.spotify"
         class="card--music__caption relative inline-block p-1 px-2 text-yellow-300 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1"
       >
-        <span class="relative text-black z-10">{{ music.name }}<span class="sr-only">(Spotify artist page)</span></span>
+        <span class="relative text-black z-10">{{ music.name }}&nbsp;<span class="sr-only">(Spotify artist page)</span></span>
       </a>
     </div>
 
