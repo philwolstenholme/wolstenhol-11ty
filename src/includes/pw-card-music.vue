@@ -13,18 +13,18 @@ export default {
     },
 
     index: {
-      type: Number,
+      type: String,
       default: null,
     },
   },
 
   computed: {
     image: function () {
-      return this.music.spotify.images ? this.spotifyCloudinaryUrl : this.music.lastfm.image[0]['#text'];
+      return this.spotifyCloudinaryUrl;
     },
 
     spotifyCloudinaryUrl() {
-      let original = this.music.spotify.images[0].url;
+      let original = this.music.images[0].url;
       let cloudinaryPrefix = 'https://res.cloudinary.com/wolstenh/image/upload/w_435,h_435,c_fill,f_auto,q_auto:best/spotify/';
       let URL = original.replace('https://i.scdn.co/image/', cloudinaryPrefix);
 
@@ -32,12 +32,12 @@ export default {
     },
 
     previewUrl: function () {
-      return this.music.spotify.top_tracks.preview_url;
+      return this.music.top_tracks.preview_url;
     },
 
     bpm() {
-      if (!isUndefined(this.music.spotify.top_tracks.features)) {
-        return round(this.music.spotify.top_tracks.features.tempo);
+      if (!isUndefined(this.music.top_tracks.features)) {
+        return round(this.music.top_tracks.features.tempo);
       } else {
         return 0;
       }
@@ -69,7 +69,7 @@ export default {
     <h3 class="sr-only">{{ music.name }}</h3>
     <div class="absolute z-10 font-bold text-xs p-2 bottom-0 left-0">
       <a
-        :href="music.spotify.external_urls.spotify"
+        :href="music.external_urls.spotify"
         class="card--music__caption relative inline-block p-1 px-2 text-yellow-300 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1"
       >
         <span class="relative text-black z-10">{{ music.name }}<span class="sr-only">(Spotify artist page)</span></span>
@@ -93,7 +93,7 @@ export default {
 
     <a
       v-if="previewUrl"
-      v-bind:href="music.spotify.top_tracks.preview_url"
+      v-bind:href="music.top_tracks.preview_url"
       target="spotify-preview"
       class="absolute inset-0 text-yellow-300"
       x-ref="playButton"

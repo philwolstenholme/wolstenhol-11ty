@@ -78,6 +78,7 @@
     "loadjs": "^4.2.0",
     "lodash": "^4.17.20",
     "mini-svg-data-uri": "^1.2.3",
+    "spotify-web-api-node": "^5.0.2",
     "tailwindcss-interaction-variants": "^5.0.0",
     "tailwindcss-scroll-snap": "^1.0.3",
     "twitter-intents": "git+https://github.com/BrandwatchLtd/twitter-intents.git",

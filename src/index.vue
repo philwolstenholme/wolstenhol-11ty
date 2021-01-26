@@ -12,7 +12,7 @@
 
     <pw-speaking></pw-speaking>
 
-    <pw-music :artists="this.lastfm"></pw-music>
+    <pw-music :artists="this.spotify.artists" :genres="this.spotify.randomGenres"></pw-music>
 
     <pw-photos :photos="this.instagram"></pw-photos>
 

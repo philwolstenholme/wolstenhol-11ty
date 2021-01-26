@@ -9,6 +9,9 @@ import PwSection from './pw-section.vue';
 export default {
   props: {
     artists: {
+      type: Object,
+    },
+    genres: {
       type: Array,
     },
   },
@@ -28,10 +31,12 @@ export default {
   <pw-section section-key="music">
     <pw-section-heading title="Music" icon="headphones" section="music" />
     <pw-lede class="mt-3"
-      >What I've been listening to recently, via Last.fm and Spotify. Click an artist to hear a preview of their music<sup>*</sup>.</pw-lede
-    >
-    <small class="text-xs uppercase font-serif"
-      ><sup>*</sup>If the Spotify API contains a preview clip – some artists seem to have opted out of this.</small
+      >According to the Spotify API I've been listening to
+      <template v-for="(genre, index) in genres">
+        <template v-if="index + 1 == genres.length"> and </template>{{ genre
+        }}<template v-if="index < genres.length - 2">, </template></template
+      >
+      over the last few weeks.</pw-lede
     >
 
     <audio
