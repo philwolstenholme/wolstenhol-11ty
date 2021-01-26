@@ -86,10 +86,6 @@
   box-shadow: none !important;
 }
 
-footer {
-  content-visibility: auto;
-}
-
 .scroller-item--fit-to-grid {
   width: calc((100% - (1.25rem * (var(--items) - 1))) / var(--items));
 }

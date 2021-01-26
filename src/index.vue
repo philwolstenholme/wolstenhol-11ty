@@ -12,13 +12,13 @@
 
     <pw-speaking></pw-speaking>
 
-    <pw-music :artists="this.spotify.artists" :genres="this.spotify.randomGenres"></pw-music>
+    <pw-music v-if="this.spotify.artists" :artists="this.spotify.artists" :genres="this.spotify.randomGenres"></pw-music>
 
-    <pw-photos :photos="this.instagram"></pw-photos>
+    <pw-photos v-if="this.instagram" :photos="this.instagram"></pw-photos>
 
-    <pw-places :places="this.foursquare.response.venues.items"></pw-places>
+    <pw-places v-if="this.foursquare.response.venues.items" :places="this.foursquare.response.venues.items"></pw-places>
 
-    <pw-tweets :tweets="this.twitter"></pw-tweets>
+    <pw-tweets v-if="this.twitter" :tweets="this.twitter"></pw-tweets>
 
     <pw-contact></pw-contact>
 
