@@ -39,6 +39,7 @@ module.exports = async function () {
     );
 
   _.forEach(topArtists, function (artist) {
+    artist.genres = _.compact(artist.genres);
     artists[artist.name] = artist;
   });
 
@@ -73,9 +74,8 @@ module.exports = async function () {
     );
   });
 
-  const aristsGenres = _.compact(_.map(artists, 'genres'));
-  const artistsRandomGenre = _.map(aristsGenres, _.sample);
-  const randomGenres = _.sampleSize(artistsRandomGenre, 6);
+  const aristsGenres = _.map(artists, 'genres');
+  const randomGenres = _.sampleSize(aristsGenres, 6);
 
   await Promise.all(spotifyFeaturesPromises);
 

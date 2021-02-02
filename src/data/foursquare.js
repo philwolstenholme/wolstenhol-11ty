@@ -14,7 +14,7 @@ module.exports = async function () {
 
   const places = await json.response.venues.items.map(place => {
     place.map = urlSigner.sign(
-      `https://maps.googleapis.com/maps/api/staticmap?center=${place.location.lat},${place.location.lng}&zoom=13&size=365x182&maptype=roadmap&key=${process.env.GOOGLE_MAPS_KEY}&format=png&visual_refresh=true&map_id=b45051fa50aec0a8&scale=2`,
+      `https://maps.googleapis.com/maps/api/staticmap?center=${place.location.lat},${place.location.lng}&zoom=13&size=365x182&maptype=roadmap&key=${process.env.GOOGLE_MAPS_KEY}&format=png&visual_refresh=true&map_id=db8ea46f9ea0d213&scale=2`,
       process.env.GOOGLE_MAPS_SECRET
     );
 
