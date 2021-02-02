@@ -1,6 +1,6 @@
 <template>
   <div class="relative text-3xl">
-    <h2 :id="anchor" class="font-serif font-bold" :data-section="section">
+    <h2 :id="anchor" class="inline-block uppercase font-serif font-bold" :data-section="section">
       {{ title }}
     </h2>
     <span v-if="icon" class="absolute top-0.5 -left-12">

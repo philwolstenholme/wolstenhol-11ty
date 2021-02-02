@@ -27,9 +27,12 @@ export default {
 <template>
   <pw-section section-key="places">
     <pw-section-heading title="Places" icon="mapMarkerAlt" section="places" />
-    <pw-lede class="mt-3">Nice places that I've been to and that you might like</pw-lede>
+    <pw-lede class="mt-3"
+      >A randomised asortment of places I've liked on Foursquare at one point - it could be somewhere from a holiday, or it could be a
+      random bar in Manchester that closed three years ago…</pw-lede
+    >
 
-    <pw-simple-scroller class="mt-5 items-1 sm:items-2 lg:items-3" :scroll-full="true" theme="foursquare">
+    <pw-simple-scroller class="mt-12 items-1 sm:items-2 lg:items-3" :scroll-full="true" theme="foursquare">
       <pw-simple-scroller-item fit-to-grid v-for="(place, index) in places" :key="index">
         <pw-card-foursquare class="h-full" :place="place" />
       </pw-simple-scroller-item>

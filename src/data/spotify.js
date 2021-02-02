@@ -14,13 +14,11 @@ module.exports = async function () {
   // clientId, clientSecret and refreshToken has been set on the api object previous to this call.
   await spotifyApi.refreshAccessToken().then(
     function (data) {
-      console.log('The access token has been refreshed!');
-
       // Save the access token so that it's used in future calls
       spotifyApi.setAccessToken(data.body['access_token']);
     },
     function (err) {
-      console.log('Could not refresh access token', err);
+      console.error('Could not refresh access token', err);
     }
   );
 
@@ -36,7 +34,7 @@ module.exports = async function () {
         return data.body.items;
       },
       function (err) {
-        console.log('Something went wrong!', err);
+        console.error('Something went wrong!', err);
       }
     );
 
@@ -59,7 +57,6 @@ module.exports = async function () {
   });
 
   await Promise.all(spotifyTopTrackPromises);
-  console.log('Got all the top tracks for each artist, now to get the features of those tracks');
 
   let spotifyFeaturesPromises = [];
 
@@ -70,13 +67,13 @@ module.exports = async function () {
           artists[artist.name]['top_tracks']['features'] = data.body;
         },
         function (err) {
-          console.log('Something went wrong!', err);
+          console.error('Something went wrong!', err);
         }
       )
     );
   });
 
-  const aristsGenres = _.map(artists, 'genres');
+  const aristsGenres = _.compact(_.map(artists, 'genres'));
   const artistsRandomGenre = _.map(aristsGenres, _.sample);
   const randomGenres = _.sampleSize(artistsRandomGenre, 6);
 

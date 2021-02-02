@@ -5,7 +5,6 @@
 - Replace Webpack with…
 - Parcel? Vite? Rollup?
 - Or keep Webpack?
-- Move Alpine to external files
 
 ## CSS
 
@@ -20,11 +19,17 @@
 
 ## Scripts
 
-- Instagram script
-- Move others across, tidy up JS?
+- Make all music stuff one Alpine component
 
 ## Accessibility
 
 - Make invisible scroller items inert
 - Card links
 - Clean up duplicate header landmarks on homepage
+- If input intent is keyboard show all Instagram captions
+
+## Maps
+
+- Sign URLs / https://www.npmjs.com/package/gmaps-url-signer
+- Make proper Google project and API key
+- Generate map URLs in script not template

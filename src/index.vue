@@ -16,7 +16,7 @@
 
     <pw-photos v-if="this.instagram" :photos="this.instagram"></pw-photos>
 
-    <pw-places v-if="this.foursquare.response.venues.items" :places="this.foursquare.response.venues.items"></pw-places>
+    <pw-places v-if="this.foursquare" :places="this.foursquare"></pw-places>
 
     <pw-tweets v-if="this.twitter" :tweets="this.twitter"></pw-tweets>
 

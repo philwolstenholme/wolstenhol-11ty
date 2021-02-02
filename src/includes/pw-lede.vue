@@ -1,5 +1,5 @@
 <template>
-  <p class="uppercase font-serif text-black text-sm tracking-widest max-w-3xl">
+  <p class="font-serif text-black tracking-widest leading-relaxed max-w-3xl">
     <slot />
   </p>
 </template>

@@ -33,11 +33,17 @@ export default {
     <pw-lede class="mt-3"
       >According to the Spotify API, I've been listening to
       <template v-for="(genre, index) in genres">
-        <template v-if="index + 1 == genres.length"> and </template>{{ genre
-        }}<template v-if="index < genres.length - 2">, </template></template
+        <template v-if="index + 1 == genres.length"> and </template><mark>{{ genre }}</mark
+        ><template v-if="index < genres.length - 2">, </template></template
       >
       over the last few weeks.</pw-lede
     >
+
+    <pw-simple-scroller class="mt-12" :scroll-full="true" theme="spotify">
+      <pw-simple-scroller-item v-for="(artist, index) in artists" :key="index">
+        <pw-card-music :music="artist" :index="index"></pw-card-music>
+      </pw-simple-scroller-item>
+    </pw-simple-scroller>
 
     <audio
       controls
@@ -54,13 +60,6 @@ export default {
       x-on:playing="playing()"
       x-on:timeupdate="timeupdate($event, $dispatch)"
     ></audio>
-
-    <pw-simple-scroller class="mt-5" :scroll-full="true" theme="spotify">
-      <pw-simple-scroller-item v-for="(artist, index) in artists" :key="index">
-        <pw-card-music :music="artist" :index="index"></pw-card-music>
-      </pw-simple-scroller-item>
-    </pw-simple-scroller>
-
     <iframe x-data="{}" x-init="$el.remove()" class="js:hidden" name="spotify-preview" title="Spotify preview"></iframe>
   </pw-section>
 </template>
