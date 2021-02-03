@@ -81,7 +81,8 @@
 }
 
 /* purgecss ignore */
-[data-whatintent='mouse'] *:focus {
+[data-whatintent='mouse'] *:focus,
+[data-whatintent='touch'] *:focus {
   outline: none !important;
   box-shadow: none !important;
 }
