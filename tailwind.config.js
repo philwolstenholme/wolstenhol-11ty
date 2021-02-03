@@ -52,11 +52,14 @@ module.exports = {
           },
         },
       }),
+      cursor: {
+        help: 'help',
+      },
     },
   },
   variants: {
     extend: {
-      display: ['js', 'no-js', 'group-hocus'],
+      display: ['js', 'no-js', 'group-hocus', 'group-focus'],
       textColor: ['hocus', 'group-hocus'],
       backgroundColor: ['hocus', 'group-hocus'],
       transform: ['hover', 'focus', 'hocus', 'group-hocus'],
