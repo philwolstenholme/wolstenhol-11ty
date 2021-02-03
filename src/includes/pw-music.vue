@@ -31,9 +31,11 @@ export default {
   <pw-section section-key="music">
     <pw-section-heading title="Music" icon="headphones" section="music" />
     <pw-lede class="mt-3"
-      >According to the Spotify API, I've been listening to
+      >According to the Spotify API, I've been listening to a fair amount of
       <template v-for="(genre, index) in genres">
-        <template v-if="index + 1 == genres.length"> and </template><mark>{{ genre }}</mark
+        <template v-if="index + 1 == genres.length"> and </template
+        ><mark class="group" tabindex="0"
+          >{{ genre.genre }}<span class="hidden group-hocus:inline"> ({{ genre.artist }})</span></mark
         ><template v-if="index < genres.length - 2">, </template></template
       >
       over the last few weeks.</pw-lede

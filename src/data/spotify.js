@@ -39,7 +39,6 @@ module.exports = async function () {
     );
 
   _.forEach(topArtists, function (artist) {
-    artist.genres = _.compact(artist.genres);
     artists[artist.name] = artist;
   });
 
@@ -74,8 +73,19 @@ module.exports = async function () {
     );
   });
 
-  const aristsGenres = _.map(artists, 'genres');
-  const randomGenres = _.sampleSize(aristsGenres, 6);
+  let artistGenres = _.mapValues(artists, function (artist) {
+    const genre = _.sample(artist.genres);
+
+    if (genre) {
+      return {
+        artist: artist.name,
+        genre: genre,
+      };
+    }
+  });
+
+  randomGenres = _.sampleSize(artistGenres, 6);
+  randomGenres = _.compact(randomGenres);
 
   await Promise.all(spotifyFeaturesPromises);
 
