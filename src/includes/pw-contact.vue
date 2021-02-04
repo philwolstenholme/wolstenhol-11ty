@@ -32,6 +32,7 @@ export default {
         x-bind:hidden="submitted"
         x-on:submit.prevent="submitForm()"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
           <label for="contact-name" class="font-bold lg:pt-4 lg:text-right lg:w-28"
             >Name:<sup class="text-red-800"
