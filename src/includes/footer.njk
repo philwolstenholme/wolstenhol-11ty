@@ -32,17 +32,15 @@
       </ul>
     </div>
 
-    <p class="space-x-3 hue-rotate">
-      <button
-        x-data="{clicked:false}"
-        x-on:click="if (clicked) { location.reload(); return; }; clicked = true; document.querySelectorAll('style,link[rel=\'stylesheet\']').forEach(item => item.remove()); document.querySelectorAll('[style]:not([x-show])').forEach(item => item.removeAttribute('style')); document.querySelectorAll('[class]').forEach(item => item.removeAttribute('class'));"
-        class="underline"
-        x-text="clicked ? 'Reload the page to restore the CSS' : $el.innerText"
-        x-bind:aria-label="clicked ? 'Reload the page to restore the CSS' : $el.getAttribute('aria-label')"
-        aria-label="View page without CSS"
-      >
-        View page without CSS
-      </button>
-    </p>
+    <ul class="flex space-x-3 hue-rotate">
+      <li>
+        <a href="{{ page.url if page.url != '/' else '/index'}}.no-css.html" rel="nofollow" class="underline">View page without CSS</a>
+      </li>
+      <li>
+        <a href="{{ page.url if page.url != '/' else '/index'}}.no-js.html" rel="nofollow" class="underline"
+          >View page without JavaScript</a
+        >
+      </li>
+    </ul>
   </div>
 </footer>

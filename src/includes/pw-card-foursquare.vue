@@ -62,7 +62,7 @@ export default {
             class="w-8 h-8 opacity-80 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1 group-hocus:opacity-100"
           ></icon>
         </div>
-        <div class="foursquare__map-scrim absolute inset-0 transform-gpu transition-transform scale-110 group-hocus:scale-100"></div>
+        <div class="foursquare__map-scrim absolute inset-0"></div>
       </div>
     </component>
   </article>

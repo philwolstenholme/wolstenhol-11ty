@@ -10,15 +10,17 @@
       {{ title }} | {{ meta.title }}
       {%- endif -%}
     </title>
+    {% include "meta.njk" %}
     <link rel="preconnect" href="https://res.cloudinary.com" />
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-    <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
+    {% if not build.noJs %}
     <script>
       {% include "../../node_modules/loadjs/dist/loadjs.min.js" %} document.querySelector('html').classList.remove('no-js'); document.querySelector('html').classList.add('js');
     </script>
+    {% endif %} {% if not build.noCss %}
+    <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
-    {% include "meta.njk" %}
     <style>
       /* 
        * https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
@@ -28,6 +30,7 @@
         contain-intrinsic-size: 10px 500px;
       }
     </style>
+    {% endif %}
   </head>
   <body class="text-gray-900 leading-normal overscroll-x-none">
     <p class="sr-only"><a href="#content">Skip to main content</a>.</p>
@@ -44,6 +47,8 @@
       </main>
       {% include "footer.njk" %}
     </div>
+    {% if not build.noJs %}
+    {{ build.noJS }}
     <script type="module">
       // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
       let eqIsh = (a, b, fuzz = 2) => {
@@ -93,6 +98,7 @@
       });
     </script>
     <script src="{{ '/assets/main.js' | url }}" defer></script>
+    {% endif %}
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
   </body>
 </html>

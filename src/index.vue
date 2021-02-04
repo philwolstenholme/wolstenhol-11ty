@@ -22,7 +22,7 @@
 
     <pw-contact></pw-contact>
 
-    <style v-html="this.getVueComponentCssForPage(this.page.url)"></style>
+    <style v-if="!build.noCss" v-html="this.getVueComponentCssForPage(this.page.url)"></style>
   </div>
 </template>
 
@@ -42,6 +42,19 @@ import PwPhotos from './includes/pw-photos.vue';
 
 export default {
   data: {
+    permalink(data) {
+      const parts = [data.page.filePathStem];
+
+      if (data.build.noJs) {
+        parts.push('no-js');
+      }
+
+      if (data.build.noCss) {
+        parts.push('no-css');
+      }
+
+      return `${parts.join('.')}.html`;
+    },
     layout: 'homepage',
     title: 'Welcome',
     eleventyNavigation: { key: 'Home' },
