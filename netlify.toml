@@ -26,8 +26,17 @@
   status = 404
 
 [[headers]]
-  for = "/*"
+  for = "/*" # This defines which paths this specific [[headers]] block will cover.
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.no-css.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/*.no-js.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
