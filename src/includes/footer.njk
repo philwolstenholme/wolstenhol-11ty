@@ -3,7 +3,7 @@
   <div class="max-w-6xl mx-auto space-y-5 px-5 sm:px-2">
     <div class="hue-rotate space-y-2">
       <p>
-        &copy; {{ build.timestamp | dateToFormat('yyyy') }} Phil Wolstenholme unless otherwise stated (such as Creative Commons license
+        &copy; 1989-{{ build.timestamp | dateToFormat('yyyy') }} Phil Wolstenholme unless otherwise stated (such as Creative Commons license
         images within articles)
       </p>
       <p>
@@ -11,7 +11,14 @@
         <abbr title="Tailwind Eleventy Alpine" class="no-underline">TEA</abbr>
         stack <span aria-hidden="true">🍵</span>: Tailwind CSS, Eleventy, and a little bit of Alpine.js. Hosted on Netlify.
       </p>
-      <p>Music section thirty second preview MP3s and artist photos provided by Spotify.</p>
+      <p>Pulls in API data from:</p>
+      <ul class="list-disc ml-6">
+        <li>Medium (for now)</li>
+        <li>Spotify</li>
+        <li>Instagram</li>
+        <li>Foursquare</li>
+        <li>Twitter</li>
+      </ul>
     </div>
 
     <div class="flex flex-wrap items-center gap-2">
