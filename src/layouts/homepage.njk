@@ -97,7 +97,14 @@
         });
       });
     </script>
-    <script src="{{ '/assets/main.js' | url }}" defer></script>
+    <script type="module">
+      window.addEventListener('scroll', loadJsOnScroll, {passive: true});
+      function loadJsOnScroll() {
+        loadjs('{{ '/assets/main.js' | url }}', function() {
+          window.removeEventListener('scroll', loadJsOnScroll);
+        });
+      }
+    </script>
     {% endif %}
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
   </body>

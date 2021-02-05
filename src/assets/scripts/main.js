@@ -60,7 +60,6 @@ window.PwContact = () => {
     error: null,
     submitForm() {
       const data = new FormData(this.$refs.form);
-      data.append('form-name', this.$refs.form.getAttribute('name'));
       fetch('/', {
         method: 'POST',
         body: data,
@@ -182,9 +181,8 @@ window.PwTweets = () => {
   return {
     colcade() {
       if (window.innerWidth > 767) {
-        loadjs(['https://cdn.jsdelivr.net/npm/colcade@0.2.0/colcade.min.js'], 'colcade');
-        loadjs.ready('colcade', function () {
-          var colcade = new Colcade('.tweets-grid', {
+        loadjs('https://cdn.jsdelivr.net/npm/colcade@0.2.0/colcade.min.js', function () {
+          new Colcade('.tweets-grid', {
             columns: '.tweets-grid__col',
             items: '.tweets-grid__item',
           });
@@ -192,8 +190,7 @@ window.PwTweets = () => {
       }
     },
     twitterIntents() {
-      loadjs(['https://cdn.jsdelivr.net/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.min.js'], 'twitter-intents');
-      loadjs.ready('twitter-intents', function () {
+      loadjs('https://cdn.jsdelivr.net/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.min.js', function () {
         const intents = new TwitterIntents();
         intents.register();
       });
