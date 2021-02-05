@@ -15,7 +15,7 @@
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
     {% if not build.noJs %}
     <script>
-      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %} document.querySelector('html').classList.remove('no-js'); document.querySelector('html').classList.add('js');
+      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
     </script>
     {% endif %} {% if not build.noCss %}
     <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
@@ -48,7 +48,6 @@
       {% include "footer.njk" %}
     </div>
     {% if not build.noJs %}
-    {{ build.noJS }}
     <script type="module">
       // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
       let eqIsh = (a, b, fuzz = 2) => {
@@ -97,7 +96,7 @@
         });
       });
     </script>
-    <script type="module">
+    <script>
       window.addEventListener('scroll', loadJsOnScroll, {passive: true});
       function loadJsOnScroll() {
         loadjs('{{ '/assets/main.js' | url }}', function() {
