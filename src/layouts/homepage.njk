@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      {%- if seo.title -%}
+      {% if build.noJs == 'TRUE' %} (🚫 No JS) {% endif %} {% if build.noCss == 'TRUE' %} (🚫 No CSS) {% endif %} {%- if seo.title -%}
       {{ seo.title }}
       {%- else -%}
       {{ title }} | {{ meta.title }}

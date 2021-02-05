@@ -18,8 +18,6 @@ module.exports = {
     } else {
       return `${data.page.filePathStem}/index.no-css.html`;
     }
-
-    return "Hmmm I'm not sure this is working";
   },
   noJsUrl: data => {
     if (data.page.filePathStem == '/index') {
@@ -27,7 +25,12 @@ module.exports = {
     } else {
       return `${data.page.filePathStem}/index.no-js.html`;
     }
-
-    return "Hmmm I'm not sure this is working";
+  },
+  fullFatUrl: data => {
+    if (data.page.filePathStem == '/index') {
+      return '/';
+    } else {
+      return data.page.filePathStem;
+    }
   },
 };

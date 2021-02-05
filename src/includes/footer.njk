@@ -33,10 +33,17 @@
     </div>
 
     <ul class="flex space-x-3 hue-rotate">
+      {% if (build.noJs == 'TRUE') or (build.noCss == 'TRUE') %}
       <li>
+        <a href="{{ fullFatUrl }}" rel="nofollow" class="underline">View the regular, full-fat page</a>
+      </li>
+      {% endif %}
+      <li>
+        <span>🚫&nbsp;</span>
         <a href="{{ noCssUrl }}" rel="nofollow" class="underline">View page without CSS</a>
       </li>
       <li>
+        <span>🚫&nbsp;</span>
         <a href="{{ noJsUrl }}" rel="nofollow" class="underline">View page without JavaScript</a>
       </li>
     </ul>
