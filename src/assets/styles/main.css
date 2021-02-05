@@ -106,3 +106,8 @@ mark {
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
+
+.breakout {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}

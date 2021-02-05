@@ -15,10 +15,3 @@ export default {
     </div>
   </section>
 </template>
-
-<style>
-.breakout {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-}
-</style>
