@@ -11,7 +11,7 @@
         <abbr title="Tailwind Eleventy Alpine" class="no-underline">TEA</abbr>
         stack <span aria-hidden="true">🍵</span>: Tailwind CSS, Eleventy, and a little bit of Alpine.js. Hosted on Netlify.
       </p>
-      <p><i>I’ve been listening to</i> data provided by the last.fm API, Artist photos provided by Spotify.</p>
+      <p>Music section thirty second preview MP3s and artist photos provided by Spotify.</p>
     </div>
 
     <div class="flex flex-wrap items-center gap-2">
@@ -34,12 +34,10 @@
 
     <ul class="flex space-x-3 hue-rotate">
       <li>
-        <a href="{{ page.url if page.url != '/' else '/index'}}.no-css.html" rel="nofollow" class="underline">View page without CSS</a>
+        <a href="{{ noCssUrl }}" rel="nofollow" class="underline">View page without CSS</a>
       </li>
       <li>
-        <a href="{{ page.url if page.url != '/' else '/index'}}.no-js.html" rel="nofollow" class="underline"
-          >View page without JavaScript</a
-        >
+        <a href="{{ noJsUrl }}" rel="nofollow" class="underline">View page without JavaScript</a>
       </li>
     </ul>
   </div>
