@@ -33,10 +33,13 @@
             let pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
             pageLoadTime = +(Math.round(pageLoadTime/1000 + 'e+2')  + 'e-2');
             this.time = pageLoadTime;
+            if (pageLoadTime < 0) {
+              this.$el.remove();
+            }
           }
         "
       >
-        This page loaded in <span x-text="time">????</span> seconds.
+        This page loaded in <span x-text="time">?.??</span> seconds.
       </p>
 
       <ul class="space-y-3 hue-rotate md:flex md:space-y-0 md:space-x-3">
