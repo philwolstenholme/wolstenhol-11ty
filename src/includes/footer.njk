@@ -1,7 +1,7 @@
 <hr class="hidden" />
 <footer role="contentinfo" class="bg-binding-dark text-yellow-400 text-xs py-16">
   <div class="max-w-6xl mx-auto space-y-5 px-5 sm:px-2 md:grid grid-cols-2 md:space-y-0 gap-5">
-    <div class="hue-rotate space-y-2">
+    <div class="hue-rotate space-y-4">
       <p>
         &copy; <time datetime="1989-05-16" title="🎂">1989</time>-{{ build.timestamp | dateToFormat('yyyy') }} Phil Wolstenholme unless
         otherwise stated (there might be the odd Creative Commons license image within articles)
@@ -11,14 +11,16 @@
         <abbr title="Tailwind Eleventy Alpine" class="no-underline">TEA</abbr>
         stack <span aria-hidden="true">🍵</span>: Tailwind CSS, Eleventy, and a little bit of Alpine.js. Hosted on Netlify.
       </p>
-      <p>Pulls in API data from:</p>
-      <ul class="list-disc ml-6">
-        <li>Medium (for now)</li>
-        <li>Spotify</li>
-        <li>Instagram</li>
-        <li>Foursquare</li>
-        <li>Twitter</li>
-      </ul>
+      <div class="space-y-2">
+        <p>Pulls in API data from:</p>
+        <ul class="list-disc ml-6">
+          <li>Medium (for now)</li>
+          <li>Spotify</li>
+          <li>Instagram</li>
+          <li>Foursquare</li>
+          <li>Twitter</li>
+        </ul>
+      </div>
     </div>
 
     <div class="space-y-4">
