@@ -1,16 +1,16 @@
 module.exports = {
   noCssUrl: data => {
     if (data.page.filePathStem == '/index') {
-      return `${data.page.filePathStem}.no-css.html`;
+      return `${data.page.filePathStem}.no-css`;
     } else {
-      return `${data.page.filePathStem}/index.no-css.html`;
+      return `${data.page.filePathStem}/index.no-css`;
     }
   },
   noJsUrl: data => {
     if (data.page.filePathStem == '/index') {
-      return `${data.page.filePathStem}.no-js.html`;
+      return `${data.page.filePathStem}.no-js`;
     } else {
-      return `${data.page.filePathStem}/index.no-js.html`;
+      return `${data.page.filePathStem}/index.no-js`;
     }
   },
   fullFatUrl: data => {
