@@ -132,8 +132,8 @@ export default {
         </div>
       </form>
       <div hidden x-bind:hidden="!submitted" x-cloak class="space-y-4 text-xl mt-8 max-w-3xl">
-        <p class="text-xl text-3xl font-bold text-green-600">Thanks!</p>
-        <p>Your message has been sent.</p>
+        <p class="text-xl text-3xl font-bold font-serif text-green-700"><span aria-hidden="true">✅&nbsp;</span>Thanks!</p>
+        <p class="text-base">Your message has been sent.</p>
       </div>
     </div>
   </section>
