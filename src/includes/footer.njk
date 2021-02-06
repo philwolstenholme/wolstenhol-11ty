@@ -1,6 +1,6 @@
 <hr class="hidden" />
 <footer role="contentinfo" class="bg-binding-dark text-yellow-400 text-xs py-16">
-  <div class="max-w-6xl mx-auto space-y-5 px-5 sm:px-2">
+  <div class="max-w-6xl mx-auto space-y-5 px-5 sm:px-2 md:grid grid-cols-2 md:space-y-0 gap-5">
     <div class="hue-rotate space-y-2">
       <p>
         &copy; <time datetime="1989-05-16" title="🎂">1989</time>-{{ build.timestamp | dateToFormat('yyyy') }} Phil Wolstenholme unless
@@ -21,41 +21,58 @@
       </ul>
     </div>
 
-    <div class="flex flex-wrap items-center gap-2">
-      <p id="homepage-lighthouse-scores" class="hue-rotate">Homepage Lighthouse scores (%):</p>
-      <ul class="no-list p-0 flex flex-wrap gap-2" aria-describedby="homepage-lighthouse-scores">
-        <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
-          <span class="sr-only">Performance: </span><span>98</span><span class="sr-only">%</span>
-        </li>
-        <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
-          <span class="sr-only">Accessibility: </span><span>100</span><span class="sr-only">%</span>
-        </li>
-        <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
-          <span class="sr-only">Best practices: </span><span>100</span><span class="sr-only">%</span>
-        </li>
-        <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
-          <span class="sr-only">SEO: </span><span>100</span><span class="sr-only">%</span>
-        </li>
-      </ul>
-    </div>
+    <div class="space-y-4">
+      <p
+        class="hue-rotate"
+        x-data="{time: null}"
+        x-init="
+          function() {
+            const perfData = window.performance.timing;
+            let pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+            pageLoadTime = +(Math.round(pageLoadTime/1000 + 'e+2')  + 'e-2');
+            this.time = pageLoadTime;
+          }
+        "
+      >
+        This page loaded in <span x-text="time">????</span> seconds
+      </p>
 
-    <ul class="space-y-3 hue-rotate md:flex md:space-y-0 md:space-x-3">
-      {% if (build.noJs == 'TRUE') or (build.noCss == 'TRUE') %}
-      <li>
-        <span aria-hidden="true">🍔&nbsp;</span>
-        <a href="{{ fullFatUrl }}" rel="nofollow" class="underline">View the full-fat page (i.e. with CSS and JS)</a>
-      </li>
-      {% endif %} {% if not build.noCss %}
-      <li>
-        <span aria-hidden="true">🚫&nbsp;</span>
-        <a href="{{ noCssUrl }}" rel="nofollow" class="underline">View page without CSS</a>
-      </li>
-      {% endif %} {% if not build.noJs %}
-      <li>
-        <span aria-hidden="true">🚫&nbsp;</span>
-        <a href="{{ noJsUrl }}" rel="nofollow" class="underline">View page without JavaScript</a>
-      </li>
-      {% endif %}
-    </ul>
+      <ul class="space-y-3 hue-rotate md:flex md:space-y-0 md:space-x-3">
+        {% if (build.noJs == 'TRUE') or (build.noCss == 'TRUE') %}
+        <li>
+          <span aria-hidden="true">🍔&nbsp;</span>
+          <a href="{{ fullFatUrl }}" rel="nofollow" class="underline">View the full-fat page (i.e. with CSS and JS)</a>
+        </li>
+        {% endif %} {% if not build.noCss %}
+        <li>
+          <span aria-hidden="true">🚫&nbsp;</span>
+          <a href="{{ noCssUrl }}" rel="nofollow" class="underline">View page without CSS</a>
+        </li>
+        {% endif %} {% if not build.noJs %}
+        <li>
+          <span aria-hidden="true">🚫&nbsp;</span>
+          <a href="{{ noJsUrl }}" rel="nofollow" class="underline">View page without JavaScript</a>
+        </li>
+        {% endif %}
+      </ul>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <p id="homepage-lighthouse-scores" class="hue-rotate">Homepage Lighthouse scores (%):</p>
+        <ul class="no-list p-0 flex flex-wrap gap-2" aria-describedby="homepage-lighthouse-scores">
+          <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
+            <span class="sr-only">Performance: </span><span>98</span><span class="sr-only">%</span>
+          </li>
+          <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
+            <span class="sr-only">Accessibility: </span><span>100</span><span class="sr-only">%</span>
+          </li>
+          <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
+            <span class="sr-only">Best practices: </span><span>100</span><span class="sr-only">%</span>
+          </li>
+          <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
+            <span class="sr-only">SEO: </span><span>100</span><span class="sr-only">%</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </footer>
