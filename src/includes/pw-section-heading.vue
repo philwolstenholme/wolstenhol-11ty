@@ -8,7 +8,7 @@
         <span class="sr-only"
           >Section titled <i>{{ title }}</i></span
         >
-        <icon :name="icon" />
+        <icon :name="icon" class="-top-1.5" />
       </a>
     </span>
   </div>

@@ -97,27 +97,8 @@ export default {
 svg:not(:root).svg-inline--fa {
   overflow: visible;
 }
-.svg-inline--fa.fa-w-16 {
-  width: 1em;
-}
-.svg-inline--fa.fa-w-10 {
-  width: 0.625em;
-}
-.svg-inline--fa.fa-w-14 {
-  width: 0.875em;
-}
-.svg-inline--fa.fa-w-12 {
-  width: 0.75em;
-}
 .fa-spin {
   animation: fa-spin 2s infinite linear;
-}
-.svg-inline--fa {
-  display: inline-block;
-  font-size: inherit;
-  height: 1em;
-  overflow: visible;
-  vertical-align: -0.125em;
 }
 @-webkit-keyframes fa-spin {
   0% {
@@ -126,8 +107,5 @@ svg:not(:root).svg-inline--fa {
   100% {
     transform: rotate(360deg);
   }
-}
-.fa-4x {
-  font-size: 4em;
 }
 </style>

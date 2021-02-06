@@ -76,7 +76,7 @@ export default {
           style="display: none"
           class="play-button-container absolute inset-0 block flex items-center justify-center grow"
         >
-          <icon class="play-button" name="playCircle" icon-size="4x" />
+          <icon class="play-button text-7xl" name="playCircle" />
         </span>
       </a>
     </p>

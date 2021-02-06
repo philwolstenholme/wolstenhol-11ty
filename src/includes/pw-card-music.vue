@@ -103,9 +103,9 @@ export default {
     >
       <div class="absolute p-2 top-0 left-0">
         <span class="sr-only">Play 30 second preview of {{ music.name }}</span>
-        <icon name="play" icon-size="xs" x-show="!isPlaying" />
+        <icon name="play" x-show="!isPlaying" />
         <span x-cloak>
-          <icon name="pause" icon-size="xs" x-show="isPlaying" />
+          <icon name="pause" x-show="isPlaying" />
         </span>
       </div>
     </a>
