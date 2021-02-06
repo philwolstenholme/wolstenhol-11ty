@@ -3,8 +3,8 @@
   <div class="max-w-6xl mx-auto space-y-5 px-5 sm:px-2">
     <div class="hue-rotate space-y-2">
       <p>
-        &copy; 1989-{{ build.timestamp | dateToFormat('yyyy') }} Phil Wolstenholme unless otherwise stated (such as Creative Commons license
-        images within articles)
+        &copy; <time datetime="1989-05-16" title="🎂">1989</time>-{{ build.timestamp | dateToFormat('yyyy') }} Phil Wolstenholme unless
+        otherwise stated (there might be the odd Creative Commons license image within articles)
       </p>
       <p>
         Built with the
@@ -39,7 +39,7 @@
       </ul>
     </div>
 
-    <ul class="flex space-x-3 hue-rotate">
+    <ul class="space-y-3 hue-rotate md:flex md:space-y-0 md:space-x-3">
       {% if (build.noJs == 'TRUE') or (build.noCss == 'TRUE') %}
       <li>
         <span aria-hidden="true">🍔&nbsp;</span>

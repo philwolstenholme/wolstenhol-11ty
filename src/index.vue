@@ -8,7 +8,7 @@
       </pw-lede>
     </div>
 
-    <pw-words :posts="this.medium['payload']['references']['Post']"></pw-words>
+    <pw-words :posts="this.medium"></pw-words>
 
     <pw-speaking></pw-speaking>
 

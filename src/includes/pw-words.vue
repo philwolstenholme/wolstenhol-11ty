@@ -9,7 +9,7 @@ import PwSection from './pw-section.vue';
 export default {
   props: {
     posts: {
-      type: Object,
+      type: Array,
     },
   },
 
