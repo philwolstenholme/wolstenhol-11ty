@@ -12,6 +12,8 @@
     >
       <span class="sr-only">Scroll backwards</span>
       <svg
+        focusable="false"
+        role="img"
         class="transform-gpu translate-transform"
         :class="randomRotationClass"
         xmlns="http://www.w3.org/2000/svg"
@@ -54,6 +56,8 @@
     >
       <span class="sr-only">Scroll forward</span>
       <svg
+        focusable="false"
+        role="img"
         class="transform-gpu translate-transform"
         :class="randomRotationClass"
         xmlns="http://www.w3.org/2000/svg"

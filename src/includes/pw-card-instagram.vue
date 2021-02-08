@@ -87,6 +87,8 @@ export default {
           <p v-if="post.likes.count > 0 || post.comments.count > 0">
             <template v-if="post.likes.count > 0">
               <svg
+                focusable="false"
+                role="img"
                 width="16"
                 height="16"
                 class="icon text-red-500"
@@ -101,7 +103,15 @@ export default {
               <span class="inline-block mr-2" v-text="post.likes.count" />
             </template>
             <template v-if="post.comments.count > 0">
-              <svg width="16" height="16" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 2 32 29.986000061035156">
+              <svg
+                focusable="false"
+                role="img"
+                width="16"
+                height="16"
+                class="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 2 32 29.986000061035156"
+              >
                 <path
                   d="M16 2c8.837 0 16 5.82 16 13s-7.163 13-16 13c-.85 0-1.682-.054-2.495-.158C10.068 31.28 5.965 31.895 2 31.986v-.84c2.142-1.05 4-2.962 4-5.146 0-.305-.024-.604-.068-.897C2.312 22.72 0 19.08 0 15 0 7.82 7.163 2 16 2z"
                 />

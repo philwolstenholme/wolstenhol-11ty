@@ -42,6 +42,7 @@ export default {
           <br class="hidden" />
           <input
             required
+            aria-required="true"
             id="contact-name"
             type="text"
             name="name"
@@ -60,6 +61,7 @@ export default {
           <br class="hidden" />
           <input
             required
+            aria-required="true"
             id="contact-email"
             type="email"
             name="email"
@@ -78,6 +80,7 @@ export default {
           <br class="hidden" />
           <input
             required
+            aria-required="true"
             id="contact-subject"
             type="text"
             name="subject"
@@ -95,6 +98,7 @@ export default {
           <br class="hidden" />
           <textarea
             required
+            aria-required="true"
             id="contact-message"
             name="message"
             placeholder="Your unconditional offer of that six-figure, four-days-a-week job, perhaps a typo correction, or some other message."

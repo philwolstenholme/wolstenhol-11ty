@@ -36,6 +36,8 @@ export default {
         <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
           <span aria-hidden="true">
             <svg
+              focusable="false"
+              role="img"
               class="icon"
               width="16"
               height="16"
