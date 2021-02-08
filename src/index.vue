@@ -56,7 +56,10 @@ export default {
       return `${parts.join('.')}.html`;
     },
     layout: 'homepage',
-    title: 'Welcome',
+    title: 'Phil Wolstenholme',
+    seo: {
+      title: `Phil Wolstenholme's personal website, blog and portfolio`,
+    },
     eleventyNavigation: { key: 'Home' },
   },
   components: {
