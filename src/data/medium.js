@@ -4,7 +4,7 @@ const truncate = require('node-truncate-string');
 const cheerio = require('cheerio');
 
 module.exports = async function () {
-  let response = await Cache('https://medium.com/feed/@philw_', {
+  let response = await Cache('https://medium.com/feed/@philwolstenholme', {
     duration: '1h',
     type: 'text',
   });
