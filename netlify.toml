@@ -32,22 +32,12 @@
     X-XSS-Protection = "1; mode=block"
 
 [[headers]]
-  for = "/*.no-css.html"
+  for = "/*.no-css*"
   [headers.values]
     X-Robots-Tag = "noindex"
 
 [[headers]]
-  for = "/*.no-js.html"
-  [headers.values]
-    X-Robots-Tag = "noindex"
-
-[[headers]]
-  for = "/*.no-css"
-  [headers.values]
-    X-Robots-Tag = "noindex"
-
-[[headers]]
-  for = "/*.no-js"
+  for = "/*.no-js*"
   [headers.values]
     X-Robots-Tag = "noindex"
 
