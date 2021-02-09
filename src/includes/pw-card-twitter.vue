@@ -100,7 +100,7 @@ export default {
               :type="variant.content_type"
             />
           </video>
-          <div hidden aria-hidden="true" class="play-button-container absolute inset-0 flex items-center justify-center grow">
+          <div hidden class="play-button-container absolute inset-0 flex items-center justify-center grow">
             <button
               class="transform-gpu transition-transform hocus:scale-110"
               onclick="this.parentElement.previousElementSibling.play(); this.parentElement.previousElementSibling.setAttribute('controls', 'true'); this.parentElement.remove();"
