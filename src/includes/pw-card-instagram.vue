@@ -41,26 +41,27 @@ export default {
   <figure
     tabindex="0"
     v-bind:x-data="post.videos ? '{ playing: false }' : null"
-    v-bind:x-on:mouseenter="post.videos ? '$refs.video.play()' : null"
-    v-bind:x-on:focus="post.videos ? '$refs.video.play()' : null"
-    v-bind:x-on:mouseout="post.videos ? '$refs.video.pause()' : null"
-    v-bind:x-on:blur="post.videos ? '$refs.video.pause()' : null"
+    v-bind:x-on:mouseenter="post.videos ? '$refs.video.pause()' : null"
+    v-bind:x-on:focus="post.videos ? '$refs.video.pause()' : null"
+    v-bind:x-on:mouseout="post.videos ? '$refs.video.play()' : null"
+    v-bind:x-on:blur="post.videos ? '$refs.video.play()' : null"
     class="group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
   >
     <div class="flex-col justify-center shadow-hard">
       <template v-if="post.videos">
         <video
           x-ref="video"
-          :poster="cloudinaryUrl"
+          class="lozad w-full h-full object-cover transition-opacity group-hocus:opacity-50"
+          :data-poster="cloudinaryUrl"
           muted
           loop
+          autoplay
           playsinline
           disablePictureInPicture
           disableRemotePlayback
           preload="none"
-          class="w-full h-full transition-opacity group-hocus:opacity-50"
         >
-          <source :src="post.videos.standard_resolution.url" type="video/mp4" />
+          <source :data-src="post.videos.standard_resolution.url" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </template>

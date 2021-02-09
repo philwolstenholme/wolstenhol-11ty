@@ -77,18 +77,38 @@ export default {
           crossorigin="anonymous"
           :alt="media.ext_alt_text || ''"
         />
-        <video
-          class="w-full"
-          muted
-          loop
-          controls
-          playsinline
-          preload="none"
+        <div
           v-if="['video', 'animated_gif'].includes(media.type)"
-          :poster="media.media_url_https"
+          class="relative aspect-ratio"
+          :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
         >
-          <source v-for="(variant, index) in media.video_info.variants" :key="index" :src="variant.url" :type="variant.content_type" />
-        </video>
+          <video
+            class="aspect-ratio lozad absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
+            :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
+            :data-poster="media.media_url_https"
+            muted
+            loop
+            playsinline
+            disablePictureInPicture
+            disableRemotePlayback
+            preload="metadata"
+          >
+            <source
+              v-for="(variant, index) in media.video_info.variants"
+              :key="index"
+              :data-src="variant.url"
+              :type="variant.content_type"
+            />
+          </video>
+          <div hidden aria-hidden="true" class="play-button-container absolute inset-0 flex items-center justify-center grow">
+            <button
+              class="transform-gpu transition-transform hocus:scale-110"
+              onclick="this.parentElement.previousElementSibling.play(); this.parentElement.previousElementSibling.setAttribute('controls', 'true'); this.parentElement.remove();"
+            >
+              <icon class="play-button text-7xl" name="playCircle" />
+            </button>
+          </div>
+        </div>
       </a>
     </p>
 

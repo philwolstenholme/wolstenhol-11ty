@@ -81,6 +81,7 @@
     "js-yaml": "^3.14.1",
     "loadjs": "^4.2.0",
     "lodash": "^4.17.20",
+    "lozad": "^1.16.0",
     "mini-svg-data-uri": "^1.2.3",
     "node-truncate-string": "0.0.2",
     "rss-parser": "^3.11.0",

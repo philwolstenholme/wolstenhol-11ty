@@ -111,3 +111,21 @@ mark {
   width: 100vw;
   margin-left: calc(50% - 50vw);
 }
+
+.aspect-ratio {
+  aspect-ratio: var(--aspect-ratio);
+}
+
+@supports not (aspect-ratio: 16 / 9) {
+  .aspect-ratio::before {
+    float: left;
+    padding-top: calc(100% / (var(--aspect-ratio)));
+    content: '';
+  }
+
+  .aspect-ratio::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}

@@ -3,6 +3,12 @@ import 'wicg-inert';
 import 'what-input';
 import Horizon from '@mintuz/horizon';
 window.Horizon = Horizon;
+import lozad from 'lozad';
+
+const observer = lozad('.lozad', {
+  enableAutoReload: true,
+});
+observer.observe();
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
