@@ -41,6 +41,16 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
+[[headers]]
+  for = "/*.no-css"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/*.no-js"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
 # Redirect to custom 404
 [[redirects]]
   from = "/*"
