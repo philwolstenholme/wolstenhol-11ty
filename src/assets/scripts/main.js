@@ -234,6 +234,22 @@ window.PwHeader = () => {
   };
 };
 
+window.PwGenre = () => {
+  return {
+    open: false,
+    toggle() {
+      this.$el.closest('p').classList.add('select-none');
+      setTimeout(() => {
+        this.$el.closest('p').classList.remove('select-none');
+      }, 1000);
+      if (this.open) {
+        this.$el.blur();
+      }
+      this.open = !this.open;
+    },
+  };
+};
+
 document.body.addEventListener(
   'load',
   e => {

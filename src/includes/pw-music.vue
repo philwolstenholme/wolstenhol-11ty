@@ -34,20 +34,7 @@ export default {
       >According to the Spotify API, I've been listening to a fair amount of
       <template v-for="(genre, index) in genres">
         <template v-if="index + 1 == genres.length"> and </template
-        ><mark
-          v-bind:key="index"
-          class="group cursor-help"
-          tabindex="0"
-          x-data="{ 
-            open:false,
-            toggle() {
-              if (this.open) {
-                this.$el.blur();
-              }
-              this.open = !this.open;
-            }
-          }"
-          x-on:click="toggle()"
+        ><mark v-bind:key="index" class="group cursor-help" tabindex="0" x-data="PwGenre()" x-on:click="toggle()"
           >{{ genre.genre }}<span class="hidden group-focus:inline"> ({{ genre.artist }})</span></mark
         ><template v-if="index < genres.length - 2">, </template></template
       >

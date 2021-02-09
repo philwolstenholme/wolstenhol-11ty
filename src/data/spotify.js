@@ -27,7 +27,7 @@ module.exports = async function () {
   const topArtists = await spotifyApi
     .getMyTopArtists({
       time_range: 'short_term',
-      limit: 10,
+      limit: 14,
     })
     .then(
       function (data) {
