@@ -32,7 +32,7 @@ export default {
     tweetMedia: function () {
       let extEntities = this.originalTweet.extended_entities;
       if (typeof extEntities === 'object' && typeof extEntities.media[0] === 'object') {
-        return this.originalTweet.extended_entities.media[0];
+        return this.originalTweet.extended_entities.media;
       } else {
         return false;
       }
@@ -55,29 +55,40 @@ export default {
 
 <template>
   <div class="card__twitter shadow-hard rounded overflow-hidden text-white font-bold">
-    <p>
-      <a v-if="tweetMedia" :href="tweetMedia.expanded_url" class="block relative w-full">
+    <p class="grid grid-flow-col bg-black" v-if="tweetMedia">
+      <a
+        :is="media.type == 'photo' ? 'a' : 'div'"
+        v-for="(media, index) in tweetMedia"
+        v-bind:key="index"
+        :href="media.expanded_url"
+        class="block relative w-full"
+      >
         <span class="sr-only">Tweet media</span>
         <br class="hidden" />
         <img
-          :src="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:400,f_auto,q_auto/${tweetMedia.media_url_https}`"
-          :srcset="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:800,f_auto,q_auto/${tweetMedia.media_url_https} 2x, https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:1200,f_auto,q_auto/${tweetMedia.media_url_https} 3x`"
+          v-if="media.type == 'photo'"
+          :src="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:400,f_auto,q_auto/${media.media_url_https}`"
+          :srcset="`https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:800,f_auto,q_auto/${media.media_url_https} 2x, https://res.cloudinary.com/wolstenh/image/fetch/w_auto:100:1200,f_auto,q_auto/${tweetMedia.media_url_https} 3x`"
           sizes="368px"
-          :width="tweetMedia.sizes.small.w"
-          :height="tweetMedia.sizes.small.h"
-          class="w-full"
+          :width="media.sizes.small.w"
+          :height="media.sizes.small.h"
+          class="w-full h-full object-cover"
           loading="lazy"
           crossorigin="anonymous"
-          :alt="tweetMedia.ext_alt_text || ''"
+          :alt="media.ext_alt_text || ''"
         />
-        <span
-          v-if="['video', 'animated_gif'].includes(tweetMedia.type)"
-          aria-hidden="true"
-          style="display: none"
-          class="play-button-container absolute inset-0 block flex items-center justify-center grow"
+        <video
+          class="w-full"
+          muted
+          loop
+          controls
+          playsinline
+          preload="none"
+          v-if="['video', 'animated_gif'].includes(media.type)"
+          :poster="media.media_url_https"
         >
-          <icon class="play-button text-7xl" name="playCircle" />
-        </span>
+          <source v-for="(variant, index) in media.video_info.variants" :key="index" :src="variant.url" :type="variant.content_type" />
+        </video>
       </a>
     </p>
 
