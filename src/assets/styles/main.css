@@ -129,3 +129,7 @@ mark {
     clear: both;
   }
 }
+
+.section__inner {
+  max-width: min(calc(72rem - 16px), calc(100vw - 4rem));
+}
