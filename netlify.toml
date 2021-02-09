@@ -25,6 +25,12 @@
   to = "/404"
   status = 404
 
+[[redirects]]
+  from = "https://cranky-mcnulty-01683e.netlify.app"
+  to = "https://wolstenhol.me"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*" # This defines which paths this specific [[headers]] block will cover.
   [headers.values]
