@@ -32,7 +32,7 @@ export default {
         'hocus:bg-foursquare-dark': place.url,
       }"
     >
-      <div class="flex-grow p-5">
+      <div class="foursquare-card__body flex-grow p-5">
         <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
           <span aria-hidden="true">
             <svg
@@ -77,5 +77,9 @@ export default {
 
 .foursquare__map {
   mix-blend-mode: multiply;
+}
+
+.foursquare-card__body {
+  max-width: 365px;
 }
 </style>
