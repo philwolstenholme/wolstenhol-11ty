@@ -108,8 +108,8 @@ mark {
 }
 
 .breakout {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: calc(100vw - var(--scrollbar-width, 15px));
+  margin-left: calc(50% - (50vw - (var(--scrollbar-width, 15px) / 2)));
 }
 
 .aspect-ratio {
@@ -131,5 +131,21 @@ mark {
 }
 
 .section__inner {
-  max-width: min(calc(72rem - 16px), calc(100vw - 4rem));
+  max-width: calc(100vw - 2.5rem);
+
+  @screen sm {
+    max-width: 540px;
+  }
+
+  @screen md {
+    max-width: 720px;
+  }
+
+  @screen lg {
+    max-width: 960px;
+  }
+
+  @screen xl {
+    max-width: calc(72rem - 16px);
+  }
 }

@@ -33,6 +33,11 @@
     {% endif %}
   </head>
   <body class="text-gray-900 leading-normal overscroll-x-none">
+    <script>
+      let root = document.documentElement;
+      let scrollbarWidth = window.innerWidth - document.body.offsetWidth;
+      root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    </script>
     <p class="sr-only"><a href="#content">Skip to main content</a>.</p>
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %} {% include "homepage/homepage-header.njk" %}
@@ -41,7 +46,7 @@
         <div class="bg-subtle-grunge h-12"></div>
       </div>
       <main class="flex-grow w-full bg-subtle-grunge outline-none" id="content" tabindex="-1">
-        <div class="mx-auto max-w-6xl px-5 sm:px-2 py-10 lg:pb-28">
+        <div class="mx-auto section__inner py-10 lg:pb-28">
           {{ content | safe }}
         </div>
       </main>
