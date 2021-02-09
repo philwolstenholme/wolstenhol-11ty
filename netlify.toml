@@ -19,12 +19,6 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
-# Redirect to custom 404
-[[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
-
 [[redirects]]
   from = "https://cranky-mcnulty-01683e.netlify.app"
   to = "https://wolstenhol.me"
@@ -46,3 +40,9 @@
   for = "/*.no-js.html"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+# Redirect to custom 404
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
