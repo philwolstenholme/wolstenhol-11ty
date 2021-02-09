@@ -84,7 +84,7 @@ module.exports = async function () {
     }
   });
 
-  randomGenres = _.sampleSize(artistGenres, 6);
+  randomGenres = _.sampleSize(artistGenres, 8);
   randomGenres = _.compact(randomGenres);
 
   await Promise.all(spotifyFeaturesPromises);

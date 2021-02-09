@@ -31,14 +31,14 @@ export default {
   <pw-section section-key="music">
     <pw-section-heading title="Music" icon="headphones" section="music" />
     <pw-lede class="mt-3"
-      >According to the Spotify API, I've been listening to a fair amount of
+      >According to the Spotify API, I've been listening to a bit of
       <template v-for="(genre, index) in genres">
         <template v-if="index + 1 == genres.length"> and </template
         ><mark v-bind:key="index" class="group cursor-help" tabindex="0" x-data="PwGenre()" x-on:click="toggle()"
           >{{ genre.genre }}<span class="hidden group-focus:inline"> ({{ genre.artist }})</span></mark
         ><template v-if="index < genres.length - 2">, </template></template
       >
-      over the last few weeks.</pw-lede
+      over the last few weeks (their genre names, not mine!)</pw-lede
     >
 
     <pw-simple-scroller class="mt-12" :scroll-full="true" theme="spotify">
