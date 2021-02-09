@@ -17,11 +17,16 @@ module.exports = async function () {
     $ = cheerio.load(item['content:encoded']);
     $('figure').remove();
 
+    const content = $.root()
+      .text()
+      // Add a space after full-stops.
+      .replace(/\.(?=[^\d])[ ]*/g, '. ');
+
     posts.push({
       title: item.title,
       url: item.link,
       categories: item.categories,
-      content: truncate($.root().text(), 130),
+      content: truncate(content, 130),
     });
   });
 
