@@ -92,6 +92,7 @@ export default {
             disablePictureInPicture
             disableRemotePlayback
             preload="metadata"
+            aria-label="Play video"
           >
             <source
               v-for="(variant, index) in media.video_info.variants"
