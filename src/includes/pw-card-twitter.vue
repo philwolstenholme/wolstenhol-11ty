@@ -92,7 +92,6 @@ export default {
             disablePictureInPicture
             disableRemotePlayback
             preload="metadata"
-            aria-label="Play video"
           >
             <source
               v-for="(variant, index) in media.video_info.variants"
@@ -103,6 +102,7 @@ export default {
           </video>
           <div hidden class="play-button-container absolute inset-0 flex items-center justify-center grow">
             <button
+              aria-label="Play video"
               class="transform-gpu transition-transform hocus:scale-110"
               onclick="this.parentElement.previousElementSibling.play(); this.parentElement.previousElementSibling.setAttribute('controls', 'true'); this.parentElement.remove();"
             >
