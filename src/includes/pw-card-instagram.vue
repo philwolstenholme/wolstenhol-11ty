@@ -1,10 +1,12 @@
 <script>
 import icon from './icon.vue';
+import spriteIcon from './sprite-icon.vue';
 const cloudinary = require('cloudinary').v2;
 
 export default {
   components: {
     icon,
+    spriteIcon,
   },
   props: {
     post: {
@@ -87,36 +89,12 @@ export default {
         <div v-if="post.likes.count > 0 || post.comments.count > 0 || post.location.name" class="space-y-2">
           <p v-if="post.likes.count > 0 || post.comments.count > 0">
             <template v-if="post.likes.count > 0">
-              <svg
-                focusable="false"
-                role="img"
-                width="16"
-                height="16"
-                class="icon text-red-500"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="3.5329999923706055 12 46.933998107910156 44"
-              >
-                <path
-                  d="M38.723,12c-7.187,0-11.16,7.306-11.723,8.131C26.437,19.306,22.504,12,15.277,12C8.791,12,3.533,18.163,3.533,24.647 C3.533,39.964,21.891,55.907,27,56c5.109-0.093,23.467-16.036,23.467-31.353C50.467,18.163,45.209,12,38.723,12z"
-                />
-              </svg>
+              <sprite-icon hash="heart"></sprite-icon>
               <span class="sr-only">Likes: </span>
               <span class="inline-block mr-2" v-text="post.likes.count" />
             </template>
             <template v-if="post.comments.count > 0">
-              <svg
-                focusable="false"
-                role="img"
-                width="16"
-                height="16"
-                class="icon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 2 32 29.986000061035156"
-              >
-                <path
-                  d="M16 2c8.837 0 16 5.82 16 13s-7.163 13-16 13c-.85 0-1.682-.054-2.495-.158C10.068 31.28 5.965 31.895 2 31.986v-.84c2.142-1.05 4-2.962 4-5.146 0-.305-.024-.604-.068-.897C2.312 22.72 0 19.08 0 15 0 7.82 7.163 2 16 2z"
-                />
-              </svg>
+              <sprite-icon hash="speech"></sprite-icon>
               <span class="sr-only">Comments: </span>
               <span class="inline-block" v-text="post.comments.count" />
             </template>
