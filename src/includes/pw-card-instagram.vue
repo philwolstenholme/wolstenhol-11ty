@@ -89,7 +89,7 @@ export default {
         <div v-if="post.likes.count > 0 || post.comments.count > 0 || post.location.name" class="space-y-2">
           <p v-if="post.likes.count > 0 || post.comments.count > 0">
             <template v-if="post.likes.count > 0">
-              <sprite-icon hash="heart"></sprite-icon>
+              <sprite-icon hash="heart" class="text-red-600"></sprite-icon>
               <span class="sr-only">Likes: </span>
               <span class="inline-block mr-2" v-text="post.likes.count" />
             </template>

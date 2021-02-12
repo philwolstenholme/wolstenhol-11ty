@@ -206,7 +206,26 @@ window.PwTweets = () => {
           const parser = new DOMParser();
           const doc = parser.parseFromString(html, 'text/html');
           const tweets = doc.getElementById('results').children;
-          this.colcadeInstance.append(tweets);
+
+          if (window.innerWidth > 767) {
+            this.colcadeInstance.append(tweets);
+          } else {
+            // Add the new tweets (not using Colcade) as the items only need to be stacked.
+            const tweetsFragment = document.createDocumentFragment();
+            [...tweets].forEach(tweet => {
+              tweetsFragment.appendChild(tweet);
+            });
+            this.$refs.container.appendChild(tweetsFragment);
+
+            // Move columns to the bottom of the list so that they don't interfere with owl classes.
+            const cols = this.$el.querySelectorAll('.tweets-grid__col');
+            const colsFragment = document.createDocumentFragment();
+            [...cols].forEach(col => {
+              colsFragment.appendChild(col);
+            });
+            this.$refs.container.appendChild(colsFragment);
+          }
+
           window.lozad.observe();
         })
         .catch(err => {
