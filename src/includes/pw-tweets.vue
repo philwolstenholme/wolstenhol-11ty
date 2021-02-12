@@ -24,7 +24,7 @@ export default {
     <pw-section-heading title="Tweets" icon="twitter" section="tweets" />
     <pw-lede class="mt-3">Tweets by me, <a href="https://twitter.com/intent/user?user_id=38276082" class="font-bold">@philw_</a>.</pw-lede>
     <div class="tweets-grid mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-      <div class="tweets-grid__item" v-for="(tweet, index) in tweets" :key="index">
+      <div class="tweets-grid__item" v-for="(tweet, index) in tweets.slice(0, 3)" :key="index">
         <pw-card-twitter :tweet="tweet" />
       </div>
 

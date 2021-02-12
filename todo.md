@@ -12,7 +12,6 @@
 
 ## Eleventy
 
-- Find way to make no-JS pages
 - Move speaking data to a collection?
 - Sort out page templates for homepage vs other pages
 - Duplicate header data
@@ -25,11 +24,4 @@
 
 - Make invisible scroller items inert
 - Card links
-- Clean up duplicate header landmarks on homepage
 - If input intent is keyboard show all Instagram captions
-
-## Maps
-
-- Sign URLs / https://www.npmjs.com/package/gmaps-url-signer
-- Make proper Google project and API key
-- Generate map URLs in script not template

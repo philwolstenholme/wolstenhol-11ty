@@ -5,10 +5,10 @@ import Horizon from '@mintuz/horizon';
 window.Horizon = Horizon;
 import lozad from 'lozad';
 
-const observer = lozad('.lozad', {
+window.lozad = lozad('.lozad', {
   enableAutoReload: true,
 });
-observer.observe();
+window.lozad.observe();
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -185,15 +185,33 @@ window.PwSimpleScroller = $el => {
 
 window.PwTweets = () => {
   return {
+    colcadeInstance: null,
+    extraTweets: null,
     colcade() {
       if (window.innerWidth > 767) {
-        loadjs('https://cdn.jsdelivr.net/npm/colcade@0.2.0/colcade.min.js', function () {
-          new Colcade('.tweets-grid', {
+        loadjs('https://cdn.jsdelivr.net/npm/colcade@0.2.0/colcade.js', () => {
+          this.colcadeInstance = new Colcade('.tweets-grid', {
             columns: '.tweets-grid__col',
             items: '.tweets-grid__item',
           });
         });
       }
+    },
+    loadMore() {
+      fetch('/full-tweets.html')
+        .then(response => {
+          return response.text();
+        })
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const tweets = doc.getElementById('results').children;
+          this.colcadeInstance.append(tweets);
+          window.lozad.observe();
+        })
+        .catch(err => {
+          console.error('Something went wrong.', err);
+        });
     },
     twitterIntents() {
       loadjs('https://cdn.jsdelivr.net/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.min.js', function () {
@@ -207,6 +225,7 @@ window.PwTweets = () => {
         triggerOnce: true,
         onEntry(entry) {
           entry.target.__x.$data.colcade();
+          entry.target.__x.$data.loadMore();
           entry.target.__x.$data.twitterIntents();
         },
       });
