@@ -41,6 +41,11 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
+[[headers]]
+  for = "/partial-*.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
 # Redirect to custom 404
 [[redirects]]
   from = "/*"

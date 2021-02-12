@@ -3,7 +3,7 @@ import PwCardTwitter from './includes/pw-card-twitter.vue';
 
 export default {
   data: {
-    permalink: 'full-tweets.html',
+    permalink: 'partial-tweets.html',
     eleventyExcludeFromCollections: true,
   },
   components: {

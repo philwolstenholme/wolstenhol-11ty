@@ -198,7 +198,7 @@ window.PwTweets = () => {
       }
     },
     loadMore() {
-      fetch('/full-tweets.html')
+      fetch('/partial-tweets.html')
         .then(response => {
           return response.text();
         })
