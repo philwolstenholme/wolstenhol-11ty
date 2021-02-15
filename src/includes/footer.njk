@@ -1,7 +1,7 @@
 <hr class="hidden" />
 <footer role="contentinfo" class="bg-binding-dark text-yellow-400 text-xs py-16">
   <div class="section__inner mx-auto space-y-5 md:grid grid-cols-2 md:space-y-0 gap-5">
-    <div class="hue-rotate space-y-4">
+    <div class="space-y-4">
       <p>
         &copy; <time datetime="1989-05-16" title="🎂">1989</time>-{{ build.timestamp | dateToFormat('yyyy') }} Phil Wolstenholme unless
         otherwise stated (there might be the odd Creative Commons license image within articles)
@@ -25,7 +25,7 @@
 
     <div class="space-y-4">
       <p
-        class="hue-rotate no-js:hidden"
+        class="no-js:hidden"
         x-data="{time: null}"
         x-init="
           function() {
@@ -42,7 +42,7 @@
         This page loaded in <span x-text="time" class="font-mono">?.??</span> seconds.
       </p>
 
-      <ul class="space-y-3 hue-rotate md:flex md:space-y-0 md:space-x-3">
+      <ul class="space-y-3 md:flex md:space-y-0 md:space-x-3">
         {% if (build.noJs == 'TRUE') or (build.noCss == 'TRUE') %}
         <li>
           <span aria-hidden="true">🍔&nbsp;</span>
@@ -62,7 +62,7 @@
       </ul>
 
       <div hidden class="flex-wrap items-center gap-2">
-        <p id="homepage-lighthouse-scores" class="hue-rotate">Homepage Lighthouse scores (%):</p>
+        <p id="homepage-lighthouse-scores">Homepage Lighthouse scores (%):</p>
         <ul class="no-list p-0 flex flex-wrap gap-2" aria-describedby="homepage-lighthouse-scores">
           <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
             <span class="sr-only">Performance: </span><span>95</span><span class="sr-only">%</span>
