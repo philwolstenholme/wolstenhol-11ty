@@ -47,6 +47,11 @@ export default {
       </pw-simple-scroller-item>
     </pw-simple-scroller>
 
+    <p class="font-bold max-w-prose mt-4 opacity-90 text-xs">
+      You can click the cards above to play a little preview of the artist, courtesy of the Spotify API. I also use the Spotify API to get
+      the tempo/BPM of the preview song, and I use this to influence the speed that a card bops at while its playing.
+    </p>
+
     <audio
       controls
       autoplay
