@@ -51,6 +51,10 @@ export default {
       You can click the cards above to play a little preview of the artist, courtesy of the Spotify API. I also use the Spotify API to get
       the tempo/BPM of the preview song, and I use this to influence the speed that a card bops at while its playing.
     </p>
+    <p class="no-js:hidden max-w-prose mt-2 opacity-90 text-xs">
+      Press the pause icon or the <kbd class="rounded border border-gray-300 p-0.5 bg-white">esc</kbd> key on your keyboard to stop the
+      previews.
+    </p>
 
     <audio
       controls
