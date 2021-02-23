@@ -1,32 +1,142 @@
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}" class="bg-white antialiased">
+<html lang="{{ meta.lang }}" class="no-js bg-binding-dark antialiased scroll-smooth overflow-x-hidden overflow-y-scroll">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      {%- if seo.title -%}
+      {% if build.noJs == 'TRUE' %}No JS - {% endif %} {% if build.noCss == 'TRUE' %}No CSS - {% endif %} {%- if seo.title -%}
       {{ seo.title }}
       {%- else -%}
       {{ title }} | {{ meta.title }}
       {%- endif -%}
     </title>
-    <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
     {% include "meta.njk" %}
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    {% if not build.noJs %}
+    <script>
+      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
+    </script>
+    {% endif %} {% if not build.noCss %}
+    <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
+    <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
+    <style>
+      /* 
+       * https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
+       */
+      body main section + section {
+        content-visibility: auto;
+        contain-intrinsic-size: 10px 500px;
+      }
+    </style>
+    {% endif %}
   </head>
-  <body class="text-gray-900 leading-normal overflow-x-hidden">
-    <a href="#content" class="sr-only">skip to main content</a>
+  <body class="text-gray-900 leading-normal overscroll-x-none">
+    <script>
+      let root = document.documentElement;
+      let scrollbarWidth = window.innerWidth - document.body.offsetWidth;
+      root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+    </script>
+    <p class="sr-only"><a href="#content">Skip to main content</a>.</p>
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %}
-      <main
-        class="relative flex-grow w-full bg-subtle-grunge"
-        id="content"
-        tabindex="-1"
-      >
-        {{ content | safe }}
+      <main class="flex-grow w-full bg-subtle-grunge outline-none" id="content" tabindex="-1">
+        {% if page.url == '/' %} {% include "homepage/homepage-header.njk" %}
+        <div class="-mb-6 -mt-6 -skew-y-1 transform z-10">
+          <div class="bg-binding-dark h-12"></div>
+          <div class="bg-subtle-grunge h-12"></div>
+        </div>
+        {% endif %}
+        <div class="mx-auto section__inner py-10 lg:pb-28">
+          <img
+            class="absolute opacity-40 blend"
+            loading="lazy"
+            decoding="async"
+            alt=""
+            src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,f_auto,q_auto,w_1000/v1613826001/one-offs/cup-coffee-stain-2.png"
+            style="width: 500px; mix-blend-mode: multiply; left: -250px; top: 500px"
+          />
+          <img
+            class="absolute opacity-40 blend transform rotate-90 scale-x-125"
+            loading="lazy"
+            decoding="async"
+            alt=""
+            src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,f_auto,q_auto,w_900/v1613826001/one-offs/cup-coffee-stain-2.png"
+            style="width: 450px; mix-blend-mode: multiply; right: -250px; top: 1300px"
+          />
+          <img
+            class="absolute opacity-40 blend transform -rotate-45"
+            loading="lazy"
+            decoding="async"
+            alt=""
+            src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,f_auto,q_auto,w_900/v1613826001/one-offs/cup-coffee-stain-2.png"
+            style="width: 500px; mix-blend-mode: multiply; left: -230px; top: 2100px"
+          />
+          {{ content | safe }}
+        </div>
       </main>
       {% include "footer.njk" %}
     </div>
-    <script src="{{ '/assets/main.js' | url }}" defer></script>
+    <div class="hidden">{% include "src/assets/sprite.svg" %} {% include "src/assets/design-elements.svg" %}</div>
+    {% if not build.noJs %}
+    <script type="module">
+      // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
+      let eqIsh = (a, b, fuzz = 2) => {
+        return Math.abs(a - b) <= fuzz;
+      };
+
+      let rectNotEQ = (a, b) => {
+        return !eqIsh(a.width, b.width) || !eqIsh(a.height, b.height);
+      };
+
+      let spaced = new WeakMap();
+
+      let reserveSpace = (el, rect = el.getClientBoundingRect()) => {
+        let old = spaced.get(el);
+        if (!old || rectNotEQ(old, rect)) {
+          spaced.set(el, rect);
+          el.attributeStyleMap.set('contain-intrinsic-size', `${rect.width}px ${rect.height}px`);
+        }
+      };
+
+      let iObs = new IntersectionObserver(
+        (entries, o) => {
+          entries.forEach(entry => {
+            reserveSpace(entry.target, entry.boundingClientRect);
+          });
+        },
+        { rootMargin: '500px 0px 500px 0px' }
+      );
+
+      let rObs = new ResizeObserver((entries, o) => {
+        entries.forEach(entry => {
+          reserveSpace(entry.target, entry.contentRect);
+        });
+      });
+
+      let sections = document.querySelectorAll('body main section');
+
+      sections.forEach(el => {
+        iObs.observe(el);
+        rObs.observe(el);
+      });
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          sections[0].attributeStyleMap.set('content-visibility', 'auto');
+        });
+      });
+    </script>
+    <script>
+      window.addEventListener('scroll', loadJsOnScroll, {passive: true});
+      function loadJsOnScroll() {
+        loadjs('{{ '/assets/main.js' | url }}', function() {
+          window.removeEventListener('scroll', loadJsOnScroll);
+        });
+      }
+    </script>
+    {% endif %}
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
   </body>
 </html>

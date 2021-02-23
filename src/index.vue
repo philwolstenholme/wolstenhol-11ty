@@ -56,6 +56,7 @@ export default {
       return `${parts.join('.')}.html`;
     },
     layout: 'homepage',
+    layout: 'base',
     title: 'Phil Wolstenholme',
     seo: {
       title: `Phil Wolstenholme's personal website, blog and portfolio`,
