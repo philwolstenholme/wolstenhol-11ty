@@ -62,11 +62,11 @@
         <use href="#arrow-right" />
       </svg>
     </button>
-    <div class="u-flex justify-end">
+    <div class="flex justify-end h-10">
       <div
         hidden
         x-bind:inert="!overflowing.right"
-        class="no-js:hidden js:block float-right font-bold mt-3 rounded text-gray-500 text-sm transition-all transform-gpu duration-300"
+        class="no-js:hidden js:inline-block lg:float-right font-bold mt-3 ml-3 rounded text-gray-500 text-sm transition-all transform-gpu duration-300"
         x-bind:class="{
         'opacity-0 translate-y-4': !overflowing.right
       }"
