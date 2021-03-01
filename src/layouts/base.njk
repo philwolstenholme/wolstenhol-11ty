@@ -131,10 +131,15 @@
       });
     </script>
     <script>
-      window.addEventListener('scroll', loadJsOnScroll, {passive: true});
-      function loadJsOnScroll() {
+      window.addEventListener('scroll', loadJsOnInteraction, {passive: true});
+      window.addEventListener('touchstart', loadJsOnInteraction, {passive: true});
+      window.addEventListener('mousemove', loadJsOnInteraction, {passive: true});
+
+      function loadJsOnInteraction() {
         loadjs('{{ '/assets/main.js' | url }}', function() {
-          window.removeEventListener('scroll', loadJsOnScroll);
+          window.removeEventListener('scroll', loadJsOnInteraction);
+          window.removeEventListener('touchstart', loadJsOnInteraction);
+          window.removeEventListener('mousemove', loadJsOnInteraction);
         });
       }
     </script>
