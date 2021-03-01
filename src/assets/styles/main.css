@@ -165,7 +165,7 @@ mark,
 }
 
 .speedlify-weight {
-  @apply pl-1;
+  @apply inline-block pl-1;
 
   &::before {
     content: '(';
