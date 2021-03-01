@@ -97,7 +97,9 @@
 
 /* https://max.hn/thoughts/how-to-create-a-highlighter-marker-effect-in-css */
 h2:target,
-mark {
+mark,
+.highlight,
+.highlight-links a {
   margin: 0 -0.4em;
   padding: 0.1em 0.4em;
   border-radius: 0.8em 0.3em;
@@ -105,6 +107,10 @@ mark {
   background-image: linear-gradient(to right, rgba(255, 225, 0, 0.1), rgba(255, 225, 0, 0.7) 4%, rgba(255, 225, 0, 0.4));
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+
+.underline-links a {
+  text-decoration: underline;
 }
 
 .breakout {
@@ -147,5 +153,25 @@ mark {
 
   @screen xl {
     max-width: calc(72rem - 16px);
+  }
+}
+
+.speedlify-score {
+  @apply inline-block border-yellow-400 border-2 rounded-full h-8 w-8 flex items-center justify-center;
+}
+
+.speedlify-score-good {
+  @apply border-green-300;
+}
+
+.speedlify-weight {
+  @apply pl-1;
+
+  &::before {
+    content: '(';
+  }
+
+  &::after {
+    content: ')';
   }
 }

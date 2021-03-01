@@ -309,3 +309,11 @@ document.body.addEventListener(
 
 document.querySelector('html').classList.remove('no-js');
 document.querySelector('html').classList.add('js');
+
+new Horizon({
+  toObserve: document.querySelector('footer'),
+  triggerOnce: true,
+  onEntry() {
+    loadjs(['https://cdn.jsdelivr.net/npm/speedlify-score@2.0.1/speedlify-score.min.js'], 'speedlify-score');
+  },
+});

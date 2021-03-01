@@ -61,23 +61,21 @@
         {% endif %}
       </ul>
 
-      <div hidden class="flex-wrap items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2">
         <p id="homepage-lighthouse-scores">Homepage Lighthouse scores (%):</p>
-        <ul class="no-list p-0 flex flex-wrap gap-2" aria-describedby="homepage-lighthouse-scores">
-          <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
-            <span class="sr-only">Performance: </span><span>95</span><span class="sr-only">%</span>
-          </li>
-          <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
-            <span class="sr-only">Accessibility: </span><span>100</span><span class="sr-only">%</span>
-          </li>
-          <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
-            <span class="sr-only">Best practices: </span><span>100</span><span class="sr-only">%</span>
-          </li>
-          <li class="text-green-400 border-2 border-green-500 rounded-full p-1 w-8 h-8 leading-5 text-center">
-            <span class="sr-only">SEO: </span><span>100</span><span class="sr-only">%</span>
-          </li>
-        </ul>
+        <speedlify-score
+          class="flex space-x-1 flex items-center"
+          speedlify-url="https://www.11ty.dev/speedlify"
+          hash="f9481d0e"
+          score
+          weight
+        ></speedlify-score>
       </div>
+
+      <p>
+        The less-than-perfect accessibility score is a
+        <a href="https://github.com/dequelabs/axe-core/issues/2768" class="underline">false-positive due to a bug in axe-core</a> 😫
+      </p>
     </div>
   </div>
 </footer>
