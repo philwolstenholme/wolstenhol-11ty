@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}" class="no-js bg-binding-dark antialiased scroll-smooth overflow-x-hidden overflow-y-scroll">
+<html lang="{{ meta.lang }}" class="no-js bg-binding-dark antialiased scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,7 +32,7 @@
     </style>
     {% endif %}
   </head>
-  <body class="text-gray-900 leading-normal overscroll-x-none">
+  <body class="text-gray-900 leading-normal overscroll-x-none overflow-x-hidden overflow-y-scroll">
     <script>
       let root = document.documentElement;
       let scrollbarWidth = window.innerWidth - document.body.offsetWidth;
@@ -51,29 +51,35 @@
         <div class="mx-auto section__inner py-10 lg:pb-28">
           <img
             hidden
-            class="absolute inline opacity-40 blend"
+            class="absolute inline opacity-40 blend-multiply"
             loading="eager"
             alt=""
+            width="500"
+            height="451"
             src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,q_20,w_1000/v1614122419/one-offs/cup-coffee-stain-2.jpg"
-            style="width: 500px; mix-blend-mode: multiply; left: -230px; top: 600px"
+            style="left: -230px; top: 600px"
           />
-          <!-- <img
-            hidden
-            class="absolute inline opacity-40 blend transform rotate-90"
-            loading="lazy"
-            decoding="async"
-            alt=""
-            src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,q_20,w_1000/v1614122419/one-offs/cup-coffee-stain-2.jpg"
-            style="width: 450px; mix-blend-mode: multiply; right: -250px; top: 1900px"
-          /> -->
           <img
             hidden
-            class="absolute inline opacity-40 blend transform -rotate-45"
+            class="absolute blend-multiply inline opacity-40 transform object-cover object-left"
             loading="lazy"
             decoding="async"
             alt=""
+            width="112"
+            height="405"
             src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,q_20,w_1000/v1614122419/one-offs/cup-coffee-stain-2.jpg"
-            style="width: 500px; mix-blend-mode: multiply; left: -230px; top: 2900px"
+            style="right: 0; top: 1900px; height: 405px; width: 9%"
+          />
+          <img
+            hidden
+            class="absolute inline opacity-40 blend-multiply transform -rotate-45"
+            loading="lazy"
+            decoding="async"
+            alt=""
+            width="500"
+            height="451"
+            src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,q_20,w_1000/v1614122419/one-offs/cup-coffee-stain-2.jpg"
+            style="left: -230px; top: 2900px"
           />
           {{ content | safe }}
         </div>
