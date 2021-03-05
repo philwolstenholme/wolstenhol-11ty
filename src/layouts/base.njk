@@ -57,7 +57,7 @@
             src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,q_20,w_1000/v1614122419/one-offs/cup-coffee-stain-2.jpg"
             style="width: 500px; mix-blend-mode: multiply; left: -230px; top: 600px"
           />
-          <img
+          <!-- <img
             hidden
             class="absolute inline opacity-40 blend transform rotate-90"
             loading="lazy"
@@ -65,7 +65,7 @@
             alt=""
             src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,q_20,w_1000/v1614122419/one-offs/cup-coffee-stain-2.jpg"
             style="width: 450px; mix-blend-mode: multiply; right: -250px; top: 1900px"
-          />
+          /> -->
           <img
             hidden
             class="absolute inline opacity-40 blend transform -rotate-45"
@@ -131,9 +131,9 @@
       });
     </script>
     <script>
-      window.addEventListener('scroll', loadJsOnInteraction, {passive: true});
-      window.addEventListener('touchstart', loadJsOnInteraction, {passive: true});
-      window.addEventListener('mousemove', loadJsOnInteraction, {passive: true});
+      window.addEventListener('scroll', loadJsOnInteraction, { passive: true, once: true });
+      window.addEventListener('touchstart', loadJsOnInteraction, { passive: true, once: true });
+      window.addEventListener('mousemove', loadJsOnInteraction, { passive: true, once: true });
 
       function loadJsOnInteraction() {
         loadjs('{{ '/assets/main.js' | url }}', function() {
