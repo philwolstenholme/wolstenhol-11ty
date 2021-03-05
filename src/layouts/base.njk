@@ -81,7 +81,9 @@
             src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,q_20,w_1000/v1614122419/one-offs/cup-coffee-stain-2.jpg"
             style="left: -230px; top: 2900px"
           />
-          {{ content | safe }}
+          <div class="transform">
+            {{ content | safe }}
+          </div>
         </div>
       </main>
       {% include "footer.njk" %}
