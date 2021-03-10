@@ -100,6 +100,7 @@
 }
 
 /* https://max.hn/thoughts/how-to-create-a-highlighter-marker-effect-in-css */
+::target-text,
 h2:target,
 mark,
 .highlight,
