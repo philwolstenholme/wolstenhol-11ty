@@ -330,27 +330,28 @@ if (partyInstagramCards) {
       },
       onEntry(entry) {
         loadjs('https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
-          var dimensions = entry.target.getBoundingClientRect();
-          var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
-
-          var count = 150;
-          var defaults = {
-            origin: {
-              y: 0.5,
-              x: centerXCoord / window.innerWidth,
-            },
-            disableForReducedMotion: true,
-          };
-
-          function fire(particleRatio, opts) {
-            confetti(
-              Object.assign({}, defaults, opts, {
-                particleCount: Math.floor(count * particleRatio),
-              })
-            );
-          }
-
+          // Add a timeout to allow any scrolling to stop.
           window.setTimeout(() => {
+            var dimensions = entry.target.getBoundingClientRect();
+            var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
+
+            var count = 150;
+            var defaults = {
+              origin: {
+                y: 0.5,
+                x: centerXCoord / window.innerWidth,
+              },
+              disableForReducedMotion: true,
+            };
+
+            function fire(particleRatio, opts) {
+              confetti(
+                Object.assign({}, defaults, opts, {
+                  particleCount: Math.floor(count * particleRatio),
+                })
+              );
+            }
+
             fire(0.25, {
               spread: 26,
               startVelocity: 55,
