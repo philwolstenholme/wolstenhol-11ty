@@ -317,3 +317,69 @@ new Horizon({
     loadjs(['https://cdn.jsdelivr.net/npm/speedlify-score@2.0.1/speedlify-score.min.js'], 'speedlify-score');
   },
 });
+
+const partyInstagramCards = document.querySelectorAll('.card__instagram--party');
+if (partyInstagramCards) {
+  partyInstagramCards.forEach(card => {
+    new Horizon({
+      toObserve: card,
+      triggerOnce: false,
+      intersectionObserverConfig: {
+        rootMargin: '0px 0px -50% 0px',
+        threshold: 0.5,
+      },
+      onEntry(entry) {
+        loadjs('https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
+          var dimensions = entry.target.getBoundingClientRect();
+          var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
+
+          var count = 150;
+          var defaults = {
+            origin: {
+              y: 0.5,
+              x: centerXCoord / window.innerWidth,
+            },
+            disableForReducedMotion: true,
+          };
+
+          function fire(particleRatio, opts) {
+            confetti(
+              Object.assign({}, defaults, opts, {
+                particleCount: Math.floor(count * particleRatio),
+              })
+            );
+          }
+
+          window.setTimeout(() => {
+            fire(0.25, {
+              spread: 26,
+              startVelocity: 55,
+            });
+
+            fire(0.2, {
+              spread: 60,
+            });
+
+            fire(0.35, {
+              spread: 100,
+              decay: 0.91,
+              scalar: 0.8,
+            });
+
+            fire(0.1, {
+              spread: 120,
+              startVelocity: 25,
+              decay: 0.92,
+              scalar: 1.2,
+            });
+
+            fire(0.1, {
+              spread: 120,
+              startVelocity: 45,
+            });
+          }, 700);
+        });
+      },
+    });
+  });
+}

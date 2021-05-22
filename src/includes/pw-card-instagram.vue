@@ -35,6 +35,13 @@ export default {
     cloudinarySrcSet: function () {
       return `${this.cloudinaryUrl.replace(this.width, this.width * 2)} 2x, ${this.cloudinaryUrl.replace(this.width, this.width * 3)} 3x`;
     },
+
+    isParty: function () {
+      if (this.post.caption.text) {
+        return this.post.caption.text.includes('birthday');
+      }
+      return false;
+    },
   },
 };
 </script>
@@ -48,6 +55,7 @@ export default {
     v-bind:x-on:mouseout="post.videos ? '$refs.video.play()' : null"
     v-bind:x-on:blur="post.videos ? '$refs.video.play()' : null"
     class="group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
+    :class="{ 'card__instagram--party': isParty }"
   >
     <div class="flex-col justify-center shadow-hard">
       <template v-if="post.videos">
@@ -84,7 +92,7 @@ export default {
         />
       </template>
       <figcaption
-        class="absolute pointer-events-none space-y-3 transform-gpu transition-transform translate-y-full max-h-full overflow-y-auto group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
+        class="absolute pointer-events-none space-y-3 transform-gpu transition-transform translate-y-full max-h-full group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
       >
         <div v-if="post.likes.count > 0 || post.comments.count > 0 || post.location.name" class="space-y-2">
           <p v-if="post.likes.count > 0 || post.comments.count > 0">
@@ -108,6 +116,9 @@ export default {
         <p v-if="post.caption.text">
           {{ post.caption.text }}
         </p>
+        <span v-if="isParty" class="-top-8 absolute lg:inline-block lg:text-4xl right-8 sm:hidden text-6xl xl:text-6xl" aria-hidden="true"
+          >🥳</span
+        >
       </figcaption>
     </div>
   </figure>
