@@ -323,7 +323,7 @@ if (partyInstagramCards) {
   partyInstagramCards.forEach(card => {
     new Horizon({
       toObserve: card,
-      triggerOnce: false,
+      triggerOnce: true,
       intersectionObserverConfig: {
         rootMargin: '0px 0px -50% 0px',
         threshold: 0.5,
