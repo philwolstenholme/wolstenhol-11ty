@@ -21,6 +21,7 @@ import {
   faChalkboardTeacher,
   faEnvelope,
   faPaperPlane,
+  faBriefcase,
 } from '@fortawesome/free-solid-svg-icons';
 
 config.autoAddCss = false;
@@ -70,6 +71,7 @@ export default {
         chalkboardTeacher: faChalkboardTeacher,
         envelope: faEnvelope,
         paperPlane: faPaperPlane,
+        briefcase: faBriefcase,
       }[this.name];
     },
     // Gets a CSS module class, e.g. iconCustomLogo

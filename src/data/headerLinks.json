@@ -6,6 +6,7 @@
     { "title": "Photos", "href": "#photos" },
     { "title": "Places", "href": "#places" },
     { "title": "Tweets", "href": "#tweets" },
-    { "title": "Contact", "href": "#contact" }
+    { "title": "Work", "href": "/work" },
+    { "title": "Contact", "href": "/contact" }
   ]
 }

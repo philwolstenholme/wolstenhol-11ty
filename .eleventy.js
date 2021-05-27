@@ -123,6 +123,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addDataExtension('yaml', contents => yaml.safeLoad(contents));
 
+  eleventyConfig.addCollection('workItems', collection => {
+    return collection.getFilteredByGlob('src/work/*.md');
+  });
+
   return {
     dir: config.dir,
     passthroughFileCopy: true,
