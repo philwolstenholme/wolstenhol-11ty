@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   important: true,
@@ -55,13 +56,16 @@ module.exports = {
       cursor: {
         help: 'help',
       },
+      colors: {
+        gray: colors.coolGray,
+      },
     },
   },
   variants: {
     extend: {
       display: ['js', 'no-js', 'group-hocus', 'group-focus'],
       textColor: ['hocus', 'group-hocus'],
-      backgroundColor: ['hocus', 'group-hocus'],
+      backgroundColor: ['hocus', 'group-hocus', 'group-focus'],
       transform: ['hover', 'focus', 'hocus', 'group-hocus'],
       translate: ['hover', 'focus', 'hocus', 'group-hocus'],
       scale: ['group-focus-within', 'group-hover', 'group-hocus', 'hocus'],

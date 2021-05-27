@@ -10,14 +10,14 @@ export default {
 </script>
 
 <template>
-  <article class="overflow-hidden rounded shadow-hard bg-purple-700" style="min-width: 272px">
+  <article class="overflow-hidden rounded shadow-hard bg-purple-700 focus-within:bg-purple-900" style="min-width: 272px">
     <component :is="href ? 'a' : 'div'" :href="href" class="block group aspect-h-9 aspect-w-16 w-full overflow-hidden">
       <h3 class="sr-only">{{ talk }}</h3>
       <img
         v-if="image"
         class="talk-image object-cover transition-opacity"
         :class="{
-          'group-hocus:opacity-20': href,
+          'group-hocus:opacity-10': href,
         }"
         :src="image"
         alt=""
