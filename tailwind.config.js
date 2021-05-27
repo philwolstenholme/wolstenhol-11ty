@@ -13,6 +13,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        gray: colors.trueGray,
         medium: {
           DEFAULT: '#228665',
           dark: '#1e785a',
@@ -55,9 +56,6 @@ module.exports = {
       }),
       cursor: {
         help: 'help',
-      },
-      colors: {
-        gray: colors.coolGray,
       },
     },
   },
