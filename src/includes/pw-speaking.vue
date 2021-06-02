@@ -58,11 +58,19 @@ export default {
       </pw-simple-scroller-item>
       <pw-simple-scroller-item fit-to-grid>
         <pw-card-testimonial class="h-full">
+          <template v-slot:blockquote>Stunning talk – those tips on Twig syntax gotchas were worth it alone. Many 'thank you's!</template>
+          <template v-slot:figcaption>
+            <a href="https://www.youtube.com/watch?v=TBLlwvM_uPc" class="hocus:underline">Jack Garratt on YouTube</a>
+          </template>
+        </pw-card-testimonial>
+      </pw-simple-scroller-item>
+      <pw-simple-scroller-item fit-to-grid>
+        <pw-card-testimonial class="h-full">
           <template v-slot:blockquote
             >Brilliant talk. If this guy made a 10 hour series on Drupal &amp; Vue development I'd watch it ASAP.</template
           >
           <template v-slot:figcaption>
-            <a href="https://www.youtube.com/watch?v=TBLlwvM_uPc" class="hocus:underline">a YouTube commenter on my DrupalCon 2019 video</a>
+            <a href="https://www.youtube.com/watch?v=TBLlwvM_uPc" class="hocus:underline">'just another human' on YouTube</a>
           </template>
         </pw-card-testimonial>
       </pw-simple-scroller-item>
