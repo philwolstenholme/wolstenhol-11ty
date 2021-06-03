@@ -1,12 +1,12 @@
 {
-  "name": "eleventy-starter",
+  "name": "wolstenhol-11ty",
   "version": "1.0.0",
-  "description": "An 11ty starter project.",
-  "author": "Ryan Scherler",
+  "description": "An 11ty based personal website",
+  "author": "Phil Wolstenholme",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eastslopestudio/eleventy-starter"
+    "url": "https://github.com/philwolstenholme/wolstenhol-11ty"
   },
   "_moduleAliases": {
     "@config": ".config.js"
