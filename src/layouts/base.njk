@@ -42,7 +42,8 @@
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %}
       <main class="flex-grow w-full bg-subtle-grunge outline-none" id="content" tabindex="-1">
-        {% if page.url == '/' %} {% include "homepage/homepage-header.njk" %}
+        {% if (page.url == '/') or (page.url == '/index.no-js.html') or (page.url == '/index.no-css.html') %} {% include
+        "homepage/homepage-header.njk" %}
         <div class="-mb-6 -mt-6 -skew-y-1 transform z-10">
           <div class="bg-binding-dark h-12"></div>
           <div class="bg-subtle-grunge h-12"></div>
