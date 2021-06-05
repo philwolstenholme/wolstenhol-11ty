@@ -318,69 +318,68 @@ new Horizon({
   },
 });
 
-const partyInstagramCards = document.querySelectorAll('.card__instagram--party');
-if (partyInstagramCards) {
-  partyInstagramCards.forEach(card => {
-    new Horizon({
-      toObserve: card,
-      triggerOnce: true,
-      intersectionObserverConfig: {
-        rootMargin: '0px 0px -50% 0px',
-        threshold: 0.5,
-      },
-      onEntry(entry) {
-        loadjs('https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
-          // Add a timeout to allow any scrolling to stop.
-          window.setTimeout(() => {
-            var dimensions = entry.target.getBoundingClientRect();
-            var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
+window.PwCardInstagram = () => {
+  return {
+    playing: false,
+    confetti($el) {
+      loadjs('https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
+        const confettiTimeout = window.setTimeout(() => {
+          var dimensions = $el.getBoundingClientRect();
+          var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
+          var centerYCoord = dimensions.y + dimensions.height / 2;
 
-            var count = 150;
-            var defaults = {
-              origin: {
-                y: 0.5,
-                x: centerXCoord / window.innerWidth,
-              },
-              disableForReducedMotion: true,
-            };
+          var count = 150;
+          var defaults = {
+            origin: {
+              y: centerYCoord / window.innerHeight,
+              x: centerXCoord / window.innerWidth,
+            },
+            disableForReducedMotion: true,
+          };
 
-            function fire(particleRatio, opts) {
-              confetti(
-                Object.assign({}, defaults, opts, {
-                  particleCount: Math.floor(count * particleRatio),
-                })
-              );
-            }
+          function fire(particleRatio, opts) {
+            confetti(
+              Object.assign({}, defaults, opts, {
+                particleCount: Math.floor(count * particleRatio),
+              })
+            );
+          }
 
-            fire(0.25, {
-              spread: 26,
-              startVelocity: 55,
-            });
+          fire(0.25, {
+            spread: 26,
+            startVelocity: 55,
+          });
 
-            fire(0.2, {
-              spread: 60,
-            });
+          fire(0.2, {
+            spread: 60,
+          });
 
-            fire(0.35, {
-              spread: 100,
-              decay: 0.91,
-              scalar: 0.8,
-            });
+          fire(0.35, {
+            spread: 100,
+            decay: 0.91,
+            scalar: 0.8,
+          });
 
-            fire(0.1, {
-              spread: 120,
-              startVelocity: 25,
-              decay: 0.92,
-              scalar: 1.2,
-            });
+          fire(0.1, {
+            spread: 120,
+            startVelocity: 25,
+            decay: 0.92,
+            scalar: 1.2,
+          });
 
-            fire(0.1, {
-              spread: 120,
-              startVelocity: 45,
-            });
-          }, 700);
-        });
-      },
-    });
-  });
-}
+          fire(0.1, {
+            spread: 120,
+            startVelocity: 45,
+          });
+        }, 250);
+
+        const removeConfettiTimeout = function (e) {
+          window.clearTimeout(confettiTimeout);
+          window.removeEventListener('scroll', removeConfettiTimeout);
+        };
+
+        document.addEventListener('scroll', removeConfettiTimeout);
+      });
+    },
+  };
+};

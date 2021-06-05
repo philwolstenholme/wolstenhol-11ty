@@ -42,6 +42,34 @@ export default {
       }
       return false;
     },
+
+    onMousenterEvents() {
+      const attributes = [];
+
+      if (this.post.videos) {
+        attributes.push('$refs.video.pause()');
+      }
+
+      if (this.isParty) {
+        attributes.push('confetti($el)');
+      }
+
+      return attributes.join(';');
+    },
+
+    onFocusEvents() {
+      const attributes = [];
+
+      if (this.post.videos) {
+        attributes.push('$refs.video.pause()');
+      }
+
+      if (this.isParty) {
+        attributes.push('confetti($el)');
+      }
+
+      return attributes.join(';');
+    },
   },
 };
 </script>
@@ -49,11 +77,9 @@ export default {
 <template>
   <figure
     tabindex="0"
-    v-bind:x-data="post.videos ? '{ playing: false }' : null"
-    v-bind:x-on:mouseenter="post.videos ? '$refs.video.pause()' : null"
-    v-bind:x-on:focus="post.videos ? '$refs.video.pause()' : null"
-    v-bind:x-on:mouseout="post.videos ? '$refs.video.play()' : null"
-    v-bind:x-on:blur="post.videos ? '$refs.video.play()' : null"
+    x-data="PwCardInstagram()"
+    v-bind:x-on:mouseenter="onMousenterEvents"
+    v-bind:x-on:focus="onFocusEvents"
     class="group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
     :class="{ 'card__instagram--party': isParty }"
   >
