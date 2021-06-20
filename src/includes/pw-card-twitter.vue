@@ -167,6 +167,11 @@ export default {
 .card__twitter {
   background-color: #1876be;
   transition: all 150ms ease-in-out;
+
+  &:hover,
+  &:focus-within {
+    transform: scale(1.005);
+  }
 }
 
 .card__twitter__tweet-text {
