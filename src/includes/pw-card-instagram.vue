@@ -38,7 +38,8 @@ export default {
 
     isParty: function () {
       if (this.post.caption.text) {
-        return this.post.caption.text.includes('birthday');
+        const text = this.post.caption.text;
+        return text.includes('birthday') || text.includes('🎉') || text.includes('🥳') || text.includes('🎂');
       }
       return false;
     },
