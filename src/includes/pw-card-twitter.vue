@@ -41,9 +41,8 @@ export default {
     },
 
     cloudinaryProfileImage: function () {
-      let original = this.originalTweet.user.profile_image_url_https;
-      let cloudinaryPrefix = 'https://res.cloudinary.com/wolstenh/image/upload/w_66,h_66,f_auto,q_auto:best/twitter_profile/';
-      let URL = original.replace('https://pbs.twimg.com/profile_images/', cloudinaryPrefix);
+      let userName = this.originalTweet.user.screen_name;
+      let URL = `https://res.cloudinary.com/wolstenh/image/twitter_name/w_64,h_64,f_auto,q_auto:low/${userName}.jpg`;
 
       return URL;
     },
@@ -117,14 +116,7 @@ export default {
 
     <div>
       <a :href="`https://twitter.com/intent/user?user_id=${originalTweet.user.id_str}`" class="flex space-x-3 m-4 mb-2 text-sm">
-        <img
-          :src="cloudinaryProfileImage"
-          class="rounded"
-          style="height: 33px; width: 33px"
-          alt=""
-          loading="lazy"
-          crossorigin="anonymous"
-        />
+        <img :src="cloudinaryProfileImage" class="rounded w-8 h-8" width="32" height="32" alt="" loading="lazy" crossorigin="anonymous" />
         <div>
           <p>{{ originalTweet.user.name }}</p>
           <p class="text-xs">@{{ originalTweet.user.screen_name }}</p>
