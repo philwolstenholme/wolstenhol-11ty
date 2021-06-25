@@ -180,3 +180,7 @@ mark,
     content: ')';
   }
 }
+
+input[type='checkbox'] {
+  accent-color: theme('colors.black');
+}
