@@ -27,7 +27,10 @@ export default {
 <template>
   <pw-section section-key="words">
     <pw-section-heading title="Words" icon="penAlt" section="words" />
-    <pw-lede class="mt-3">Blog posts from Medium (until I build my own blog!)</pw-lede>
+    <pw-lede class="mt-3">
+      Blog posts from <a href="https://dev.to/philw_" class="underline">DEV Community</a> or Medium (one day I'll build my own blog, I
+      promise…)
+    </pw-lede>
 
     <pw-simple-scroller class="mt-12 items-1 md:items-2 lg:items-3" :scroll-full="true" theme="medium">
       <pw-simple-scroller-item fit-to-grid v-for="(post, key) in posts" :key="key">

@@ -4,6 +4,24 @@ const truncate = require('node-truncate-string');
 const cheerio = require('cheerio');
 
 module.exports = async function () {
+  const posts = [];
+
+  // Load newer posts from dev.to.
+  let devto = await Cache('https://dev.to/api/articles?username=philw_', {
+    duration: '1h',
+    type: 'json',
+  });
+
+  devto.forEach(item => {
+    posts.push({
+      title: item.title,
+      url: item.url,
+      categories: item.tag_list,
+      content: truncate(item.description, 130),
+    });
+  });
+
+  // Load older Medium posts.
   let response = await Cache('https://medium.com/feed/@philwolstenholme', {
     duration: '1h',
     type: 'text',
@@ -11,7 +29,6 @@ module.exports = async function () {
 
   const parser = new Parser();
   const feed = await parser.parseString(response);
-  const posts = [];
 
   feed.items.forEach(item => {
     $ = cheerio.load(item['content:encoded']);
