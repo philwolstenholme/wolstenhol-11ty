@@ -1,38 +1,37 @@
-const cacheName = 'PWA-v1'
-const filesToCache = ['index.html']
+const cacheName = 'PWA-v1';
+const filesToCache = ['index.html'];
 
 self.addEventListener('install', function (event) {
   // Perform install steps
-  console.log('[Servicework] Install')
+  console.log('[Servicework] Install');
   event.waitUntil(
     caches.open(cacheName).then(function (cache) {
-      console.log('[ServiceWorker] Caching app shell')
-      return cache.addAll(filesToCache)
+      console.log('[ServiceWorker] Caching app shell');
+      return cache.addAll(filesToCache);
     })
-  )
-})
+  );
+});
 
 self.addEventListener('activate', function (event) {
-  console.log('[Servicework] Activate')
+  console.log('[Servicework] Activate');
   event.waitUntil(
     caches.keys().then(function (keyList) {
       return Promise.all(
         keyList.map(function (key) {
           if (key !== cacheName) {
-            console.log('[ServiceWorker] Removing old cache shell', key)
-            return caches.delete(key)
+            console.log('[ServiceWorker] Removing old cache shell', key);
+            return caches.delete(key);
           }
         })
-      )
+      );
     })
-  )
-})
+  );
+});
 
-self.addEventListener('fetch', (event) => {
-  console.log('[ServiceWorker] Fetch')
+self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request).then(function (response) {
-      return response || fetch(event.request)
+      return response || fetch(event.request);
     })
-  )
-})
+  );
+});
