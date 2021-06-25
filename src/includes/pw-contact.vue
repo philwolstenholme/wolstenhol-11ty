@@ -107,6 +107,18 @@ export default {
             cols="50"
           ></textarea>
         </p>
+        <p>
+          <span class="flex space-x-2 text-base font-bold lg:ml-32">
+            <input class="mt-1.5" type="checkbox" id="no-freelance" name="no-freelance" required />
+            <label for="no-freelance"
+              >I work making websites full-time on a salaried basis so don't do any freelance or contracting work. Please tick this checkbox
+              to confirm you are not asking me to produce a website for a small business or offering a contract gig.<sup
+                class="text-red-800"
+                ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
+              ></label
+            >
+          </span>
+        </p>
         <p class="lg:flex lg:space-x-5">
           <span class="lg:block lg:w-28"></span>
           <button
