@@ -109,7 +109,7 @@ export default {
         </p>
         <p>
           <span class="flex space-x-2 text-base font-bold lg:ml-32">
-            <input class="mt-1.5" type="checkbox" id="no-freelance" name="no-freelance" x-model="noFreelanceChecked" required />
+            <input class="mt-1.5" type="checkbox" id="no-freelance" name="no-freelance" required />
             <label for="no-freelance">
               I work making websites full-time on a salaried basis so don't do any freelance or contracting work (sorry). Please tick the
               box to confirm you are not asking me to produce a website for a small business or offering a contract gig. Thanks!<sup
