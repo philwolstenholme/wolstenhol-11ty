@@ -60,7 +60,7 @@ export default {
       controls
       autoplay
       hidden
-      class="inline w-0 h-0"
+      class="inline sr-only"
       x-bind:src="src"
       x-data="PwMusic()"
       x-init="init($dispatch)"
