@@ -46,14 +46,14 @@
   [headers.values]
     X-Robots-Tag = "noindex"
 
-# Redirect to custom 404
-[[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
-
 [[redirects]]
   from = "/cors-proxy/*"
   to = ":splat"
   status = 200
   force = true
+
+# Redirect to custom 404. Keep this last.
+[[redirects]]
+  from = "/*"
+  to = "/404"
+  status = 404
