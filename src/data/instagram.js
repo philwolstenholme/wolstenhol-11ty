@@ -59,6 +59,16 @@ module.exports = async function () {
       })
       .catch(reason => {});
 
+    if (edge.node.edge_sidecar_to_children) {
+      const firstChild = edge.node.edge_sidecar_to_children.edges[0].node;
+      const type = firstChild['__typename'];
+
+      if (type === 'GraphVideo') {
+        edge.node.is_video = firstChild.is_video;
+        edge.node.video_url = firstChild.video_url;
+      }
+    }
+
     return {
       id: edge.node.id,
       images: {

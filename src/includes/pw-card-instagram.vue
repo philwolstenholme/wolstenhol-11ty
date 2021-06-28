@@ -58,6 +58,16 @@ export default {
       return attributes.join(';');
     },
 
+    onMouseleaveEvents() {
+      const attributes = [];
+
+      if (this.post.videos) {
+        attributes.push('$refs.video.play()');
+      }
+
+      return attributes.join(';');
+    },
+
     onFocusEvents() {
       const attributes = [];
 
@@ -71,6 +81,16 @@ export default {
 
       return attributes.join(';');
     },
+
+    onBlurEvents() {
+      const attributes = [];
+
+      if (this.post.videos) {
+        attributes.push('$refs.video.play()');
+      }
+
+      return attributes.join(';');
+    },
   },
 };
 </script>
@@ -80,7 +100,9 @@ export default {
     tabindex="0"
     x-data="PwCardInstagram()"
     v-bind:x-on:mouseenter="onMousenterEvents"
+    v-bind:x-on:mouseleave="onMouseleaveEvents"
     v-bind:x-on:focus="onFocusEvents"
+    v-bind:x-on:blur="onBlurEvents"
     class="group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
     :class="{ 'card__instagram--party': isParty }"
   >
@@ -98,7 +120,7 @@ export default {
           disableRemotePlayback
           preload="none"
         >
-          <source :data-src="post.videos.standard_resolution.url" type="video/mp4" />
+          <source :data-src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url}`" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </template>
