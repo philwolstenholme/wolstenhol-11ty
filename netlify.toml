@@ -47,10 +47,11 @@
     X-Robots-Tag = "noindex"
 
 [[redirects]]
-  from = "/cors-proxy/*"
+  from = "/instagram-proxy/*"
   to = ":splat"
   status = 200
   force = true
+    headers = {Referer = "https://www.instagram.com"}
 
 # Redirect to custom 404. Keep this last.
 [[redirects]]
