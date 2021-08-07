@@ -87,7 +87,7 @@ export default {
       v-if="previewUrl"
       v-bind:href="music.top_tracks.preview_url"
       target="spotify-preview"
-      class="absolute inset-0 text-yellow-300"
+      class="absolute inset-0 text-yellow-300 group focus:ring-inset focus:ring-black focus:ring-2"
       x-ref="playButton"
       x-on:click.prevent="musicCardButtonPress($dispatch)"
       x-on:keydown.space.prevent="musicCardButtonPress($dispatch)"
@@ -95,9 +95,9 @@ export default {
     >
       <div class="absolute p-2 top-0 left-0">
         <span class="sr-only">Play 30 second preview of {{ music.name }}</span>
-        <icon name="play" x-show="!isPlaying" class="transform transition-transform" />
+        <icon name="play" x-show="!isPlaying" class="transform transition-transform group-hocus:text-black" />
         <span x-cloak>
-          <icon name="pause" x-show="isPlaying" />
+          <icon name="pause" x-show="isPlaying" class="group-hocus:text-black" />
         </span>
       </div>
     </a>

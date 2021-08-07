@@ -57,12 +57,15 @@ module.exports = {
       cursor: {
         help: 'help',
       },
+      fill: {
+        blacK: colors.black,
+      },
     },
   },
   variants: {
     extend: {
       display: ['js', 'no-js', 'group-hocus', 'group-focus'],
-      textColor: ['hocus', 'group-hocus'],
+      textColor: ['hocus', 'group-hocus', 'group-focus'],
       backgroundColor: ['hocus', 'group-hocus', 'group-focus'],
       transform: ['hover', 'focus', 'hocus', 'group-hocus'],
       translate: ['hover', 'focus', 'hocus', 'group-hocus'],
@@ -71,6 +74,8 @@ module.exports = {
       textDecoration: ['hocus', 'group-hocus', 'group-focus-within'],
       opacity: ['hocus', 'group-hocus'],
       rotate: ['hocus', 'group-hocus'],
+      ringWidth: ['focus', 'group-focus'],
+      ringColor: ['focus', 'group-focus'],
     },
   },
   plugins: [
