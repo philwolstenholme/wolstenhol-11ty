@@ -26,10 +26,13 @@ window.PwCardMusic = $el => {
       this.$nextTick(() => {
         if (this.$refs['playButton']) {
           this.$refs['playButton'].setAttribute('role', 'button');
+          this.$refs['playButton'].setAttribute('aria-pressed', 'false');
         }
       });
     },
     musicCardButtonPress($dispatch) {
+      this.$refs['playButton'].setAttribute('aria-pressed', !this.isPlaying);
+
       if (!this.isPlaying) {
         $dispatch('play-preview', {
           src: this.previewUrl,
