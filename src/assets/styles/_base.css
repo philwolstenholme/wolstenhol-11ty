@@ -86,6 +86,8 @@ button {
 }
 
 .custom-scrollbars {
+  scrollbar-color: #848584 transparent;
+
   &::-webkit-scrollbar {
     width: 9px;
     height: 9px;
