@@ -95,9 +95,9 @@ export default {
     >
       <div class="absolute p-2 top-0 left-0">
         <span class="sr-only">Play 30 second preview of {{ music.name }}</span>
-        <icon name="play" x-show="!isPlaying" class="transform transition-transform group-hocus:text-black" />
+        <icon name="play" x-show="!isPlaying" class="transform transition-transform" />
         <span x-cloak>
-          <icon name="pause" x-show="isPlaying" class="group-hocus:text-black" />
+          <icon name="pause" x-show="isPlaying" />
         </span>
       </div>
     </a>
@@ -125,14 +125,6 @@ export default {
 
 <style lang="scss">
 .card--music {
-  &:hover,
-  &:focus-within,
-  &.isPlaying {
-    .card--music__container {
-      mix-blend-mode: unset;
-    }
-  }
-
   &__container {
     mix-blend-mode: soft-light;
   }
