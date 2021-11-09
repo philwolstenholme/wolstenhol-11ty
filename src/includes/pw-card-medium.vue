@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <article class="card__blog relative flex overflow-hidden w-full rounded shadow-hard">
+  <article class="card__blog contain-content relative flex overflow-hidden w-full rounded shadow-hard">
     <a :href="`${post.url}`" class="text-white bg-medium hover:bg-medium-dark focus:bg-black p-5 no-underline w-full">
       <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
         {{ post.title }}

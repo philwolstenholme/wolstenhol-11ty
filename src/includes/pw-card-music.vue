@@ -64,7 +64,7 @@ export default {
     x-on:keydown.escape.window="if (isPlaying) { musicCardButtonPress($dispatch) }"
     x-init="init()"
     v-bind:style="`animation-duration: ${tempoAnimationDuration}s;`"
-    class="relative group flex overflow-hidden card--music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
+    class="contain-content relative group flex overflow-hidden card--music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
   >
     <h3 class="sr-only">{{ music.name }}</h3>
 

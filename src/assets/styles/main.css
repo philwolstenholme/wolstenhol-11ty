@@ -54,6 +54,10 @@
   .blend-multiply {
     mix-blend-mode: multiply;
   }
+
+  .contain-content {
+    contain: content;
+  }
 }
 
 .icon {

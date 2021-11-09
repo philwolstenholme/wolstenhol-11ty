@@ -21,7 +21,7 @@ export default {
       <a href="https://twitter.com/messages/compose?recipient_id=38276082" class="underline">direct message on Twitter</a> or drop me an
       email via this contact form (all fields are required).
     </p>
-    <div x-data="PwContact()" id="contact-form-component" class="mt-12">
+    <div x-data="PwContact()" id="contact-form-component" class="contain-content mt-12">
       <form
         netlify
         netlify-honeypot="message_1"

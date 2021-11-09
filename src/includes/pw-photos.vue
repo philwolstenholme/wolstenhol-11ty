@@ -5,7 +5,6 @@ import PwSimpleScrollerItem from './pw-simple-scroller-item.vue';
 import PwSectionHeading from './pw-section-heading.vue';
 import PwCardInstagram from './pw-card-instagram.vue';
 import PwSection from './pw-section.vue';
-import filter from 'lodash/filter';
 
 export default {
   props: {

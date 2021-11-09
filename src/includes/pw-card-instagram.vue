@@ -103,7 +103,7 @@ export default {
     v-bind:x-on:mouseleave="onMouseleaveEvents"
     v-bind:x-on:focus="onFocusEvents"
     v-bind:x-on:blur="onBlurEvents"
-    class="group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
+    class="contain-content group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
     :class="{ 'card__instagram--party': isParty }"
   >
     <div class="flex-col justify-center shadow-hard">

@@ -55,7 +55,7 @@ export default {
 </script>
 
 <template>
-  <div class="card__twitter shadow-hard rounded overflow-hidden text-white font-bold">
+  <div class="card__twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold">
     <p class="grid grid-flow-col bg-black" v-if="tweetMedia">
       <a
         :is="media.type == 'photo' ? 'a' : 'div'"
