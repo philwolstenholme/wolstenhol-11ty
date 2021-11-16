@@ -127,6 +127,7 @@ export default {
 .card--music {
   &__container {
     mix-blend-mode: soft-light;
+    filter: grayscale(1) contrast(1.05);
   }
 
   &__progress {
