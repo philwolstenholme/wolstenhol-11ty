@@ -18,7 +18,7 @@ module.exports = async function () {
       spotifyApi.setAccessToken(data.body['access_token']);
     },
     function (err) {
-      console.error('Could not refresh access token', err);
+      console.error('Could not refresh access token', err.message);
     }
   );
 
@@ -34,7 +34,7 @@ module.exports = async function () {
         return data.body.items;
       },
       function (err) {
-        console.error('Something went wrong!', err);
+        console.error('Something went wrong!', err.message);
       }
     );
 
@@ -50,7 +50,7 @@ module.exports = async function () {
           artists[artist.name]['top_tracks'] = data.body.tracks[0];
         },
         function (err) {
-          console.log('Something went wrong!', err);
+          console.log('Something went wrong!', err.message);
         }
       )
     );
@@ -67,7 +67,7 @@ module.exports = async function () {
           artists[artist.name]['top_tracks']['features'] = data.body;
         },
         function (err) {
-          console.error('Something went wrong!', err);
+          console.error('Something went wrong!', err.message);
         }
       )
     );
