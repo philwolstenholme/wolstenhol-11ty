@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <pw-section section-key="music" v-if="artists && genres">
+  <pw-section section-key="music" v-if="Object.keys(artists).length && genres.length">
     <pw-section-heading title="Music" icon="headphones" section="music" />
     <pw-lede class="mt-3"
       >According to the Spotify API, I've been listening to a bit of
