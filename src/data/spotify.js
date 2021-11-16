@@ -89,5 +89,7 @@ module.exports = async function () {
 
   await Promise.all(spotifyFeaturesPromises);
 
+  console.table({ 'Artists: ': Object.keys(artists).length, 'Genres: ': randomGenres.length });
+
   return { artists, randomGenres };
 };
