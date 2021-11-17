@@ -1,5 +1,5 @@
 <script>
-import VueMarkdown from 'vue-markdown';
+import VueMarkdown from '@adapttive/vue-markdown';
 const twitter = require('twitter-text');
 import icon from './icon.vue';
 import spriteIcon from './sprite-icon.vue';
