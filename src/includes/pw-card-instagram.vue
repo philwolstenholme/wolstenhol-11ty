@@ -137,7 +137,7 @@ export default {
           loading="lazy"
           decoding="async"
           crossorigin="anonymous"
-          :style="`background-image:url(${post.svgPlaceholder})`"
+          :style="`background-image:url(&quot;${post.svgPlaceholder}&quot;)`"
         />
       </template>
       <figcaption
