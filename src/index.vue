@@ -4,7 +4,7 @@
       <h1 class="font-serif font-bold text-4xl">Meanwhile, elsewhere on the internet…</h1>
       <pw-lede>
         Tweets from Twitter, blog posts from DEV/Medium, talks from YouTube and beyond, photos from Instagram, music from Spotify, and nice
-        places (remember when we used to be able to go to nice places?) from Foursquare.
+        places from Foursquare (lol, I know, but I've built the API integration now so Foursquare lives on on this website!).
       </pw-lede>
     </div>
 
