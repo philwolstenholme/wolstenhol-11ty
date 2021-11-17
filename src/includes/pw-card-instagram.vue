@@ -125,7 +125,7 @@ export default {
         </video>
       </template>
       <template v-if="!post.videos">
-        <img
+        <!-- htmlmin:ignore --><img
           :src="cloudinaryUrl"
           :srcset="cloudinarySrcSet"
           :key="post.id"
@@ -137,8 +137,8 @@ export default {
           loading="lazy"
           decoding="async"
           crossorigin="anonymous"
-          :style="`background-image:url(&#34;${post.svgPlaceholder}&#34;)`"
-        />
+          :style="`background-image:url(&quot;${post.svgPlaceholder}&quot;)`"
+        /><!-- htmlmin:ignore -->
       </template>
       <figcaption
         class="absolute pointer-events-none space-y-3 transform-gpu transition-transform translate-y-full max-h-full group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
