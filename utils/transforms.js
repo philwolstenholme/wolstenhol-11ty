@@ -15,8 +15,10 @@ module.exports = {
         collapseWhitespace: true,
         minifyCSS: true,
         minifyJS: true,
+        decodeEntities: true,
         sortAttributes: true,
         sortClassName: true,
+        customAttrCollapse: /x-bind:class|x-init/,
       });
 
       return minified;
