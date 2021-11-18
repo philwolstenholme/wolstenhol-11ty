@@ -188,3 +188,11 @@ mark,
 input[type='checkbox'] {
   accent-color: theme('colors.black');
 }
+
+.grid.grid-stack {
+  grid-template-areas: 'stack';
+
+  & > * {
+    grid-area: stack;
+  }
+}

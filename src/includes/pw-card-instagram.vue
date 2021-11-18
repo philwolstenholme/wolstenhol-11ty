@@ -125,20 +125,43 @@ export default {
         </video>
       </template>
       <template v-if="!post.videos">
-        <img
-          :src="cloudinaryUrl"
-          :srcset="cloudinarySrcSet"
-          :key="post.id"
-          :alt="post.accessibilityCaption ? post.accessibilityCaption : ''"
-          width="368"
-          height="368"
-          sizes="368px"
-          class="has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
-          loading="lazy"
-          decoding="async"
-          crossorigin="anonymous"
-          :style="`background-image:url(&quot;${post.svgPlaceholder}&quot;)`"
-        />
+        <div class="grid grid-stack">
+          <img
+            :src="cloudinaryUrl"
+            :srcset="cloudinarySrcSet"
+            :key="post.id"
+            :alt="post.accessibilityCaption ? post.accessibilityCaption : ''"
+            width="368"
+            height="368"
+            sizes="368px"
+            class="has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
+            onload="this.classList.remove('has-blurry-placeholder'); this.nextElementSibling.remove()"
+            loading="lazy"
+            decoding="async"
+            crossorigin="anonymous"
+            :style="`background-image:url(&quot;${post.svgPlaceholder}&quot;)`"
+          />
+          <div class="w-full h-full flex items-center justify-center">
+            <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
+            <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+              <g fill="none" fill-rule="evenodd">
+                <g transform="translate(1 1)" stroke-width="2">
+                  <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
+                  <path d="M36 18c0-9.94-8.06-18-18-18">
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 18 18"
+                      to="360 18 18"
+                      dur="1s"
+                      repeatCount="indefinite"
+                    />
+                  </path>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
       </template>
       <figcaption
         class="absolute pointer-events-none space-y-3 transform-gpu transition-transform translate-y-full max-h-full group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
