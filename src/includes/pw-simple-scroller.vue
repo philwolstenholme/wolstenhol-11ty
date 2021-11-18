@@ -8,7 +8,7 @@
       v-bind:class="themeTextClasses"
       x-on:click="scrollLeft()"
     >
-      <span class="sr-only">Scroll backwards</span>
+      <span class="sr-only">Back</span>
       <svg
         focusable="false"
         role="img"
@@ -46,7 +46,7 @@
       v-bind:class="themeTextClasses"
       x-on:click="scrollRight()"
     >
-      <span class="sr-only">Scroll forward</span>
+      <span class="sr-only">Forward</span>
       <svg
         focusable="false"
         role="img"
