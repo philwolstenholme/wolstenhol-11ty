@@ -27,6 +27,7 @@
         x-bind:class="{ '-translate-x-3': !overflowing.left }"
       ></div>
       <ul
+        tabindex="0"
         x-ref="scroller"
         class="scroller relative flex space-x-5 overflow-x-auto overflow-y-auto custom-scrollbars scroll-smooth scrolling-touch snap snap-x snap-mandatory"
       >
