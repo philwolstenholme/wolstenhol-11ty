@@ -33,7 +33,7 @@ export default {
       (one day I'll build my own blog, I promise…)
     </pw-lede>
 
-    <pw-simple-scroller class="mt-12 items-1 md:items-2 lg:items-3" :scroll-full="true" theme="medium">
+    <pw-simple-scroller class="mt-12 items-1 md:items-2 lg:items-3" :scroll-full="true" theme="medium" label="Blog posts">
       <pw-simple-scroller-item fit-to-grid v-for="(post, key) in posts" :key="key">
         <pw-card-medium class="h-full" :post="post" />
       </pw-simple-scroller-item>

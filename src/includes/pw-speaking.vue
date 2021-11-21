@@ -29,7 +29,7 @@ export default {
   <pw-section section-key="speaking">
     <pw-section-heading title="Speaking" icon="chalkboardTeacher" section="speaking" />
     <pw-lede class="mt-3">Talks I've given at conferences or other events. I'll link to slides or videos where they are available.</pw-lede>
-    <pw-simple-scroller class="mt-12 items-1 md:items-2 xl:items-3" theme="testimonial">
+    <pw-simple-scroller class="mt-12 items-1 md:items-2 xl:items-3" theme="testimonial" label="Public speaking that I've done">
       <pw-simple-scroller-item>
         <pw-card-talk
           href="https://www.youtube.com/watch?v=MYY1teFZ_Fk"

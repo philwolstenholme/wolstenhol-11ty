@@ -13,7 +13,7 @@
         focusable="false"
         role="img"
         class="transform-gpu translate-transform"
-        :class="randomRotationClass"
+        v-bind:class="randomRotationClass"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 84.663887 42.437332"
       >
@@ -28,6 +28,8 @@
       ></div>
       <ul
         tabindex="0"
+        role="region"
+        v-bind:aria-label="label"
         x-ref="scroller"
         class="scroller relative flex space-x-5 overflow-x-auto overflow-y-auto custom-scrollbars scroll-smooth scrolling-touch snap snap-x snap-mandatory"
       >
@@ -96,6 +98,9 @@
 export default {
   props: {
     theme: {
+      type: String,
+    },
+    label: {
       type: String,
     },
     scrollFull: {
