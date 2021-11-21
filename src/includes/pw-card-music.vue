@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <div
+  <article
     :data-index="index"
     :data-preview-url="previewUrl"
     x-data="PwCardMusic($el)"
@@ -120,7 +120,7 @@ export default {
       max="1"
       class="card--music__progress absolute bottom-0 w-full text-spotify"
     />
-  </div>
+  </article>
 </template>
 
 <style lang="scss">
