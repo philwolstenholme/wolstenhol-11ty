@@ -38,7 +38,11 @@
       let scrollbarWidth = window.innerWidth - document.body.offsetWidth;
       root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
     </script>
-    <p class="sr-only"><a href="#content">Skip to main content</a>.</p>
+    <a
+      href="#content"
+      class="bg-binding-dark block border border-yellow-500 focus:not-sr-only left-3 p-5 sr-only text-yellow-500 top-3 z-50"
+      >Skip to main content</a
+    >
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %}
       <main class="flex-grow w-full bg-subtle-grunge outline-none" id="content" tabindex="-1">

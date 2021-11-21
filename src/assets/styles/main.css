@@ -196,3 +196,9 @@ input[type='checkbox'] {
     grid-area: stack;
   }
 }
+
+a.focus\:not-sr-only:focus[href='#content'] {
+  display: inline-block !important;
+  position: absolute !important;
+  padding: 0.5rem !important;
+}
