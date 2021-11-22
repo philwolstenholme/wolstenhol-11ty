@@ -126,6 +126,7 @@ export default {
         'text-purple-700 hocus:text-purple-800': this.theme === 'testimonial',
         'text-foursquare hocus:text-foursquare-dark': this.theme === 'foursquare',
         'text-green-700 hocus:text-green-800': this.theme === 'spotify',
+        'text-purple-700 hocus:text-purple-800': this.theme === 'instagram',
       };
     },
   },
