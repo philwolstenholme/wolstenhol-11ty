@@ -52,7 +52,7 @@ export default {
       }
 
       if (this.isParty) {
-        attributes.push('confetti($el)');
+        attributes.push('window.pw.instagramBirthdayConfettiTimer = setTimeout(() => {confetti($el);}, 1000)');
       }
 
       return attributes.join(';');
@@ -63,6 +63,10 @@ export default {
 
       if (this.post.videos) {
         attributes.push('$refs.video.play()');
+      }
+
+      if (this.isParty) {
+        attributes.push('window.clearTimeout(window.pw.instagramBirthdayConfettiTimer)');
       }
 
       return attributes.join(';');
