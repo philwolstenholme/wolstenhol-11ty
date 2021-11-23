@@ -78,6 +78,7 @@
             'bg-purple-700 hocus:bg-purple-700': theme === 'testimonial',
             'bg-foursquare hocus:bg-foursquare': theme === 'foursquare',
             'bg-green-700 hocus:bg-green-600': theme === 'spotify',
+            'bg-purple-800 hocus:bg-purple-800': theme === 'instagram',
           }"
           x-on:click="scrollRight()"
         >
