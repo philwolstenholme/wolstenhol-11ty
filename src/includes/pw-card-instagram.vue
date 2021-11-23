@@ -139,7 +139,7 @@ export default {
             height="368"
             sizes="368px"
             class="has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
-            onload="this.classList.remove('has-blurry-placeholder'); this.nextElementSibling.remove()"
+            onload="this.classList.remove('has-blurry-placeholder'); this.nextElementSibling.remove(); this.style.backgroundImage = null; this.removeAttribute('onLoad')"
             loading="lazy"
             decoding="async"
             crossorigin="anonymous"
