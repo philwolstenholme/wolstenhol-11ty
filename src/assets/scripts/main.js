@@ -328,62 +328,53 @@ window.PwCardInstagram = () => {
     playing: false,
     confetti($el) {
       loadjs('https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
-        const confettiTimeout = window.setTimeout(() => {
-          var dimensions = $el.getBoundingClientRect();
-          var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
-          var centerYCoord = dimensions.y + dimensions.height / 2;
+        var dimensions = $el.getBoundingClientRect();
+        var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
+        var centerYCoord = dimensions.y + dimensions.height / 2;
 
-          var count = 150;
-          var defaults = {
-            origin: {
-              y: centerYCoord / window.innerHeight,
-              x: centerXCoord / window.innerWidth,
-            },
-            disableForReducedMotion: true,
-          };
-
-          function fire(particleRatio, opts) {
-            confetti(
-              Object.assign({}, defaults, opts, {
-                particleCount: Math.floor(count * particleRatio),
-              })
-            );
-          }
-
-          fire(0.25, {
-            spread: 26,
-            startVelocity: 55,
-          });
-
-          fire(0.2, {
-            spread: 60,
-          });
-
-          fire(0.35, {
-            spread: 100,
-            decay: 0.91,
-            scalar: 0.8,
-          });
-
-          fire(0.1, {
-            spread: 120,
-            startVelocity: 25,
-            decay: 0.92,
-            scalar: 1.2,
-          });
-
-          fire(0.1, {
-            spread: 120,
-            startVelocity: 45,
-          });
-        }, 250);
-
-        const removeConfettiTimeout = function (e) {
-          window.clearTimeout(confettiTimeout);
-          window.removeEventListener('scroll', removeConfettiTimeout);
+        var count = 150;
+        var defaults = {
+          origin: {
+            y: centerYCoord / window.innerHeight,
+            x: centerXCoord / window.innerWidth,
+          },
+          disableForReducedMotion: true,
         };
 
-        document.addEventListener('scroll', removeConfettiTimeout);
+        function fire(particleRatio, opts) {
+          confetti(
+            Object.assign({}, defaults, opts, {
+              particleCount: Math.floor(count * particleRatio),
+            })
+          );
+        }
+
+        fire(0.25, {
+          spread: 26,
+          startVelocity: 55,
+        });
+
+        fire(0.2, {
+          spread: 60,
+        });
+
+        fire(0.35, {
+          spread: 100,
+          decay: 0.91,
+          scalar: 0.8,
+        });
+
+        fire(0.1, {
+          spread: 120,
+          startVelocity: 25,
+          decay: 0.92,
+          scalar: 1.2,
+        });
+
+        fire(0.1, {
+          spread: 120,
+          startVelocity: 45,
+        });
       });
     },
   };
