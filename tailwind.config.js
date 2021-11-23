@@ -26,6 +26,10 @@ module.exports = {
           DEFAULT: '#1DB954',
           dark: '#1aa64b',
         },
+        instagram: {
+          DEFAULT: '#E0294C',
+          dark: '#b91a39',
+        },
       },
       boxShadow: {
         hard: '2px 2px 0 rgba(0,0,0,.15)',

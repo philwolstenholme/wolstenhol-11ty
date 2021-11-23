@@ -75,10 +75,10 @@
           class="transition-colors font-bold ml-1 px-2 py-1 rounded shadow-hard text-white"
           v-bind:class="{
             'bg-medium hocus:bg-medium-dark': theme === 'medium',
-            'bg-purple-700 hocus:bg-purple-700': theme === 'testimonial',
+            'bg-purple-700 hocus:bg-purple-800': theme === 'speaking',
             'bg-foursquare hocus:bg-foursquare': theme === 'foursquare',
             'bg-green-700 hocus:bg-green-600': theme === 'spotify',
-            'bg-purple-800 hocus:bg-purple-800': theme === 'instagram',
+            'bg-instagram hocus:bg-instagram-dark': theme === 'instagram',
           }"
           x-on:click="scrollRight()"
         >
@@ -124,10 +124,10 @@ export default {
     themeTextClasses() {
       return {
         'text-medium hocus:text-medium-dark': this.theme === 'medium',
-        'text-purple-700 hocus:text-purple-800': this.theme === 'testimonial',
+        'text-purple-700 hocus:text-purple-800': this.theme === 'speaking',
         'text-foursquare hocus:text-foursquare-dark': this.theme === 'foursquare',
         'text-green-700 hocus:text-green-800': this.theme === 'spotify',
-        'text-purple-700 hocus:text-purple-800': this.theme === 'instagram',
+        'text-instagram hocus:text-instagram-dark': this.theme === 'instagram',
       };
     },
   },

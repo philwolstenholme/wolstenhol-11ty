@@ -29,12 +29,12 @@ export default {
   <pw-section section-key="speaking">
     <pw-section-heading title="Speaking" icon="chalkboardTeacher" section="speaking" />
     <pw-lede class="mt-3">Talks I've given at conferences or other events. I'll link to slides or videos where they are available.</pw-lede>
-    <pw-simple-scroller class="mt-12 items-1 md:items-2 xl:items-3" theme="testimonial" label="Public speaking that I've done">
+    <pw-simple-scroller class="mt-12 items-1 md:items-2 xl:items-3" theme="speaking" label="Public speaking that I've done">
       <pw-simple-scroller-item>
         <pw-card-talk
           href="https://www.youtube.com/watch?v=MYY1teFZ_Fk"
           event="DrupalCon Europe 2020"
-          talk="Write Better CSS by Stopping Writing Any More CSS! (Tailwind)"
+          talk="Write Better CSS by Stopping Writing Any More CSS! Utility-first with Tailwind"
           image="https://res.cloudinary.com/wolstenh/image/upload/c_fill,f_auto,g_center,h_306,q_auto:good,w_544,y_0/v1610202401/one-offs/EoyOVx4XMAEHdx_.jpg"
         ></pw-card-talk>
       </pw-simple-scroller-item>
