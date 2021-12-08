@@ -117,9 +117,9 @@ export default {
     <div>
       <a :href="`https://twitter.com/intent/user?user_id=${originalTweet.user.id_str}`" class="flex space-x-3 m-4 mb-2 text-sm">
         <img :src="cloudinaryProfileImage" class="rounded w-8 h-8" width="32" height="32" alt="" loading="lazy" crossorigin="anonymous" />
-        <div>
-          <p>{{ originalTweet.user.name }}</p>
-          <p class="text-xs">@{{ originalTweet.user.screen_name }}</p>
+        <div class="min-w-0">
+          <p class="truncate">{{ originalTweet.user.name }}</p>
+          <p class="truncate text-xs">@{{ originalTweet.user.screen_name }}</p>
         </div>
       </a>
     </div>
