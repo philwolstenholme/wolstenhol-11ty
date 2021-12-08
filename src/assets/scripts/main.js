@@ -16,6 +16,10 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+window.PwVibrate = (duration = 80) => {
+  window?.navigator?.vibrate?.(duration);
+};
+
 window.PwCardMusic = $el => {
   return {
     isPlaying: false,
@@ -44,6 +48,8 @@ window.PwCardMusic = $el => {
           index: this.index,
         });
       }
+
+      window.PwVibrate();
     },
     playingPreview($event) {
       if ($event.detail.src === this.previewUrl) {

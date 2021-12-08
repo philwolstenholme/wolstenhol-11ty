@@ -80,7 +80,7 @@
             'bg-green-700 hocus:bg-green-600': theme === 'spotify',
             'bg-instagram hocus:bg-instagram-dark': theme === 'instagram',
           }"
-          x-on:click="scrollRight()"
+          x-on:click="scrollRight(); window.PwVibrate(20)"
         >
           scroll this way ➜
         </button>
