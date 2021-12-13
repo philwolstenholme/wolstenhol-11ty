@@ -28,7 +28,8 @@ export default {
     <component
       :is="place.url ? 'a' : 'div'"
       :href="place.url"
-      class="text-white bg-foursquare no-underline w-full flex flex-col-reverse"
+      class="text-white bg-foursquare outline-offset-invert no-underline w-full flex flex-col-reverse"
+      style="--outline-color: black"
       :class="{
         group: place.url,
         'hocus:bg-foursquare-dark': place.url,

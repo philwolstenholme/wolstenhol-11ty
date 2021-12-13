@@ -87,7 +87,7 @@ export default {
       v-if="previewUrl"
       v-bind:href="music.top_tracks.preview_url"
       target="spotify-preview"
-      class="absolute inset-0 text-yellow-300 group focus:ring-inset focus:ring-black focus:ring-2"
+      class="absolute inset-0 text-yellow-300 group outline-offset-invert"
       x-ref="playButton"
       x-on:click.prevent="musicCardButtonPress($dispatch)"
       x-on:keydown.space.prevent="musicCardButtonPress($dispatch)"

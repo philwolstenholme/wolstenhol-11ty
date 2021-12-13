@@ -11,7 +11,11 @@ export default {
 
 <template>
   <article class="contain-content overflow-hidden rounded shadow-hard bg-purple-700 focus-within:bg-purple-900" style="min-width: 272px">
-    <component :is="href ? 'a' : 'div'" :href="href" class="block group aspect-h-9 aspect-w-16 w-full overflow-hidden">
+    <component
+      :is="href ? 'a' : 'div'"
+      :href="href"
+      class="block group aspect-h-9 aspect-w-16 w-full overflow-hidden outline-offset-invert"
+    >
       <h3 class="sr-only">{{ talk }}</h3>
       <img
         v-if="image"

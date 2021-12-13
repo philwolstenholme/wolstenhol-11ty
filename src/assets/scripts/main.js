@@ -1,6 +1,5 @@
 import 'alpinejs';
 import 'wicg-inert';
-import 'what-input';
 import Horizon from '@mintuz/horizon';
 window.Horizon = Horizon;
 import lozad from 'lozad';

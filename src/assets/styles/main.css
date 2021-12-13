@@ -3,6 +3,10 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  --outline-size: max(4px, 0.08em);
+}
+
 @layer utilities {
   @responsive {
     .scrolling-touch {
@@ -58,6 +62,10 @@
   .contain-content {
     contain: content;
   }
+
+  .outline-offset-invert {
+    --outline-offset: calc(var(--outline-size) * -1);
+  }
 }
 
 .icon {
@@ -89,10 +97,15 @@
 }
 
 /* purgecss ignore */
-[data-whatintent='mouse'] *:focus,
-[data-whatintent='touch'] *:focus {
-  outline: none !important;
-  box-shadow: none !important;
+:focus {
+  outline-color: var(--outline-color, hotpink);
+  outline-width: var(--outline-size);
+  outline-style: solid;
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+/* purgecss ignore */
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .scroller-item--fit-to-grid {
@@ -201,4 +214,9 @@ a.focus\:not-sr-only:focus[href='#content'] {
   display: inline-block !important;
   position: absolute !important;
   padding: 0.5rem !important;
+}
+
+main section:focus-within,
+.contact-form-container:focus-within {
+  content-visibility: visible !important;
 }

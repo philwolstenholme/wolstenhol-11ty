@@ -26,3 +26,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.scroller-item {
+  margin-top: calc(var(--outline-offset, var(--outline-size)) * 2);
+}
+</style>
