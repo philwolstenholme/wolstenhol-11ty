@@ -1,8 +1,9 @@
-import 'alpinejs';
 import 'wicg-inert';
-import Horizon from '@mintuz/horizon';
-window.Horizon = Horizon;
+import Alpine from 'alpinejs';
+import intersect from '@alpinejs/intersect';
 import lozad from 'lozad';
+
+window.Alpine = Alpine;
 
 window.lozad = lozad('.lozad', {
   enableAutoReload: true,
@@ -19,12 +20,14 @@ window.PwVibrate = (duration = 80) => {
   window?.navigator?.vibrate?.(duration);
 };
 
-window.PwCardMusic = $el => {
-  return {
+Alpine.plugin(intersect);
+
+document.addEventListener('alpine:init', () => {
+  Alpine.data('PwCardMusic', $root => ({
     isPlaying: false,
     progress: 0,
-    previewUrl: $el.dataset.previewUrl,
-    index: $el.dataset.index,
+    previewUrl: $root.dataset.previewUrl,
+    index: $root.dataset.index,
     init() {
       this.$nextTick(() => {
         if (this.$refs['playButton']) {
@@ -51,25 +54,59 @@ window.PwCardMusic = $el => {
       window.PwVibrate();
     },
     playingPreview($event) {
-      if ($event.detail.src === this.previewUrl) {
-        this.isPlaying = true;
-      }
+      this.isPlaying = $event.detail.src === this.previewUrl;
     },
-    stoppedPreview($event) {
-      if ($event.detail.src === this.previewUrl) {
-        this.isPlaying = false;
-      }
+    stoppedPreview() {
+      this.isPlaying = false;
     },
     previewProgress($event) {
       if ($event.detail.src === this.previewUrl) {
         this.progress = $event.detail.progress;
       }
     },
-  };
-};
+  }));
 
-window.PwContact = () => {
-  return {
+  Alpine.data('PwMusic', () => ({
+    isPlaying: false,
+    src: null,
+    init() {
+      this.$watch('isPlaying', value => {
+        this.$dispatch(value ? 'playing-preview' : 'stopped-preview', {
+          src: this.src,
+        });
+      });
+    },
+    play(detail) {
+      this.isPlaying = false;
+      this.src = detail.src;
+      this.$root.play();
+    },
+    playing() {
+      this.isPlaying = true;
+    },
+    pause() {
+      this.$root.pause();
+      this.isPlaying = false;
+    },
+    ended() {
+      this.isPlaying = false;
+      this.src = null;
+    },
+    timeUpdate($event, $dispatch) {
+      const progress = Math.round(($event.target.currentTime / $event.target.duration + Number.EPSILON) * 100) / 100;
+
+      if (Number.isNaN(progress)) {
+        return;
+      } else {
+        $dispatch('preview-progress', {
+          src: $event.target.src,
+          progress: progress,
+        });
+      }
+    },
+  }));
+
+  Alpine.data('PwContact', () => ({
     submitted: false,
     error: null,
     submitForm() {
@@ -97,62 +134,18 @@ window.PwContact = () => {
           console.error('Contact form error: ', error);
         });
     },
-  };
-};
+  }));
 
-window.PwMusic = () => {
-  return {
-    isPlaying: false,
-    src: null,
-    init($dispatch) {
-      this.$watch('isPlaying', value => {
-        $dispatch(value ? 'playing-preview' : 'stopped-preview', {
-          src: this.src,
-        });
-      });
-    },
-    play(detail) {
-      this.isPlaying = false;
-      this.src = detail.src;
-      this.$el.play();
-    },
-    playing() {
-      this.isPlaying = true;
-    },
-    pause() {
-      this.$el.pause();
-      this.isPlaying = false;
-    },
-    ended() {
-      this.isPlaying = false;
-      this.src = null;
-    },
-    timeupdate($event, $dispatch) {
-      const progress = Math.round(($event.target.currentTime / $event.target.duration + Number.EPSILON) * 100) / 100;
-
-      if (Number.isNaN(progress)) {
-        return;
-      } else {
-        $dispatch('preview-progress', {
-          src: $event.target.src,
-          progress: progress,
-        });
-      }
-    },
-  };
-};
-
-window.PwSimpleScroller = $el => {
-  return {
+  Alpine.data('PwSimpleScroller', $root => ({
     scrollAmount: null,
-    scrollFull: $el.dataset.scrollFull,
+    scrollFull: $root.dataset.scrollFull,
     overflowing: {
       left: false,
       right: true,
     },
     init() {
-      const firstListItem = this.$el.querySelector('.scroller > li:first-child');
-      const lastListItem = this.$el.querySelector('.scroller > li:last-child');
+      const firstListItem = this.$root.querySelector('.scroller > li:first-child');
+      const lastListItem = this.$root.querySelector('.scroller > li:last-child');
 
       let observer = new IntersectionObserver(
         (entries, observer) => {
@@ -188,11 +181,9 @@ window.PwSimpleScroller = $el => {
     scrollLeft() {
       this.$refs.scroller.scrollLeft -= this.scrollAmount;
     },
-  };
-};
+  }));
 
-window.PwTweets = () => {
-  return {
+  Alpine.data('PwTweets', () => ({
     colcadeInstance: null,
     extraTweets: null,
     colcade() {
@@ -228,7 +219,7 @@ window.PwTweets = () => {
             this.$refs.container.appendChild(tweetsFragment);
 
             // Move columns to the bottom of the list so that they don't interfere with owl classes.
-            const cols = this.$el.querySelectorAll('.tweets-grid__col');
+            const cols = this.$root.querySelectorAll('.tweets-grid__col');
             const colsFragment = document.createDocumentFragment();
             [...cols].forEach(col => {
               colsFragment.appendChild(col);
@@ -248,23 +239,14 @@ window.PwTweets = () => {
         intents.register();
       });
     },
-    init() {
-      const observed = Horizon({
-        toObserve: this.$el,
-        triggerOnce: true,
-        onEntry(entry) {
-          entry.target.__x.$data.colcade();
-          entry.target.__x.$data.loadMore();
-          entry.target.__x.$data.twitterIntents();
-        },
-      });
-    },
-  };
-};
+  }));
 
-window.PwHeader = () => {
-  return {
-    active: null,
+  Alpine.data('PwHeader', () => ({
+    obscured: true,
+    activeSection: null,
+    handleScroll() {
+      this.obscured = window.scrollY < 200;
+    },
     init() {
       let headingsInView = [];
       const io = new IntersectionObserver(
@@ -274,9 +256,8 @@ window.PwHeader = () => {
           headingsInView = headingsInView.filter(h => !exitedElements.includes(h));
           headingsInView.push(...enteredElements);
           if (headingsInView.length > 0) {
-            const navigationApp = document.querySelector('header nav').__x;
-            const sectionId = (this.active = headingsInView[0].dataset.section);
-            navigationApp.$data.active = sectionId;
+            const sectionId = (this.activeSection = headingsInView[0].dataset.section);
+            window.dispatchEvent(new CustomEvent('pw-header-active-section-id', { detail: sectionId }));
           }
         },
         {
@@ -285,55 +266,27 @@ window.PwHeader = () => {
       );
       document.querySelectorAll('h2').forEach(heading => io.observe(heading));
     },
-  };
-};
+  }));
 
-window.PwGenre = () => {
-  return {
+  Alpine.data('PwGenre', () => ({
     open: false,
     toggle() {
-      this.$el.closest('p').classList.add('select-none');
+      this.$root.closest('p').classList.add('select-none');
       setTimeout(() => {
-        this.$el.closest('p').classList.remove('select-none');
+        this.$root.closest('p').classList.remove('select-none');
       }, 1000);
       if (this.open) {
-        this.$el.blur();
+        this.$root.blur();
       }
       this.open = !this.open;
     },
-  };
-};
+  }));
 
-document.body.addEventListener(
-  'load',
-  e => {
-    if (e.target.tagName != 'IMG' || !e.target.classList.contains('has-blurry-placeholder')) {
-      return;
-    }
-
-    // Remove the blurry placeholder.
-    e.target.style.backgroundImage = 'none';
-  },
-  true
-);
-
-document.querySelector('html').classList.remove('no-js');
-document.querySelector('html').classList.add('js');
-
-new Horizon({
-  toObserve: document.querySelector('footer'),
-  triggerOnce: true,
-  onEntry() {
-    loadjs(['https://cdn.jsdelivr.net/npm/speedlify-score@2.0.1/speedlify-score.min.js'], 'speedlify-score');
-  },
-});
-
-window.PwCardInstagram = () => {
-  return {
+  Alpine.data('PwCardInstagram', $root => ({
     playing: false,
-    confetti($el) {
+    confetti($root) {
       loadjs('https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
-        var dimensions = $el.getBoundingClientRect();
+        var dimensions = this.$root.getBoundingClientRect();
         var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
         var centerYCoord = dimensions.y + dimensions.height / 2;
 
@@ -382,8 +335,26 @@ window.PwCardInstagram = () => {
         });
       });
     },
-  };
-};
+  }));
+});
+
+Alpine.start();
+
+document.body.addEventListener(
+  'load',
+  e => {
+    if (e.target.tagName != 'IMG' || !e.target.classList.contains('has-blurry-placeholder')) {
+      return;
+    }
+
+    // Remove the blurry placeholder.
+    e.target.style.backgroundImage = 'none';
+  },
+  true
+);
+
+document.querySelector('html').classList.remove('no-js');
+document.querySelector('html').classList.add('js');
 
 console.info(
   `%c🚧 🖥👨‍💻 Welcome to my website! Is something not working? There's always room for improvement… You can report issues on GitHub 👨‍💻 🖥 🚧`,

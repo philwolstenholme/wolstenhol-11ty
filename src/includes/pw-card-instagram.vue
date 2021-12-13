@@ -52,7 +52,7 @@ export default {
       }
 
       if (this.isParty) {
-        attributes.push('window.pw.instagramBirthdayConfettiTimer = setTimeout(() => {confetti($el);}, 1000)');
+        attributes.push('window.pw.instagramBirthdayConfettiTimer = setTimeout(() => {confetti($root);}, 1000)');
       }
 
       return attributes.join(';');
@@ -80,7 +80,7 @@ export default {
       }
 
       if (this.isParty) {
-        attributes.push('window.pw.instagramBirthdayConfettiTimer = setTimeout(() => {confetti($el);}, 1000)');
+        attributes.push('window.pw.instagramBirthdayConfettiTimer = setTimeout(() => {confetti($root);}, 1000)');
       }
 
       return attributes.join(';');
@@ -106,7 +106,7 @@ export default {
 <template comments>
   <figure
     tabindex="0"
-    x-data="PwCardInstagram()"
+    x-data="PwCardInstagram($root)"
     v-bind:x-on:mouseenter="onMousenterEvents"
     v-bind:x-on:mouseleave="onMouseleaveEvents"
     v-bind:x-on:focus="onFocusEvents"

@@ -1,5 +1,5 @@
 <template>
-  <div data-scroller class="relative" :data-scroll-full="scrollFull" x-data="PwSimpleScroller($el)" x-init="init()">
+  <div data-scroller class="relative" :data-scroll-full="scrollFull" x-data="PwSimpleScroller($root)">
     <button
       hidden
       x-bind:inert="!overflowing.left"

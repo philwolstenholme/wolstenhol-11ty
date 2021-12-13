@@ -56,7 +56,7 @@ export default {
   <article
     :data-index="index"
     :data-preview-url="previewUrl"
-    x-data="PwCardMusic($el)"
+    x-data="PwCardMusic($root)"
     x-bind:class="{ isPlaying: isPlaying }"
     x-on:playing-preview.window="playingPreview($event)"
     x-on:stopped-preview.window="stoppedPreview($event)"

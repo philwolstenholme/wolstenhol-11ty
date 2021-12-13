@@ -1,4 +1,11 @@
-<header role="banner" class="w-full h-12 sticky top-0 z-20 bg-binding-dark text-white py-2 px-5 sm:px-2">
+<header
+  role="banner"
+  class="w-full h-12 sticky top-0 z-20 bg-binding-dark text-white py-2 px-5 sm:px-2"
+  x-data="PwHeader"
+  x-bind:inert="obscured"
+  x-on:pw-header-active-section-id.window="activeSection = $event.detail"
+  x-on:scroll.window.debounce="handleScroll()"
+>
   <div class="section__inner mx-auto flex space-x-4">
     <a href="{{ build.url }}" rel="home" class="block flex-shrink-0" onclick="window.PwVibrate(20)">
       <span class="sr-only">Home</span>
@@ -11,14 +18,7 @@
         height="32"
       />
     </a>
-    <nav
-      class="flex flex-1 items-center overflow-hidden"
-      role="navigation"
-      tabindex="-1"
-      aria-labelledby="in-page-navigation"
-      x-data="PwHeader()"
-      x-init="init()"
-    >
+    <nav class="flex flex-1 items-center overflow-hidden" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
       <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
       <ul class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars">
         {%- for item in headerLinks.items -%} {% set id = item.href.replace('#', '') %}
@@ -26,8 +26,8 @@
           <a
             href="{{ item.href }}"
             class="font-bold font-serif underline hocus:text-yellow-300"
-            x-bind:class="{'text-yellow-300': active === '{{ id }}'}"
-            x-on:click="active = '{{ id }}'"
+            x-bind:class="{'text-yellow-300': activeSection === '{{ id }}'}"
+            x-on:click="activeSection = '{{ id }}'"
           >
             {{ item.title }}
           </a>

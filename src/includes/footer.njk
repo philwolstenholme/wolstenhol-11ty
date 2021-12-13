@@ -35,7 +35,7 @@
             pageLoadTime = +(Math.round(pageLoadTime/1000 + 'e+2')  + 'e-2');
             this.time = pageLoadTime;
             if (pageLoadTime < 0) {
-              this.$el.remove();
+              this.$root.remove();
             }
           }
         "
@@ -62,7 +62,11 @@
         {% endif %}
       </ul>
 
-      <div class="no-js:hidden flex flex-wrap items-center gap-2">
+      <div
+        class="no-js:hidden flex flex-wrap items-center gap-2"
+        x-data="{}"
+        x-intersect.once="loadjs(['https://cdn.jsdelivr.net/npm/speedlify-score@2.0.1/speedlify-score.min.js'], 'speedlify-score');"
+      >
         <p id="homepage-lighthouse-scores">Homepage Lighthouse scores (%):</p>
         <speedlify-score
           class="flex space-x-1 flex items-center"

@@ -34,7 +34,7 @@ export default {
       >According to the Spotify API, I've been listening to a bit of
       <template v-for="(genre, index) in genres">
         <template v-if="index + 1 == genres.length"> and </template
-        ><mark v-bind:key="index" class="group cursor-help" tabindex="0" x-data="PwGenre()" x-on:click="toggle()"
+        ><mark v-bind:key="index" class="group cursor-help" tabindex="0" x-data="PwGenre" x-on:click="toggle()"
           >{{ genre.genre }}<span class="hidden group-focus:inline"> ({{ genre.artist }})</span></mark
         ><template v-if="index < genres.length - 2">, </template></template
       >
@@ -62,15 +62,14 @@ export default {
       hidden
       class="inline sr-only"
       x-bind:src="src"
-      x-data="PwMusic()"
-      x-init="init($dispatch)"
-      x-on:play-preview.window="play($event.detail, $el)"
-      x-on:stop-preview.window="pause($el)"
+      x-data="PwMusic"
+      x-on:play-preview.window="play($event.detail, $root)"
+      x-on:stop-preview.window="pause($root)"
       x-on:pause="pause()"
       x-on:ended="ended()"
       x-on:playing="playing()"
-      x-on:timeupdate="timeupdate($event, $dispatch)"
+      x-on:timeupdate="timeUpdate($event, $dispatch)"
     ></audio>
-    <iframe x-data="{}" x-init="$el.remove()" class="js:hidden" name="spotify-preview" title="Spotify preview"></iframe>
+    <iframe x-data="{}" x-init="$root.remove()" class="js:hidden" name="spotify-preview" title="Spotify preview"></iframe>
   </pw-section>
 </template>
