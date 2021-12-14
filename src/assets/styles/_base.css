@@ -88,6 +88,22 @@ button {
 .custom-scrollbars {
   scrollbar-color: #848584 transparent;
 
+  &:focus {
+    scrollbar-color: hotpink transparent;
+
+    &::-webkit-scrollbar-thumb {
+      background: hotpink;
+      border: 0 none hotpink;
+      border-radius: 50px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: darken(hotpink, 20%);
+    }
+    &::-webkit-scrollbar-thumb:active {
+      background: darken(hotpink, 40%);
+    }
+  }
+
   &::-webkit-scrollbar {
     width: 9px;
     height: 9px;
