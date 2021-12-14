@@ -1,7 +1,8 @@
 <template>
-  <div data-scroller class="relative" :data-scroll-full="scrollFull" x-data="PwSimpleScroller($root)">
+  <div data-scroller role="group" class="relative" :data-scroll-full="scrollFull" x-data="PwSimpleScroller($root)">
     <button
       hidden
+      type="button"
       x-bind:inert="!overflowing.left"
       class="hidden md:block md:no-js:hidden group -left-12 absolute bottom-5 top-0 w-8 transform-gpu transition-all translate-x-12"
       x-bind:class="{ 'opacity-0 translate-x-12': !overflowing.left }"
@@ -43,6 +44,7 @@
     </div>
     <button
       hidden
+      type="button"
       x-bind:inert="!overflowing.right"
       class="hidden md:block md:no-js:hidden group -right-12 absolute bottom-5 top-0 w-8 transform-gpu transition-all -translate-x-12"
       x-bind:class="{ 'opacity-0 -translate-x-12': !overflowing.right }"
@@ -72,6 +74,7 @@
       >
         There's more!
         <button
+          type="button"
           class="transition-colors font-bold ml-1 px-2 py-1 rounded shadow-hard text-white"
           v-bind:class="{
             'bg-medium hocus:bg-medium-dark': theme === 'medium',
@@ -82,7 +85,7 @@
           }"
           x-on:click="scrollRight(); window.PwVibrate(20)"
         >
-          scroll this way ➜
+          scroll this way <span aria-hidden="true">➜</span>
         </button>
       </div>
     </div>

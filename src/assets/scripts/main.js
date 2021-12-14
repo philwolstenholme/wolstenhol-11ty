@@ -147,7 +147,7 @@ document.addEventListener('alpine:init', () => {
       const firstListItem = this.$root.querySelector('.scroller > li:first-child');
       const lastListItem = this.$root.querySelector('.scroller > li:last-child');
 
-      let observer = new IntersectionObserver(
+      const firstLastObserver = new IntersectionObserver(
         (entries, observer) => {
           entries.forEach(entry => {
             const target = entry.target === firstListItem ? 'left' : 'right';
@@ -164,8 +164,8 @@ document.addEventListener('alpine:init', () => {
         }
       );
 
-      observer.observe(firstListItem);
-      observer.observe(lastListItem);
+      firstLastObserver.observe(firstListItem);
+      firstLastObserver.observe(lastListItem);
 
       if (this.scrollAmount === null) {
         if (this.scrollFull) {
@@ -174,12 +174,41 @@ document.addEventListener('alpine:init', () => {
           this.scrollAmount = this.$refs.scroller.offsetWidth / 2;
         }
       }
+
+      var inertObserver = new IntersectionObserver(
+        (entries, observer) => {
+          Array.prototype.forEach.call(entries, function (entry) {
+            if (entry.intersectionRatio > 0.5) {
+              entry.target.removeAttribute('inert');
+            } else {
+              entry.target.setAttribute('inert', 'inert');
+            }
+          });
+        },
+        {
+          root: this.$refs.scroller,
+          threshold: 0.5,
+        }
+      );
+
+      this.$root.querySelectorAll('.scroller > li').forEach(item => {
+        inertObserver.observe(item);
+      });
+    },
+    focusOnFirstItem() {
+      setTimeout(() => {
+        this.$refs.scroller.querySelectorAll('li[tabindex]:not([inert])')[0].focus();
+      }, 750);
     },
     scrollRight() {
       this.$refs.scroller.scrollLeft += this.scrollAmount;
+
+      this.focusOnFirstItem();
     },
     scrollLeft() {
       this.$refs.scroller.scrollLeft -= this.scrollAmount;
+
+      this.focusOnFirstItem();
     },
   }));
 
