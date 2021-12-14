@@ -61,6 +61,7 @@ export default {
       autoplay
       hidden
       class="inline sr-only"
+      x-init="$root.classList.remove('inline')"
       x-bind:src="src"
       x-data="PwMusic"
       x-on:play-preview.window="play($event.detail, $root)"
