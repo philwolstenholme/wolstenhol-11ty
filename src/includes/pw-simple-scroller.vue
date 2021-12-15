@@ -29,7 +29,6 @@
       ></div>
       <ul
         tabindex="0"
-        role="region"
         v-bind:aria-label="label"
         x-ref="scroller"
         class="scroller relative flex space-x-5 overflow-x-auto overflow-y-auto custom-scrollbars scroll-smooth scrolling-touch snap snap-x snap-mandatory"
@@ -66,13 +65,14 @@
     <div class="flex justify-end h-10">
       <div
         hidden
+        x-id="['theres-more']"
         x-bind:inert="!overflowing.right"
         class="no-js:hidden js:inline-block lg:float-right font-bold mt-3 ml-3 rounded text-gray-500 text-sm transition-all transform-gpu duration-300"
         x-bind:class="{
         'opacity-0 translate-y-4': !overflowing.right
       }"
       >
-        There's more!
+        <span x-bind:id="$id('theres-more')">There's more!</span>
         <button
           type="button"
           class="transition-colors font-bold ml-1 px-2 py-1 rounded shadow-hard text-white"
@@ -84,6 +84,7 @@
             'bg-instagram hocus:bg-instagram-dark': theme === 'instagram',
           }"
           x-on:click="scrollRight(); window.PwVibrate(20)"
+          x-bind:aria-describedby="$id('theres-more')"
         >
           scroll this way <span aria-hidden="true">➜</span>
         </button>
