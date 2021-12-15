@@ -197,7 +197,7 @@ document.addEventListener('alpine:init', () => {
     },
     focusOnFirstItem() {
       setTimeout(() => {
-        this.$refs.scroller.querySelectorAll('li[tabindex]:not([inert])')[0].focus();
+        this.$refs.scroller.querySelectorAll('li[tabindex]:not([inert])')[0].focus({ preventScroll: true });
       }, 750);
     },
     scrollRight() {
