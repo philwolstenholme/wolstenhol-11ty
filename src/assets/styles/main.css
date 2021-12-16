@@ -216,7 +216,8 @@ a.focus\:not-sr-only:focus[href='#content'] {
   padding: 0.5rem !important;
 }
 
-main section:focus-within,
+body main section + section:focus-within,
 .contact-form-container:focus-within {
-  content-visibility: visible !important;
+  /* Commenting this out for now as it causes Chrome to crash */
+  /* content-visibility: visible; */
 }
