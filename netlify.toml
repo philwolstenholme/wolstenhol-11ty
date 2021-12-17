@@ -61,6 +61,12 @@
   force = true
     headers = {Referer = "https://www.instagram.com"}
 
+[[redirects]]
+  from = "/metallizer-api/*"
+  to = "http://metallizer.dk/api/:splat"
+  status = 200
+  force = true
+
 # Redirect to custom 404. Keep this last.
 [[redirects]]
   from = "/*"
