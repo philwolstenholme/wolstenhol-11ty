@@ -71,6 +71,10 @@
           document.getElementById('main').removeAttribute('hidden');
           netlifyIdentity.close();
         });
+
+        netlifyIdentity.on('close', () => {
+          window.location = location.hostname;
+        });
       </script>
     </main>
   </body>
