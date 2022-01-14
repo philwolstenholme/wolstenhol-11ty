@@ -58,7 +58,9 @@
       </form>
 
       <script type="text/javascript">
+        netlifyIdentity.close();
         netlifyIdentity.open('login');
+
         netlifyIdentity.on('login', user => {
           document.getElementById('main').removeAttribute('hidden');
           netlifyIdentity.close();
