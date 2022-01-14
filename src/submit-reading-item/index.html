@@ -40,9 +40,31 @@
 
       <form
         x-data="{
-        title: new URLSearchParams(location.search).get('title'),
-        url: new URLSearchParams(location.search).get('url')
-      }"
+          title: new URLSearchParams(location.search).get('title'),
+          url: new URLSearchParams(location.search).get('url')
+        }"
+        @submit.prevent="(form) => {
+          const { title, url } = Object.fromEntries(new FormData(form.target));
+          const user = netlifyIdentity.currentUser();
+
+          const functionUrl = new URL('https://wolstenhol.me/api/submit-reading-item');
+          functionUrl.search = new URLSearchParams({ title, url }).toString();
+
+          fetch(functionUrl.toString(), {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${user.token.access_token}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              alert(data);
+            })
+            .catch(() => {
+              alert('Ooops! Something went wrong!');
+            });
+
+        }"
       >
         <label for="title">
           Title
