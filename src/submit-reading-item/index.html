@@ -56,14 +56,20 @@
               Authorization: `Bearer ${user.token.access_token}`,
             },
           })
-            .then((response) => response.json())
-            .then((data) => {
-              alert(data);
+            .then(response => {
+              if (!response.ok) {
+                  alert('Failed with HTTP code ' + response.status);
+                  throw new Error('Failed with HTTP code ' + response.status);
+              }
+              return response;
+            })
+            .then(response => response.json())
+            .then(data => {
+              alert(`Posted ${data.title}`)
             })
             .catch(() => {
               alert('Ooops! Something went wrong!');
             });
-
         }"
       >
         <label for="title">
