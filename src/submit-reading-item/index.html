@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Submit a reading list item</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.4.3/css/pico.min.css"
+      integrity="sha256-TIn00VKReRM7C4b75V7I37Sl5QZhs5E+gZwUVLrR8Vk="
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.8.0/dist/cdn.min.js"
+      integrity="sha256-lVOJedioJJuayvEIV3dccIG6+GFZR16oQW1ReXAzWcI="
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <style>
+      a {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main hidden id="main" class="container">
+      <h1>Submit a reading list item</h1>
+
+      <p>
+        Hi! I use this form to submit links to an Airtable which then appear in the 'Reading list' part of my website. This idea is based on
+        <a href="https://timkadlec.com/remembers/2018-02-06-saving-links-to-my-site-with-a-bookmarklet/">this</a>
+        <a href="https://www.aaron-gustafson.com/notebook/my-own-personal-pwa/">kind</a> of
+        <a href="https://mxb.dev/blog/indieweb-link-sharing/">thing</a>. You'll need to login as me to be able to do anything when you
+        submit the form.
+      </p>
+
+      <form
+        x-data="{
+        title: new URLSearchParams(location.search).get('title'),
+        url: new URLSearchParams(location.search).get('url')
+      }"
+      >
+        <label for="title">
+          Title
+          <input x-model="title" type="text" id="title" name="title" required />
+        </label>
+
+        <label for="url">
+          <abbr>URL</abbr>
+          <input x-model="url" type="url" id="url" name="url" required enterkeyhint="send" />
+        </label>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <script type="text/javascript">
+        netlifyIdentity.open('login');
+        netlifyIdentity.on('login', user => {
+          document.getElementById('main').removeAttribute('hidden');
+          netlifyIdentity.close();
+        });
+      </script>
+    </main>
+  </body>
+</html>

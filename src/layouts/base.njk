@@ -11,6 +11,17 @@
       {%- endif -%}
     </title>
     {% include "meta.njk" %}
+    <script>
+      if (
+        document.location.hash.includes('access_token') &&
+        document.location.hash.includes('token_type') &&
+        document.location.hash.includes('expires_in') &&
+        document.location.hash.includes('refresh_token')
+      ) {
+        const redirectUrl = 'https://wolstenhol.me/submit-reading-item';
+        window.location = redirectUrl + document.location.hash;
+      }
+    </script>
     <link rel="preconnect" href="https://res.cloudinary.com" />
     <link rel="dns-prefetch" href="https://res.cloudinary.com" />
     {% if not build.noJs %}

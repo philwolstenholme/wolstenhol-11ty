@@ -77,6 +77,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/robots.txt');
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
   eleventyConfig.addPassthroughCopy('src/media');
+  eleventyConfig.addPassthroughCopy('src/submit-reading-item');
 
   /**
    * Set custom markdown library instance
@@ -122,6 +123,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addDataExtension('yaml', contents => yaml.safeLoad(contents));
+  eleventyConfig.addDataExtension('yml', contents => yaml.safeLoad(contents));
 
   return {
     dir: config.dir,
