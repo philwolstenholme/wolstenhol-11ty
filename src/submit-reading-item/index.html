@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Submit a reading list item</title>
-    <link rel="manifest" href="manifest.json" />
     <meta name="theme-color" content="#fbbf24" />
 
     <link
@@ -96,10 +95,6 @@
       </form>
 
       <script type="text/javascript">
-        if (!netlifyIdentity.currentUser()) {
-          netlifyIdentity.open('login');
-        }
-
         netlifyIdentity.on('login', () => {
           netlifyIdentity.close();
         });
@@ -107,23 +102,14 @@
         document.addEventListener(
           'DOMContentLoaded',
           async () => {
-            if (netlifyIdentity.currentUser()) {
+            if (!netlifyIdentity.currentUser()) {
+              netlifyIdentity.open('login');
+            } else {
               await netlifyIdentity.refresh();
             }
           },
           false
         );
-
-        if ('serviceWorker' in navigator) {
-          navigator.serviceWorker
-            .register('sw.js', { scope: '/submit-reading-item/' })
-            .then(() => {
-              console.log('Service Worker registered successfully.');
-            })
-            .catch(error => {
-              console.log('Service Worker registration failed:', error);
-            });
-        }
       </script>
     </main>
   </body>
