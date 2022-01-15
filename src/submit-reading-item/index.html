@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Submit a reading list item</title>
+    <link rel="manifest" href="manifest.json" />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@picocss/pico@1.4.3/css/pico.min.css"
@@ -100,6 +102,16 @@
         netlifyIdentity.on('login', () => {
           netlifyIdentity.close();
         });
+
+        document.addEventListener(
+          'DOMContentLoaded',
+          async () => {
+            if (netlifyIdentity.currentUser()) {
+              await netlifyIdentity.refresh();
+            }
+          },
+          false
+        );
       </script>
     </main>
   </body>
