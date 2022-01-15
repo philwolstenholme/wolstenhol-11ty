@@ -11,14 +11,14 @@
       crossorigin="anonymous"
     />
 
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <script
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.8.0/dist/cdn.min.js"
       integrity="sha256-lVOJedioJJuayvEIV3dccIG6+GFZR16oQW1ReXAzWcI="
       crossorigin="anonymous"
     ></script>
-
-    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <style>
       a {
@@ -27,7 +27,17 @@
     </style>
   </head>
   <body>
-    <main hidden id="main" class="container">
+    <main
+      :hidden="!currentUser"
+      id="main"
+      class="container"
+      x-data="{
+        title: new URLSearchParams(location.search).get('title'),
+        url: new URLSearchParams(location.search).get('url'),
+        currentUser: {}
+      }"
+      x-init="setInterval(() => { currentUser = netlifyIdentity.currentUser(); }, 250);"
+    >
       <h1>Submit a reading list item</h1>
 
       <p>
@@ -39,10 +49,6 @@
       </p>
 
       <form
-        x-data="{
-          title: new URLSearchParams(location.search).get('title'),
-          url: new URLSearchParams(location.search).get('url')
-        }"
         @submit.prevent="(form) => {
           const { title, url } = Object.fromEntries(new FormData(form.target));
           const user = netlifyIdentity.currentUser();
@@ -82,21 +88,21 @@
           <input x-model="url" type="url" id="url" name="url" required enterkeyhint="send" />
         </label>
 
-        <button type="submit">Submit</button>
+        <button type="submit" :disabled="!currentUser">Submit</button>
       </form>
 
       <script type="text/javascript">
         document.addEventListener(
           'DOMContentLoaded',
           () => {
-            netlifyIdentity.close();
-            netlifyIdentity.open('login');
+            if (!netlifyIdentity.currentUser()) {
+              netlifyIdentity.open('login');
+            }
           },
           false
         );
 
-        netlifyIdentity.on('login', user => {
-          document.getElementById('main').removeAttribute('hidden');
+        netlifyIdentity.on('login', () => {
           netlifyIdentity.close();
         });
       </script>
