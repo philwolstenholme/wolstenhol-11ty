@@ -43,8 +43,8 @@
       <p>
         Hi! I use this form to submit links to an Airtable which then appear in the 'Reading list' part of my website. This idea is based on
         <a href="https://timkadlec.com/remembers/2018-02-06-saving-links-to-my-site-with-a-bookmarklet/">this</a>
-        <a href="https://www.aaron-gustafson.com/notebook/my-own-personal-pwa/">kind</a> of
-        <a href="https://mxb.dev/blog/indieweb-link-sharing/">thing</a>. You'll need to login as me to be able to do anything when you
+        <a href="https://www.aaron-gustafson.com/notebook/my-own-personal-pwa/">kind</a>
+        of <a href="https://mxb.dev/blog/indieweb-link-sharing/">thing</a>. You'll need to login as me to be able to do anything when you
         submit the form.
       </p>
 
@@ -53,7 +53,7 @@
           const { title, url } = Object.fromEntries(new FormData(form.target));
           const user = netlifyIdentity.currentUser();
 
-          const functionUrl = new URL('https://wolstenhol.me/api/submit-reading-item');
+          const functionUrl = new URL(window.location.origin + '/api/submit-reading-item');
           functionUrl.search = new URLSearchParams({ title, url }).toString();
 
           fetch(functionUrl.toString(), {
@@ -92,15 +92,9 @@
       </form>
 
       <script type="text/javascript">
-        document.addEventListener(
-          'DOMContentLoaded',
-          () => {
-            if (!netlifyIdentity.currentUser()) {
-              netlifyIdentity.open('login');
-            }
-          },
-          false
-        );
+        if (!netlifyIdentity.currentUser()) {
+          netlifyIdentity.open('login');
+        }
 
         netlifyIdentity.on('login', () => {
           netlifyIdentity.close();
