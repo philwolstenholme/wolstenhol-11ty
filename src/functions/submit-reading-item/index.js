@@ -4,9 +4,6 @@ exports.handler = async function (event, context) {
   const { user } = context.clientContext;
   const { title, url } = event.queryStringParameters;
 
-  console.log({ user, title, url });
-  console.log(process.env.AIRTABLE_KEY);
-
   if (!user) {
     console.error('No authentication details!');
     return {
@@ -29,7 +26,7 @@ exports.handler = async function (event, context) {
       ],
     });
 
-    console.log(body);
+    console.log('going out: ', body);
 
     const response = await fetch('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List', {
       method: 'post',
@@ -41,7 +38,7 @@ exports.handler = async function (event, context) {
     });
     const data = await response.json();
 
-    console.log(JSON.stringify(data));
+    console.log('coming back: ', JSON.stringify(data));
 
     return {
       statusCode: 200,

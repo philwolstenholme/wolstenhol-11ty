@@ -71,7 +71,7 @@
             })
             .then(response => response.json())
             .then(data => {
-              alert(`Posted ${data.title}`)
+              alert(`Posted ${data.records[0].fields.title}!`)
             })
             .catch(() => {
               alert('Ooops! Something went wrong!');
