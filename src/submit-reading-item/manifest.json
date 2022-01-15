@@ -21,7 +21,7 @@
   "theme_color": "#fbbf24",
   "background_color": "#fbbf24",
   "share_target": {
-    "action": "https://wolstenhol.me/share-target/",
+    "action": "/submit-reading-item",
     "method": "GET",
     "params": {
       "title": "title",
