@@ -1,6 +1,10 @@
 exports.handler = async function (event, context) {
   const { user } = context.clientContext;
   const { title, url } = event.queryStringParameters;
+
+  console.log(user);
+  console.log(process.env.AIRTABLE_KEY);
+
   const itsMe = user.email === 'philgw@gmail.com';
 
   if (itsMe) {
