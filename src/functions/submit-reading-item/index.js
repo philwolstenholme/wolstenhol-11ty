@@ -8,7 +8,29 @@ exports.handler = async function (event, context) {
   const itsMe = user.email === 'philgw@gmail.com';
 
   if (itsMe) {
-    console.log(`Submitting ${title} (${url})`);
+    fetch('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.AIRTABLE_KEY}`,
+      },
+      body: JSON.stringify({
+        records: [
+          {
+            fields: {
+              url,
+              title,
+            },
+          },
+        ],
+      }),
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(() => {
+        console.log(`Submitted ${title} (${url})`);
+      });
   } else {
     console.log(`It wasn't me…`);
   }
@@ -16,8 +38,6 @@ exports.handler = async function (event, context) {
   return {
     statusCode: itsMe ? 200 : 403,
     body: JSON.stringify({
-      identity: JSON.stringify(identity),
-      user: JSON.stringify(user),
       title,
       url,
     }),
