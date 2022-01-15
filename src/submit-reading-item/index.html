@@ -34,7 +34,7 @@
       id="main"
       class="container"
       x-data="{
-        title: decodeURIComponent((new URLSearchParams(location.search).get('title') + '').replace(/\+/g, ' ')),
+        title: decodeURIComponent((new URLSearchParams(location.search).get('title') || '' + '').replace(/\+/g, ' ')),
         url: new URLSearchParams(location.search).get('url'),
         currentUser: {}
       }"
@@ -112,6 +112,17 @@
           },
           false
         );
+
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker
+            .register('sw.js', { scope: '/submit-reading-item/' })
+            .then(() => {
+              console.log('Service Worker registered successfully.');
+            })
+            .catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
+        }
       </script>
     </main>
   </body>
