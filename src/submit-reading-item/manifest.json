@@ -3,9 +3,9 @@
   "short_name": "Share to reading list",
   "display": "minimal-ui",
   "orientation": "portrait",
-  "scope": "/submit-reading-item",
-  "start_url": "/submit-reading-item",
-  "id": "/submit-reading-item",
+  "scope": "/submit-reading-item/",
+  "start_url": "/submit-reading-item/",
+  "id": "/submit-reading-item/",
   "icons": [
     {
       "src": "https://wolstenhol.me/assets/images/favicon/android-chrome-192x192.png?v=lkvRGjnrz8",
@@ -21,7 +21,7 @@
   "theme_color": "#fbbf24",
   "background_color": "#fbbf24",
   "share_target": {
-    "action": "/submit-reading-item",
+    "action": "/submit-reading-item/",
     "method": "POST",
     "enctype": "application/x-www-form-urlencoded",
     "params": {
