@@ -16,8 +16,11 @@ exports.handler = async function (event, context) {
   }
 
   const itsMe = user.email === 'philgw@gmail.com';
+  console.log(itsMe, user.email);
 
   if (itsMe) {
+    console.log(`it's me`);
+
     fetch('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List', {
       method: 'post',
       headers: {
@@ -28,14 +31,15 @@ exports.handler = async function (event, context) {
         records: [
           {
             fields: {
-              url,
-              title,
+              title: title,
+              url: url,
             },
           },
         ],
       }),
     })
       .then(response => {
+        console.log(response.json());
         return response.json();
       })
       .then(() => {
