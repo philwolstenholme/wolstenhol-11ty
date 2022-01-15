@@ -34,7 +34,7 @@
       id="main"
       class="container"
       x-data="{
-        title: new URLSearchParams(location.search).get('title'),
+        title: decodeURIComponent((new URLSearchParams(location.search).get('title') + '').replace(/\+/g, ' ')),
         url: new URLSearchParams(location.search).get('url'),
         currentUser: {}
       }"
