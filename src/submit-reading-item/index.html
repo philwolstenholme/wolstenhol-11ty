@@ -49,9 +49,10 @@
       </p>
 
       <form
-        @submit.prevent="(form) => {
+        @submit.prevent="async (form) => {
           const { title, url } = Object.fromEntries(new FormData(form.target));
           const user = netlifyIdentity.currentUser();
+          await netlifyIdentity.refresh();
 
           const functionUrl = new URL(window.location.origin + '/api/submit-reading-item');
           functionUrl.search = new URLSearchParams({ title, url }).toString();
