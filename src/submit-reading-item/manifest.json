@@ -22,7 +22,8 @@
   "background_color": "#fbbf24",
   "share_target": {
     "action": "/submit-reading-item",
-    "method": "GET",
+    "method": "POST",
+    "enctype": "application/x-www-form-urlencoded",
     "params": {
       "title": "title",
       "text": "text",
