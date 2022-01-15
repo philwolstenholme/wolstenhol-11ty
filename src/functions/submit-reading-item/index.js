@@ -1,9 +1,19 @@
+const fetch = require('node-fetch');
+
 exports.handler = async function (event, context) {
   const { user } = context.clientContext;
   const { title, url } = event.queryStringParameters;
 
-  console.log(user);
+  console.log({ user, title, url });
   console.log(process.env.AIRTABLE_KEY);
+
+  if (!user) {
+    console.error('No authentication details!');
+    return {
+      statusCode: 403,
+      body: '',
+    };
+  }
 
   const itsMe = user.email === 'philgw@gmail.com';
 
