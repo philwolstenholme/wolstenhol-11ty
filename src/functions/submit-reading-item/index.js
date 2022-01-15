@@ -16,41 +16,43 @@ exports.handler = async function (event, context) {
   }
 
   const itsMe = user.email === 'philgw@gmail.com';
-  console.log(itsMe, user.email);
 
   if (itsMe) {
-    console.log(`it's me`);
+    const body = JSON.stringify({
+      records: [
+        {
+          fields: {
+            title: title,
+            url: url,
+          },
+        },
+      ],
+    });
 
-    fetch('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List', {
+    console.log(body);
+
+    const response = await fetch('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.AIRTABLE_KEY}`,
       },
-      body: JSON.stringify({
-        records: [
-          {
-            fields: {
-              title: title,
-              url: url,
-            },
-          },
-        ],
-      }),
-    })
-      .then(response => {
-        console.log(response.json());
-        return response.json();
-      })
-      .then(() => {
-        console.log(`Submitted ${title} (${url})`);
-      });
+      body: body,
+    });
+    const data = await response.json();
+
+    console.log(JSON.stringify(data));
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(data),
+    };
   } else {
     console.log(`It wasn't me…`);
   }
 
   return {
-    statusCode: itsMe ? 200 : 403,
+    statusCode: itsMe ? 500 : 403,
     body: JSON.stringify({
       title,
       url,
