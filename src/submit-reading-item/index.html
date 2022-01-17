@@ -35,11 +35,27 @@
       id="main"
       class="container"
       x-data="{
-        title: decodeURIComponent((new URLSearchParams(location.search).get('title') || '' + '').replace(/\+/g, ' ')),
-        url: new URLSearchParams(location.search).get('url'),
+        title: '',
+        url: '',
+        text: '',
         currentUser: {}
       }"
-      x-init="setInterval(() => { currentUser = netlifyIdentity.currentUser(); }, 250);"
+      x-init="() => {
+        setInterval(() => { currentUser = netlifyIdentity.currentUser(); }, 250);
+
+        const params = new URLSearchParams(location.search);
+        title = params.get('title');
+        url = params.get('url');
+        text = params.get('text');
+
+        if (title) {
+          title = decodeURIComponent((title + '').replace(/\+/g, ' '));
+        }
+
+        if (text && text.includes('http') && !url) {
+          url = text;
+        }
+      }"
     >
       <h1>Submit a reading list item</h1>
 
