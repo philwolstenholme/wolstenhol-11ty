@@ -69,7 +69,6 @@
 
       <form
         @submit.prevent="async (form) => {
-          const { title, url } = Object.fromEntries(new FormData(form.target));
           const user = netlifyIdentity.currentUser();
           await netlifyIdentity.refresh();
 
@@ -84,14 +83,15 @@
           })
             .then(response => {
               if (!response.ok) {
-                  alert('Failed with HTTP code ' + response.status);
-                  throw new Error('Failed with HTTP code ' + response.status);
+                alert('Failed with HTTP code ' + response.status);
+                throw new Error('Failed with HTTP code ' + response.status);
               }
               return response;
             })
             .then(response => response.json())
             .then(data => {
-              alert(`Posted ${data.records[0].fields.title}!`)
+              alert(`Posted ${data.records[0].fields.title}!`);
+              form.target.reset()
             })
             .catch(() => {
               alert('Ooops! Something went wrong!');
