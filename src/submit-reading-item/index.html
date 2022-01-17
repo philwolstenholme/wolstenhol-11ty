@@ -43,13 +43,25 @@
       x-init="() => {
         setInterval(() => { currentUser = netlifyIdentity.currentUser(); }, 250);
 
+        function decodeHTMLEntities(text) {
+          var textArea = document.createElement('textarea');
+          textArea.innerHTML = text;
+          return textArea.value;
+        }
+
         const params = new URLSearchParams(location.search);
-        title = params.get('title');
+        title = decodeURIComponent(params.get('title'));
         url = params.get('url');
-        text = params.get('text');
+        text = decodeURIComponent(params.get('text'));
 
         if (title) {
-          title = decodeURIComponent((title + '').replace(/\+/g, ' '));
+          title = title.replace(/\+/g, ' ');
+          title = decodeHTMLEntities(title);
+        }
+
+        if (text) {
+          text = text.replace(/\+/g, ' ');
+          text = decodeHTMLEntities(text);
         }
 
         if (text && text.includes('http') && !url) {
