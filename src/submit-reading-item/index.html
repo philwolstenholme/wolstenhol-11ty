@@ -50,9 +50,9 @@
         }
 
         const params = new URLSearchParams(location.search);
-        title = decodeURIComponent(params.get('title'));
         url = params.get('url');
-        text = decodeURIComponent(params.get('text'));
+        title = decodeURIComponent(params.get('title') || '');
+        text = decodeURIComponent(params.get('text') || '');
 
         if (title) {
           title = title.replace(/\+/g, ' ');
