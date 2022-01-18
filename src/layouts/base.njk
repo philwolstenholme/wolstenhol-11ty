@@ -11,6 +11,12 @@
       {%- endif -%}
     </title>
     {% include "meta.njk" %}
+    <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    {% if not build.noJs %}
+    <script>
+      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
+    </script>
     <script>
       if (
         document.location.hash.includes('access_token') &&
@@ -26,20 +32,20 @@
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/service-worker.js');
         });
+
+        let deferredPwaPrompt;
+        window.addEventListener('beforeinstallprompt', e => {
+          e.preventDefault();
+          deferredPwaPrompt = e;
+        });
       }
-    </script>
-    <link rel="preconnect" href="https://res.cloudinary.com" />
-    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-    {% if not build.noJs %}
-    <script>
-      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
     </script>
     {% endif %} {% if not build.noCss %}
     <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
     <style>
-      /* 
+      /*
        * https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
        */
       body main section + section {
@@ -50,12 +56,14 @@
     {% endif %}
   </head>
   <body class="text-gray-900 leading-normal overscroll-x-none overflow-x-hidden overflow-y-scroll">
+    {% if not build.noJs %}
     <script>
       let root = document.documentElement;
       let scrollbarWidth = window.innerWidth - document.body.offsetWidth;
       root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
       window.pw = window.pw || {};
     </script>
+    {% endif %}
     <a
       href="#content"
       class="bg-binding-dark block border border-yellow-500 focus:not-sr-only left-3 p-5 sr-only text-yellow-500 top-3 z-50"
