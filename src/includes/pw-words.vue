@@ -28,7 +28,7 @@ export default {
   <pw-section section-key="words">
     <pw-section-heading title="Words" icon="penAlt" section="words" />
     <pw-lede class="mt-3">
-      Blog posts from <a href="https://dev.to/philw_" class="underline">DEV Community</a> or
+      Blog posts I've posted on <a href="https://dev.to/philw_" class="underline">DEV Community</a> or
       <a href="https://philwolstenholme.medium.com" class="underline">Medium</a>
       (one day I'll build my own blog, I promise…)
     </pw-lede>

@@ -30,6 +30,12 @@ module.exports = {
           DEFAULT: '#E0294C',
           dark: '#b91a39',
         },
+        'oc-yellow': {
+          0: '#fff9db',
+          1: '#fff3bf',
+          2: '#ffec99',
+          3: '#ffe066',
+        },
       },
       boxShadow: {
         hard: '2px 2px 0 rgba(0,0,0,.15)',
@@ -75,7 +81,7 @@ module.exports = {
       translate: ['hover', 'focus', 'hocus', 'group-hocus'],
       scale: ['group-focus-within', 'group-hover', 'group-hocus', 'hocus'],
       height: ['hover', 'focus', 'hocus', 'group-hocus'],
-      textDecoration: ['hocus', 'group-hocus', 'group-focus-within'],
+      textDecoration: ['hocus', 'group-hocus', 'group-focus-within', 'group-focus', 'group-hover'],
       opacity: ['hocus', 'group-hocus'],
       rotate: ['hocus', 'group-hocus'],
       ringWidth: ['focus', 'group-focus'],

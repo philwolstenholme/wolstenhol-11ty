@@ -10,12 +10,6 @@ window.lozad = lozad('.lozad', {
 });
 window.lozad.observe();
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js');
-  });
-}
-
 window.PwVibrate = (duration = 80) => {
   window?.navigator?.vibrate?.(duration);
 };

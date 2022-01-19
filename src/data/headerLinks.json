@@ -1,6 +1,7 @@
 {
   "items": [
     { "title": "Words", "href": "#words" },
+    { "title": "Reading", "href": "#reading" },
     { "title": "Speaking", "href": "#speaking" },
     { "title": "Music", "href": "#music" },
     { "title": "Photos", "href": "#photos" },

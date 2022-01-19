@@ -10,6 +10,8 @@
 
     <pw-words :posts="this.medium"></pw-words>
 
+    <pw-reading :reading="this.reading"></pw-reading>
+
     <pw-speaking></pw-speaking>
 
     <pw-music v-if="this.spotify.artists" :artists="this.spotify.artists" :genres="this.spotify.randomGenres"></pw-music>
@@ -39,6 +41,7 @@ import PwTweets from './includes/pw-tweets.vue';
 import PwContact from './includes/pw-contact.vue';
 import PwMusic from './includes/pw-music.vue';
 import PwPhotos from './includes/pw-photos.vue';
+import PwReading from './includes/pw-reading.vue';
 
 export default {
   data: {
@@ -76,6 +79,7 @@ export default {
     PwContact,
     PwMusic,
     PwPhotos,
+    PwReading,
   },
 };
 </script>
