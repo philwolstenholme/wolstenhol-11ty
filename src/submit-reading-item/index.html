@@ -103,7 +103,16 @@
             .then(response => response.json())
             .then(data => {
               alert(`Posted ${data.records[0].fields.title}!`);
-              form.target.reset()
+
+              try {
+                window.close();
+              }
+              try {
+                window.close('','_parent','');
+              }
+              catch(error) {
+                form.target.reset();
+              }
             })
             .catch(() => {
               alert('Ooops! Something went wrong!');
