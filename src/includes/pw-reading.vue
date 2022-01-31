@@ -76,7 +76,7 @@ export default {
             loading="lazy"
           />
           <div class="isolate min-w-0">
-            <h4 class="font-bold leading-tight group-hocus:underline">{{ item.title }}</h4>
+            <h3 class="font-bold leading-tight group-hocus:underline">{{ item.title }}</h3>
             <p class="mt-2 text-xs no-underline truncate" v-if="item.subTitle">{{ item.subTitle }}</p>
           </div>
         </a>
