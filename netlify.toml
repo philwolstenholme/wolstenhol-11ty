@@ -13,6 +13,11 @@
   to = "https://res.cloudinary.com/wolstenh/:splat"
   status = 200
 
+[[redirects]]
+  from = "/api/recently-played"
+  to = "https://eoh55mp2n2usj4p.m.pipedream.net"
+  status = 200
+
 # Proxy Lambda functions
 [[redirects]]
   from = "/api/*"
@@ -53,19 +58,6 @@
   for = "/partial-*.html"
   [headers.values]
     X-Robots-Tag = "noindex"
-
-[[redirects]]
-  from = "/instagram-proxy/*"
-  to = ":splat"
-  status = 200
-  force = true
-    headers = {Referer = "https://www.instagram.com"}
-
-[[redirects]]
-  from = "/metallizer-api/*"
-  to = "http://metallizer.dk/api/:splat"
-  status = 200
-  force = true
 
 # Redirect to custom 404. Keep this last.
 [[redirects]]
