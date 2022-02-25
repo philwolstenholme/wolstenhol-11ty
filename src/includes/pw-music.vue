@@ -41,6 +41,12 @@ export default {
       over the last few weeks (their genre names, not mine!)</pw-lede
     >
 
+    <p x-cloak class="mt-3 text-sm" x-data="PwSpotifyLive()" x-show="data && data.name">
+      <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span class="spotify-live__label" x-text="label"
+        >LIVE</span
+      >: <a x-bind:href="data.trackUrl" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"></a>
+    </p>
+
     <pw-simple-scroller class="mt-12" :scroll-full="true" theme="spotify" label="What I've been listening to">
       <pw-simple-scroller-item v-for="(artist, index) in artists" :key="index">
         <pw-card-music :music="artist" :index="index"></pw-card-music>
@@ -74,3 +80,35 @@ export default {
     <iframe x-data="{}" x-init="$root.remove()" class="js:hidden" name="spotify-preview" title="Spotify preview"></iframe>
   </pw-section>
 </template>
+
+<style scoped>
+.pulsating-circle {
+  --spotify-brand: #1db954;
+  background: var(--spotify-brand);
+  box-shadow: 0 0 0 0 var(--spotify-brand);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 var(--spotify-brand);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.spotify-live__label {
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+}
+</style>

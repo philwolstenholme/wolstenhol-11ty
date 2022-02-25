@@ -361,6 +361,27 @@ document.addEventListener('alpine:init', () => {
   }));
 });
 
+Alpine.data('PwSpotifyLive', () => ({
+  data: {},
+  label: 'LIVE',
+  init() {
+    fetch('https://wolstenhol.me/api/recently-played')
+      .then(res => res.json())
+      .then(res => (this.data = res));
+
+    loadjs('https://cdn.jsdelivr.net/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
+      before: (path, el) => {
+        el.integrity = 'sha256-sTurDi2etLN9CpnUIoCC9y5iynb2qr/uo6QJqzoO7mA=';
+        el.crossOrigin = 'anonymous';
+      },
+    });
+
+    loadjs.ready('timeago', () => {
+      this.label = timeago.format(this.data.playedAt);
+    });
+  },
+}));
+
 Alpine.start();
 
 document.body.addEventListener(
