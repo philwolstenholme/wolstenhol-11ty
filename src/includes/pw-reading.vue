@@ -49,20 +49,7 @@ export default {
     </div>
 
     <ul class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8" role="list">
-      <li
-        class="reading-list-item flex min-w-0"
-        v-for="(item, index) in reading"
-        :key="index"
-        :style="getRandomRotationVar()"
-        :x-bind:class="
-          item.isMedium
-            ? `{
-                  flex: !hideMedium,
-                  hidden: hideMedium,
-                }`
-            : null
-        "
-      >
+      <li class="reading-list-item flex min-w-0" v-for="(item, index) in reading" :key="index" :style="getRandomRotationVar()">
         <a
           :href="item.url"
           class="reading-list-link relative flex min-w-0 group items-baseline space-x-3 flex-1 border border-gray-300 rounded shadow-hard bg-oc-yellow-2 hocus:bg-oc-yellow-3 p-4 font-serif"
