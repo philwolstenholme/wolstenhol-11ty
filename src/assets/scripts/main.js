@@ -365,7 +365,7 @@ Alpine.data('PwSpotifyLive', () => ({
   data: {},
   label: 'LIVE',
   init() {
-    fetch('https://wolstenhol.me/api/recently-played')
+    fetch('https://wolstenhol.me/api/recently-played?1')
       .then(res => res.json())
       .then(res => (this.data = res));
 

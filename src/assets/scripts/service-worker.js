@@ -30,8 +30,9 @@ self.addEventListener('activate', function (event) {
 
 self.addEventListener('fetch', event => {
   let { pathname } = new URL(event.request.url);
+
   if (pathname.startsWith('/api/')) {
-    return;
+    return fetch(event.request);
   }
 
   event.respondWith(
