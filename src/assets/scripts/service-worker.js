@@ -29,6 +29,11 @@ self.addEventListener('activate', function (event) {
 });
 
 self.addEventListener('fetch', event => {
+  let { pathname } = new URL(event.request.url);
+  if (pathname.startsWith('/api/')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then(function (response) {
       return response || fetch(event.request);
