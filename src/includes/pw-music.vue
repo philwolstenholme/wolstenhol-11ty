@@ -41,9 +41,9 @@ export default {
       over the last few weeks (their genre names, not mine!)</pw-lede
     >
 
-    <p x-cloak class="mt-3 text-sm" x-data="PwSpotifyLive()" x-show="data && data.name">
+    <p x-cloak class="mt-3 text-sm" x-data="PwSpotifyLive()" x-show="data && data.name && label">
       <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span class="spotify-live__label" x-text="label"
-        >LIVE</span
+        >XX MINUTES AGO</span
       >: <a x-bind:href="data.trackUrl" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"></a>
     </p>
 
