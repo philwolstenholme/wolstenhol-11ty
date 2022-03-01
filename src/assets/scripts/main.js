@@ -363,9 +363,10 @@ document.addEventListener('alpine:init', () => {
 
 Alpine.data('PwSpotifyLive', () => ({
   data: {},
-  label: null,
-  init() {
-    fetch('https://wolstenhol.me/api/recently-played?1')
+  timeagoVisible: false,
+  queryInterval: null,
+  queryApi() {
+    fetch('https://wolstenhol.me/api/recently-played-spotify')
       .then(res => res.json())
       .then(res => (this.data = res))
       .then(() => {
@@ -377,9 +378,29 @@ Alpine.data('PwSpotifyLive', () => ({
         });
 
         loadjs.ready('timeago', () => {
-          this.label = timeago.format(this.data.playedAt);
+          timeago.render(this.$refs.label);
+          this.timeagoVisible = true;
         });
       });
+  },
+  init() {
+    this.queryApi();
+    this.queryInterval = setInterval(() => this.queryApi(), 1000 * 60);
+
+    loadjs.ready('timeago', () => {
+      this.$watch('data.playedAt', () => {
+        const labelEl = this.$refs.label;
+
+        if (labelEl.getAttribute('timeago-id')) {
+          timeago.cancel(labelEl);
+        }
+
+        timeago.render(labelEl);
+      });
+    });
+  },
+  destroy() {
+    clearInterval(this.queryInterval);
   },
 }));
 
