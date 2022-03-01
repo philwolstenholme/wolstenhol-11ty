@@ -18,6 +18,11 @@
   to = "https://eoh55mp2n2usj4p.m.pipedream.net"
   status = 200
 
+[[redirects]]
+  from = "/api/recently-played-spotify"
+  to = "https://eoh55mp2n2usj4p.m.pipedream.net"
+  status = 200
+
 # Proxy Lambda functions
 [[redirects]]
   from = "/api/*"

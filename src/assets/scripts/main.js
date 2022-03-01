@@ -370,18 +370,21 @@ Alpine.data('PwSpotifyLive', () => ({
       .then(res => res.json())
       .then(res => (this.data = res))
       .then(() => {
-        loadjs('https://cdn.jsdelivr.net/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
-          before: (path, el) => {
-            el.integrity = 'sha256-sTurDi2etLN9CpnUIoCC9y5iynb2qr/uo6QJqzoO7mA=';
-            el.crossOrigin = 'anonymous';
-          },
-        });
+        if (!loadjs.isDefined('timeago')) {
+          loadjs('https://cdn.jsdelivr.net/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
+            before: (path, el) => {
+              el.integrity = 'sha256-sTurDi2etLN9CpnUIoCC9y5iynb2qr/uo6QJqzoO7mA=';
+              el.crossOrigin = 'anonymous';
+            },
+          });
+        }
 
         loadjs.ready('timeago', () => {
           timeago.render(this.$refs.label);
           this.timeagoVisible = true;
         });
-      });
+      })
+      .catch(err => console.error(err));
   },
   init() {
     this.queryApi();
