@@ -389,6 +389,7 @@ Alpine.data('PwSpotifyLive', () => ({
   init() {
     this.queryApi();
     this.queryInterval = setInterval(() => this.queryApi(), 1000 * 60);
+    setTimeout(clearInterval(this.queryInterval), 1000 * 60 * 15);
 
     loadjs.ready('timeago', () => {
       this.$watch('data.playedAt', () => {
