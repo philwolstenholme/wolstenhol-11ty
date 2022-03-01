@@ -113,5 +113,6 @@ export default {
 .spotify-live__label {
   text-transform: uppercase;
   letter-spacing: -0.05em;
+  font-variant: tabular-nums;
 }
 </style>
