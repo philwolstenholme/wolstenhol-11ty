@@ -10,7 +10,11 @@ export default {
 </script>
 
 <template>
-  <article class="contain-content overflow-hidden rounded shadow-hard bg-purple-700 focus-within:bg-purple-900" style="min-width: 272px">
+  <article
+    class="contain-content overflow-hidden rounded shadow-hard bg-purple-700 focus-within:bg-purple-900"
+    style="min-width: 272px"
+    x-ignore
+  >
     <component
       :is="href ? 'a' : 'div'"
       :href="href"

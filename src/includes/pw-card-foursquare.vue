@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-  <article class="contain-content relative flex overflow-hidden w-full rounded shadow-hard">
+  <article class="contain-content relative flex overflow-hidden w-full rounded shadow-hard" x-ignore>
     <component
       :is="place.url ? 'a' : 'div'"
       :href="place.url"
