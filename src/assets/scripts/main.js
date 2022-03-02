@@ -370,11 +370,11 @@ Alpine.data('PwSpotifyLive', () => ({
   queryInterval: null,
   queryTimeout: null,
   queryApi() {
+    console.log(`🎵 Checking the Spotify API via Pipedream…`);
     fetch('https://wolstenhol.me/api/recently-played-spotify')
       .then(res => res.json())
       .then(res => (this.data = res))
       .then(() => {
-        console.log(`🔈 Checking the Spotify API to see what I've been listening to…`);
         if (!loadjs.isDefined('timeago')) {
           loadjs('https://cdn.jsdelivr.net/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
             before: (path, el) => {
@@ -393,14 +393,16 @@ Alpine.data('PwSpotifyLive', () => ({
   },
   startInterval() {
     const timeoutInMinutes = 15;
-
+    console.log(`🔈 Starting to check the Spotify API every so often to see what I might be listening to`);
     this.queryInterval = setInterval(this.queryApi.bind(this), MILLISECONDS_IN_A_SECOND * 30);
     this.queryTimeout = setTimeout(() => {
       clearInterval(this.queryInterval);
     }, MILLISECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE * timeoutInMinutes);
   },
   stopInterval() {
-    console.log(`🔇 Stopping checking the Spotify API as you've scrolled away. Gotta save those Pipedream invocation credits!`);
+    console.log(
+      `🔇 Stopping checking the Spotify API as you've not got the music section visible. Gotta save those Pipedream invocation credits!`
+    );
     clearInterval(this.queryInterval);
     clearTimeout(this.queryTimeout);
   },
