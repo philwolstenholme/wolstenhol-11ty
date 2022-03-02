@@ -3,6 +3,9 @@ import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
 import lozad from 'lozad';
 
+const MILLISECONDS_IN_A_SECOND = 1000;
+const SECONDS_IN_A_MINUTE = 60;
+
 window.Alpine = Alpine;
 
 window.lozad = lozad('.lozad', {
@@ -365,11 +368,13 @@ Alpine.data('PwSpotifyLive', () => ({
   data: {},
   timeagoVisible: false,
   queryInterval: null,
+  queryTimeout: null,
   queryApi() {
     fetch('https://wolstenhol.me/api/recently-played-spotify')
       .then(res => res.json())
       .then(res => (this.data = res))
       .then(() => {
+        console.log(`🔈 Checking the Spotify API to see what I've been listening to…`);
         if (!loadjs.isDefined('timeago')) {
           loadjs('https://cdn.jsdelivr.net/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
             before: (path, el) => {
@@ -386,10 +391,21 @@ Alpine.data('PwSpotifyLive', () => ({
       })
       .catch(err => console.error(err));
   },
+  startInterval() {
+    const timeoutInMinutes = 15;
+
+    this.queryInterval = setInterval(this.queryApi.bind(this), MILLISECONDS_IN_A_SECOND * 30);
+    this.queryTimeout = setTimeout(() => {
+      clearInterval(this.queryInterval);
+    }, MILLISECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE * timeoutInMinutes);
+  },
+  stopInterval() {
+    console.log(`🔇 Stopping checking the Spotify API as you've scrolled away. Gotta save those Pipedream invocation credits!`);
+    clearInterval(this.queryInterval);
+    clearTimeout(this.queryTimeout);
+  },
   init() {
     this.queryApi();
-    this.queryInterval = setInterval(() => this.queryApi(), 1000 * 60);
-    setTimeout(clearInterval(this.queryInterval), 1000 * 60 * 15);
 
     loadjs.ready('timeago', () => {
       this.$watch('data.playedAt', () => {
@@ -405,6 +421,7 @@ Alpine.data('PwSpotifyLive', () => ({
   },
   destroy() {
     clearInterval(this.queryInterval);
+    clearTimeout(this.queryTimeout);
   },
 }));
 

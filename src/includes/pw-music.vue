@@ -41,7 +41,14 @@ export default {
       over the last few weeks (their genre names, not mine!)</pw-lede
     >
 
-    <p x-cloak class="mt-3 text-sm" x-data="PwSpotifyLive()" x-show="data && data.name && timeagoVisible">
+    <p
+      x-cloak
+      class="mt-3 text-sm"
+      x-data="PwSpotifyLive()"
+      x-show="data && data.name && timeagoVisible"
+      x-intersect:enter="startInterval"
+      x-intersect:leave="stopInterval"
+    >
       <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span
         class="spotify-live__label"
         x-bind:datetime="data.playedAt"
