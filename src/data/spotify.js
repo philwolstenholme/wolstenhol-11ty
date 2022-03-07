@@ -74,7 +74,8 @@ module.exports = async function () {
   });
 
   let artistGenres = _.mapValues(artists, function (artist) {
-    const genre = _.sample(artist.genres);
+    // We want the most ridiculous Spotify genres, so let's favour the longest ones.
+    const genre = artist.genres.sort((a, b) => String(b).length - String(a).length).at(0);
 
     if (genre) {
       return {
