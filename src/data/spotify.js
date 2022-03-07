@@ -73,9 +73,25 @@ module.exports = async function () {
     );
   });
 
+  // Add boring sounding genres here to exclude them.
+  const genresPickedSoFar = ['modern alternative rock', 'modern rock', 'alternative rock'];
+
+  const pickAGenreNotUsedSoFar = (artistGenresWithLongestFirst, genresPickedSoFar, index) => {
+    const hasBeenUsed = genresPickedSoFar.includes(artistGenresWithLongestFirst[index]);
+
+    if (!hasBeenUsed) {
+      const genre = artistGenresWithLongestFirst[index];
+      genresPickedSoFar.push(genre);
+      return genre;
+    } else {
+      return pickAGenreNotUsedSoFar(artistGenresWithLongestFirst, genresPickedSoFar, index + 1);
+    }
+  };
+
   let artistGenres = _.mapValues(artists, function (artist) {
     // We want the most ridiculous Spotify genres, so let's favour the longest ones.
-    const genre = artist.genres.sort((a, b) => String(b).length - String(a).length)[0];
+    const artistGenresWithLongestFirst = artist.genres.sort((a, b) => String(b).length - String(a).length);
+    const genre = pickAGenreNotUsedSoFar(artistGenresWithLongestFirst, genresPickedSoFar, 0);
 
     if (genre) {
       return {
@@ -85,7 +101,11 @@ module.exports = async function () {
     }
   });
 
-  randomGenres = _.sampleSize(artistGenres, 5);
+  artistGenres = _.filter(artistGenres, function (entry) {
+    return entry.genre.length > 4;
+  });
+
+  randomGenres = _.sampleSize(artistGenres, 6);
   randomGenres = _.compact(randomGenres);
 
   await Promise.all(spotifyFeaturesPromises);
