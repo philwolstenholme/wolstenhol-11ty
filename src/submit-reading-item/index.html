@@ -64,7 +64,7 @@
           text = decodeHTMLEntities(text);
         }
 
-        if (text && text.includes('http') && !url) {
+        if (text && (text.includes('https://') || text.includes('http://')) && !url) {
           url = text;
         }
       }"
