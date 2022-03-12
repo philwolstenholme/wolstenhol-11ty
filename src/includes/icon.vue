@@ -26,7 +26,7 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
 config.autoAddCss = false;
 
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import camelCase from 'lodash/camelCase';
 
 export default {
@@ -72,6 +72,7 @@ export default {
         envelope: faEnvelope,
         paperPlane: faPaperPlane,
         bookmark: faBookmark,
+        youtube: faYoutube,
       }[this.name];
     },
     // Gets a CSS module class, e.g. iconCustomLogo

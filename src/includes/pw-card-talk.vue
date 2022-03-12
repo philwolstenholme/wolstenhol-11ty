@@ -6,6 +6,11 @@ export default {
     icon,
   },
   props: ['event', 'talk', 'image', 'href'],
+  computed: {
+    iconName: function () {
+      return this.href.includes('youtube.com') ? 'youtube' : 'link';
+    },
+  },
 };
 </script>
 
@@ -48,7 +53,7 @@ export default {
           <dd v-text="talk"></dd>
         </dl>
       </div>
-      <icon name="link" v-if="href" class="absolute text-white top-4 left-4 opacity-80 group-hocus:opacity-100" />
+      <icon :name="iconName" v-if="href" class="absolute text-white text-xl top-4 left-4 opacity-80 group-hocus:opacity-100" />
     </component>
   </article>
 </template>
