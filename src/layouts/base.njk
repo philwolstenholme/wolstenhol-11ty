@@ -10,10 +10,7 @@
       {{ title }} | {{ meta.title }}
       {%- endif -%}
     </title>
-    {% include "meta.njk" %}
-    <link rel="preconnect" href="https://res.cloudinary.com" />
-    <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-    {% if not build.noJs %}
+    {% include "meta.njk" %} {% if not build.noJs %}
     <script>
       {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
     </script>
