@@ -25,7 +25,7 @@ export default {
 
     spotifyCloudinaryUrl() {
       let original = this.music.images[0].url;
-      let cloudinaryPrefix = 'https://res.cloudinary.com/wolstenh/image/upload/w_290,h_290,c_fill,f_auto,q_auto:best/spotify/';
+      let cloudinaryPrefix = 'https://wolstenhol.me/cloudinary/image/upload/w_290,h_290,c_fill,f_auto,q_auto:best/spotify/';
       let URL = original.replace('https://i.scdn.co/image/', cloudinaryPrefix);
 
       return URL;
