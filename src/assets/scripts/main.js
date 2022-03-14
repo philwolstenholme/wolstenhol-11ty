@@ -214,7 +214,7 @@ document.addEventListener('alpine:init', () => {
     extraTweets: null,
     colcade() {
       if (window.innerWidth > 767) {
-        loadjs('https://cdn.jsdelivr.net/npm/colcade@0.2.0/colcade.js', () => {
+        loadjs('https://wolstenhol.me/jsdelivr/npm/colcade@0.2.0/colcade.js', () => {
           this.colcadeInstance = new Colcade('.tweets-grid', {
             columns: '.tweets-grid__col',
             items: '.tweets-grid__item',
@@ -260,7 +260,7 @@ document.addEventListener('alpine:init', () => {
         });
     },
     twitterIntents() {
-      loadjs('https://cdn.jsdelivr.net/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.min.js', function () {
+      loadjs('https://wolstenhol.me/jsdelivr/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.min.js', function () {
         const intents = new TwitterIntents();
         intents.register();
       });
@@ -311,7 +311,7 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('PwCardInstagram', $root => ({
     playing: false,
     confetti($root) {
-      loadjs('https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
+      loadjs('https://wolstenhol.me/jsdelivr/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
         var dimensions = this.$root.getBoundingClientRect();
         var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
         var centerYCoord = dimensions.y + dimensions.height / 2;
@@ -382,7 +382,7 @@ Alpine.data('PwSpotifyLive', () => ({
       .then(() => {
         // If loadjs has't previously loaded timeago then let's load it.
         if (!loadjs.isDefined('timeago')) {
-          loadjs('https://cdn.jsdelivr.net/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
+          loadjs('https://wolstenhol.me/jsdelivr/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
             before: (path, el) => {
               // We add a SRI hash to make up for the security risk of loading JS from a third-party.
               el.integrity = 'sha256-sTurDi2etLN9CpnUIoCC9y5iynb2qr/uo6QJqzoO7mA=';
