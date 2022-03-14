@@ -7,10 +7,14 @@
   command = "npm run start"
   publish = "dist"
 
-# Proxy Cloudinary
 [[redirects]]
   from = "/cloudinary/*"
   to = "https://res.cloudinary.com/wolstenh/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/jsdelivr/*"
+  to = "https://cdn.jsdelivr.net/:splat"
   status = 200
 
 [[redirects]]
