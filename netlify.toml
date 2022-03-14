@@ -8,12 +8,12 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/cloudinary/*"
+  from = "/proxy/cloudinary/*"
   to = "https://res.cloudinary.com/wolstenh/:splat"
   status = 200
 
 [[redirects]]
-  from = "/jsdelivr/*"
+  from = "/proxy/jsdelivr/*"
   to = "https://cdn.jsdelivr.net/:splat"
   status = 200
 

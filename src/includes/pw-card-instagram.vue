@@ -31,7 +31,7 @@ export default {
           quality: 'auto',
           fetch_format: 'auto',
         })
-        .replace('https://res.cloudinary.com/wolstenh/', 'https://wolstenhol.me/cloudinary/');
+        .replace('https://res.cloudinary.com/wolstenh/', 'https://wolstenhol.me/proxy/cloudinary/');
     },
 
     cloudinarySrcSet: function () {

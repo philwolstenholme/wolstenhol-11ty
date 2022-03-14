@@ -35,7 +35,7 @@ export default {
           href="https://www.youtube.com/watch?v=MYY1teFZ_Fk"
           event="DrupalCon Europe 2020"
           talk="Write Better CSS by Stopping Writing Any More CSS! Utility-first with Tailwind"
-          image="https://wolstenhol.me/cloudinary/image/upload/c_fill,f_auto,g_center,h_306,q_auto:good,w_544,y_0/v1610202401/one-offs/EoyOVx4XMAEHdx_.jpg"
+          image="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,f_auto,g_center,h_306,q_auto:good,w_544,y_0/v1610202401/one-offs/EoyOVx4XMAEHdx_.jpg"
         ></pw-card-talk>
       </pw-simple-scroller-item>
       <pw-simple-scroller-item fit-to-grid>
@@ -52,7 +52,7 @@ export default {
         <pw-card-talk
           event="DrupalCon Europe 2019"
           talk="Progressive decoupling with Vue and Drupal"
-          image="https://wolstenhol.me/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_306,w_544,q_auto:good/https://img.youtube.com/vi/TBLlwvM_uPc/maxresdefault.jpg"
+          image="https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_306,w_544,q_auto:good/https://img.youtube.com/vi/TBLlwvM_uPc/maxresdefault.jpg"
           href="https://www.youtube.com/watch?v=TBLlwvM_uPc"
         ></pw-card-talk>
       </pw-simple-scroller-item>
@@ -78,42 +78,42 @@ export default {
         <pw-card-talk
           event="NWDUG"
           talk="Let's go on a Contrib module safari!"
-          image="https://wolstenhol.me/cloudinary/image/fetch/c_crop,g_xy_center,h_306,w_544,x_557,y_522,q_auto:good/https://pbs.twimg.com/media/EQhHVx7XYAALhh-%3Fformat%3Djpg"
+          image="https://wolstenhol.me/proxy/cloudinary/image/fetch/c_crop,g_xy_center,h_306,w_544,x_557,y_522,q_auto:good/https://pbs.twimg.com/media/EQhHVx7XYAALhh-%3Fformat%3Djpg"
         ></pw-card-talk>
       </pw-simple-scroller-item>
       <pw-simple-scroller-item>
         <pw-card-talk
           event="NWDUG Unconference 2019"
           talk="Progressive decoupling with Vue and Drupal"
-          image="https://wolstenhol.me/cloudinary/image/upload/c_scale,f_auto,h_306,q_auto:good/v1609337202/one-offs/EGqx-wNX4AEZ7ZM.jpg"
+          image="https://wolstenhol.me/proxy/cloudinary/image/upload/c_scale,f_auto,h_306,q_auto:good/v1609337202/one-offs/EGqx-wNX4AEZ7ZM.jpg"
         ></pw-card-talk>
       </pw-simple-scroller-item>
       <pw-simple-scroller-item>
         <pw-card-talk
           event="NWDUG"
           talk="Pattern Lab, Tailwind, and Vue (or the time I tried to cover three talks in one… 😬)"
-          image="https://wolstenhol.me/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_306,w_544,q_auto:good/v1609338082/https://pbs.twimg.com/media/D8zLonEWsAAyfqy%3Fformat=jpg"
+          image="https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_306,w_544,q_auto:good/v1609338082/https://pbs.twimg.com/media/D8zLonEWsAAyfqy%3Fformat=jpg"
         ></pw-card-talk>
       </pw-simple-scroller-item>
       <pw-simple-scroller-item>
         <pw-card-talk
           event="VueJS Manchester Community"
           talk="Vue at the Royal Navy"
-          image="https://wolstenhol.me/cloudinary/image/upload/c_scale,f_auto,h_306,q_auto:good/v1609271232/one-offs/vuejs-manchester-navy.jpg"
+          image="https://wolstenhol.me/proxy/cloudinary/image/upload/c_scale,f_auto,h_306,q_auto:good/v1609271232/one-offs/vuejs-manchester-navy.jpg"
         ></pw-card-talk>
       </pw-simple-scroller-item>
       <pw-simple-scroller-item>
         <pw-card-talk
           event="NWDUG Unconference 2018"
           talk="How to write better CSS by stopping writing CSS"
-          image="https://wolstenhol.me/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_306,w_544,q_auto:good/v1609338082/https://pbs.twimg.com/media/DrE8EgyWkAIXaEs%3Fformat=jpg"
+          image="https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_306,w_544,q_auto:good/v1609338082/https://pbs.twimg.com/media/DrE8EgyWkAIXaEs%3Fformat=jpg"
         ></pw-card-talk>
       </pw-simple-scroller-item>
       <pw-simple-scroller-item>
         <pw-card-talk
           event="NWDUG Unconference 2017"
           talk="Performance Optimisation for the Rich and Famous"
-          image="https://wolstenhol.me/cloudinary/image/upload/c_scale,f_auto,h_306,q_auto:good/v1609337202/one-offs/IMG_20171104_112942_1.webp"
+          image="https://wolstenhol.me/proxy/cloudinary/image/upload/c_scale,f_auto,h_306,q_auto:good/v1609337202/one-offs/IMG_20171104_112942_1.webp"
         ></pw-card-talk>
       </pw-simple-scroller-item>
       <pw-simple-scroller-item fit-to-grid>
@@ -128,7 +128,7 @@ export default {
         <pw-card-talk
           event="DrupalCamp London 2017"
           talk="A New Era of Accessibility with Drupal 8"
-          image="https://wolstenhol.me/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_306,w_544,q_auto:good/https://i3.ytimg.com/vi/CJgtt1XGtkU/maxresdefault.jpg"
+          image="https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_306,w_544,q_auto:good/https://i3.ytimg.com/vi/CJgtt1XGtkU/maxresdefault.jpg"
           href="https://www.youtube.com/watch?v=oX7iCufDiHM"
         ></pw-card-talk>
       </pw-simple-scroller-item>

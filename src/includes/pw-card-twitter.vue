@@ -42,7 +42,7 @@ export default {
 
     cloudinaryProfileImage: function () {
       let userName = this.originalTweet.user.screen_name;
-      let URL = `https://wolstenhol.me/cloudinary/image/twitter_name/w_64,h_64,f_auto,q_auto:low/${userName}.jpg`;
+      let URL = `https://wolstenhol.me/proxy/cloudinary/image/twitter_name/w_64,h_64,f_auto,q_auto:low/${userName}.jpg`;
 
       return URL;
     },
@@ -68,8 +68,8 @@ export default {
         <br class="hidden" />
         <img
           v-if="media.type == 'photo'"
-          :src="`https://wolstenhol.me/cloudinary/image/fetch/w_auto:100:400,f_auto,q_auto/${media.media_url_https}`"
-          :srcset="`https://wolstenhol.me/cloudinary/image/fetch/w_auto:100:800,f_auto,q_auto/${media.media_url_https} 2x, https://wolstenhol.me/cloudinary/image/fetch/w_auto:100:1200,f_auto,q_auto/${media.media_url_https} 3x`"
+          :src="`https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:400,f_auto,q_auto/${media.media_url_https}`"
+          :srcset="`https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:800,f_auto,q_auto/${media.media_url_https} 2x, https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:1200,f_auto,q_auto/${media.media_url_https} 3x`"
           sizes="368px"
           :width="media.sizes.small.w"
           :height="media.sizes.small.h"

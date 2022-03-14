@@ -78,7 +78,7 @@ export default {
 }
 
 .reading-list-link {
-  background-image: url('https://wolstenhol.me/cloudinary/image/upload/c_crop,f_auto,h_200,w_200,q_auto:eco/v1473712910/subtle_grunge_ux3r0f.png');
+  background-image: url('https://wolstenhol.me/proxy/cloudinary/image/upload/c_crop,f_auto,h_200,w_200,q_auto:eco/v1473712910/subtle_grunge_ux3r0f.png');
   background-blend-mode: luminosity;
 }
 
