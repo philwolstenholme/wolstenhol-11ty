@@ -64,7 +64,6 @@
   "dependencies": {
     "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-plugin-vue": "^0.2.4",
-    "@adapttive/vue-markdown": "^4.0.1",
     "@alpinejs/intersect": "^3.7.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",

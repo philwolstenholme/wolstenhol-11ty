@@ -1,12 +1,10 @@
 <script>
-import VueMarkdown from '@adapttive/vue-markdown';
 const twitter = require('twitter-text');
 import icon from './icon.vue';
 import spriteIcon from './sprite-icon.vue';
 
 export default {
   components: {
-    VueMarkdown,
     icon,
     spriteIcon,
   },
@@ -124,7 +122,7 @@ export default {
       </a>
     </div>
 
-    <vue-markdown class="m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3" :source="linkedText"></vue-markdown>
+    <p class="m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3" v-html="linkedText"></p>
 
     <p class="card__twitter__tweet-actions px-4 py-3 text-sm space-x-3">
       <a :href="`https://twitter.com/intent/tweet?in_reply_to=${originalTweet.id_str}&related=philw_`" class="twitter-intent">
