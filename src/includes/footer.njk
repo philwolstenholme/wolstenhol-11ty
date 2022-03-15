@@ -67,7 +67,10 @@
         <p id="homepage-lighthouse-scores">Homepage Lighthouse scores (%):</p>
         <ul class="flex items-center space-x-1" aria-labelledby="homepage-lighthouse-scores" role="list">
           {% for key, result in lighthouse.categories %}
-          <li class="lighthouse-score lighthouse-score-{{ result.grade }}" title="{{ result.title }}">
+          <li
+            class="flex items-center justify-center cursor-help rounded-full h-8 w-8 border-2 {{ 'border-green-300' if result.grade === 'good' else 'border-yellow-400' }}"
+            title="{{ result.title }}"
+          >
             <span class="sr-only">{{ result.title }}: </span>{{ result.score }}
           </li>
           {% endfor %}

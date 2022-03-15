@@ -178,14 +178,6 @@ mark,
   }
 }
 
-.lighthouse-score {
-  @apply inline-block border-yellow-400 border-2 rounded-full h-8 w-8 flex items-center justify-center;
-}
-
-.lighthouse-score-good {
-  @apply border-green-300;
-}
-
 input[type='checkbox'] {
   accent-color: theme('colors.black');
 }

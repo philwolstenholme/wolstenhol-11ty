@@ -30,7 +30,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
     return broadMatches.concat(innerMatches);
   },
 
-  whitelist: ['lighthouse-score-good'],
+  whitelist: [],
 });
 
 module.exports = class {
