@@ -20,6 +20,7 @@
           <li>Instagram</li>
           <li>Foursquare</li>
           <li>Twitter</li>
+          <li>PageSpeed Insights</li>
         </ul>
       </div>
     </div>
@@ -62,25 +63,16 @@
         {% endif %}
       </ul>
 
-      <div
-        class="no-js:hidden flex flex-wrap items-center gap-2"
-        x-data="{}"
-        x-intersect.once="loadjs(['https://wolstenhol.me/proxy/jsdelivr/npm/speedlify-score@2.0.1/speedlify-score.min.js'], 'speedlify-score');"
-      >
+      <div class="flex flex-wrap items-center gap-2">
         <p id="homepage-lighthouse-scores">Homepage Lighthouse scores (%):</p>
-        <speedlify-score
-          class="flex space-x-1 flex items-center"
-          speedlify-url="https://www.11ty.dev/speedlify"
-          hash="f9481d0e"
-          score
-          weight
-        ></speedlify-score>
+        <ul class="flex items-center space-x-1" aria-labelledby="homepage-lighthouse-scores" role="list">
+          {% for key, result in lighthouse.categories %}
+          <li class="lighthouse-score lighthouse-score-{{ result.grade }}" title="{{ result.title }}">
+            <span class="sr-only">{{ result.title }}: </span>{{ result.score }}
+          </li>
+          {% endfor %}
+        </ul>
       </div>
-
-      <p>
-        The less-than-perfect accessibility score is a
-        <a href="https://github.com/dequelabs/axe-core/issues/2768" class="underline">false-positive due to a bug in axe-core</a> 😫
-      </p>
     </div>
   </div>
 </footer>

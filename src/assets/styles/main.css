@@ -178,24 +178,12 @@ mark,
   }
 }
 
-.speedlify-score {
+.lighthouse-score {
   @apply inline-block border-yellow-400 border-2 rounded-full h-8 w-8 flex items-center justify-center;
 }
 
-.speedlify-score-good {
+.lighthouse-score-good {
   @apply border-green-300;
-}
-
-.speedlify-weight {
-  @apply inline-block pl-1;
-
-  &::before {
-    content: '(';
-  }
-
-  &::after {
-    content: ')';
-  }
 }
 
 input[type='checkbox'] {
