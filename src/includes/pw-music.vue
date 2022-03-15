@@ -54,7 +54,7 @@ export default {
         x-bind:datetime="data.playedAt"
         x-ref="label"
         >XX MINUTES AGO</span
-      >: <a x-bind:href="data.trackUrl" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"></a>
+      >: <a x-bind:href="data.trackUrl" href="#" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"></a>
     </p>
 
     <pw-simple-scroller class="mt-12" :scroll-full="true" theme="spotify" label="What I've been listening to">
