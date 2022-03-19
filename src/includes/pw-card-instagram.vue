@@ -151,7 +151,7 @@ export default {
             crossorigin="anonymous"
             :style="`background-image:url(&quot;${post.svgPlaceholder}&quot;)`"
           />
-          <div class="w-full h-full flex items-center justify-center">
+          <div class="no-js:hidden w-full h-full flex items-center justify-center">
             <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
             <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
               <g fill="none" fill-rule="evenodd">
