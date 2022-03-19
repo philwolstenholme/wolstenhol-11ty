@@ -73,3 +73,8 @@
   from = "/*"
   to = "/404"
   status = 404
+
+[[plugins]]
+  package = "netlify-plugin-inline-critical-css"
+  [plugins.inputs]
+    extract = true
