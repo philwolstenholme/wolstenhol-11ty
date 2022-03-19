@@ -45,22 +45,14 @@
       </p>
 
       <ul class="space-y-3 md:flex md:space-y-0 md:space-x-3">
-        {% if (build.noJs == 'TRUE') or (build.noCss == 'TRUE') %}
-        <li>
-          <span aria-hidden="true">🍔&nbsp;</span>
-          <a href="{{ fullFatUrl }}" rel="nofollow" class="underline">View the full-fat page (i.e. with CSS and JS)</a>
-        </li>
-        {% endif %} {% if not build.noCss %}
         <li>
           <span aria-hidden="true">🚫&nbsp;</span>
           <a href="{{ noCssUrl }}" rel="nofollow" class="underline">View page without CSS</a>
         </li>
-        {% endif %} {% if not build.noJs %}
         <li>
           <span aria-hidden="true">🚫&nbsp;</span>
           <a href="{{ noJsUrl }}" rel="nofollow" class="underline">View page without JavaScript</a>
         </li>
-        {% endif %}
       </ul>
 
       <div class="flex flex-wrap items-center gap-2">

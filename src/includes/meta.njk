@@ -1,11 +1,6 @@
 {%- set absolutePageUrl -%}{{ page.url | url | absoluteUrl(build.url) }}{%- endset -%}
-{%- set absolutePageUrl -%}{{ absolutePageUrl|replace('index.no-css.html', '')|replace('index.no-js.html', '')}}{%- endset -%} {# General #}
 <meta name="description" content="{{ seo.description or meta.description }}" />
 <link rel="canonical" href="{{ absolutePageUrl }}" />
-
-{% if (build.noJs == 'TRUE') or (build.noCss == 'TRUE') %}
-<meta name="robots" content="noindex" />
-{% endif %}
 
 {# Open Graph #}
 <meta property="og:site_name" content="{{ meta.title }}" />

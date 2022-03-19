@@ -54,16 +54,6 @@
       immutable'''
 
 [[headers]]
-  for = "/*.no-css*"
-  [headers.values]
-    X-Robots-Tag = "noindex"
-
-[[headers]]
-  for = "/*.no-js*"
-  [headers.values]
-    X-Robots-Tag = "noindex"
-
-[[headers]]
   for = "/partial-*.html"
   [headers.values]
     X-Robots-Tag = "noindex"
@@ -73,8 +63,3 @@
   from = "/*"
   to = "/404"
   status = 404
-
-[[plugins]]
-  package = "netlify-plugin-inline-critical-css"
-  [plugins.inputs]
-    extract = true

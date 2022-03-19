@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      {% if build.noJs == 'TRUE' %}No JS - {% endif %} {% if build.noCss == 'TRUE' %}No CSS - {% endif %} {%- if seo.title -%}
+      {%- if seo.title -%}
       {{ seo.title }}
       {%- else -%}
       {{ title }} | {{ meta.title }}
       {%- endif -%}
     </title>
-    {% include "meta.njk" %} {% if not build.noJs %}
     <script>
       {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
     </script>
@@ -37,7 +36,6 @@
         });
       }
     </script>
-    {% endif %} {% if not build.noCss %}
     <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
@@ -50,17 +48,14 @@
         contain-intrinsic-size: 10px 500px;
       }
     </style>
-    {% endif %}
   </head>
   <body class="text-gray-900 leading-normal overscroll-x-none overflow-x-hidden overflow-y-scroll">
-    {% if not build.noJs %}
     <script>
       let root = document.documentElement;
       let scrollbarWidth = window.innerWidth - document.body.offsetWidth;
       root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
       window.pw = window.pw || {};
     </script>
-    {% endif %}
     <a
       href="#content"
       class="bg-binding-dark block border border-yellow-500 focus:not-sr-only left-3 p-5 sr-only text-yellow-500 top-3 z-50"
@@ -69,8 +64,7 @@
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %}
       <main class="flex-grow w-full bg-subtle-grunge outline-none" id="content" tabindex="-1">
-        {% if (page.url == '/') or (page.url == '/index.no-js.html') or (page.url == '/index.no-css.html') %} {% include
-        "homepage/homepage-header.njk" %}
+        {% if (page.url == '/') %} {% include "homepage/homepage-header.njk" %}
         <div class="-mb-6 -mt-6 -skew-y-1 transform z-10">
           <div class="bg-binding-dark h-12"></div>
           <div class="bg-subtle-grunge h-12"></div>
@@ -129,7 +123,6 @@
       {% include "footer.njk" %}
     </div>
     <div class="hidden">{% include "src/assets/sprite.svg" %} {% include "src/assets/design-elements.svg" %}</div>
-    {% if not build.noJs %}
     <script type="module">
       // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
       let eqIsh = (a, b, fuzz = 2) => {
@@ -191,7 +184,6 @@
         });
       }
     </script>
-    {% endif %}
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
   </body>
 </html>

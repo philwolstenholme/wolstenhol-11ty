@@ -1,16 +1,16 @@
 module.exports = {
   noCssUrl: data => {
     if (data.page.filePathStem == '/index') {
-      return `${data.page.filePathStem}.no-css`;
+      return `https://wolstenhol-no-css.philgw.workers.dev`;
     } else {
-      return `${data.page.filePathStem}/index.no-css`;
+      return `https://wolstenhol-no-css.philgw.workers.dev/${data.page.filePathStem}`;
     }
   },
   noJsUrl: data => {
     if (data.page.filePathStem == '/index') {
-      return `${data.page.filePathStem}.no-js`;
+      return `https://wolstenhol-no-js.philgw.workers.dev`;
     } else {
-      return `${data.page.filePathStem}/index.no-js`;
+      return `https://wolstenhol-no-js.philgw.workers.dev/${data.page.filePathStem}`;
     }
   },
   fullFatUrl: data => {
