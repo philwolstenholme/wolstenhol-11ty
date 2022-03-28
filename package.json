@@ -70,7 +70,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "@tailwindcss/aspect-ratio": "^0.2.2",
     "@tailwindcss/typography": "^0.3.1",
-    "alpinejs": "^3.7.0",
+    "alpinejs": "^3.9.5",
     "cheerio": "^1.0.0-rc.10",
     "cloudinary": "^1.27.1",
     "fetch-base64": "^2.1.2",
