@@ -84,7 +84,11 @@ module.exports = async function () {
       genresPickedSoFar.push(genre);
       return genre;
     } else {
-      return pickAGenreNotUsedSoFar(artistGenresWithLongestFirst, genresPickedSoFar, index + 1);
+      if (index + 1 < artistGenresWithLongestFirst.length) {
+        return pickAGenreNotUsedSoFar(artistGenresWithLongestFirst, genresPickedSoFar, index + 1);
+      } else {
+        return;
+      }
     }
   };
 
@@ -102,7 +106,7 @@ module.exports = async function () {
   });
 
   artistGenres = _.filter(artistGenres, function (entry) {
-    return entry.genre.length > 4;
+    return entry?.genre?.length > 4;
   });
 
   randomGenres = _.sampleSize(artistGenres, 6);
