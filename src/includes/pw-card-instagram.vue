@@ -120,6 +120,7 @@ export default {
       <template v-if="post.videos">
         <video
           x-ref="video"
+          data-lozad
           class="lozad inset-0 w-full h-full object-cover transition-opacity group-hocus:opacity-50"
           :data-poster="cloudinaryUrl"
           muted

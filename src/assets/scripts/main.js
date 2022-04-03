@@ -8,7 +8,7 @@ const SECONDS_IN_A_MINUTE = 60;
 
 window.Alpine = Alpine;
 
-window.lozad = lozad('.lozad', {
+window.lozad = lozad('[data-lozad]', {
   enableAutoReload: true,
 });
 window.lozad.observe();
@@ -141,8 +141,8 @@ document.addEventListener('alpine:init', () => {
       right: true,
     },
     init() {
-      const firstListItem = this.$root.querySelector('.scroller > li:first-child');
-      const lastListItem = this.$root.querySelector('.scroller > li:last-child');
+      const firstListItem = this.$root.querySelector('[data-pw-scroller-list] > li:first-child');
+      const lastListItem = this.$root.querySelector('[data-pw-scroller-list] > li:last-child');
 
       const firstLastObserver = new IntersectionObserver(
         (entries, observer) => {
@@ -188,7 +188,7 @@ document.addEventListener('alpine:init', () => {
         }
       );
 
-      this.$root.querySelectorAll('.scroller > li').forEach(item => {
+      this.$root.querySelectorAll('[data-pw-scroller-list] > li').forEach(item => {
         inertObserver.observe(item);
       });
     },

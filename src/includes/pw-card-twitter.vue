@@ -82,6 +82,7 @@ export default {
           :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
         >
           <video
+            data-lozad
             class="aspect-ratio lozad absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
             :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
             :data-poster="media.media_url_https"

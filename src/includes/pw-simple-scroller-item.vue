@@ -1,6 +1,7 @@
 <template>
   <li
     tabindex="-1"
+    data-pw-scroller-item
     class="scroller-item relative snap-center flex-grow-0 flex-shrink-0 mb-3"
     :class="{
       'scroller-item--fit-to-grid': fitToGrid,
