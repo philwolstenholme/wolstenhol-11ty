@@ -46,7 +46,10 @@ module.exports = async function () {
   const mediumReadingList = Object.entries(apolloStatePosts).map(post => {
     return {
       title: post[1].title,
-      subTitle: post[1].previewContent.subtitle,
+      subTitle:
+        post[1][
+          'extendedPreviewContent({"truncationConfig":{"minimumWordLengthForTruncation":150,"previewParagraphsWordCountThreshold":400,"shortformMinimumWordLengthForTruncation":30,"shortformPreviewParagraphsWordCountThreshold":30,"showFullImageCaptions":true,"truncateAtEndOfSentence":true}})'
+        ]?.subtitle || '',
       url: post[1].mediumUrl,
       date: new Date(post[1].firstPublishedAt).toISOString(),
       isMedium: true,
