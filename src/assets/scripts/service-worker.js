@@ -32,7 +32,7 @@ self.addEventListener('fetch', event => {
   let { pathname } = new URL(event.request.url);
 
   if (pathname.startsWith('/api/')) {
-    return fetch(event.request);
+    return false;
   }
 
   event.respondWith(
