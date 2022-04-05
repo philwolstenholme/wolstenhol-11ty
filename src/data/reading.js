@@ -115,6 +115,12 @@ module.exports = async function () {
     };
   };
 
+  console.table({
+    mediumReadingList: mediumReadingList.length,
+    devToReadingList: devToReadingList.length,
+    airtableReadingList: airtableReadingList.length,
+  });
+
   const sortedItems = orderBy([...mediumReadingList, ...devToReadingList, ...airtableReadingList], 'date', 'desc').map(prepareItem);
 
   return sortedItems.slice(0, 12);
