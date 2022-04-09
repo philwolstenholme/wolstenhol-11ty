@@ -7,13 +7,6 @@
   command = "npm run start"
   publish = "dist"
 
-# for CSS naked day only
-[[redirects]]
-  from = "/"
-  to = "https://wolstenhol-no-css.philgw.workers.dev"
-  status = 200
-  force = true
-
 [[redirects]]
   from = "/proxy/cloudinary/*"
   to = "https://res.cloudinary.com/wolstenh/:splat"
