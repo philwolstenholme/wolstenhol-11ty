@@ -7,9 +7,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: {
-    enabled: false,
-  },
+  purge: ['.11ty-vite/*.html', '.11ty-vite/**/*.html'],
   theme: {
     extend: {
       colors: {

@@ -6,9 +6,5 @@ module.exports = {
     layouts: 'layouts',
     includes: 'includes',
     data: 'data',
-    // ⬇ These are custom and used by various utilities etc.
-    assets: 'assets',
-    styles: 'assets/styles',
-    media: 'media',
   },
-}
+};

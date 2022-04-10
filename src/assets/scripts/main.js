@@ -3,6 +3,9 @@ import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
 import lozad from 'lozad';
 
+import CssNakedDay from './css-naked-day.js';
+// CssNakedDay();
+
 const MILLISECONDS_IN_A_SECOND = 1000;
 const SECONDS_IN_A_MINUTE = 60;
 
