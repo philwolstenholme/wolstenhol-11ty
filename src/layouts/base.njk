@@ -12,9 +12,6 @@
     </title>
     {% include "meta.njk" %}
     <script>
-      {% include "../../node_modules/loadjs/dist/loadjs.min.js" %}
-    </script>
-    <script>
       if (
         document.location.hash.includes('access_token') &&
         document.location.hash.includes('token_type') &&
@@ -24,20 +21,8 @@
         const redirectUrl = 'https://wolstenhol.me/submit-reading-item';
         window.location = redirectUrl + document.location.hash;
       }
-
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
-
-        let deferredPwaPrompt;
-        window.addEventListener('beforeinstallprompt', e => {
-          e.preventDefault();
-          deferredPwaPrompt = e;
-        });
-      }
     </script>
-    <link rel="stylesheet" href="{{ '/assets/main.css' | url }}" />
+    <link rel="stylesheet" href="/assets/styles/main.css" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
     <style>
@@ -123,9 +108,9 @@
       </main>
       {% include "footer.njk" %}
     </div>
-    <noscript><link rel="stylesheet" href="{{ '/assets/main.css' | url }}" /></noscript>
+    <!-- <noscript><link rel="stylesheet" href="/assets/main.css" /></noscript> -->
     <div hidden>{% include "src/assets/sprite.svg" %} {% include "src/assets/design-elements.svg" %}</div>
-    <script type="module">
+    <!-- <script type="module">
       const cssNakedDate = 9;
       const now = new Date();
       let start = new Date(now.getFullYear(), 3, cssNakedDate);
@@ -147,7 +132,7 @@
         `;
         body.insertBefore(message, body.firstChild);
       }
-    </script>
+    </script> -->
     <script type="module">
       // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
       let eqIsh = (a, b, fuzz = 2) => {
@@ -196,17 +181,16 @@
         });
       });
     </script>
-    <script>
+    <script type="module">
       window.addEventListener('scroll', loadJsOnInteraction, { passive: true, once: true });
       window.addEventListener('touchstart', loadJsOnInteraction, { passive: true, once: true });
       window.addEventListener('mousemove', loadJsOnInteraction, { passive: true, once: true });
 
-      function loadJsOnInteraction() {
-        loadjs('{{ '/assets/main.js' | url }}', function() {
-          window.removeEventListener('scroll', loadJsOnInteraction);
-          window.removeEventListener('touchstart', loadJsOnInteraction);
-          window.removeEventListener('mousemove', loadJsOnInteraction);
-        });
+      async function loadJsOnInteraction() {
+        await import('/assets/scripts/main.js');
+        window.removeEventListener('scroll', loadJsOnInteraction);
+        window.removeEventListener('touchstart', loadJsOnInteraction);
+        window.removeEventListener('mousemove', loadJsOnInteraction);
       }
     </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->

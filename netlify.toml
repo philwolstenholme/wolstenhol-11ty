@@ -46,7 +46,7 @@
     X-XSS-Protection = "1; mode=block"
 
 [[headers]]
-  for = "/assets/fonts/*"
+  for = "/assets/*"
   [headers.values]
     cache-control = '''
       public,
@@ -57,9 +57,3 @@
   for = "/partial-*.html"
   [headers.values]
     X-Robots-Tag = "noindex"
-
-# Redirect to custom 404. Keep this last.
-[[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404

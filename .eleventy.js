@@ -1,18 +1,13 @@
 require('module-alias/register');
-const fs = require('fs');
 const yaml = require('js-yaml');
 
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginNavigation = require('@11ty/eleventy-navigation');
 const pluginVue = require('@11ty/eleventy-plugin-vue');
+const pluginVite = require('@11ty/eleventy-plugin-vite');
 
+const config = require('./.config.js');
 const filters = require('./utils/filters');
-const transforms = require('./utils/transforms');
-const shortcodes = require('./utils/shortcodes');
-const markdown = require('./utils/markdown');
-
-// You can now require config options using @config
-const config = require('@config');
 
 module.exports = function (eleventyConfig) {
   /**
@@ -25,10 +20,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginVue, {
     rollupPluginVueOptions: {
       style: {
-        postcssPlugins: [require('autoprefixer')],
+        postcssPlugins: [
+          //require('autoprefixer')
+        ],
       },
     },
   });
+
+  eleventyConfig.addPlugin(pluginVite, {
+    tempFolderName: config.viteTemp, // Default name of the temp folder
+  });
+
   /**
    * Add filters
    *
@@ -36,24 +38,6 @@ module.exports = function (eleventyConfig) {
    */
   Object.keys(filters).forEach(filterName => {
     eleventyConfig.addFilter(filterName, filters[filterName]);
-  });
-
-  /**
-   * Add Transforms
-   *
-   * @link https://www.11ty.io/docs/config/#transforms
-   */
-  Object.keys(transforms).forEach(transformName => {
-    eleventyConfig.addTransform(transformName, transforms[transformName]);
-  });
-
-  /**
-   * Add shortcodes
-   *
-   * @link https://www.11ty.io/docs/shortcodes/
-   */
-  Object.keys(shortcodes).forEach(shortcodeName => {
-    eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName]);
   });
 
   /**
@@ -70,21 +54,7 @@ module.exports = function (eleventyConfig) {
    *
    * @link https://www.11ty.io/docs/copy/
    */
-  eleventyConfig.addPassthroughCopy({ 'src/assets/scripts/service-worker.js': 'service-worker.js' });
-  eleventyConfig.addPassthroughCopy('src/assets/images');
-  eleventyConfig.addPassthroughCopy('src/assets/fonts');
-  eleventyConfig.addPassthroughCopy('src/site.webmanifest');
-  eleventyConfig.addPassthroughCopy('src/robots.txt');
-  eleventyConfig.addPassthroughCopy('src/favicon.ico');
-  eleventyConfig.addPassthroughCopy('src/media');
-  eleventyConfig.addPassthroughCopy('src/submit-reading-item');
-
-  /**
-   * Set custom markdown library instance
-   *
-   * @link https://www.11ty.dev/docs/languages/liquid/#optional-set-your-own-library-instance
-   */
-  eleventyConfig.setLibrary('md', markdown);
+  eleventyConfig.addPassthroughCopy('src');
 
   /**
    * Add layout aliases
@@ -100,27 +70,6 @@ module.exports = function (eleventyConfig) {
    * @link https://www.11ty.dev/docs/data-deep-merge/#data-deep-merge
    */
   eleventyConfig.setDataDeepMerge(true);
-
-  /**
-   * Override BrowserSync Server options
-   *
-   * @link https://www.11ty.dev/docs/config/#override-browsersync-server-options
-   */
-  eleventyConfig.setBrowserSyncConfig({
-    notify: true,
-    // Set local server 404 fallback
-    callbacks: {
-      ready: function (err, browserSync) {
-        const content_404 = fs.readFileSync('dist/404/index.html');
-
-        browserSync.addMiddleware('*', (req, res) => {
-          // Provides the 404 content without redirect.
-          res.write(content_404);
-          res.end();
-        });
-      },
-    },
-  });
 
   eleventyConfig.addDataExtension('yaml', contents => yaml.safeLoad(contents));
   eleventyConfig.addDataExtension('yml', contents => yaml.safeLoad(contents));
