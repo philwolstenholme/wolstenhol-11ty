@@ -7,6 +7,7 @@
 - [x] How to lazyload main.js
 - [ ] Allow custom inputs alongside Eleventy's [although this is less important now]
 - [ ] HTML minification but also blurry Instagram placeholders
+- [ ] `<noscript><link rel="stylesheet" href="/assets/main.css" /></noscript>` for no-JS users (needed due to Critical CSS)
 
 ## CSS
 
