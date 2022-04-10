@@ -21,18 +21,6 @@
         const redirectUrl = 'https://wolstenhol.me/submit-reading-item';
         window.location = redirectUrl + document.location.hash;
       }
-
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
-
-        let deferredPwaPrompt;
-        window.addEventListener('beforeinstallprompt', e => {
-          e.preventDefault();
-          deferredPwaPrompt = e;
-        });
-      }
     </script>
     <link rel="stylesheet" href="/assets/styles/main.css" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />

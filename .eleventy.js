@@ -54,7 +54,6 @@ module.exports = function (eleventyConfig) {
    *
    * @link https://www.11ty.io/docs/copy/
    */
-  eleventyConfig.addPassthroughCopy({ 'src/assets/scripts/service-worker.js': 'service-worker.js' });
   eleventyConfig.addPassthroughCopy('src');
 
   /**
