@@ -35,7 +35,10 @@ export default {
     },
 
     cloudinarySrcSet: function () {
-      return `${this.cloudinaryUrl.replace(this.width, this.width * 2)} 2x, ${this.cloudinaryUrl.replace(this.width, this.width * 3)} 3x`;
+      return `${this.cloudinaryUrl.replace(this.width, this.width * 1)} ${this.width * 1}w, ${this.cloudinaryUrl.replace(
+        this.width,
+        this.width * 2
+      )} ${this.width * 2}w, ${this.cloudinaryUrl.replace(this.width, this.width * 3)} ${this.width * 3}w`;
     },
 
     isParty: function () {
@@ -142,6 +145,7 @@ export default {
             :srcset="cloudinarySrcSet"
             :key="post.id"
             :alt="post.accessibilityCaption ? post.accessibilityCaption : ''"
+            :id="`instagram-${post.id}`"
             width="368"
             height="368"
             sizes="368px"
@@ -150,8 +154,8 @@ export default {
             loading="lazy"
             decoding="async"
             crossorigin="anonymous"
-            :style="`background-image:url(&quot;${post.svgPlaceholder}&quot;)`"
           />
+          <!-- {{ post.svgPlaceholder }} -->
           <div class="no-js:hidden w-full h-full flex items-center justify-center">
             <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
             <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">

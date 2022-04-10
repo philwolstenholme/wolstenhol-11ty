@@ -5,12 +5,12 @@
   "short_name": "PW",
   "icons": [
     {
-      "src": "/assets/images/favicon/android-chrome-192x192.png?v=lkvRGjnrz8",
+      "src": "/favicon/android-chrome-192x192.png?v=lkvRGjnrz8",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/assets/images/favicon/android-chrome-256x256.png?v=lkvRGjnrz8",
+      "src": "/favicon/android-chrome-256x256.png?v=lkvRGjnrz8",
       "sizes": "256x256",
       "type": "image/png"
     }
