@@ -1,5 +1,7 @@
 const plugin = require('tailwindcss/plugin');
 const colors = require('tailwindcss/colors');
+const config = require('./.config.js');
+const path = require('path');
 
 module.exports = {
   important: true,
@@ -7,7 +9,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: ['.11ty-vite/*.html', '.11ty-vite/**/*.html'],
+  purge: [path.join(config.dir.viteTemp, '**/*.html'), path.join(config.dir.viteTemp, '*.html')],
   theme: {
     extend: {
       colors: {

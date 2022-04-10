@@ -6,6 +6,7 @@
 - [ ] Serviceworker
 - [x] How to lazyload main.js
 - [ ] Allow custom inputs alongside Eleventy's [although this is less important now]
+- [ ] HTML minification but also blurry Instagram placeholders
 
 ## CSS
 

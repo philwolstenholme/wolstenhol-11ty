@@ -2,6 +2,7 @@ import 'wicg-inert';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
 import lozad from 'lozad';
+import loadjs from 'loadjs';
 
 import CssNakedDay from './css-naked-day.js';
 // CssNakedDay();
