@@ -54,14 +54,7 @@ export default {
           :href="item.url"
           class="reading-list-link relative flex min-w-0 group items-baseline space-x-3 flex-1 border border-gray-300 rounded shadow-hard bg-oc-yellow-2 hocus:bg-oc-yellow-3 p-4 font-serif"
         >
-          <img
-            :src="`https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${item.hostname}&size=32`"
-            class="flex-shrink-0 rounded isolate"
-            alt=""
-            width="16"
-            height="16"
-            loading="lazy"
-          />
+          <img :src="item.favicon" class="flex-shrink-0 rounded isolate" alt="" width="16" height="16" loading="lazy" />
           <div class="isolate min-w-0">
             <h3 class="font-bold leading-tight group-hocus:underline">{{ item.title }}</h3>
             <p class="mt-2 text-xs no-underline truncate" v-if="item.subTitle">{{ item.subTitle }}</p>

@@ -5,6 +5,7 @@ const { orderBy } = require('natural-orderby');
 const { getHostname } = require('tldts');
 const metascraper = require('metascraper')([require('metascraper-description')()]);
 const got = require('got');
+const https = require('https');
 
 module.exports = async function () {
   let mediumReadingListHtml = await Cache('https://philwolstenholme.medium.com/list/reading-list', {
@@ -107,11 +108,31 @@ module.exports = async function () {
 
   const airtableReadingList = await Promise.all(airtableReadingListJson.records.map(item => prepareAirtableItem(item)));
 
-  const prepareItem = item => {
+  const has200Status = async url => {
+    try {
+      const response = await got(url);
+      return response.statusCode === 200;
+    } catch {
+      return false;
+    }
+  };
+
+  const getFavicon = async url => {
+    const hostname = getHostname(url);
+    const faviconUrl = `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${hostname}&size=32`;
+
+    if (await has200Status(faviconUrl)) {
+      return faviconUrl;
+    } else {
+      return `data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext x='0' y='14'%3E🔗%3C/text%3E%3C/svg%3E`;
+    }
+  };
+
+  const prepareItem = async item => {
     return {
       ...item,
-      hostname: getHostname(item.url),
       subTitle: item.subTitle.substring(0, 100),
+      favicon: await getFavicon(item.url),
     };
   };
 
@@ -121,7 +142,8 @@ module.exports = async function () {
     airtableReadingList: airtableReadingList.length,
   });
 
-  const sortedItems = orderBy([...mediumReadingList, ...devToReadingList, ...airtableReadingList], 'date', 'desc').map(prepareItem);
+  const prepareItemPromises = orderBy([...mediumReadingList, ...devToReadingList, ...airtableReadingList], 'date', 'desc').map(prepareItem);
+  const sortedItems = await Promise.all(prepareItemPromises);
 
   return sortedItems.slice(0, 12);
 };
