@@ -2,11 +2,44 @@ const { defineConfig } = require('vite');
 const { splitVendorChunkPlugin } = require('vite');
 import htmlMinimize from '@sergeymakinen/vite-plugin-html-minimize';
 import inspect from 'vite-plugin-inspect';
+// import sri from '@small-tech/vite-plugin-sri';
+
+const addNoscriptCss = () => {
+  return {
+    name: 'add-noscript-css',
+    transformIndexHtml(html, { chunk }) {
+      const tags = [];
+
+      Array.from(chunk.viteMetadata.importedCss, assetUrl => {
+        tags.push({
+          tag: 'noscript',
+          children: [
+            {
+              tag: 'link',
+              attrs: {
+                rel: 'stylesheet',
+                href: `/${assetUrl}`,
+              },
+            },
+          ],
+          injectTo: 'body',
+        });
+      });
+
+      return {
+        html,
+        tags,
+      };
+    },
+  };
+};
 
 module.exports = defineConfig({
   plugins: [
     splitVendorChunkPlugin(),
     inspect(),
+    // sri(),
+    addNoscriptCss(),
     htmlMinimize({
       collapseWhitespace: true,
       conservativeCollapse: true,
