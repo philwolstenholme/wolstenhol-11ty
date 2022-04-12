@@ -142,8 +142,10 @@ module.exports = async function () {
     airtableReadingList: airtableReadingList.length,
   });
 
-  const prepareItemPromises = orderBy([...mediumReadingList, ...devToReadingList, ...airtableReadingList], 'date', 'desc').map(prepareItem);
+  const prepareItemPromises = orderBy([...mediumReadingList, ...devToReadingList, ...airtableReadingList], 'date', 'desc')
+    .slice(0, 12)
+    .map(prepareItem);
   const sortedItems = await Promise.all(prepareItemPromises);
 
-  return sortedItems.slice(0, 12);
+  return sortedItems;
 };
