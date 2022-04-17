@@ -59,11 +59,11 @@
     X-Robots-Tag = "noindex"
 
 [[plugins]]
-package = "netlify-plugin-image-optim"
+  package = "netlify-plugin-image-optim"
 [[plugins]]
-package = "netlify-purge-cloudflare-on-deploy"
+  package = "netlify-purge-cloudflare-on-deploy"
 [[plugins]]
-package = "netlify-plugin-subfont"
+  package = "netlify-plugin-subfont"
 [[plugins]]
   package = "netlify-plugin-inline-critical-css"
   [plugins.inputs]
@@ -74,3 +74,7 @@ package = "netlify-plugin-subfont"
       { width = 1280, height = 800 },
       { width = 1536, height = 2048 }
     ]
+[[plugins]]
+  package = "netlify-plugin-cache"
+  [plugins.inputs]
+    paths = [".cache", "node_modules/.vite"]
