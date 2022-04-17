@@ -460,8 +460,8 @@ Alpine.start();
 
 // Horrible workaround for the fact that something in Vite is turning &quot; into "
 // which results in invalid HTML and html-minifier-terser freaking out.
-document.querySelectorAll('.card__instagram').forEach(card => {
-  const image = card.querySelector('.card__instagram__img');
+document.querySelectorAll('.card-instagram').forEach(card => {
+  const image = card.querySelector('.card-instagram__img');
 
   if (!image?.dataset?.placeholderStyle) {
     return;
@@ -482,7 +482,7 @@ const removeInstagramLoadingPlaceholder = el => {
   el.removeAttribute('onLoad');
 };
 
-document.querySelectorAll('.card__instagram__img').forEach(el => {
+document.querySelectorAll('.card-instagram__img').forEach(el => {
   if (el.complete) {
     removeInstagramLoadingPlaceholder(el);
   }

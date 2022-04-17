@@ -64,7 +64,7 @@ export default {
     x-on:keydown.escape.window="if (isPlaying) { musicCardButtonPress($dispatch) }"
     x-init="init()"
     v-bind:style="`animation-duration: ${tempoAnimationDuration}s;`"
-    class="contain-content relative group flex overflow-hidden card--music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
+    class="contain-content relative group flex overflow-hidden card-music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
   >
     <h3 class="sr-only">{{ music.name }}</h3>
 
@@ -72,7 +72,7 @@ export default {
       <img
         v-bind:src="image"
         v-bind:alt="music.name"
-        class="card--music__container transition-all"
+        class="card-music__container transition-all"
         loading="lazy"
         crossorigin="anonymous"
         width="145"
@@ -105,7 +105,7 @@ export default {
     <div class="absolute z-10 font-bold text-xs p-2 bottom-0 left-0">
       <a
         :href="music.external_urls.spotify"
-        class="card--music__caption relative inline-block p-1 px-2 text-yellow-300 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1 focus:underline"
+        class="card-music__caption relative inline-block p-1 px-2 text-yellow-300 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1 focus:underline"
       >
         <span class="relative text-black z-10">{{ music.name }}&nbsp;<span class="sr-only">(Spotify artist page)</span></span>
       </a>
@@ -118,13 +118,13 @@ export default {
       x-bind:value="progress"
       x-bind:class="{ active: isPlaying }"
       max="1"
-      class="card--music__progress absolute bottom-0 w-full text-spotify"
+      class="card-music__progress absolute bottom-0 w-full text-spotify"
     />
   </article>
 </template>
 
 <style lang="scss">
-.card--music {
+.card-music {
   &__container {
     mix-blend-mode: soft-light;
     filter: grayscale(1) contrast(1.05);

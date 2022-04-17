@@ -116,8 +116,8 @@ export default {
     v-bind:x-on:mouseleave="onMouseleaveEvents"
     v-bind:x-on:focus="onFocusEvents"
     v-bind:x-on:blur="onBlurEvents"
-    class="contain-content group relative flex rounded overflow-hidden card__instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
-    :class="{ 'card__instagram--party': isParty }"
+    class="contain-content group relative flex rounded overflow-hidden card-instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
+    :class="{ 'card-instagram--party': isParty }"
   >
     <div class="flex-col justify-center shadow-hard">
       <template v-if="post.videos">
@@ -150,7 +150,7 @@ export default {
             width="368"
             height="368"
             sizes="368px"
-            class="card__instagram__img has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
+            class="card-instagram__img has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
             loading="lazy"
             decoding="async"
             crossorigin="anonymous"
@@ -214,7 +214,7 @@ export default {
 <style lang="scss" scoped>
 $backgroundBufer: 30px;
 
-.card__instagram--caption {
+.card-instagram__caption {
   max-height: calc(100% + #{$backgroundBufer});
   transition: transform 150ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transform: translateY(100%);
@@ -228,9 +228,9 @@ $backgroundBufer: 30px;
   }
 }
 
-.card__instagram:hover,
-.card__instagram:focus {
-  .card__instagram--caption {
+.card-instagram:hover,
+.card-instagram:focus {
+  .card-instagram__caption {
     transition: transform 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     transform: translateY(calc(0% + #{$backgroundBufer}));
   }

@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <article class="card__twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold" x-ignore>
+  <article class="card-twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold" x-ignore>
     <p class="grid grid-flow-col bg-black" v-if="tweetMedia">
       <a
         :is="media.type == 'photo' ? 'a' : 'div'"
@@ -125,7 +125,7 @@ export default {
 
     <p class="m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3" v-html="linkedText"></p>
 
-    <p class="card__twitter__tweet-actions px-4 py-3 text-sm space-x-3">
+    <p class="card-twitter__tweet-actions px-4 py-3 text-sm space-x-3">
       <a :href="`https://twitter.com/intent/tweet?in_reply_to=${originalTweet.id_str}&related=philw_`" class="twitter-intent">
         <sprite-icon hash="twitter-reply"></sprite-icon>
         <span class="sr-only">Reply</span>
@@ -155,24 +155,24 @@ export default {
 </template>
 
 <style lang="scss">
-.card__twitter {
+.card-twitter {
   background-color: #1876be;
   transition: all 150ms ease-in-out;
 }
 
-.card__twitter__tweet-text {
+.card-twitter__tweet-text {
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.card__twitter__tweet-text > a {
+.card-twitter__tweet-text > a {
   color: white;
   text-decoration: none;
   text-shadow: 1px 1px 0 #3197e5, -1px 1px 0 #3197e5, 2px 0 0 #3197e5, -2px 0 0 #3197e5, 3px 0 0 #3197e5, -3px 0 0 #3197e5;
   box-shadow: inset 0 -1px 0 0 #fff, inset 0 -3px 0 0 #3197e5;
 }
 
-.card__twitter__tweet-actions {
+.card-twitter__tweet-actions {
   background-color: rgba(0, 0, 0, 0.45);
 }
 
@@ -186,7 +186,7 @@ a.twitter-intent:hover {
   transform: scale(1.1);
 }
 
-.card__twitter .twitter-intent {
+.card-twitter .twitter-intent {
   color: #fff;
 }
 
