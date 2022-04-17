@@ -24,6 +24,10 @@ window.PwVibrate = (duration = 80) => {
 Alpine.plugin(intersect);
 
 document.addEventListener('alpine:init', () => {
+  Alpine.store('music', {
+    isPlaying: false,
+  });
+
   Alpine.data('PwCardMusic', $root => ({
     isPlaying: false,
     progress: 0,
@@ -67,7 +71,7 @@ document.addEventListener('alpine:init', () => {
     },
   }));
 
-  Alpine.data('PwMusic', () => ({
+  Alpine.data('PwMusic', $store => ({
     isPlaying: false,
     src: null,
     init() {
@@ -75,6 +79,7 @@ document.addEventListener('alpine:init', () => {
         this.$dispatch(value ? 'playing-preview' : 'stopped-preview', {
           src: this.src,
         });
+        $store.music.isPlaying = value;
       });
     },
     play(detail) {

@@ -79,7 +79,7 @@ export default {
       class="inline sr-only"
       x-init="$root.classList.remove('inline')"
       x-bind:src="src"
-      x-data="PwMusic"
+      x-data="PwMusic($store)"
       x-on:play-preview.window="play($event.detail, $root)"
       x-on:stop-preview.window="pause($root)"
       x-on:pause="pause()"

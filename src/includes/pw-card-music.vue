@@ -62,6 +62,7 @@ export default {
     x-on:stopped-preview.window="stoppedPreview($event)"
     x-on:preview-progress.window="previewProgress($event)"
     x-on:keydown.escape.window="if (isPlaying) { musicCardButtonPress($dispatch) }"
+    x-intersect.once="window.lozad.triggerLoad($refs.static)"
     x-init="init()"
     v-bind:style="`animation-duration: ${tempoAnimationDuration}s;`"
     class="contain-content relative group flex overflow-hidden card-music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
@@ -93,13 +94,27 @@ export default {
       x-on:keydown.space.prevent="musicCardButtonPress($dispatch)"
       x-on:keydown.enter.prevent="musicCardButtonPress($dispatch)"
     >
-      <div class="absolute p-2 top-0 left-0">
+      <div class="absolute z-10 p-2 top-0 left-0">
         <span class="sr-only">Play 30 second preview of {{ music.name }}</span>
         <icon name="play" x-show="!isPlaying" class="transform transition-transform" />
         <span x-cloak>
           <icon name="pause" x-show="isPlaying" />
         </span>
       </div>
+      <video
+        hidden
+        data-lozad
+        x-bind:class="{ 'lg:block lg:motion-reduce:hidden': $store.music.isPlaying && !isPlaying }"
+        x-transition.opacity
+        x-ref="static"
+        class="card-music__static motion-reduce:hidden absolute h-full object-cover object-left-top opacity-40 pointer-events-none w-full"
+        loop
+        autoplay
+        muted
+        playsinline
+      >
+        <source data-src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
+      </video>
     </a>
 
     <div class="absolute z-10 font-bold text-xs p-2 bottom-0 left-0">
@@ -178,7 +193,13 @@ export default {
   }
 
   &.isPlaying {
-    animation: dance 100ms infinite alternate;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: dance 100ms infinite alternate;
+    }
+  }
+
+  &__static {
+    mix-blend-mode: luminosity;
   }
 }
 
