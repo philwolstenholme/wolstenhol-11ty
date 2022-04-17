@@ -4,3 +4,6 @@
 npm-debug.log*
 *.cache
 /dist
+
+# Local Netlify folder
+.netlify
