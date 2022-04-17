@@ -10,4 +10,4 @@ Partially based on [eastslopestudio/eleventy-starter](https://github.com/eastslo
 
 There's still plenty of room for improvement, but I'm pretty pleased with the work I've done so far on making sure that this website uses semantic markup and progressive enhancement.
 
-To demonstrate this, you can view a [version of the website without CSS](https://wolstenhol.me/index.no-css) and a [version of the website without JavaScript](https://wolstenhol.me/index.no-js) to see how it behaves.
+To demonstrate this, you can view a [version of the website without CSS](https://wolstenhol.me/no-css) and a [version of the website without JavaScript](https://wolstenhol.me/no-js) to see how it behaves.
