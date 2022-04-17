@@ -77,4 +77,4 @@
 [[plugins]]
   package = "netlify-plugin-cache"
   [plugins.inputs]
-    paths = [".cache", "node_modules/.vite"]
+    paths = [".cache", "node_modules/.vite", "node_modules/.cache"]
