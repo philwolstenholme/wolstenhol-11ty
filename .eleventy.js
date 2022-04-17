@@ -41,15 +41,6 @@ module.exports = function (eleventyConfig) {
   });
 
   /**
-   * Add custom watch targets
-   *
-   * @link https://www.11ty.dev/docs/config/#add-your-own-watch-targets
-   */
-  eleventyConfig.addWatchTarget('./tailwind.config.js');
-  eleventyConfig.addWatchTarget('./src/assets');
-  eleventyConfig.addWatchTarget('./src/media');
-
-  /**
    * Passthrough file copy
    *
    * @link https://www.11ty.io/docs/copy/

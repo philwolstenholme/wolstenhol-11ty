@@ -53,10 +53,10 @@ module.exports = defineConfig({
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true,
       useShortDoctype: true,
-      decodeEntities: true,
+      decodeEntities: false,
       sortAttributes: true,
       sortClassName: true,
-      customAttrCollapse: /x-bind:class|x-init|x-style/,
+      customAttrCollapse: /x-bind\:class|x-init|x-style/,
     }),
   ],
   build: {

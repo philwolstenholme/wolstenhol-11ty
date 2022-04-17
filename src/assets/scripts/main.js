@@ -458,18 +458,43 @@ Alpine.data('PwSpotifyLive', () => ({
 
 Alpine.start();
 
-document.body.addEventListener(
-  'load',
-  e => {
-    if (e.target.tagName != 'IMG' || !e.target.classList.contains('has-blurry-placeholder')) {
-      return;
-    }
+// Horrible workaround for the fact that something in Vite is turning &quot; into "
+// which results in invalid HTML and html-minifier-terser freaking out.
+document.querySelectorAll('.card__instagram').forEach(card => {
+  const image = card.querySelector('.card__instagram__img');
 
-    // Remove the blurry placeholder.
-    e.target.style.backgroundImage = 'none';
-  },
-  true
-);
+  if (!image?.dataset?.placeholderStyle) {
+    return;
+  }
+
+  const replacedStyle = image.dataset.placeholderStyle
+    .replace('="background-image:url("', '="background-image:url(&quot;')
+    .replace('%3c/svg%3e");"', '%3c/svg%3e&quot;);"');
+
+  image.setAttribute(`style`, replacedStyle);
+  image.removeAttribute('data-placeholder-style');
+});
+
+const removeInstagramLoadingPlaceholder = el => {
+  el.classList.remove('has-blurry-placeholder');
+  el.nextElementSibling.remove();
+  el.style.backgroundImage = null;
+  el.removeAttribute('onLoad');
+};
+
+document.querySelectorAll('.card__instagram__img').forEach(el => {
+  if (el.complete) {
+    removeInstagramLoadingPlaceholder(el);
+  }
+
+  el.addEventListener(
+    'load',
+    e => {
+      removeInstagramLoadingPlaceholder(e.target);
+    },
+    { once: true }
+  );
+});
 
 document.querySelector('html').classList.remove('no-js');
 document.querySelector('html').classList.add('js');

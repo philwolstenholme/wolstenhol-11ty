@@ -140,6 +140,7 @@ export default {
       </template>
       <template v-if="!post.videos">
         <div class="grid grid-stack">
+          <!-- prettier-ignore -->
           <img
             :src="cloudinaryUrl"
             :srcset="cloudinarySrcSet"
@@ -149,13 +150,12 @@ export default {
             width="368"
             height="368"
             sizes="368px"
-            class="has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
-            onload="this.classList.remove('has-blurry-placeholder'); this.nextElementSibling.remove(); this.style.backgroundImage = null; this.removeAttribute('onLoad')"
+            class="card__instagram__img has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
             loading="lazy"
             decoding="async"
             crossorigin="anonymous"
+            :data-placeholder-style='`background-image:url(&quot;${post.svgPlaceholder}&quot;)`'
           />
-          <!-- {{ post.svgPlaceholder }} -->
           <div class="no-js:hidden w-full h-full flex items-center justify-center">
             <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
             <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
