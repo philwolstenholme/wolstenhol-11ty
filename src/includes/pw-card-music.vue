@@ -112,6 +112,9 @@ export default {
         autoplay
         muted
         playsinline
+        disablePictureInPicture
+        disableRemotePlayback
+        preload="none"
       >
         <source data-src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
       </video>

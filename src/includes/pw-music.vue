@@ -86,6 +86,7 @@ export default {
       x-on:ended="ended()"
       x-on:playing="playing()"
       x-on:timeupdate="timeUpdate($event, $dispatch)"
+      x-intersect.once="(() => {var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://p.scdn.co'; document.head.appendChild(l);})()"
     ></audio>
     <iframe x-data="{}" x-init="$root.remove()" class="js:hidden" name="spotify-preview" title="Spotify preview"></iframe>
   </pw-section>

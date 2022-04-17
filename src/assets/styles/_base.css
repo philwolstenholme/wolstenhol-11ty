@@ -16,6 +16,7 @@ html {
   * {
     animation-duration: 0.01s !important;
     transition-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
   }
 }
 

@@ -74,7 +74,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      display: ['js', 'no-js', 'group-hocus', 'group-focus'],
+      display: ['js', 'no-js', 'group-hocus', 'group-focus', 'motion-reduce'],
       textColor: ['hocus', 'group-hocus', 'group-focus'],
       backgroundColor: ['hocus', 'group-hocus', 'group-focus'],
       transform: ['hover', 'focus', 'hocus', 'group-hocus'],
