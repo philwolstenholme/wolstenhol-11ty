@@ -104,7 +104,7 @@ export default {
       <video
         hidden
         data-lozad
-        x-bind:class="{ 'lg:block lg:motion-reduce:hidden': $store.music.isPlaying && !isPlaying }"
+        x-bind:class="{ 'block': $store.music.isPlaying && !isPlaying }"
         x-transition.opacity
         x-ref="static"
         class="card-music__static motion-reduce:hidden absolute h-full object-cover object-left-top opacity-40 pointer-events-none w-full"
