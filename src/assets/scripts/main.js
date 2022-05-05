@@ -114,9 +114,57 @@ document.addEventListener('alpine:init', () => {
 
   Alpine.data('PwContact', () => ({
     submitted: false,
-    error: null,
+    submissionError: null,
+    possibleValidationErrors: {
+      'contact-name': {
+        id: 'contact-name',
+        message: 'Enter your name',
+      },
+      'contact-email': {
+        id: 'contact-email',
+        message: 'Enter your email address',
+      },
+      'contact-subject': {
+        id: 'contact-subject',
+        message: 'Enter a subject line',
+      },
+      'contact-message': {
+        id: 'contact-message',
+        message: 'Enter a message',
+      },
+      'no-freelance': {
+        id: 'no-freelance',
+        message: 'Please read the bit about not pitching me freelance work',
+      },
+    },
+    actualValidationErrors: [],
+    setAsInvalid(id) {
+      this.actualValidationErrors.push(id);
+    },
+    isInvalid(id) {
+      return this.actualValidationErrors.includes(id);
+    },
+    init() {
+      const form = this.$refs.form;
+      form.setAttribute('novalidate', '');
+    },
     submitForm() {
-      const data = new FormData(this.$refs.form);
+      const form = this.$refs.form;
+      const data = new FormData(form);
+      this.actualValidationErrors = [];
+
+      form.checkValidity();
+
+      if (this.actualValidationErrors.length > 0) {
+        console.warn('Form validation failed!', this.actualValidationErrors);
+
+        this.$nextTick(() => {
+          this.$refs.errors.focus();
+        });
+
+        return;
+      }
+
       fetch('/', {
         method: 'POST',
         body: data,
@@ -133,10 +181,10 @@ document.addEventListener('alpine:init', () => {
         })
         .then(() => {
           this.submitted = true;
-          this.error = null;
+          this.submissionError = null;
         })
         .catch(error => {
-          this.error = JSON.stringify(error, null, 2);
+          this.submissionError = JSON.stringify(error, null, 2);
           console.error('Contact form error: ', error);
         });
     },

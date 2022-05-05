@@ -9,6 +9,15 @@ export default {
     PwSectionHeading,
     icon,
   },
+  data: function () {
+    return {
+      errorTemplateString: `<template x-for="invalidId in actualValidationErrors">
+            <li>
+              <a x-bind:href="\`#\${invalidId}\`" x-text="possibleValidationErrors[invalidId].message"></a>
+            </li>
+          </template>`,
+    };
+  },
 };
 </script>
 
@@ -21,12 +30,27 @@ export default {
       <a href="https://twitter.com/messages/compose?recipient_id=38276082" class="underline">direct message on Twitter</a> or drop me an
       email via this contact form (all fields are required).
     </p>
-    <div x-data="PwContact" id="contact-form-component" class="contact-form-container contain-content mt-12">
+    <div x-data="PwContact" id="contact-form-component" class="contact-form-container contain-content mt-12 space-y-8">
+      <div
+        role="alert"
+        aria-labelledby="contact-form-validation-problems"
+        class="border-l-4 border-red-800 pl-4 rounded space-y-3"
+        x-ref="errors"
+        tabindex="-1"
+        hidden
+        x-bind:hidden="actualValidationErrors.length === 0"
+      >
+        <h3 class="font-bold font-serif text-2xl" id="contact-form-validation-problems">
+          <span aria-hidden="true">😔&nbsp;</span>There were some problems with the form:
+        </h3>
+        <ul class="links-underline highlight-links list-disc pl-5" v-html="errorTemplateString"></ul>
+      </div>
+
       <form
         netlify
         netlify-honeypot="message_1"
         x-ref="form"
-        class="space-y-4 text-xl mt-8 max-w-3xl"
+        class="space-y-4 text-xl max-w-3xl"
         name="contact"
         method="POST"
         x-bind:hidden="submitted"
@@ -44,12 +68,14 @@ export default {
             required
             aria-required="true"
             id="contact-name"
+            x-bind:aria-invalid="isInvalid('contact-name')"
             type="text"
             name="name"
             autocomplete="name"
             placeholder="What should I call you?"
             class="w-full bg-white font-serif p-4 rounded text-black shadow-hard lg:flex-1"
             size="45"
+            x-on:invalid="setAsInvalid(event.target.id)"
           />
         </p>
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
@@ -63,12 +89,14 @@ export default {
             required
             aria-required="true"
             id="contact-email"
+            x-bind:aria-invalid="isInvalid('contact-email')"
             type="email"
             name="email"
             autocomplete="email"
             placeholder="How can I get back to you?"
             class="w-full bg-white font-serif p-4 rounded text-black shadow-hard lg:flex-1"
             size="45"
+            x-on:invalid="setAsInvalid(event.target.id)"
           />
         </p>
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
@@ -82,11 +110,13 @@ export default {
             required
             aria-required="true"
             id="contact-subject"
+            x-bind:aria-invalid="isInvalid('contact-subject')"
             type="text"
             name="subject"
             placeholder="What's this all about then?"
             class="w-full bg-white font-serif p-4 rounded text-black shadow-hard lg:flex-1"
             size="45"
+            x-on:invalid="setAsInvalid(event.target.id)"
           />
         </p>
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
@@ -100,16 +130,27 @@ export default {
             required
             aria-required="true"
             id="contact-message"
+            x-bind:aria-invalid="isInvalid('contact-message')"
             name="message"
             placeholder="Your unconditional offer of that six-figure, four-days-a-week job, perhaps a typo correction, or some other message."
             class="w-full bg-white font-serif p-4 rounded text-black shadow-hard lg:flex-1"
             rows="6"
             cols="50"
+            x-on:invalid="setAsInvalid(event.target.id)"
           ></textarea>
         </p>
         <p>
           <span class="flex space-x-2 text-base font-bold lg:ml-32">
-            <input class="mt-1.5" type="checkbox" id="no-freelance" name="no-freelance" required />
+            <input
+              class="mt-1.5"
+              type="checkbox"
+              id="no-freelance"
+              x-bind:aria-invalid="isInvalid('no-freelance')"
+              name="no-freelance"
+              required
+              aria-required="true"
+              x-on:invalid="setAsInvalid(event.target.id)"
+            />
             <label for="no-freelance">
               I work making websites full-time on a salaried basis so don't do any freelance or contracting work (sorry). Please tick the
               box to confirm you are not asking me to produce a website for a small business or offering a contract gig. Thanks!<sup
@@ -129,10 +170,10 @@ export default {
             <span>Send</span>
           </button>
         </p>
-        <div hidden x-bind:hidden="!error" x-cloak class="font-bold text-red-800 lg:ml-32 space-y-2">
+        <div hidden x-bind:hidden="!submissionError" x-cloak class="font-bold text-red-800 lg:ml-32 space-y-2">
           <p>Oops, it looks like there's been some sort of error:</p>
           <div
-            x-text="error"
+            x-text="submissionError"
             class="bg-black block text-base font-mono p-5 rounded shadow-hard text-green-300 w-full"
             rows="5"
             readonly
@@ -147,8 +188,8 @@ export default {
           </label>
         </div>
       </form>
-      <div hidden x-bind:hidden="!submitted" x-cloak class="space-y-4 text-xl mt-8 max-w-3xl">
-        <p class="text-xl text-3xl font-bold font-serif text-green-700"><span aria-hidden="true">✅&nbsp;</span>Thanks!</p>
+      <div hidden x-bind:hidden="!submitted" x-cloak class="space-y-4 text-xl max-w-3xl">
+        <p class="text-3xl font-bold font-serif text-green-700"><span aria-hidden="true">✅&nbsp;</span>Thanks!</p>
         <p class="text-base">Your message has been sent.</p>
       </div>
     </div>

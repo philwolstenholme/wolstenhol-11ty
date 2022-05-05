@@ -133,10 +133,6 @@ mark,
   box-decoration-break: clone;
 }
 
-.underline-links a {
-  text-decoration: underline;
-}
-
 .breakout {
   width: calc(100vw - var(--scrollbar-width, 15px));
   margin-left: calc(50% - (50vw - (var(--scrollbar-width, 15px) / 2)));
