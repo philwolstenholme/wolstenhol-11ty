@@ -270,12 +270,16 @@ document.addEventListener('alpine:init', () => {
     colcadeInstance: null,
     extraTweets: null,
     colcade() {
-      if (window.innerWidth > 767) {
+      if (window.innerWidth > 767 && this.colcadeInstance === null) {
         loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/colcade@0.2.0/colcade.js', () => {
-          this.colcadeInstance = new Colcade('.tweets-grid', {
-            columns: '.tweets-grid__col',
-            items: '.tweets-grid__item',
-          });
+          try {
+            this.colcadeInstance = new Colcade('.tweets-grid', {
+              columns: '.tweets-grid__col',
+              items: '.tweets-grid__item',
+            });
+          } catch (error) {
+            console.error(`Colcade is being weird again…`, error);
+          }
         });
       }
     },
