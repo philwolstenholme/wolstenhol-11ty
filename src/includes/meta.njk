@@ -8,6 +8,8 @@
 <meta property="og:description" content="{{ seo.description or meta.description }}" />
 <meta property="og:url" content="{{ absolutePageUrl }}" />
 <meta property="og:locale" content="{{ meta.locale }}" />
+<meta name="twitter:site" content="@philw_">
+<meta name="twitter:creator" content="@philw_">
 <meta name="twitter:card" content="{% if seo.image or meta.image %}summary_large_image{% else %}summary{% endif %}" />
 {% if seo.image or meta.image %}
 <meta property="og:image" content="{{ seo.image or meta.image | url | absoluteUrl(build.url) }}" />
