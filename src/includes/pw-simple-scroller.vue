@@ -32,7 +32,9 @@
         v-bind:aria-label="label"
         x-ref="scroller"
         data-pw-scroller-list
-        class="scroller relative flex space-x-5 overflow-x-auto overflow-y-auto custom-scrollbars scroll-smooth scrolling-touch snap snap-x snap-mandatory"
+        x-on:scroll.passive.debounce.once="$refs.scroller.classList.remove('scroller--no-interaction')"
+        x-on:mouseenter.once="$refs.scroller.classList.remove('scroller--no-interaction')"
+        class="scroller scroller--no-interaction relative flex space-x-5 overflow-x-auto overflow-y-auto custom-scrollbars scroll-smooth scrolling-touch snap snap-x snap-mandatory"
       >
         <slot></slot>
       </ul>

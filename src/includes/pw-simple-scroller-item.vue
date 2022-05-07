@@ -33,4 +33,7 @@ export default {
 .scroller-item {
   margin-top: calc(var(--outline-offset, var(--outline-size)) * 2);
 }
+.scroller.scroller--no-interaction .scroller-item:not(:nth-child(-n + 3)) {
+  content-visibility: auto;
+}
 </style>
