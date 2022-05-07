@@ -11,9 +11,9 @@ export default {
   },
   data: function () {
     return {
-      errorTemplateString: `<template x-for="invalidId in actualValidationErrors">
-            <li>
-              <a x-bind:href="\`#\${invalidId}\`" x-text="possibleValidationErrors[invalidId].message"></a>
+      errorTemplateString: `<template x-for="(invalidId, index) in invalidFormIds">
+            <li x-bind:key="invalidId + '' + getValidationMessage(invalidId)}">
+              <a x-bind:href="\`#\${invalidId}\`" x-text="getInputLabel(invalidId)"></a> (<span x-text="invalidMessages[index]"></span>)
             </li>
           </template>`,
     };
@@ -38,7 +38,7 @@ export default {
         x-ref="errors"
         tabindex="-1"
         hidden
-        x-bind:hidden="actualValidationErrors.length === 0"
+        x-bind:hidden="invalidFormIds.length === 0"
       >
         <h3 class="font-bold font-serif text-2xl" id="contact-form-validation-problems">
           <span aria-hidden="true">😔&nbsp;</span>There were some problems with the form:
@@ -71,6 +71,7 @@ export default {
             x-bind:aria-invalid="isInvalid('contact-name')"
             type="text"
             name="name"
+            minlength="2"
             autocomplete="name"
             placeholder="What should I call you?"
             class="w-full bg-white font-serif p-4 rounded text-black shadow-hard lg:flex-1"
@@ -113,6 +114,7 @@ export default {
             x-bind:aria-invalid="isInvalid('contact-subject')"
             type="text"
             name="subject"
+            minlength="8"
             placeholder="What's this all about then?"
             class="w-full bg-white font-serif p-4 rounded text-black shadow-hard lg:flex-1"
             size="45"
@@ -132,6 +134,7 @@ export default {
             id="contact-message"
             x-bind:aria-invalid="isInvalid('contact-message')"
             name="message"
+            minlength="8"
             placeholder="Your unconditional offer of that six-figure, four-days-a-week job, perhaps a typo correction, or some other message."
             class="w-full bg-white font-serif p-4 rounded text-black shadow-hard lg:flex-1"
             rows="6"

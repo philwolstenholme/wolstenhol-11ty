@@ -115,34 +115,24 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('PwContact', () => ({
     submitted: false,
     submissionError: null,
-    possibleValidationErrors: {
-      'contact-name': {
-        id: 'contact-name',
-        message: 'Enter your name',
-      },
-      'contact-email': {
-        id: 'contact-email',
-        message: 'Enter your email address',
-      },
-      'contact-subject': {
-        id: 'contact-subject',
-        message: 'Enter a subject line',
-      },
-      'contact-message': {
-        id: 'contact-message',
-        message: 'Enter a message',
-      },
-      'no-freelance': {
-        id: 'no-freelance',
-        message: 'Please read the bit about not pitching me freelance work',
-      },
+    invalidFormIds: [],
+    invalidMessages: [],
+    getValidationMessage(id) {
+      const field = document.getElementById(id);
+      console.log(id, field, field.validationMessage);
+      return field.validationMessage;
     },
-    actualValidationErrors: [],
     setAsInvalid(id) {
-      this.actualValidationErrors.push(id);
+      this.invalidFormIds = [...this.invalidFormIds, id];
+      this.invalidMessages = [...this.invalidMessages, this.getValidationMessage(id)];
     },
     isInvalid(id) {
-      return this.actualValidationErrors.includes(id);
+      return this.invalidFormIds.includes(id);
+    },
+    getInputLabel(id) {
+      const field = document.getElementById(id);
+      // Try to split out a short label without any 'this field is required' text and without more than one sentence.
+      return [...field.labels].shift().firstChild.nodeValue.split(':').shift().split('.').shift().split('!').shift().split('?').shift();
     },
     init() {
       const form = this.$refs.form;
@@ -151,12 +141,13 @@ document.addEventListener('alpine:init', () => {
     submitForm() {
       const form = this.$refs.form;
       const data = new FormData(form);
-      this.actualValidationErrors = [];
+      this.invalidFormIds = [];
+      this.invalidMessages = [];
 
       form.checkValidity();
 
-      if (this.actualValidationErrors.length > 0) {
-        console.warn('Form validation failed!', this.actualValidationErrors);
+      if (this.invalidFormIds.length > 0) {
+        console.warn('Form validation failed!', this.invalidFormIds);
 
         this.$nextTick(() => {
           this.$refs.errors.focus();
