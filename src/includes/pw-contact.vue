@@ -58,7 +58,10 @@ export default {
       >
         <input type="hidden" name="form-name" value="contact" />
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
-          <label for="contact-name" class="font-bold lg:pt-4 lg:text-right lg:w-28"
+          <label
+            for="contact-name"
+            class="font-bold lg:pt-4 lg:text-right lg:w-28"
+            x-bind:class="{ 'text-red-800': isInvalid('contact-name') }"
             >Name:<sup class="text-red-800"
               ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
             ></label
@@ -81,7 +84,10 @@ export default {
           />
         </p>
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
-          <label for="contact-email" class="lg:pt-4 font-bold lg:text-right lg:w-28"
+          <label
+            for="contact-email"
+            class="lg:pt-4 font-bold lg:text-right lg:w-28"
+            x-bind:class="{ 'text-red-800': isInvalid('contact-email') }"
             >Email:<sup class="text-red-800"
               ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
             ></label
@@ -103,7 +109,10 @@ export default {
           />
         </p>
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
-          <label for="contact-subject" class="lg:pt-4 font-bold lg:text-right lg:w-28"
+          <label
+            for="contact-subject"
+            class="lg:pt-4 font-bold lg:text-right lg:w-28"
+            x-bind:class="{ 'text-red-800': isInvalid('contact-subject') }"
             >Subject:<sup class="text-red-800"
               ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
             ></label
@@ -125,7 +134,10 @@ export default {
           />
         </p>
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
-          <label for="contact-message" class="lg:pt-4 font-bold lg:text-right lg:w-28"
+          <label
+            for="contact-message"
+            class="lg:pt-4 font-bold lg:text-right lg:w-28"
+            x-bind:class="{ 'text-red-800': isInvalid('contact-message') }"
             >Message:<sup class="text-red-800"
               ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
             ></label
@@ -158,7 +170,7 @@ export default {
               aria-required="true"
               x-on:invalid="setAsInvalid(event.target.id)"
             />
-            <label for="no-freelance">
+            <label for="no-freelance" x-bind:class="{ 'text-red-800': isInvalid('no-freelance') }">
               I work making websites full-time on a salaried basis so don't do any freelance or contracting work (sorry). Please tick the
               box to confirm you are not asking me to produce a website for a small business or offering a contract gig. Thanks!<sup
                 class="text-red-800"
