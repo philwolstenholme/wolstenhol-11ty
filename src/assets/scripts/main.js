@@ -119,7 +119,6 @@ document.addEventListener('alpine:init', () => {
     invalidMessages: [],
     getValidationMessage(id) {
       const field = document.getElementById(id);
-      console.log(id, field, field.validationMessage);
       return field.validationMessage;
     },
     setAsInvalid(id) {
