@@ -14,6 +14,28 @@ export default {
 
 <template>
   <div id="results">
-    <pw-card-twitter v-for="(tweet, index) in this.twitter.slice(3)" :key="index" :tweet="tweet" class="tweets-grid__item" />
+    <li v-for="(tweet, index) in this.twitter.slice(3, 5)" :key="index" class="tweets-grid__item">
+      <pw-card-twitter :tweet="tweet" />
+    </li>
+    <li class="md:hidden scroll-saver space-y-3" x-data>
+      <p class="max-w-md m-auto text-center font-serif">
+        There are <span class="font-bold">{{ this.twitter.length - 5 }}</span> more of these (!) I thought I'd save you some scrolling, but
+        if you want you can…
+      </p>
+      <button
+        class="border m-auto block shadow-hard px-4 py-2 bg-black text-white font-serif font-bold rounded border-blue-100"
+        x-on:click="$event.target.parentElement.remove()"
+      >
+        Read more tweets
+      </button>
+      <style v-pre>
+        ul .scroll-saver ~ .tweets-grid__item {
+          display: none !important;
+        }
+      </style>
+    </li>
+    <li v-for="(tweet, index) in this.twitter.slice(5)" :key="index" class="tweets-grid__item">
+      <pw-card-twitter :tweet="tweet" />
+    </li>
   </div>
 </template>
