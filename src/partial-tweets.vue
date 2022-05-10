@@ -28,11 +28,6 @@ export default {
       >
         Read more tweets
       </button>
-      <style v-pre>
-        ul .scroll-saver ~ .tweets-grid__item {
-          display: none !important;
-        }
-      </style>
     </li>
     <li v-for="(tweet, index) in this.twitter.slice(5)" :key="index" class="tweets-grid__item">
       <pw-card-twitter :tweet="tweet" />

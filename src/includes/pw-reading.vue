@@ -49,7 +49,7 @@ export default {
     </div>
 
     <ul class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8" role="list">
-      <li class="reading-list-item flex min-w-0" v-for="(item, index) in reading.slice(0, 5)" :key="index" :style="getRandomRotationVar()">
+      <li class="reading-list__item flex min-w-0" v-for="(item, index) in reading.slice(0, 5)" :key="index" :style="getRandomRotationVar()">
         <a
           :href="item.url"
           class="reading-list-link relative flex min-w-0 group items-baseline space-x-3 flex-1 border border-gray-300 rounded shadow-hard bg-oc-yellow-2 hocus:bg-oc-yellow-3 p-4 font-serif"
@@ -72,14 +72,9 @@ export default {
         >
           Read more reading list items
         </button>
-        <style v-pre>
-          ul .scroll-saver ~ .reading-list-item {
-            display: none !important;
-          }
-        </style>
       </li>
       <li
-        class="reading-list-item flex min-w-0"
+        class="reading-list__item flex min-w-0"
         v-for="(item, index) in reading.slice(5, reading.length + 1)"
         :key="index"
         :style="getRandomRotationVar()"
@@ -100,7 +95,7 @@ export default {
 </template>
 
 <style>
-.reading-list-item {
+.reading-list__item {
   transform: rotate(var(--r));
 }
 
