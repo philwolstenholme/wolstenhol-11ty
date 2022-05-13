@@ -202,7 +202,7 @@ body main section + section:focus-within,
 
 ul .scroll-saver ~ .tweets-grid__item,
 ul .scroll-saver ~ .reading-list__item {
-  @media (min-width: 768px) {
+  @media (max-width: 767px) {
     display: none !important;
   }
 }
