@@ -56,11 +56,17 @@ export default {
         attributes.push('$refs.video.pause()');
       }
 
+      return attributes.length ? attributes.join(';') : null;
+    },
+
+    onMousenterOnceEvents() {
+      const attributes = [];
+
       if (this.isParty) {
-        attributes.push('window.pw.instagramBirthdayConfettiTimer = setTimeout(() => {confetti($root);}, 1000)');
+        attributes.push('confetti($root)');
       }
 
-      return attributes.join(';');
+      return attributes.length ? attributes.join(';') : null;
     },
 
     onMouseleaveEvents() {
@@ -70,11 +76,7 @@ export default {
         attributes.push('$refs.video.play()');
       }
 
-      if (this.isParty) {
-        attributes.push('window.clearTimeout(window.pw.instagramBirthdayConfettiTimer)');
-      }
-
-      return attributes.join(';');
+      return attributes.length ? attributes.join(';') : null;
     },
 
     onFocusEvents() {
@@ -84,11 +86,17 @@ export default {
         attributes.push('$refs.video.pause()');
       }
 
+      return attributes.length ? attributes.join(';') : null;
+    },
+
+    onFocusOnceEvents() {
+      const attributes = [];
+
       if (this.isParty) {
-        attributes.push('window.pw.instagramBirthdayConfettiTimer = setTimeout(() => {confetti($root);}, 1000)');
+        attributes.push('confetti($root)');
       }
 
-      return attributes.join(';');
+      return attributes.length ? attributes.join(';') : null;
     },
 
     onBlurEvents() {
@@ -98,11 +106,7 @@ export default {
         attributes.push('$refs.video.play()');
       }
 
-      if (this.isParty) {
-        attributes.push('window.clearTimeout(window.pw.instagramBirthdayConfettiTimer)');
-      }
-
-      return attributes.join(';');
+      return attributes.length ? attributes.join(';') : null;
     },
   },
 };
@@ -113,8 +117,10 @@ export default {
     tabindex="0"
     x-data="PwCardInstagram($root)"
     v-bind:x-on:mouseenter="onMousenterEvents"
+    v-bind:x-on:mouseenter-alpine-once="onMousenterOnceEvents"
     v-bind:x-on:mouseleave="onMouseleaveEvents"
     v-bind:x-on:focus="onFocusEvents"
+    v-bind:x-on:focus-alpine-once="onFocusOnceEvents"
     v-bind:x-on:blur="onBlurEvents"
     class="contain-content group relative flex rounded overflow-hidden card-instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
     :class="{ 'card-instagram--party': isParty }"

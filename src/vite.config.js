@@ -34,12 +34,22 @@ const addNoscriptCss = () => {
   };
 };
 
+const workaroundForUsingAlpineAndVueBindingTogether = () => {
+  return {
+    name: 'workaround-for-using-alpine-and-vue-binding-together',
+    transformIndexHtml(html) {
+      return html.replace(/-alpine-/gm, '.');
+    },
+  };
+};
+
 module.exports = defineConfig({
   plugins: [
     splitVendorChunkPlugin(),
     inspect(),
     // sri(),
     addNoscriptCss(),
+    workaroundForUsingAlpineAndVueBindingTogether(),
     htmlMinimize({
       collapseWhitespace: true,
       conservativeCollapse: true,

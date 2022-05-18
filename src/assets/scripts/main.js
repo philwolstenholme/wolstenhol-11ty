@@ -4,7 +4,7 @@ import intersect from '@alpinejs/intersect';
 import lozad from 'lozad';
 import loadjs from 'loadjs';
 
-import CssNakedDay from './css-naked-day.js';
+// import CssNakedDay from './css-naked-day.js';
 // CssNakedDay();
 
 const MILLISECONDS_IN_A_SECOND = 1000;
@@ -363,7 +363,7 @@ document.addEventListener('alpine:init', () => {
     playing: false,
     confetti($root) {
       loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js', function () {
-        var dimensions = this.$root.getBoundingClientRect();
+        var dimensions = $root.getBoundingClientRect();
         var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
         var centerYCoord = dimensions.y + dimensions.height / 2;
 
