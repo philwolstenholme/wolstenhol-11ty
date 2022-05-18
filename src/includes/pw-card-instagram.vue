@@ -134,7 +134,10 @@ export default {
           disableRemotePlayback
           preload="none"
         >
-          <source :data-src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url}`" type="video/mp4" />
+          <source
+            :data-src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
+            type="video/mp4"
+          />
           Your browser does not support the video tag.
         </video>
       </template>
