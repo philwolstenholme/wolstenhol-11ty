@@ -32,9 +32,9 @@ export default {
       <li class="tweets-grid__item" v-for="(tweet, index) in tweets.slice(0, 3)" :key="index">
         <pw-card-twitter :tweet="tweet" />
       </li>
-      <li aria-hidden class="tweets-grid__col space-y-5"></li>
-      <li aria-hidden class="tweets-grid__col space-y-5 hidden md:block"></li>
-      <li aria-hidden class="tweets-grid__col space-y-5 hidden xl:block"></li>
+      <li aria-hidden="true" class="tweets-grid__col space-y-5"></li>
+      <li aria-hidden="true" class="tweets-grid__col space-y-5 hidden md:block"></li>
+      <li aria-hidden="true" class="tweets-grid__col space-y-5 hidden xl:block"></li>
     </ul>
   </pw-section>
 </template>
