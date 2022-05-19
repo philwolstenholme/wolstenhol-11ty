@@ -23,6 +23,10 @@ window.PwVibrate = (duration = 80) => {
 
 Alpine.plugin(intersect);
 
+if (navigator && ((navigator.connection?.effectiveType && navigator.connection?.effectiveType != '4g') || navigator.connection?.saveData)) {
+  document.querySelectorAll('[data-section="photos"] video source').forEach(source => source.remove());
+}
+
 document.addEventListener('alpine:init', () => {
   Alpine.store('music', {
     isPlaying: false,
