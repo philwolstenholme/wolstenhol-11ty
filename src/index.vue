@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-14">
     <div class="space-y-3">
-      <h1 class="font-serif font-bold text-4xl">Meanwhile, elsewhere on the internet…</h1>
+      <h2 class="font-serif font-bold text-4xl">Meanwhile, elsewhere on the internet…</h2>
       <pw-lede>
         Tweets from Twitter, blog posts from DEV/Medium, talks from YouTube and beyond, photos from Instagram, music from Spotify, and nice
         places from Foursquare (lol, I know, but I've built the API integration now so Foursquare lives on on this website!).
