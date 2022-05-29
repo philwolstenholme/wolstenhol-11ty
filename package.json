@@ -16,6 +16,7 @@
     "dev:eleventy": "ELEVENTY_ENV=development ELEVENTY_EXPERIMENTAL=true eleventy",
     "dev": "NODE_ENV=development npm-run-all clean --parallel dev:* --print-label",
     "build:eleventy": "ELEVENTY_ENV=production ELEVENTY_EXPERIMENTAL=true eleventy",
+    "build:reading-list": "cp -R src/submit-reading-item dist",
     "sprite": "svg-sprite-generate -d src/assets/images/icons -o src/assets/sprite.svg; sed -i.bak '1d' src/assets/sprite.svg; rm src/assets/sprite.svg.bak",
     "build": "NODE_ENV=production run-s clean sprite build:* --print-label",
     "watch:eleventy": "ELEVENTY_ENV=development ELEVENTY_EXPERIMENTAL=true eleventy --serve",
