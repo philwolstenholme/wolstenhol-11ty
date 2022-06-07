@@ -11,6 +11,7 @@
     >
       <span class="sr-only">Back</span>
       <svg
+        x-ignore
         focusable="false"
         role="img"
         class="transform-gpu translate-transform"
@@ -55,6 +56,7 @@
     >
       <span class="sr-only">Forward</span>
       <svg
+        x-ignore
         focusable="false"
         role="img"
         class="transform-gpu translate-transform"
