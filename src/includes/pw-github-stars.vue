@@ -71,7 +71,9 @@ export default {
               <h3 class="leading-tight text-lg group-hocus:underline">
                 {{ item.owner.login }}/<span class="font-bold">{{ item.name }}</span>
               </h3>
-              <p class="stars-list-link__description mt-3 no-underline font-sans text-sm" v-if="item.description">{{ item.description }}</p>
+              <p class="stars-list-link__description mt-3 no-underline font-sans text-sm leading-tight" v-if="item.description">
+                {{ item.description }}
+              </p>
             </div>
             <dl class="flex gap-5 mt-5 no-underline">
               <div>
@@ -135,7 +137,9 @@ export default {
               <h3 class="leading-tight text-lg group-hocus:underline">
                 {{ item.owner.login }}/<span class="font-bold">{{ item.name }}</span>
               </h3>
-              <p class="stars-list-link__description mt-3 no-underline font-sans text-sm" v-if="item.description">{{ item.description }}</p>
+              <p class="stars-list-link__description mt-3 no-underline font-sans text-sm leading-tight" v-if="item.description">
+                {{ item.description }}
+              </p>
             </div>
             <dl class="flex gap-5 mt-5 no-underline">
               <div>
