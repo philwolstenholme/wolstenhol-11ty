@@ -209,7 +209,7 @@ export default {
             <span v-text="post.location.name" />
           </p>
         </div>
-        <p v-if="post.caption.text">
+        <p v-if="post.caption.text" class="card-instagram__caption-text">
           {{ post.caption.text }}
         </p>
         <span v-if="isParty" class="-top-8 absolute lg:inline-block lg:text-4xl right-8 sm:hidden text-6xl xl:text-6xl" aria-hidden="true"
@@ -221,27 +221,10 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-$backgroundBufer: 30px;
-
-.card-instagram__caption {
-  max-height: calc(100% + #{$backgroundBufer});
-  transition: transform 150ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transform: translateY(100%);
-  transform-origin: top;
-
-  &::after {
-    display: block;
-    width: 100%;
-    height: $backgroundBufer;
-    content: '';
-  }
-}
-
-.card-instagram:hover,
-.card-instagram:focus {
-  .card-instagram__caption {
-    transition: transform 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    transform: translateY(calc(0% + #{$backgroundBufer}));
-  }
+.card-instagram__caption-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 </style>
