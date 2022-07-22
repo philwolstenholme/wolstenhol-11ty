@@ -91,6 +91,7 @@
     "mini-svg-data-uri": "^1.4.3",
     "natural-orderby": "^2.0.3",
     "node-truncate-string": "0.0.2",
+    "pluralize": "^8.0.0",
     "rss-parser": "^3.12.0",
     "spotify-web-api-node": "^5.0.2",
     "svg-sprite-generator": "0.0.7",

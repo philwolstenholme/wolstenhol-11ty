@@ -102,6 +102,7 @@ export default {
         </span>
       </div>
       <video
+        aria-hidden="true"
         hidden
         data-lozad
         x-bind:class="{ 'block': $store.music.isPlaying && !isPlaying }"

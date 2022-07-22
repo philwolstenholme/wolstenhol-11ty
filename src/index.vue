@@ -18,6 +18,8 @@
 
     <pw-tweets v-if="this.twitter" :tweets="this.twitter"></pw-tweets>
 
+    <pw-github-stars :stars="this.githubStars"></pw-github-stars>
+
     <pw-photos v-if="this.instagram" :photos="this.instagram"></pw-photos>
 
     <pw-places v-if="this.foursquare" :places="this.foursquare"></pw-places>
@@ -42,6 +44,7 @@ import PwContact from './includes/pw-contact.vue';
 import PwMusic from './includes/pw-music.vue';
 import PwPhotos from './includes/pw-photos.vue';
 import PwReading from './includes/pw-reading.vue';
+import PwGithubStars from './includes/pw-github-stars.vue';
 
 export default {
   data: {
@@ -71,6 +74,7 @@ export default {
     PwMusic,
     PwPhotos,
     PwReading,
+    PwGithubStars,
   },
 };
 </script>

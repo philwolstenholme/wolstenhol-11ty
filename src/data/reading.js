@@ -5,7 +5,6 @@ const { orderBy } = require('natural-orderby');
 const { getHostname } = require('tldts');
 const metascraper = require('metascraper')([require('metascraper-description')()]);
 const got = require('got');
-const https = require('https');
 
 module.exports = async function () {
   let mediumReadingListHtml = await Cache('https://philwolstenholme.medium.com/list/reading-list', {
@@ -44,6 +43,7 @@ module.exports = async function () {
   const apolloStatePosts = Object.fromEntries(
     Object.entries(apolloStateJson).filter(thing => thing[0].startsWith('Post:') && thing[1].title && thing[1].mediumUrl)
   );
+
   const mediumReadingList = Object.entries(apolloStatePosts).map(post => {
     return {
       title: post[1].title,

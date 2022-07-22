@@ -144,7 +144,6 @@ export default {
             :data-src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
             type="video/mp4"
           />
-          Your browser does not support the video tag.
         </video>
       </template>
       <template v-if="!post.videos">

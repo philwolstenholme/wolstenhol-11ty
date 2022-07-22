@@ -40,7 +40,7 @@ module.exports = async function () {
     const svgPlaceholder = await fetchBase64
       .remote(`https://wolstenhol.me/proxy/cloudinary/image/upload/f_auto,q_20,w_20/v1/11ty/instagram/${edge.node.id}.jpg`)
       .then(data => {
-        let svg = `<svg xmlns="http://www.w3.org/2000/svg"
+        let svg = `<svg x-ignore xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                   viewBox="0 0 50 50">
                   <filter id="b" color-interpolation-filters="sRGB">

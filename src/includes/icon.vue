@@ -21,6 +21,7 @@ import {
   faChalkboardTeacher,
   faEnvelope,
   faPaperPlane,
+  faStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
 
@@ -73,6 +74,7 @@ export default {
         paperPlane: faPaperPlane,
         bookmark: faBookmark,
         youtube: faYoutube,
+        star: faStar,
       }[this.name];
     },
     // Gets a CSS module class, e.g. iconCustomLogo
