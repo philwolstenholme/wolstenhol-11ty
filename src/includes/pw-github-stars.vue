@@ -44,6 +44,7 @@ export default {
           class="stars-list-link relative min-w-0 group items-baseline flex-1 border border-gray-300 rounded shadow-hard text-white bg-gray-900 border-black hocus:bg-black p-4 font-serif"
         >
           <video
+            hidden
             data-lozad
             aria-hidden="true"
             loop="loop"
@@ -57,6 +58,22 @@ export default {
           >
             <source data-src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
           </video>
+          <noscript>
+            <video
+              hidden
+              aria-hidden="true"
+              loop="loop"
+              autoplay="autoplay"
+              muted="muted"
+              playsinline
+              disablepictureinpicture
+              disableremoteplayback
+              preload="none"
+              class="absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
+            >
+              <source src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
+            </video>
+          </noscript>
           <div class="flex flex-col h-full isolate">
             <div class="flex-1">
               <img
@@ -110,6 +127,7 @@ export default {
           class="stars-list-link relative min-w-0 group items-baseline flex-1 border border-gray-300 rounded shadow-hard text-white bg-gray-900 border-black hocus:bg-black p-4 font-serif"
         >
           <video
+            hidden
             data-lozad
             aria-hidden="true"
             loop="loop"
@@ -123,6 +141,22 @@ export default {
           >
             <source data-src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
           </video>
+          <noscript>
+            <video
+              hidden
+              aria-hidden="true"
+              loop="loop"
+              autoplay="autoplay"
+              muted="muted"
+              playsinline
+              disablepictureinpicture
+              disableremoteplayback
+              preload="none"
+              class="absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
+            >
+              <source src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
+            </video>
+          </noscript>
           <div class="flex flex-col h-full isolate">
             <div class="flex-1">
               <img

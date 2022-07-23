@@ -145,6 +145,25 @@ export default {
             type="video/mp4"
           />
         </video>
+        <noscript>
+          <video
+            x-ref="video"
+            class="inset-0 w-full h-full object-cover transition-opacity group-hocus:opacity-50"
+            :data-poster="cloudinaryUrl"
+            muted
+            loop
+            autoplay
+            playsinline
+            disablePictureInPicture
+            disableRemotePlayback
+            preload="none"
+          >
+            <source
+              :src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
+              type="video/mp4"
+            />
+          </video>
+        </noscript>
       </template>
       <template v-if="!post.videos">
         <div class="grid grid-stack">
