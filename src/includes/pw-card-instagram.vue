@@ -127,29 +127,11 @@ export default {
   >
     <div class="flex-col justify-center shadow-hard">
       <template v-if="post.videos">
-        <video
-          x-ref="video"
-          data-lozad
-          class="lozad inset-0 w-full h-full object-cover transition-opacity group-hocus:opacity-50"
-          :data-poster="cloudinaryUrl"
-          muted
-          loop
-          autoplay
-          playsinline
-          disablePictureInPicture
-          disableRemotePlayback
-          preload="none"
-        >
-          <source
-            :data-src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
-            type="video/mp4"
-          />
-        </video>
         <noscript>
           <video
             x-ref="video"
             class="inset-0 w-full h-full object-cover transition-opacity group-hocus:opacity-50"
-            :data-poster="cloudinaryUrl"
+            poster="cloudinaryUrl"
             muted
             loop
             autoplay
@@ -164,6 +146,24 @@ export default {
             />
           </video>
         </noscript>
+        <video
+          x-ref="video"
+          data-lozad
+          class="no-js:hidden inset-0 w-full h-full object-cover transition-opacity group-hocus:opacity-50"
+          :data-poster="cloudinaryUrl"
+          muted
+          loop
+          autoplay
+          playsinline
+          disablePictureInPicture
+          disableRemotePlayback
+          preload="none"
+        >
+          <source
+            :data-src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
+            type="video/mp4"
+          />
+        </video>
       </template>
       <template v-if="!post.videos">
         <div class="grid grid-stack">

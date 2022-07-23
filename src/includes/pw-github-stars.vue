@@ -54,7 +54,7 @@ export default {
             disablepictureinpicture
             disableremoteplayback
             preload="none"
-            class="absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
+            class="no-js:hidden absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
           >
             <source data-src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
           </video>
@@ -137,7 +137,7 @@ export default {
             disablepictureinpicture
             disableremoteplayback
             preload="none"
-            class="absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
+            class="no-js:hidden absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
           >
             <source data-src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
           </video>

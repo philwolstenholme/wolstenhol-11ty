@@ -81,9 +81,25 @@ export default {
           class="relative aspect-ratio"
           :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
         >
+          <noscript>
+            <video
+              class="aspect-ratio absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
+              :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
+              :poster="media.media_url_https"
+              muted
+              loop
+              playsinline
+              disablePictureInPicture
+              disableRemotePlayback
+              preload="metadata"
+              width="300"
+            >
+              <source v-for="(variant, index) in media.video_info.variants" :key="index" :src="variant.url" :type="variant.content_type" />
+            </video>
+          </noscript>
           <video
             data-lozad
-            class="aspect-ratio lozad absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
+            class="no-js:hidden aspect-ratio lozad absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
             :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
             :data-poster="media.media_url_https"
             muted
@@ -101,7 +117,7 @@ export default {
               :type="variant.content_type"
             />
           </video>
-          <div hidden class="play-button-container absolute inset-0 flex items-center justify-center grow">
+          <div hidden class="play-button-container no-js:hidden absolute inset-0 flex items-center justify-center grow">
             <button
               aria-label="Play video"
               class="transform-gpu transition-transform hocus:scale-110"

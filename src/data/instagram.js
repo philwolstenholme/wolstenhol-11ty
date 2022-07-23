@@ -8,7 +8,7 @@ module.exports = async function () {
   let response = await Cache(
     'https://www.instagram.com/graphql/query/?query_hash=003056d32c2554def87228bc3fd9668a&variables={%22id%22:%2233932705%22,%22first%22:12}',
     {
-      duration: '1d',
+      duration: '1h',
       type: 'json',
       fetchOptions: {
         headers: {
@@ -17,6 +17,10 @@ module.exports = async function () {
           'accept-language': 'en-US,en-GB;q=0.9,en;q=0.8',
           'cache-control': 'no-cache',
           pragma: 'no-cache',
+          'sec-ch-prefers-color-scheme': 'light',
+          'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"macOS"',
           'sec-fetch-dest': 'document',
           'sec-fetch-mode': 'navigate',
           'sec-fetch-site': 'none',
@@ -28,6 +32,7 @@ module.exports = async function () {
         body: null,
         method: 'GET',
         mode: 'cors',
+        credentials: 'include',
       },
     }
   );
