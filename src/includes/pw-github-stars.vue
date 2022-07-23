@@ -93,17 +93,17 @@ export default {
               </p>
             </div>
             <dl class="flex gap-5 mt-5 no-underline">
-              <div>
-                <dt class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.open_issues) }}</dt>
-                <dd class="font-sans font-light text-sm">{{ pluralize('Issue', item.open_issues) }}</dd>
+              <div class="flex flex-col-reverse">
+                <dt class="font-sans font-light text-sm">{{ pluralize('Issue', item.open_issues) }}</dt>
+                <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.open_issues) }}</dd>
               </div>
-              <div>
-                <dt class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.stargazers_count) }}</dt>
-                <dd class="font-sans font-light text-sm">{{ pluralize('Star', item.stargazers_count) }}</dd>
+              <div class="flex flex-col-reverse">
+                <dt class="font-sans font-light text-sm">{{ pluralize('Star', item.stargazers_count) }}</dt>
+                <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.stargazers_count) }}</dd>
               </div>
-              <div>
-                <dt class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.forks) }}</dt>
-                <dd class="font-sans font-light text-sm">{{ pluralize('Fork', item.forks) }}</dd>
+              <div class="flex flex-col-reverse">
+                <dt class="font-sans font-light text-sm">{{ pluralize('Fork', item.forks) }}</dt>
+                <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.forks) }}</dd>
               </div>
             </dl>
           </div>
@@ -176,17 +176,17 @@ export default {
               </p>
             </div>
             <dl class="flex gap-5 mt-5 no-underline">
-              <div>
-                <dt class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.open_issues) }}</dt>
-                <dd class="font-sans font-light text-sm">{{ pluralize('Issue', item.open_issues) }}</dd>
+              <div class="flex flex-col-reverse">
+                <dt class="font-sans font-light text-sm">{{ pluralize('Issue', item.open_issues) }}</dt>
+                <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.open_issues) }}</dd>
               </div>
-              <div>
-                <dt class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.stargazers_count) }}</dt>
-                <dd class="font-sans font-light text-sm">{{ pluralize('Star', item.stargazers_count) }}</dd>
+              <div class="flex flex-col-reverse">
+                <dt class="font-sans font-light text-sm">{{ pluralize('Star', item.stargazers_count) }}</dt>
+                <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.stargazers_count) }}</dd>
               </div>
-              <div>
-                <dt class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.forks) }}</dt>
-                <dd class="font-sans font-light text-sm">{{ pluralize('Fork', item.forks) }}</dd>
+              <div class="flex flex-col-reverse">
+                <dt class="font-sans font-light text-sm">{{ pluralize('Fork', item.forks) }}</dt>
+                <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.forks) }}</dd>
               </div>
             </dl>
           </div>
