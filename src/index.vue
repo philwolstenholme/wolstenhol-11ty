@@ -16,11 +16,11 @@
 
     <pw-music v-if="this.spotify.artists" :artists="this.spotify.artists" :genres="this.spotify.randomGenres"></pw-music>
 
+    <pw-photos v-if="this.instagram" :photos="this.instagram"></pw-photos>
+
     <pw-tweets v-if="this.twitter" :tweets="this.twitter"></pw-tweets>
 
     <pw-github-stars :stars="this.githubStars"></pw-github-stars>
-
-    <pw-photos v-if="this.instagram" :photos="this.instagram"></pw-photos>
 
     <pw-places v-if="this.foursquare" :places="this.foursquare"></pw-places>
 
