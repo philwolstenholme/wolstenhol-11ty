@@ -44,7 +44,7 @@ import PwContact from './includes/pw-contact.vue';
 import PwMusic from './includes/pw-music.vue';
 import PwPhotos from './includes/pw-photos.vue';
 import PwReading from './includes/pw-reading.vue';
-import PwGithubStars from './includes/pw-github-stars.vue';
+import PwGitHubStars from './includes/pw-github-stars.vue';
 
 export default {
   data: {
@@ -74,7 +74,7 @@ export default {
     PwMusic,
     PwPhotos,
     PwReading,
-    PwGithubStars,
+    PwGitHubStars,
   },
 };
 </script>

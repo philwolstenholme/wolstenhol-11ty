@@ -33,7 +33,7 @@ export default {
     <div class="mt-3 flex justify-between">
       <pw-lede
         >A randomised selection of projects that I've recently
-        <a href="https://github.com/philwolstenholme?tab=stars" class="underline">starred on Github</a>.</pw-lede
+        <a href="https://github.com/philwolstenholme?tab=stars" class="underline">starred on GitHub</a>.</pw-lede
       >
     </div>
 
