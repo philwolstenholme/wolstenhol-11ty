@@ -20,7 +20,7 @@
 
     <pw-tweets v-if="this.twitter" :tweets="this.twitter"></pw-tweets>
 
-    <pw-github-stars :stars="this.githubStars"></pw-github-stars>
+    <pw-git-hub-stars :stars="this.githubStars"></pw-git-hub-stars>
 
     <pw-places v-if="this.foursquare" :places="this.foursquare"></pw-places>
 
