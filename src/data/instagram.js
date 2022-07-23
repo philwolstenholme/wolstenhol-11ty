@@ -43,22 +43,9 @@ module.exports = async function () {
 
   const posts = response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
     const svgPlaceholder = await fetchBase64
-      .remote(`https://wolstenhol.me/proxy/cloudinary/image/upload/f_auto,q_20,w_20/v1/11ty/instagram/${edge.node.id}.jpg`)
+      .remote(`https://res.cloudinary.com/wolstenh/image/upload/f_auto,q_20,w_20/v1/11ty/instagram/${edge.node.id}.jpg`)
       .then(data => {
-        let svg = `<svg x-ignore xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 50 50">
-                  <filter id="b" color-interpolation-filters="sRGB">
-                    <feGaussianBlur stdDeviation=".9"></feGaussianBlur>
-                    <feComponentTransfer>
-                      <feFuncA type="discrete" tableValues="1 1"></feFuncA>
-                    </feComponentTransfer>
-                  </filter>
-                  <image filter="url(#b)" preserveAspectRatio="none"
-                    height="100%" width="100%"
-                    xlink:href="${data[1]}">
-                  </image>
-                </svg>`;
+        let svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50"><filter id="b" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation=".9"></feGaussianBlur><feComponentTransfer><feFuncA type="discrete" tableValues="1 1"></feFuncA></feComponentTransfer></filter><image filter="url(#b)" preserveAspectRatio="none" height="100%" width="100%" xlink:href="${data[1]}"></image></svg>`;
 
         return svgToMiniDataURI(svg);
       })
