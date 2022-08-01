@@ -18,6 +18,11 @@
   status = 200
 
 [[redirects]]
+  from = "/proxy/gstatic/*"
+  to = "https://t2.gstatic.com/:splat"
+  status = 200
+
+[[redirects]]
   from = "/api/recently-played"
   to = "https://eoh55mp2n2usj4p.m.pipedream.net"
   status = 200

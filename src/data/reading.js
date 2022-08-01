@@ -119,7 +119,7 @@ module.exports = async function () {
 
   const getFavicon = async url => {
     const hostname = getHostname(url);
-    const faviconUrl = `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${hostname}&size=32`;
+    const faviconUrl = `https://wolstenhol.me/proxy/gstatic/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${hostname}&size=32`;
 
     if (await has200Status(faviconUrl)) {
       return faviconUrl;
