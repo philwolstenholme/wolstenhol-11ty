@@ -33,16 +33,14 @@
           function() { 
             this.$root.removeAttribute('hidden');
             const perfData = window.performance.timing;
-            let pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
-            pageLoadTime = +(Math.round(pageLoadTime/1000 + 'e+2')  + 'e-2');
-            this.time = pageLoadTime;
-            if (pageLoadTime < 0) {
+            this.time = ((perfData.loadEventEnd - perfData.navigationStart) / 1000).toFixed(2);
+            if (this.time < 0) {
               this.$root.remove();
             }
           }
         "
       >
-        This page loaded in <span x-text="time" class="font-mono">?.??</span> seconds.
+        This page fully loaded in <span x-text="time" class="font-mono">?.??</span> seconds.
       </p>
 
       <ul class="space-y-3 md:flex md:space-y-0 md:space-x-3">
