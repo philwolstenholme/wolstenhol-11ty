@@ -25,7 +25,11 @@ export default {
 </script>
 
 <template>
-  <pw-section section-key="places">
+  <pw-section
+    section-key="places"
+    x-data
+    x-intersect.once="(() => {var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://maps.googleapis.com'; document.head.appendChild(l);})()"
+  >
     <pw-section-heading title="Places" icon="mapMarkerAlt" section="places" />
     <pw-lede class="mt-3"
       >A randomised asortment of places I've liked on Foursquare at one point - it could be somewhere from a holiday, or it could be a
