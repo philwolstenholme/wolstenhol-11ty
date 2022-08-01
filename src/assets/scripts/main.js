@@ -315,9 +315,16 @@ document.addEventListener('alpine:init', () => {
         });
     },
     twitterIntents() {
-      loadjs('https://wolstenhol.me/proxy/jsdelivr/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.min.js', function () {
-        const intents = new TwitterIntents();
-        intents.register();
+      loadjs('https://cdn.jsdelivr.net/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.js', 'twitter-intents', {
+        success: () => {
+          const intents = new TwitterIntents();
+          intents.register();
+        },
+        before: (path, el) => {
+          // We add a SRI hash to make up for the security risk of loading JS from a third-party.
+          el.integrity = 'sha256-XWaaYvzENdjaBD8CdencpJdh4h8AjmEFg+BZoq4G14s=';
+          el.crossOrigin = 'anonymous';
+        },
       });
     },
   }));
