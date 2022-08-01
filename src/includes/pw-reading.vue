@@ -37,11 +37,7 @@ export default {
 </script>
 
 <template>
-  <pw-section
-    section-key="reading"
-    x-data
-    x-intersect.once="(() => {var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://t2.gstatic.com'; document.head.appendChild(l);})()"
-  >
+  <pw-section section-key="reading">
     <pw-section-heading title="Reading" icon="bookmark" section="reading" />
 
     <div class="mt-3 flex justify-between">
