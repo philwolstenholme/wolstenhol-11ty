@@ -63,7 +63,11 @@ export default {
       </pw-simple-scroller-item>
     </pw-simple-scroller>
 
-    <p class="pointer-events-none font-bold max-w-prose mt-4 lg:mt-0 opacity-90 text-xs">
+    <p
+      x-data
+      x-intersect.once="(() => {var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://p.scdn.co'; document.head.appendChild(l);})()"
+      class="pointer-events-none font-bold max-w-prose mt-4 lg:mt-0 opacity-90 text-xs"
+    >
       You can click the cards above to play a little preview of the artist, courtesy of the Spotify API. I also use the Spotify API to get
       the tempo/BPM of the preview song, and I use this to influence the speed that a card bops at while its playing.
     </p>
@@ -86,7 +90,6 @@ export default {
       x-on:ended="ended()"
       x-on:playing="playing()"
       x-on:timeupdate="timeUpdate($event, $dispatch)"
-      x-intersect.once="(() => {var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://p.scdn.co'; document.head.appendChild(l);})()"
     ></audio>
     <iframe x-data="{}" x-init="$root.remove()" class="js:hidden" name="spotify-preview" title="Spotify preview"></iframe>
   </pw-section>
