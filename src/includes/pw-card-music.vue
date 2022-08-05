@@ -105,10 +105,9 @@ export default {
         aria-hidden="true"
         hidden
         data-lozad
-        x-bind:class="{ 'block': $store.music.isPlaying && !isPlaying }"
-        x-transition.opacity
+        x-bind:class="{ 'opacity-40': $store.music.isPlaying && !isPlaying }"
         x-ref="static"
-        class="card-music__static motion-reduce:hidden absolute h-full object-cover object-left-top opacity-40 pointer-events-none w-full"
+        class="card-music__static motion-reduce:hidden block absolute h-full w-full object-cover object-left-top opacity-0 pointer-events-none transition-opacity"
         loop
         autoplay
         muted
