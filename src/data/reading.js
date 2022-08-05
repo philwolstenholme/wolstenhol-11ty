@@ -87,9 +87,13 @@ module.exports = async function () {
   });
 
   const getDescription = async targetUrl => {
-    const { body: html, url } = await got(targetUrl);
-    const metadata = await metascraper({ html, url });
-    return metadata.description;
+    try {
+      const { body: html, url } = await got(targetUrl);
+      const metadata = await metascraper({ html, url });
+      return metadata.description;
+    } catch {
+      return null;
+    }
   };
 
   const prepareAirtableItem = async item => {
