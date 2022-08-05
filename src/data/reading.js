@@ -76,7 +76,7 @@ module.exports = async function () {
     };
   });
 
-  let airtableReadingListJson = await Cache('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List?maxRecords=100&view=Grid%20view', {
+  let airtableReadingListJson = await Cache('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List?maxRecords=20&view=Grid%20view', {
     duration: '30m',
     type: 'json',
     fetchOptions: {
