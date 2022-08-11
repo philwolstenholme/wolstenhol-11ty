@@ -54,13 +54,22 @@ export default {
 
 <template>
   <article class="card-twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold" x-ignore>
-    <p class="grid grid-flow-col bg-black" v-if="tweetMedia">
+    <p class="card-twitter__gallery grid bg-black" v-if="tweetMedia">
       <a
         :is="media.type == 'photo' ? 'a' : 'div'"
         v-for="(media, index) in tweetMedia"
         v-bind:key="index"
         :href="media.expanded_url"
         class="block relative w-full"
+        :class="{
+          'aspect-ratio aspect-w-4 aspect-h-3': Object.keys(tweetMedia).length > 1,
+        }"
+        :onClick="
+          media.type == 'photo'
+            ? `event.preventDefault(); this.dispatchEvent(new CustomEvent('twitter-photo-dialog-open', { bubbles: true }));`
+            : null
+        "
+        :data-big-image="media.type == 'photo' ? media.media_url_https : null"
       >
         <span class="sr-only">Tweet media</span>
         <br class="hidden" />
@@ -191,6 +200,10 @@ export default {
 
 .card-twitter__tweet-actions {
   background-color: rgba(0, 0, 0, 0.45);
+}
+
+.card-twitter__gallery {
+  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
 }
 
 a.twitter-intent {

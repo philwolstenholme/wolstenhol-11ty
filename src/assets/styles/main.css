@@ -207,3 +207,8 @@ ul .scroll-saver ~ .stars-list__item {
     display: none !important;
   }
 }
+
+dialog::backdrop {
+  background-image: url('https://wolstenhol.me/proxy/cloudinary/image/upload/c_crop,f_auto,h_200,w_200,q_auto:eco/v1473712910/binding_dark_im2rpa.png');
+  opacity: 0.9;
+}

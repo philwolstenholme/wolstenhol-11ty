@@ -69,6 +69,7 @@
     "vite-plugin-inspect": "^0.4.3"
   },
   "dependencies": {
+    "@alpinejs/focus": "^3.10.3",
     "@alpinejs/intersect": "^3.10.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
