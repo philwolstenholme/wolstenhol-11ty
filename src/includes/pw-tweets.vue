@@ -44,7 +44,7 @@ export default {
         className: ''
       }"
       x-trap.noscroll="open"
-      x-on:twitter-photo-dialog-open.window="src='https://wolstenhol.me/proxy/cloudinary/image/fetch/h_' + window.innerHeight + ',f_auto,q_auto/' + $event.target.dataset.bigImage; alt=$event.target.querySelector('img').alt; className = ['-rotate-3', '-rotate-2', '-rotate-1', 'rotate-3', 'rotate-2', 'rotate-1'].sort(() => 0.5 - Math.random())[0];"
+      x-on:twitter-photo-dialog-open.window="src='https://wolstenhol.me/proxy/cloudinary/image/fetch/h_' + window.innerHeight + ',w_' + window.innerWidth + ',c_limit,f_auto,q_auto/' + $event.target.dataset.bigImage; alt=$event.target.querySelector('img').alt; className = ['-rotate-3', '-rotate-2', '-rotate-1', 'rotate-3', 'rotate-2', 'rotate-1'].sort(() => 0.5 - Math.random())[0];"
       x-on:close="open=false; src=''; alt=''"
       x-on:click.self="$el.close()"
       class="bg-binding-dark transform shadow-2xl select-none"
@@ -53,7 +53,7 @@ export default {
       <img
         x-bind:src="src"
         class="bg-black object-contain"
-        style="max-height: 85vh; max-width: 85vw"
+        style="max-height: 80vh; max-width: 80vw"
         x-bind:alt="alt"
         alt=""
         x-on:load="$root.showModal(); open = true;"
