@@ -530,6 +530,24 @@ document.addEventListener('alpine:init', () => {
   }));
 });
 
+Alpine.data('PwLightbox', () => ({
+  open: false,
+  srcSet: '',
+  alt: '',
+  className: '',
+  generateSrcSet(src) {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    return `https://wolstenhol.me/proxy/cloudinary/image/fetch/h_${height},w_${width},c_limit,f_auto,q_auto/${src} 1x,
+      https://wolstenhol.me/proxy/cloudinary/image/fetch/h_${height * 2},w_${width * 2},c_limit,f_auto,q_auto/${src} 2x,
+      https://wolstenhol.me/proxy/cloudinary/image/fetch/h_${height * 3},w_${width * 3},c_limit,f_auto,q_auto/${src} 3x`;
+  },
+  generateClassName() {
+    return ['-rotate-3', '-rotate-2', '-rotate-1', 'rotate-3', 'rotate-2', 'rotate-1'].sort(() => 0.5 - Math.random())[0];
+  },
+}));
+
 Alpine.start();
 
 // Horrible workaround for the fact that something in Vite is turning &quot; into "
