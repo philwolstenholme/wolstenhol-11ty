@@ -99,14 +99,16 @@
 }
 
 /* purgecss ignore */
-:focus {
+:focus,
+.group:focus .group-focus\:outline {
   outline-color: var(--outline-color, hotpink);
   outline-width: var(--outline-size);
   outline-style: solid;
   outline-offset: var(--outline-offset, var(--outline-size));
 }
 /* purgecss ignore */
-:focus:not(:focus-visible) {
+:focus:not(:focus-visible),
+.group:focus:not(:focus-visible) .group-focus\:outline {
   outline: none;
 }
 

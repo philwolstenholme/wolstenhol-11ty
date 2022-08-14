@@ -60,7 +60,7 @@ export default {
         v-for="(media, index) in tweetMedia"
         v-bind:key="index"
         :href="media.expanded_url"
-        class="block relative w-full"
+        class="group block relative w-full focus:outline-none"
         :class="{
           'aspect-ratio aspect-w-4 aspect-h-3': Object.keys(tweetMedia).length > 1,
         }"
@@ -80,7 +80,7 @@ export default {
           sizes="368px"
           :width="media.sizes.large.w"
           :height="media.sizes.large.h"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover group-focus:outline outline-offset-invert"
           loading="lazy"
           crossorigin="anonymous"
           :alt="media.ext_alt_text || ''"
