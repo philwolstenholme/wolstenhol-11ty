@@ -1,6 +1,6 @@
 <template>
   <dialog
-    class="bg-binding-dark p-4 transform shadow-2xl select-none"
+    class="bg-black p-4 transform shadow-2xl select-none"
     x-data="PwLightbox"
     x-on:pw-lightbox-open.window="onOpen($event)"
     x-on:close="onClose()"
@@ -32,11 +32,22 @@
         x-on:error="$root.close()"
       />
     </div>
-    <button
-      class="absolute text-lg font-bold bg-binding-dark hover:bg-black focus:bg-black transition px-3 py-2 right-3 rounded-bl-lg text-white top-3"
-      x-on:click="$root.close();"
-    >
-      Close
+    <button class="absolute text-lg font-bold bg-black px-3 py-2 right-3 rounded-bl-lg text-white top-3" x-on:click="$root.close();">
+      <span class="sr-only">Close</span>
+      <svg
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon"
+      >
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
     </button>
   </dialog>
 </template>

@@ -557,19 +557,16 @@ Alpine.data('PwLightbox', () => ({
     });
   },
   onOpen($event) {
-    this.showLoadingSpinner = true;
     this.srcSet = this.generateSrcSet($event.target.dataset.lightboxImage);
     this.alt = $event.target.querySelector('img').alt;
     this.width = $event.target.querySelector('img').getAttribute('width');
     this.height = $event.target.querySelector('img').getAttribute('height');
     this.className = this.generateClassName();
 
-    if (this.width < this.height) {
-      // Portrait
-      this.style = `width:auto; height:85vh;`;
-    } else {
-      // Landscape
-      this.style = `height: 85vh; width: auto;`;
+    const viewportIsLandscape = window.matchMedia('(orientation: landscape)').matches;
+
+    if (viewportIsLandscape) {
+      this.style = `width: auto; height: 85vh;`;
     }
 
     this.open = true;
@@ -585,6 +582,7 @@ Alpine.data('PwLightbox', () => ({
     this.height = '';
     this.width = '';
     this.style = '';
+    this.showLoadingSpinner = true;
   },
 }));
 
