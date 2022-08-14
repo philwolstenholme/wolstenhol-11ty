@@ -26,6 +26,8 @@
 
     <pw-contact></pw-contact>
 
+    <pw-lightbox></pw-lightbox>
+
     <style v-html="this.getVueComponentCssForPage(this.page.url)"></style>
   </div>
 </template>
@@ -45,6 +47,7 @@ import PwMusic from './includes/pw-music.vue';
 import PwPhotos from './includes/pw-photos.vue';
 import PwReading from './includes/pw-reading.vue';
 import PwGitHubStars from './includes/pw-git-hub-stars.vue';
+import PwLightbox from './includes/pw-lightbox.vue';
 
 export default {
   data: {
@@ -75,6 +78,7 @@ export default {
     PwPhotos,
     PwReading,
     PwGitHubStars,
+    PwLightbox,
   },
 };
 </script>

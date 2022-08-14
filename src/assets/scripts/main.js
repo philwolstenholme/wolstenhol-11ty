@@ -1,6 +1,5 @@
 import 'wicg-inert';
 import Alpine from 'alpinejs';
-import focus from '@alpinejs/focus';
 import intersect from '@alpinejs/intersect';
 import lozad from 'lozad';
 import loadjs from 'loadjs';
@@ -534,7 +533,11 @@ Alpine.data('PwLightbox', () => ({
   open: false,
   srcSet: '',
   alt: '',
+  width: '',
+  height: '',
   className: '',
+  style: '',
+  showLoadingSpinner: true,
   generateSrcSet(src) {
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -546,7 +549,72 @@ Alpine.data('PwLightbox', () => ({
   generateClassName() {
     return ['-rotate-3', '-rotate-2', '-rotate-1', 'rotate-3', 'rotate-2', 'rotate-1'].sort(() => 0.5 - Math.random())[0];
   },
+  init() {
+    console.log('init');
+    this.$watch('open', value => {
+      console.log(`🖼 Lightbox is ${value ? 'open' : 'closed'}`);
+      document.body.classList.toggle('lightbox-open');
+    });
+  },
+  onOpen($event) {
+    this.showLoadingSpinner = true;
+    this.srcSet = this.generateSrcSet($event.target.dataset.lightboxImage);
+    this.alt = $event.target.querySelector('img').alt;
+    this.width = $event.target.querySelector('img').getAttribute('width');
+    this.height = $event.target.querySelector('img').getAttribute('height');
+    this.className = this.generateClassName();
+
+    if (this.width < this.height) {
+      // Portrait
+      this.style = `width:auto; height:85vh;`;
+    } else {
+      // Landscape
+      this.style = `height: 85vh; width: auto;`;
+    }
+
+    this.open = true;
+
+    this.$nextTick(() => {
+      this.$root.showModal();
+    });
+  },
+  onClose() {
+    this.open = false;
+    this.srcSet = '';
+    this.alt = '';
+    this.height = '';
+    this.width = '';
+    this.style = '';
+  },
 }));
+
+(() => {
+  const lightboxTargetAttribute = `[data-lightbox-image]`;
+  const openLightbox = e => {
+    e.preventDefault();
+    e.target.closest('a').dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));
+  };
+
+  const addLightboxEvent = el => {
+    el.addEventListener('click', openLightbox);
+  };
+
+  // Add listeners to elements already on the page.
+  document.querySelectorAll(lightboxTargetAttribute).forEach(el => addLightboxEvent(el));
+  // Add listeners to elements created via Colcade or fetched when the rest of the tweets load.
+  const lightboxObserver = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      mutation.addedNodes.forEach(addedNode => addedNode.querySelectorAll(lightboxTargetAttribute).forEach(el => addLightboxEvent(el)));
+    });
+  });
+
+  lightboxObserver.observe(document.querySelector('.tweets-grid'), {
+    attributes: false,
+    characterData: false,
+    childList: true,
+    subtree: true,
+  });
+})();
 
 Alpine.start();
 

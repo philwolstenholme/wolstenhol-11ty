@@ -54,7 +54,7 @@ export default {
 
 <template>
   <article class="card-twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold" x-ignore>
-    <p class="card-twitter__gallery grid bg-black" v-if="tweetMedia">
+    <div class="card-twitter__gallery grid bg-black" v-if="tweetMedia">
       <a
         :is="media.type == 'photo' ? 'a' : 'div'"
         v-for="(media, index) in tweetMedia"
@@ -64,12 +64,7 @@ export default {
         :class="{
           'aspect-ratio aspect-w-4 aspect-h-3': Object.keys(tweetMedia).length > 1,
         }"
-        :onClick="
-          media.type == 'photo'
-            ? `event.preventDefault(); this.dispatchEvent(new CustomEvent('twitter-photo-dialog-open', { bubbles: true }));`
-            : null
-        "
-        :data-big-image="media.type == 'photo' ? media.media_url_https : null"
+        :data-lightbox-image="media.type == 'photo' ? media.media_url_https : null"
       >
         <span class="sr-only">Tweet media</span>
         <br class="hidden" />
@@ -78,8 +73,8 @@ export default {
           :src="`https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:400,f_auto,q_auto/${media.media_url_https}`"
           :srcset="`https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:800,f_auto,q_auto/${media.media_url_https} 2x, https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:1200,f_auto,q_auto/${media.media_url_https} 3x`"
           sizes="368px"
-          :width="media.sizes.small.w"
-          :height="media.sizes.small.h"
+          :width="media.sizes.large.w"
+          :height="media.sizes.large.h"
           class="w-full h-full object-cover"
           loading="lazy"
           crossorigin="anonymous"
@@ -137,7 +132,7 @@ export default {
           </div>
         </div>
       </a>
-    </p>
+    </div>
 
     <div>
       <a :href="`https://twitter.com/intent/user?user_id=${originalTweet.user.id_str}`" class="flex space-x-3 m-4 mb-2 text-sm">

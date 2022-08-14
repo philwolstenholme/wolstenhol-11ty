@@ -32,33 +32,9 @@ export default {
       <li class="tweets-grid__item" v-for="(tweet, index) in tweets.slice(0, 3)" :key="index">
         <pw-card-twitter :tweet="tweet" />
       </li>
-      <li aria-hidden="true" class="tweets-grid__col space-y-5"></li>
-      <li aria-hidden="true" class="tweets-grid__col space-y-5 hidden md:block"></li>
-      <li aria-hidden="true" class="tweets-grid__col space-y-5 hidden xl:block"></li>
+      <li class="tweets-grid__col space-y-5"></li>
+      <li class="tweets-grid__col space-y-5 hidden md:block"></li>
+      <li class="tweets-grid__col space-y-5 hidden xl:block"></li>
     </ul>
-    <dialog
-      x-data="PwLightbox"
-      x-trap.noscroll="open"
-      x-on:twitter-photo-dialog-open.window="srcSet=generateSrcSet($event.target.dataset.bigImage); alt=$event.target.querySelector('img').alt; className=generateClassName();"
-      x-on:close="open=false; srcSet=''; alt=''"
-      x-on:click.self="$el.close()"
-      class="bg-binding-dark transform shadow-2xl select-none"
-      x-bind:class="className"
-    >
-      <img
-        x-bind:srcSet="srcSet"
-        class="bg-black object-contain"
-        style="max-height: 85vh; max-width: 85vw"
-        x-bind:alt="alt"
-        alt=""
-        x-on:load="$root.showModal(); open=true;"
-      />
-      <button
-        class="absolute text-lg font-bold bg-binding-dark hover:bg-black focus:bg-black transition px-3 py-2 right-3 rounded-bl-lg text-white top-3"
-        x-on:click="$root.close();"
-      >
-        Close
-      </button>
-    </dialog>
   </pw-section>
 </template>
