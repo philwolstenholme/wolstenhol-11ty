@@ -588,34 +588,6 @@ Alpine.data('PwLightbox', () => ({
   },
 }));
 
-(() => {
-  const lightboxTargetAttribute = `[data-lightbox-image]`;
-  const openLightbox = e => {
-    e.preventDefault();
-    e.target.closest('a').dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));
-  };
-
-  const addLightboxEvent = el => {
-    el.addEventListener('click', openLightbox);
-  };
-
-  // Add listeners to elements already on the page.
-  document.querySelectorAll(lightboxTargetAttribute).forEach(el => addLightboxEvent(el));
-  // Add listeners to elements created via Colcade or fetched when the rest of the tweets load.
-  const lightboxObserver = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-      mutation.addedNodes.forEach(addedNode => addedNode.querySelectorAll(lightboxTargetAttribute).forEach(el => addLightboxEvent(el)));
-    });
-  });
-
-  lightboxObserver.observe(document.querySelector('.tweets-grid'), {
-    attributes: false,
-    characterData: false,
-    childList: true,
-    subtree: true,
-  });
-})();
-
 Alpine.start();
 
 // Horrible workaround for the fact that something in Vite is turning &quot; into "

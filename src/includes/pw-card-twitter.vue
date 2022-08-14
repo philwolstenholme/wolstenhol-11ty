@@ -53,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <article class="card-twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold" x-ignore>
+  <article class="card-twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold">
     <div class="card-twitter__gallery grid bg-black" v-if="tweetMedia">
       <a
         :is="media.type == 'photo' ? 'a' : 'div'"
@@ -65,6 +65,11 @@ export default {
           'aspect-ratio aspect-w-4 aspect-h-3': Object.keys(tweetMedia).length > 1,
         }"
         :data-lightbox-image="media.type == 'photo' ? media.media_url_https : null"
+        x-data
+        x-init="$root.setAttribute('role', 'button'); $root.firstChild.innerText = 'Open tweet media in modal'"
+        x-on:click.prevent="$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));"
+        x-on:keydown.enter.prevent="$root.click()"
+        x-on:keydown.space="$root.click()"
       >
         <span class="sr-only">Tweet media</span>
         <br class="hidden" />
