@@ -1,7 +1,6 @@
 require('module-alias/register');
 const yaml = require('js-yaml');
 
-const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginNavigation = require('@11ty/eleventy-navigation');
 const pluginVue = require('@11ty/eleventy-plugin-vue');
 const pluginVite = require('@11ty/eleventy-plugin-vite');
@@ -15,7 +14,6 @@ module.exports = function (eleventyConfig) {
    *
    * @link https://www.11ty.dev/docs/plugins/
    */
-  eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginVue, {
     rollupPluginVueOptions: {
@@ -64,6 +62,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addDataExtension('yaml', contents => yaml.safeLoad(contents));
   eleventyConfig.addDataExtension('yml', contents => yaml.safeLoad(contents));
+
+  eleventyConfig.setServerPassthroughCopyBehavior('copy');
 
   return {
     dir: config.dir,
