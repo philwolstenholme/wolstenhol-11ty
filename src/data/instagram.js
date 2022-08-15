@@ -90,6 +90,8 @@ module.exports = async function () {
         : null,
       accessibilityCaption: edge.node.accessibility_caption,
       svgPlaceholder: svgPlaceholder,
+      display_url: edge.node.display_url,
+      dimensions: edge.node.dimensions,
     };
   });
 

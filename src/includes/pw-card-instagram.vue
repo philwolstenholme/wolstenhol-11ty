@@ -123,7 +123,14 @@ export default {
     v-bind:x-on:focus-alpine-once="onFocusOnceEvents"
     v-bind:x-on:blur="onBlurEvents"
     class="contain-content group relative flex rounded overflow-hidden card-instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
-    :class="{ 'card-instagram--party': isParty }"
+    v-bind:class="{ 'card-instagram--party': isParty }"
+    v-bind:data-lightbox-image="
+      !post.videos ? `https://wolstenhol.me/instagram-proxy/${post.display_url.replace('https://', 'https:/')}` : null
+    "
+    v-bind:x-init="!post.videos ? `$root.setAttribute('role', 'button');` : null"
+    v-bind:x-on:click-alpine-prevent="!post.videos ? `$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null"
+    v-bind:x-on:keydown-alpine-enter-alpine-prevent="!post.videos ? `$root.click()` : null"
+    v-bind:x-on:keydown-alpine-space="!post.videos ? `$root.click()` : null"
   >
     <div class="flex-col justify-center shadow-hard">
       <template v-if="post.videos">
@@ -174,8 +181,8 @@ export default {
             :key="post.id"
             :alt="post.accessibilityCaption ? post.accessibilityCaption : ''"
             :id="`instagram-${post.id}`"
-            width="368"
-            height="368"
+            :width="post.dimensions ? post.dimensions.width : 368"
+            :height="post.dimensions ? post.dimensions.height : 368"
             sizes="368px"
             class="card-instagram__img has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
             loading="lazy"

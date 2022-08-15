@@ -35,6 +35,7 @@ const addNoscriptCss = () => {
 };
 
 const workaroundForUsingAlpineAndVueBindingTogether = () => {
+  // Only works in build.
   return {
     name: 'workaround-for-using-alpine-and-vue-binding-together',
     transformIndexHtml(html) {

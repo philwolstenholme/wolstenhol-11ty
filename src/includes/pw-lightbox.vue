@@ -30,6 +30,7 @@
         x-bind:style="style"
         x-on:load="showLoadingSpinner=false"
         x-on:error="$root.close()"
+        crossorigin="anonymous"
       />
     </div>
     <button class="absolute text-lg font-bold bg-black px-3 py-2 right-3 rounded-bl-lg text-white top-3" x-on:click="$root.close();">

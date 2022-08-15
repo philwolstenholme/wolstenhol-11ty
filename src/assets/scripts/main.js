@@ -539,6 +539,11 @@ Alpine.data('PwLightbox', () => ({
   style: '',
   showLoadingSpinner: true,
   generateSrcSet(src) {
+    // Cloudinary has a limit on URL length.
+    if (src.length > 255) {
+      return src;
+    }
+
     const width = window.innerWidth;
     const height = window.innerHeight;
 
@@ -558,9 +563,10 @@ Alpine.data('PwLightbox', () => ({
   },
   onOpen($event) {
     this.srcSet = this.generateSrcSet($event.target.dataset.lightboxImage);
-    this.alt = $event.target.querySelector('img').alt;
-    this.width = $event.target.querySelector('img').getAttribute('width');
-    this.height = $event.target.querySelector('img').getAttribute('height');
+    const img = $event.target.tagName === 'IMG' ? $event.target : $event.target.querySelector('img');
+    this.alt = img.getAttribute('alt');
+    this.width = img.getAttribute('width');
+    this.height = img.getAttribute('height');
     this.className = this.generateClassName();
 
     const viewportIsLandscape = window.matchMedia('(orientation: landscape)').matches;
