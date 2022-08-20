@@ -33,7 +33,11 @@
         crossorigin="anonymous"
       />
     </div>
-    <button class="absolute text-lg font-bold bg-black px-3 py-2 right-3 rounded-bl-lg text-white top-3" x-on:click="$root.close();">
+    <button
+      type="button"
+      class="absolute text-lg font-bold bg-black px-3 py-2 right-3 rounded-bl-lg text-white top-3"
+      x-on:click="$root.close();"
+    >
       <span class="sr-only">Close</span>
       <svg
         aria-hidden="true"

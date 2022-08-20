@@ -18,6 +18,7 @@
         v-bind:class="randomRotationClass"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 84.663887 42.437332"
+        aria-label="Left"
       >
         <use href="#arrow-left" />
       </svg>
@@ -63,6 +64,7 @@
         :class="randomRotationClass"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 84.663887 42.437332"
+        aria-label="Right"
       >
         <use href="#arrow-right" />
       </svg>

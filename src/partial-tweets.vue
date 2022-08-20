@@ -23,6 +23,7 @@ export default {
         if you want you can…
       </p>
       <button
+        type="button"
         class="border m-auto block shadow-hard px-4 py-2 bg-black text-white font-serif font-bold rounded border-blue-100"
         x-on:click="$event.target.parentElement.remove()"
       >

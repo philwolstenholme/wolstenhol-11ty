@@ -59,9 +59,22 @@
       immutable'''
 
 [[headers]]
+  for = "/favicon/*"
+  [headers.values]
+    cache-control = '''
+      public,
+      max-age=31536000,
+      immutable'''
+
+[[headers]]
   for = "/partial-*.html"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/*.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
 
 [[plugins]]
   package = "netlify-plugin-image-optim"

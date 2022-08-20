@@ -78,8 +78,8 @@ export default {
           :src="`https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:400,f_auto,q_auto/${media.media_url_https}`"
           :srcset="`https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:800,f_auto,q_auto/${media.media_url_https} 2x, https://wolstenhol.me/proxy/cloudinary/image/fetch/w_auto:100:1200,f_auto,q_auto/${media.media_url_https} 3x`"
           sizes="368px"
-          :width="media.sizes.large.w"
-          :height="media.sizes.large.h"
+          :width="media.sizes.small.w"
+          :height="media.sizes.small.h"
           class="w-full h-full object-cover group-focus:outline outline-offset-invert"
           loading="lazy"
           crossorigin="anonymous"
@@ -128,6 +128,7 @@ export default {
           </video>
           <div hidden class="play-button-container no-js:hidden absolute inset-0 flex items-center justify-center grow">
             <button
+              type="button"
               aria-label="Play video"
               class="transform-gpu transition-transform hocus:scale-110"
               onclick="this.parentElement.previousElementSibling.play(); this.parentElement.previousElementSibling.setAttribute('controls', 'true'); this.parentElement.remove();"

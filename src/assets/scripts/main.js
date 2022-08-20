@@ -555,9 +555,7 @@ Alpine.data('PwLightbox', () => ({
     return ['-rotate-3', '-rotate-2', '-rotate-1', 'rotate-3', 'rotate-2', 'rotate-1'].sort(() => 0.5 - Math.random())[0];
   },
   init() {
-    console.log('init');
     this.$watch('open', value => {
-      console.log(`🖼 Lightbox is ${value ? 'open' : 'closed'}`);
       document.body.classList.toggle('lightbox-open');
     });
   },
