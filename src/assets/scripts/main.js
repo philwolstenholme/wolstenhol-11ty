@@ -323,7 +323,7 @@ document.addEventListener('alpine:init', () => {
         });
     },
     twitterIntents() {
-      loadjs('https://cdn.jsdelivr.net/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.js', 'twitter-intents', {
+      loadjs('https://wolstenhol.me/proxy/jsdelivr/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.js', 'twitter-intents', {
         success: () => {
           const intents = new TwitterIntents();
           intents.register();
@@ -381,7 +381,7 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('PwCardInstagram', $root => ({
     playing: false,
     confetti($root) {
-      loadjs('https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.js', 'canvas-confetti', {
+      loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/canvas-confetti@1.5.1/dist/confetti.browser.js', 'canvas-confetti', {
         success: () => {
           var dimensions = $root.getBoundingClientRect();
           var centerXCoord = dimensions.left + window.pageXOffset + dimensions.width / 2;
