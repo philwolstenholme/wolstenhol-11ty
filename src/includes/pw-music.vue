@@ -65,7 +65,7 @@ export default {
 
     <p
       x-data
-      x-intersect.once="(() => {var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://p.scdn.co'; document.head.appendChild(l);})()"
+      x-intersect.once="() => { var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://p.scdn.co'; document.head.appendChild(l);}"
       class="pointer-events-none font-bold max-w-prose mt-4 lg:mt-0 opacity-90 text-xs"
     >
       You can click the cards above to play a little preview of the artist, courtesy of the Spotify API. I also use the Spotify API to get

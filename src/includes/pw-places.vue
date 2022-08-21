@@ -28,7 +28,7 @@ export default {
   <pw-section
     section-key="places"
     x-data
-    x-intersect.once="(() => {var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://maps.googleapis.com'; document.head.appendChild(l);})()"
+    x-intersect.once.margin.200px="() => { var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://maps.googleapis.com'; document.head.appendChild(l);}"
   >
     <pw-section-heading title="Places" icon="mapMarkerAlt" section="places" />
     <pw-lede class="mt-3"
