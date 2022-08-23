@@ -14,6 +14,13 @@ export default {
     formattedAddress: function () {
       return [this.place.location.formattedAddress[0], this.place.location.city].join(', ');
     },
+    formattedYear: function () {
+      let d = new Date(this.place.ratedAt * 1000);
+      return d.getFullYear();
+    },
+    randomOpacity: function () {
+      return Math.round((Math.random() / 2.5) * 100) / 100;
+    },
   },
 
   components: {
@@ -46,29 +53,51 @@ export default {
         </div>
       </div>
       <div class="relative shadow-inner overflow-hidden">
-        <img alt="" loading="lazy" width="365" height="182" :src="place.map" class="foursquare__map" />
+        <img alt="" loading="lazy" width="365" height="182" :src="place.map" class="foursquare-card__map foursquare-card__img" />
+        <img
+          hidden
+          alt=""
+          loading="lazy"
+          width="365"
+          height="182"
+          srcset="
+            https://wolstenhol.me/proxy/cloudinary/image/upload/w_365%2Ch_182%2Cf_auto%2Cq_auto%3Alow%2Fv1661284312%2Fone-offs%2F9-soft-grunge-texture-4-1.png 1x,
+            https://wolstenhol.me/proxy/cloudinary/image/upload/w_730%2Ch_364%2Cf_auto%2Cq_auto%3Alow%2Fv1661284312%2Fone-offs%2F9-soft-grunge-texture-4-1.png 2x
+          "
+          class="foursquare-card__img foursquare-card__grunge absolute block inset-0"
+          :style="`--opacity: ${this.randomOpacity}`"
+        />
         <div class="absolute inset-0 flex items-center justify-center">
           <icon
             name="mapMarkerAlt"
             class="w-8 h-8 opacity-80 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1 group-hocus:opacity-100"
           ></icon>
         </div>
-        <div class="foursquare__map-scrim absolute inset-0"></div>
+        <div class="foursquare-card__map-scrim absolute inset-0"></div>
+        <p class="absolute font-light left-4 text-sm text-white top-4">{{ formattedYear }}</p>
       </div>
     </component>
   </article>
 </template>
 
 <style>
-.foursquare__map-scrim {
+.foursquare-card__map-scrim {
   background: radial-gradient(circle, rgba(255, 255, 255, 0) 30%, rgb(0 0 0 / 40%) 100%);
 }
 
-.foursquare__map {
+.foursquare-card__map {
   mix-blend-mode: multiply;
 }
 
 .foursquare-card__body {
   max-width: 365px;
+}
+
+.foursquare-card__img {
+  max-width: calc(100vw - 40px);
+}
+
+.foursquare-card__grunge {
+  opacity: var(--opacity, 0.3);
 }
 </style>
