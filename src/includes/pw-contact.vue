@@ -54,7 +54,7 @@ export default {
         name="contact"
         method="POST"
         x-bind:hidden="submitted"
-        x-on:submit.prevent="window.PwVibrate(); submitForm()"
+        x-on:submit.prevent="submitForm()"
       >
         <input type="hidden" name="form-name" value="contact" />
         <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">

@@ -17,10 +17,6 @@ window.lozad = lozad('[data-lozad]', {
 });
 window.lozad.observe();
 
-window.PwVibrate = (duration = 80) => {
-  window?.navigator?.vibrate?.(duration);
-};
-
 Alpine.plugin(intersect);
 Alpine.plugin(focus);
 
@@ -60,8 +56,6 @@ document.addEventListener('alpine:init', () => {
           index: this.index,
         });
       }
-
-      window.PwVibrate();
     },
     playingPreview($event) {
       this.isPlaying = $event.detail.src === this.previewUrl;

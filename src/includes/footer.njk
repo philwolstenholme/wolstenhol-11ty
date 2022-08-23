@@ -32,7 +32,7 @@
         hidden
         x-data="{time: null}"
         x-init="
-          function() { 
+          () => { 
             this.$root.removeAttribute('hidden');
             const perfData = window.performance.timing;
             this.time = ((perfData.loadEventEnd - perfData.navigationStart) / 1000).toFixed(2);
