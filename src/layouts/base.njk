@@ -37,7 +37,10 @@
   </head>
   <body class="text-gray-900 leading-normal overflow-x-hidden overflow-y-scroll">
     <script>
-      document.body.classList.add(`connection--${navigator.connection.effectiveType ?? 'unknown'}`);
+      function getConnection() {
+        return navigator.connection || navigator.mozConnection || navigator.webkitConnection || navigator.msConnection;
+      }
+      document.body.classList.add(`connection--${getConnection().effectiveType ?? 'unknown'}`);
     </script>
     <script>
       let root = document.documentElement;
