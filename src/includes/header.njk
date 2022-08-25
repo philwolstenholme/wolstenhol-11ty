@@ -20,7 +20,7 @@
     </a>
     <nav class="flex flex-1 items-center overflow-hidden" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
       <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
-      <ul class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars">
+      <ul role="list" class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars">
         {%- for item in headerLinks.items -%} {% set id = item.href.replace('#', '') %}
         <li>
           <a

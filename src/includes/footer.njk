@@ -13,7 +13,7 @@
       </p>
       <div class="space-y-2">
         <p>Pulls in API data from:</p>
-        <ul class="list-disc ml-6">
+        <ul role="list" class="list-disc ml-6">
           <li>DEV Community</li>
           <li>Medium</li>
           <li>Spotify</li>
@@ -53,7 +53,7 @@
         This page fully loaded in <span x-text="time" class="font-mono">?.??</span> seconds.
       </p>
 
-      <ul class="space-y-3 md:flex md:space-y-0 md:space-x-3">
+      <ul role="list" class="space-y-3 md:flex md:space-y-0 md:space-x-3">
         <li>
           <span aria-hidden="true">🚫&nbsp;</span>
           <a href="{{ noCssUrl }}" rel="nofollow" class="underline">View page without CSS</a>
@@ -66,7 +66,7 @@
 
       <div class="flex flex-wrap items-center gap-2">
         <p id="homepage-lighthouse-scores">Homepage Lighthouse scores (%):</p>
-        <ul class="flex items-center space-x-1" aria-labelledby="homepage-lighthouse-scores" role="list">
+        <ul role="list" class="flex items-center space-x-1" aria-labelledby="homepage-lighthouse-scores">
           {% for key, result in lighthouse.categories %}
           <li
             class="flex items-center justify-center cursor-help rounded-full h-8 w-8 border-2 {{ 'border-green-300' if result.grade === 'good' else 'border-yellow-400' }}"

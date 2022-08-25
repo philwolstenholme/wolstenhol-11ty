@@ -44,7 +44,7 @@ export default {
       <pw-lede>Some things I've been reading recently:</pw-lede>
     </div>
 
-    <ul class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8" role="list">
+    <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8">
       <li class="reading-list__item flex min-w-0" v-for="(item, index) in reading.slice(0, 5)" :key="index" :style="getRandomRotationVar()">
         <a
           :href="item.url"

@@ -37,7 +37,7 @@ export default {
       >
     </div>
 
-    <ul class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8" role="list">
+    <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8">
       <li class="stars-list__item flex min-w-0" v-for="(item, index) in stars.slice(0, 5)" :key="index">
         <a
           :href="item.html_url"

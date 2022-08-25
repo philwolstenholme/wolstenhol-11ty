@@ -43,7 +43,7 @@ export default {
         <h3 class="font-bold font-serif text-2xl" id="contact-form-validation-problems">
           <span aria-hidden="true">😔&nbsp;</span>There were some problems with the form:
         </h3>
-        <ul class="links-underline highlight-links list-disc pl-5" v-html="errorTemplateString"></ul>
+        <ul role="list" class="links-underline highlight-links list-disc pl-5" v-html="errorTemplateString"></ul>
       </div>
 
       <form

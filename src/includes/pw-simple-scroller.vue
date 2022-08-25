@@ -30,6 +30,7 @@
         x-bind:class="{ '-translate-x-3': !overflowing.left }"
       ></div>
       <ul
+        role="list"
         tabindex="0"
         v-bind:aria-label="label"
         x-ref="scroller"
