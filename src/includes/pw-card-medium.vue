@@ -34,7 +34,7 @@ export default {
         class="opacity-grunge mix-blend-multiply block w-full h-full object-cover"
         :style="`--opacity: ${this.randomOpacity}`"
       />
-      <div class="p-5">
+      <div class="isolate p-5">
         <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
           {{ post.title }}
         </h3>

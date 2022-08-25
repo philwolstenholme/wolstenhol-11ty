@@ -24,7 +24,7 @@ export default {
       class="opacity-grunge mix-blend-multiply block w-full h-full object-cover"
       :style="`--opacity: ${this.randomOpacity}`"
     />
-    <div class="flex flex-col justify-center p-4 text-center space-y-3">
+    <div class="isolate flex flex-col justify-center p-4 text-center space-y-3">
       <blockquote class="isolate font-serif text-xl font-bold max-w-md mx-auto leading-tight">
         <h3>&ldquo;<slot name="blockquote"></slot>&rdquo;</h3>
       </blockquote>
