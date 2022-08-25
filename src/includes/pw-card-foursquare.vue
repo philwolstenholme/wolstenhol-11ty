@@ -52,7 +52,7 @@ export default {
           <p v-text="formattedAddress" />
         </div>
       </div>
-      <div class="relative shadow-inner overflow-hidden">
+      <div class="grid grid-stack shadow-inner overflow-hidden">
         <img alt="" loading="lazy" width="365" height="182" :src="place.map" class="foursquare-card__map foursquare-card__img" />
         <img
           hidden
@@ -65,16 +65,16 @@ export default {
             https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill%2Cg_north%2Cw_730%2Ch_364%2Cf_auto%2Cq_auto%3Alow%2Fv1661284312%2Fone-offs%2F9-soft-grunge-texture-4-1.png 2x
           "
           data-frivolous-grunge
-          class="foursquare-card__img opacity-grunge absolute block inset-0"
+          class="foursquare-card__img opacity-grunge block w-full h-full"
           :style="`--opacity: ${this.randomOpacity}`"
         />
-        <div class="absolute inset-0 flex items-center justify-center">
+        <div class="flex items-center justify-center">
           <icon
             name="mapMarkerAlt"
             class="w-8 h-8 opacity-80 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1 group-hocus:opacity-100"
           ></icon>
         </div>
-        <div class="foursquare-card__map-scrim absolute inset-0"></div>
+        <div class="foursquare-card__map-scrim"></div>
         <p class="absolute font-light left-4 text-sm text-white top-4">{{ formattedYear }}</p>
       </div>
     </component>
