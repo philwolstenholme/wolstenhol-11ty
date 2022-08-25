@@ -68,14 +68,11 @@ export default {
           class="foursquare-card__img opacity-grunge block w-full h-full"
           :style="`--opacity: ${this.randomOpacity}`"
         />
-        <div class="flex items-center justify-center">
-          <icon
-            name="mapMarkerAlt"
-            class="w-8 h-8 opacity-80 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1 group-hocus:opacity-100"
-          ></icon>
+        <div class="isolate flex items-center justify-center">
+          <icon name="mapMarkerAlt" class="w-8 h-8 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1"></icon>
         </div>
-        <div class="foursquare-card__map-scrim"></div>
-        <p class="absolute font-light left-4 text-sm text-white top-4">{{ formattedYear }}</p>
+        <div class="isolate foursquare-card__map-scrim"></div>
+        <p class="isolate absolute font-light left-4 text-sm text-white top-4">{{ formattedYear }}</p>
       </div>
     </component>
   </article>
