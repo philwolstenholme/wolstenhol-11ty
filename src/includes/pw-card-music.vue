@@ -73,7 +73,7 @@ export default {
       <img
         v-bind:src="image"
         v-bind:alt="music.name"
-        class="card-music__container transition-all"
+        class="card-music__container mix-blend-soft-light transition-all"
         loading="lazy"
         crossorigin="anonymous"
         width="145"
@@ -108,7 +108,7 @@ export default {
         data-frivolous-grunge
         x-bind:class="{ 'opacity-40': $store.music.isPlaying && !isPlaying }"
         x-ref="static"
-        class="card-music__static motion-reduce:hidden block absolute h-full w-full object-cover object-left-top opacity-0 pointer-events-none transition-opacity"
+        class="mix-blend-luminosity motion-reduce:hidden block absolute h-full w-full object-cover object-left-top opacity-0 pointer-events-none transition-opacity"
         loop
         autoplay
         muted
@@ -145,7 +145,6 @@ export default {
 <style lang="scss">
 .card-music {
   &__container {
-    mix-blend-mode: soft-light;
     filter: grayscale(1) contrast(1.05);
   }
 
@@ -200,10 +199,6 @@ export default {
     @media (prefers-reduced-motion: no-preference) {
       animation: dance 100ms infinite alternate;
     }
-  }
-
-  &__static {
-    mix-blend-mode: luminosity;
   }
 }
 

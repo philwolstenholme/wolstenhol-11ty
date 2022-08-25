@@ -28,7 +28,7 @@ export default {
       <h3 class="sr-only">{{ talk }}</h3>
       <img
         v-if="image"
-        class="talk-image object-cover transition-opacity"
+        class="mix-blend-luminosity object-cover transition-opacity"
         :class="{
           'group-hocus:opacity-10': href,
         }"
@@ -57,9 +57,3 @@ export default {
     </component>
   </article>
 </template>
-
-<style>
-.talk-image {
-  mix-blend-mode: luminosity;
-}
-</style>

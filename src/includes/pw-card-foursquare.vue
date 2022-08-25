@@ -53,7 +53,7 @@ export default {
         </div>
       </div>
       <div class="grid grid-stack shadow-inner overflow-hidden">
-        <img alt="" loading="lazy" width="365" height="182" :src="place.map" class="foursquare-card__map foursquare-card__img" />
+        <img alt="" loading="lazy" width="365" height="182" :src="place.map" class="mix-blend-multiply foursquare-card__img" />
         <img
           hidden
           alt=""
@@ -84,10 +84,6 @@ export default {
 <style>
 .foursquare-card__map-scrim {
   background: radial-gradient(circle, rgba(255, 255, 255, 0) 30%, rgb(0 0 0 / 40%) 100%);
-}
-
-.foursquare-card__map {
-  mix-blend-mode: multiply;
 }
 
 .foursquare-card__body {
