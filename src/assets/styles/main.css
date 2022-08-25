@@ -219,3 +219,11 @@ body.lightbox-open {
   overflow: hidden !important;
   padding-right: var(--scrollbar-width);
 }
+
+.opacity-grunge {
+  opacity: var(--opacity, 0.3);
+}
+
+body:not(.connection--4g) [data-frivolous-grunge] {
+  display: none !important;
+}

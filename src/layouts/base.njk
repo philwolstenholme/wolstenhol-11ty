@@ -37,6 +37,9 @@
   </head>
   <body class="text-gray-900 leading-normal overflow-x-hidden overflow-y-scroll">
     <script>
+      document.body.classList.add(`connection--${navigator.connection.effectiveType ?? 'unknown'}`);
+    </script>
+    <script>
       let root = document.documentElement;
       let scrollbarWidth = window.innerWidth - document.body.offsetWidth;
       root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
@@ -59,6 +62,7 @@
         <div class="mx-auto section__inner py-10 lg:pb-28">
           <img
             hidden
+            data-frivolous-grunge
             class="absolute inline opacity-40 blend-multiply"
             loading="eager"
             alt=""
@@ -73,6 +77,7 @@
           />
           <img
             hidden
+            data-frivolous-grunge
             class="absolute blend-multiply inline opacity-40 transform object-cover object-left"
             loading="lazy"
             decoding="async"
@@ -88,6 +93,7 @@
           />
           <img
             hidden
+            data-frivolous-grunge
             class="absolute inline opacity-40 blend-multiply transform -rotate-45"
             loading="lazy"
             decoding="async"

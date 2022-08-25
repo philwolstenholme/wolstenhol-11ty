@@ -105,6 +105,7 @@ export default {
         aria-hidden="true"
         hidden
         data-lozad
+        data-frivolous-grunge
         x-bind:class="{ 'opacity-40': $store.music.isPlaying && !isPlaying }"
         x-ref="static"
         class="card-music__static motion-reduce:hidden block absolute h-full w-full object-cover object-left-top opacity-0 pointer-events-none transition-opacity"

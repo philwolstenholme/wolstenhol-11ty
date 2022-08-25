@@ -46,6 +46,7 @@ export default {
           <video
             hidden
             data-lozad
+            data-frivolous-grunge
             aria-hidden="true"
             loop="loop"
             autoplay="autoplay"

@@ -61,10 +61,11 @@ export default {
           width="365"
           height="182"
           srcset="
-            https://wolstenhol.me/proxy/cloudinary/image/upload/w_365%2Ch_182%2Cf_auto%2Cq_auto%3Alow%2Fv1661284312%2Fone-offs%2F9-soft-grunge-texture-4-1.png 1x,
-            https://wolstenhol.me/proxy/cloudinary/image/upload/w_730%2Ch_364%2Cf_auto%2Cq_auto%3Alow%2Fv1661284312%2Fone-offs%2F9-soft-grunge-texture-4-1.png 2x
+            https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill%2Cg_north%2Cw_365%2Ch_182%2Cf_auto%2Cq_auto%3Alow%2Fv1661284312%2Fone-offs%2F9-soft-grunge-texture-4-1.png 1x,
+            https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill%2Cg_north%2Cw_730%2Ch_364%2Cf_auto%2Cq_auto%3Alow%2Fv1661284312%2Fone-offs%2F9-soft-grunge-texture-4-1.png 2x
           "
-          class="foursquare-card__img foursquare-card__grunge absolute block inset-0"
+          data-frivolous-grunge
+          class="foursquare-card__img opacity-grunge absolute block inset-0"
           :style="`--opacity: ${this.randomOpacity}`"
         />
         <div class="absolute inset-0 flex items-center justify-center">
@@ -95,9 +96,5 @@ export default {
 
 .foursquare-card__img {
   max-width: calc(100vw - 40px);
-}
-
-.foursquare-card__grunge {
-  opacity: var(--opacity, 0.3);
 }
 </style>
