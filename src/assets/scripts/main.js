@@ -237,6 +237,14 @@ document.addEventListener('alpine:init', () => {
       this.$root.querySelectorAll('[data-pw-scroller-list] > li').forEach(item => {
         inertObserver.observe(item);
       });
+
+      // Hacky workaround for a weird browser/CSS issue (it happens before JS loads/runs)
+      // where a scroller will start off partially scroled.
+      if (this.$refs.scroller.scrollLeft !== 0) {
+        this.$refs.scroller.classList.remove('scroll-smooth');
+        this.$refs.scroller.scrollLeft = 0;
+        this.$refs.scroller.classList.add('scroll-smooth');
+      }
     },
     focusOnFirstItem() {
       setTimeout(() => {
