@@ -40,6 +40,11 @@ exports.handler = async function (event, context) {
 
     console.log('coming back: ', JSON.stringify(data));
 
+    // Trigger a build.
+    await fetch(`https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK_KEY}`, {
+      method: 'post',
+    });
+
     return {
       statusCode: 200,
       body: JSON.stringify(data),
