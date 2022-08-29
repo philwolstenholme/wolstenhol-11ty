@@ -5,7 +5,7 @@ export default {
   components: {
     icon,
   },
-  props: ['event', 'talk', 'image', 'href'],
+  props: ['event', 'talk', 'image', 'href', 'srcset'],
   computed: {
     iconName: function () {
       return this.href.includes('youtube.com') ? 'youtube' : 'link';
@@ -33,6 +33,7 @@ export default {
           'group-hocus:opacity-10': href,
         }"
         :src="image"
+        :srcset="srcset"
         alt=""
         width="272"
         height="153"

@@ -23,9 +23,13 @@ export default {
       return this.spotifyCloudinaryUrl;
     },
 
+    srcset: function () {
+      return `${this.image.replace(/145/gi, '290')} 2x`;
+    },
+
     spotifyCloudinaryUrl() {
       let original = this.music.images[0].url;
-      let cloudinaryPrefix = 'https://wolstenhol.me/proxy/cloudinary/image/upload/w_290,h_290,c_fill,f_auto,q_auto:low/spotify/';
+      let cloudinaryPrefix = 'https://wolstenhol.me/proxy/cloudinary/image/upload/w_145,h_145,c_fill,f_auto,q_auto:low/spotify/';
       let URL = original.replace('https://i.scdn.co/image/', cloudinaryPrefix);
 
       return URL;
@@ -72,6 +76,7 @@ export default {
     <figure>
       <img
         v-bind:src="image"
+        v-bind:srcset="srcset"
         v-bind:alt="music.name"
         class="card-music__container mix-blend-soft-light transition-all"
         loading="lazy"

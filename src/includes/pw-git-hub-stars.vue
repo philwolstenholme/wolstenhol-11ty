@@ -63,6 +63,7 @@ export default {
             <video
               hidden
               aria-hidden="true"
+              data-frivolous-grunge
               loop="loop"
               autoplay="autoplay"
               muted="muted"
