@@ -46,7 +46,7 @@ export default {
       class="mt-3 text-sm"
       x-data="PwSpotifyLive()"
       x-show="data && data.name && timeagoVisible"
-      x-intersect:enter="startInterval"
+      x-intersect.margin.200px:enter="startInterval"
       x-intersect:leave="stopInterval"
     >
       <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span

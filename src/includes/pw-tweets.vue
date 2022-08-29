@@ -23,7 +23,7 @@ export default {
   <pw-section
     section-key="tweets"
     x-data="PwTweets"
-    x-intersect.once="colcade(); loadMore(); twitterIntents()"
+    x-intersect.margin.200px.once="colcade(); loadMore(); twitterIntents()"
     x-on:resize.window.debounce="colcade()"
   >
     <pw-section-heading title="Tweets" icon="twitter" section="tweets" />
