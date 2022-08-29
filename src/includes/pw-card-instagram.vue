@@ -17,7 +17,7 @@ export default {
 
   data: () => ({
     playing: true,
-    width: 366,
+    width: 365,
     blurryUri: '',
   }),
 
