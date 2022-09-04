@@ -41,21 +41,20 @@ export default {
       over the last few weeks (their genre names, not mine!)</pw-lede
     >
 
-    <p
-      x-cloak
-      class="mt-3 text-sm"
-      x-data="PwSpotifyLive()"
-      x-show="data && data.name && timeagoVisible"
-      x-intersect.margin.200px:enter="startInterval"
-      x-intersect:leave="stopInterval"
-    >
-      <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span
-        class="spotify-live__label"
-        x-bind:datetime="data.playedAt"
-        x-ref="label"
-        >XX MINUTES AGO</span
-      >: <a x-bind:href="data.trackUrl" href="#" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"></a>
-    </p>
+    <div class="mt-3 text-sm" x-data="PwSpotifyLive()" x-intersect.margin.200px:enter="startInterval" x-intersect:leave="stopInterval">
+      <p x-show="!data || !data.name || !timeagoVisible">
+        &nbsp;
+        <!-- Reserve space to prevent CLS. In the future could we delete this element if the user has not scrolled it into view or scrolled beyond it? Or use a worker to show/hide the markup? -->
+      </p>
+      <p x-show="data && data.name && timeagoVisible" x-cloak>
+        <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span
+          class="spotify-live__label"
+          x-bind:datetime="data.playedAt"
+          x-ref="label"
+          >XX MINUTES AGO</span
+        >: <a x-bind:href="data.trackUrl" href="#" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"></a>
+      </p>
+    </div>
 
     <pw-simple-scroller class="mt-12" :scroll-full="true" theme="spotify" label="What I've been listening to">
       <pw-simple-scroller-item v-for="(artist, index) in artists" :key="index">
