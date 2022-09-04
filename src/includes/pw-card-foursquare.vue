@@ -1,6 +1,7 @@
 <script>
 import icon from './icon.vue';
 import spriteIcon from './sprite-icon.vue';
+import { format } from 'timeago.js';
 
 export default {
   props: {
@@ -14,9 +15,8 @@ export default {
     formattedAddress: function () {
       return [this.place.location.formattedAddress[0], this.place.location.city].join(', ');
     },
-    formattedYear: function () {
-      let d = new Date(this.place.ratedAt * 1000);
-      return d.getFullYear();
+    timeAgo: function () {
+      return format(new Date(this.place.ratedAt * 1000), 'en_GB');
     },
     randomOpacity: function () {
       return Math.round((Math.random() / 2.5) * 100) / 100;
@@ -72,7 +72,7 @@ export default {
           <icon name="mapMarkerAlt" class="w-8 h-8 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1"></icon>
         </div>
         <div class="isolate foursquare-card__map-scrim"></div>
-        <p class="isolate absolute font-light left-4 text-sm text-white top-4">{{ formattedYear }}</p>
+        <p class="absolute isolate left-4 text-white text-xs top-4 uppercase">{{ timeAgo }}</p>
       </div>
     </component>
   </article>

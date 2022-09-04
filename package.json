@@ -97,6 +97,7 @@
     "svgo": "^1.3.2",
     "tailwindcss-interaction-variants": "^5.0.0",
     "tailwindcss-scroll-snap": "^1.1.0",
+    "timeago.js": "^4.0.2",
     "tldts": "^5.7.89",
     "twitter-text": "^3.1.0",
     "unique-random-array": "^2.0.0",
