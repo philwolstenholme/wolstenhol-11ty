@@ -80,7 +80,7 @@
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'), url('/assets/fonts/roboto-slab-v12-latin-regular.woff2') format('woff2'),
     url('/assets/fonts/roboto-slab-v12-latin-regular.woff') format('woff');
 }
@@ -89,7 +89,7 @@
   font-family: 'Roboto Slab';
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: local('Roboto Slab Bold'), local('RobotoSlab-Bold'), url('/assets/fonts/roboto-slab-v12-latin-700.woff2') format('woff2'),
     url('/assets/fonts/roboto-slab-v12-latin-700.woff') format('woff');
 }

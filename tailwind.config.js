@@ -1,5 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
 const config = require('./.config.js');
 const path = require('path');
 
@@ -41,7 +42,7 @@ module.exports = {
         hard: '2px 2px 0 rgba(0,0,0,.15)',
       },
       fontFamily: {
-        serif: ['"Roboto Slab"', 'serif'],
+        serif: ['"Roboto Slab"', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         container: '71rem',
