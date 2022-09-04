@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
           fields: {
             title,
             url,
-            skipTweet,
+            skipTweet: skipTweet === 'true',
           },
         },
       ],
