@@ -211,8 +211,8 @@ dialog::backdrop {
   opacity: 0.9;
 }
 
-body.lightbox-open {
-  overflow: hidden !important;
+html.lightbox-open {
+  overflow-y: hidden !important;
   padding-right: var(--scrollbar-width);
 }
 

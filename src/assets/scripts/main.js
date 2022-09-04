@@ -558,7 +558,7 @@ Alpine.data('PwLightbox', () => ({
   },
   init() {
     this.$watch('open', value => {
-      document.body.classList.toggle('lightbox-open');
+      document.documentElement.classList.toggle('lightbox-open');
     });
   },
   onOpen($event) {
