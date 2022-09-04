@@ -42,7 +42,7 @@ module.exports = {
         hard: '2px 2px 0 rgba(0,0,0,.15)',
       },
       fontFamily: {
-        serif: ['"Roboto Slab"', ...defaultTheme.fontFamily.sans],
+        serif: ['"Roboto Slab"', '"Roboto Slab-fallback"', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         container: '71rem',
