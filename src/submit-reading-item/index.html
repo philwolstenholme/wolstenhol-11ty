@@ -38,6 +38,7 @@
         title: '',
         url: '',
         text: '',
+        skipTweet: false,
         currentUser: {}
       }"
       x-init="() => {
@@ -85,7 +86,7 @@
           await netlifyIdentity.refresh();
 
           const functionUrl = new URL(window.location.origin + '/api/submit-reading-item');
-          functionUrl.search = new URLSearchParams({ title, url }).toString();
+          functionUrl.search = new URLSearchParams({ title, url, skipTweet }).toString();
 
           fetch(functionUrl.toString(), {
             method: 'GET',
@@ -125,6 +126,11 @@
         <label for="url">
           <abbr>URL</abbr>
           <input x-model="url" type="url" id="url" name="url" required enterkeyhint="send" />
+        </label>
+
+        <label for="skipTweet">
+          Skip tweeting about this one
+          <input x-model="skipTweet" type="checkbox" id="skipTweet" name="skipTweet" />
         </label>
 
         <button type="submit" :disabled="!currentUser">Submit</button>

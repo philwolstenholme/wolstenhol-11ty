@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 exports.handler = async function (event, context) {
   const { user } = context.clientContext;
-  const { title, url } = event.queryStringParameters;
+  const { title, url, skipTweet } = event.queryStringParameters;
 
   if (!user) {
     console.error('No authentication details!');
@@ -19,8 +19,9 @@ exports.handler = async function (event, context) {
       records: [
         {
           fields: {
-            title: title,
-            url: url,
+            title,
+            url,
+            skipTweet,
           },
         },
       ],
