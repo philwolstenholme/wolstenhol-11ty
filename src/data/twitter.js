@@ -15,5 +15,5 @@ module.exports = async function () {
     }
   );
 
-  return response;
+  return response.filter(entry => !entry.full_text.startsWith('📚 Added'));
 };
