@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <article class="contain-content relative flex overflow-hidden w-full rounded shadow-hard" x-ignore>
+  <article class="foursquare-card contain-content relative flex overflow-hidden w-full rounded shadow-hard" x-ignore>
     <component
       :is="place.url ? 'a' : 'div'"
       :href="place.url"
@@ -79,15 +79,11 @@ export default {
 </template>
 
 <style>
+.foursquare-card {
+  max-width: min(365px, calc(100vw - 2.5rem));
+}
+
 .foursquare-card__map-scrim {
   background: radial-gradient(circle, rgba(255, 255, 255, 0) 30%, rgb(0 0 0 / 40%) 100%);
-}
-
-.foursquare-card__body {
-  max-width: 365px;
-}
-
-.foursquare-card__img {
-  max-width: calc(100vw - 40px);
 }
 </style>
