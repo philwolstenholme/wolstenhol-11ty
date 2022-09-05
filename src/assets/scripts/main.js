@@ -475,6 +475,9 @@ document.addEventListener('alpine:init', () => {
             // Set a boolean so we can display our component. We do this to avoid a flash of content
             // jumping in once timeago has been loaded and applied to the element.
             this.timeagoVisible = true;
+            // Now timeagoVisible the x-show display none will be removed and we can safely set
+            // a CSS display property.
+            this.$root.style.display = '';
           });
         })
         .catch(err => console.error(err));

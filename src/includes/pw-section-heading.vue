@@ -1,8 +1,5 @@
 <template>
-  <div class="relative text-3xl">
-    <h2 :id="anchor" tabindex="-1" class="inline-block uppercase font-serif font-bold" :data-section="section">
-      {{ title }}
-    </h2>
+  <div class="relative text-3xl md:flex items-center">
     <span v-if="icon" class="absolute top-0.5 -left-12">
       <a :href="`#${anchor}`" class="text-gray-500">
         <span class="sr-only"
@@ -11,6 +8,10 @@
         <icon :name="icon" class="-top-1.5" />
       </a>
     </span>
+    <h2 :id="anchor" tabindex="-1" class="inline-block uppercase font-serif font-bold" :data-section="section">
+      {{ title }}
+    </h2>
+    <slot></slot>
   </div>
 </template>
 

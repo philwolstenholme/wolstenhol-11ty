@@ -29,7 +29,30 @@ export default {
 
 <template>
   <pw-section section-key="music" v-if="Object.keys(artists).length && genres.length">
-    <pw-section-heading title="Music" icon="headphones" section="music" />
+    <pw-section-heading title="Music" icon="headphones" section="music">
+      <div
+        x-cloak
+        class="spotify-live w-max flex mt-4 md:mt-0 md:ml-5 bg-black bg-binding-dark text-white py-0.5 px-2 items-center rounded text-sm"
+        style="display: none !important"
+        x-data="PwSpotifyLive()"
+        x-intersect.margin.200px:enter="startInterval"
+        x-intersect:leave="stopInterval"
+      >
+        <p class="md:truncate">
+          <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span
+            class="spotify-live__label"
+            x-bind:datetime="data.playedAt"
+            x-ref="label"
+          ></span>
+          :
+          <output>
+            <span class="sr-only">I just finished listening to</span>
+            <a x-bind:href="data.trackUrl" href="#" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"> </a>
+          </output>
+        </p>
+      </div>
+    </pw-section-heading>
+
     <pw-lede class="mt-3"
       >According to the Spotify API, I've been listening to a bit of
       <template v-for="(genre, index) in genres">
@@ -40,21 +63,6 @@ export default {
       >
       over the last few weeks (their genre names, not mine!)</pw-lede
     >
-
-    <div class="mt-3 text-sm" x-data="PwSpotifyLive()" x-intersect.margin.200px:enter="startInterval" x-intersect:leave="stopInterval">
-      <p x-show="!data || !data.name || !timeagoVisible">
-        &nbsp;
-        <!-- Reserve space to prevent CLS. In the future could we delete this element if the user has not scrolled it into view or scrolled beyond it? Or use a worker to show/hide the markup? -->
-      </p>
-      <p x-show="data && data.name && timeagoVisible" x-cloak>
-        <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span
-          class="spotify-live__label"
-          x-bind:datetime="data.playedAt"
-          x-ref="label"
-          >XX MINUTES AGO</span
-        >: <a x-bind:href="data.trackUrl" href="#" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"></a>
-      </p>
-    </div>
 
     <pw-simple-scroller class="mt-12" :scroll-full="true" theme="spotify" label="What I've been listening to">
       <pw-simple-scroller-item v-for="(artist, index) in artists" :key="index">
@@ -126,6 +134,12 @@ export default {
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .spotify-live {
+    max-width: calc(100% - 120px);
   }
 }
 
