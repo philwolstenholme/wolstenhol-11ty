@@ -32,18 +32,15 @@ export default {
     <pw-section-heading title="Music" icon="headphones" section="music">
       <div
         x-cloak
-        class="spotify-live w-max flex mt-4 md:mt-0 md:ml-5 bg-black bg-binding-dark text-white py-0.5 px-2 items-center rounded text-sm"
+        class="spotify-live flex items-center mt-4 md:mt-0 md:pl-5 text-sm"
         style="display: none !important"
         x-data="PwSpotifyLive()"
         x-intersect.margin.200px:enter="startInterval"
         x-intersect:leave="stopInterval"
       >
+        <span class="pulsating-circle h-3 inline-block rounded-full w-3 flex-shrink-0"></span>&nbsp;
         <p class="md:truncate">
-          <span class="pulsating-circle h-3 inline-block rounded-full w-3"></span>&nbsp;<span
-            class="spotify-live__label"
-            x-bind:datetime="data.playedAt"
-            x-ref="label"
-          ></span>
+          <span class="spotify-live__label" x-bind:datetime="data.playedAt" x-ref="label"></span>
           :
           <output>
             <span class="sr-only">I just finished listening to</span>
