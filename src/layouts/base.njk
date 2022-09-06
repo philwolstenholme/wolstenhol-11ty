@@ -10,21 +10,12 @@
       {{ title }} | {{ meta.title }}
       {%- endif -%}
     </title>
-    {% include "meta.njk" %}
-    <script>
-      if (
-        document.location.hash.includes('access_token') &&
-        document.location.hash.includes('token_type') &&
-        document.location.hash.includes('expires_in') &&
-        document.location.hash.includes('refresh_token')
-      ) {
-        const redirectUrl = 'https://wolstenhol.me/submit-reading-item';
-        window.location = redirectUrl + document.location.hash;
-      }
-    </script>
     <link rel="stylesheet" href="/assets/styles/main.css" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
+    {% include "meta.njk" %}
+  </head>
+  <body class="text-gray-900 leading-normal">
     <style>
       /*
        * https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
@@ -34,8 +25,6 @@
         contain-intrinsic-size: 10px 500px;
       }
     </style>
-  </head>
-  <body class="text-gray-900 leading-normal">
     <script>
       function getConnection() {
         return navigator.connection || navigator.mozConnection || navigator.webkitConnection || navigator.msConnection;
@@ -176,6 +165,17 @@
         window.removeEventListener('scroll', loadJsOnInteraction);
         window.removeEventListener('touchstart', loadJsOnInteraction);
         window.removeEventListener('mousemove', loadJsOnInteraction);
+      }
+    </script>
+    <script>
+      if (
+        document.location.hash.includes('access_token') &&
+        document.location.hash.includes('token_type') &&
+        document.location.hash.includes('expires_in') &&
+        document.location.hash.includes('refresh_token')
+      ) {
+        const redirectUrl = 'https://wolstenhol.me/submit-reading-item';
+        window.location = redirectUrl + document.location.hash;
       }
     </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
