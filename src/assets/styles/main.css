@@ -119,10 +119,6 @@
   width: calc((100% - (1.25rem * (var(--items) - 1))) / var(--items));
 }
 
-.has-blurry-placeholder {
-  background-size: cover;
-}
-
 /* https://max.hn/thoughts/how-to-create-a-highlighter-marker-effect-in-css */
 ::target-text,
 h2:target,

@@ -174,7 +174,29 @@ export default {
       </template>
       <template v-if="!post.videos">
         <div class="grid grid-stack">
-          <!-- prettier-ignore -->
+          <div class="no-js:hidden w-full h-full grid grid-stack">
+            <img alt="" :src="post.svgPlaceholder" class="block w-full h-full" />
+            <div class="flex items-center justify-center">
+              <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
+              <svg x-ignore width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+                <g fill="none" fill-rule="evenodd">
+                  <g transform="translate(1 1)" stroke-width="2">
+                    <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
+                    <path d="M36 18c0-9.94-8.06-18-18-18">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 18 18"
+                        to="360 18 18"
+                        dur="1s"
+                        repeatCount="indefinite"
+                      />
+                    </path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </div>
           <img
             :src="cloudinaryUrl"
             :srcset="cloudinarySrcSet"
@@ -184,32 +206,12 @@ export default {
             width="368"
             height="368"
             sizes="368px"
-            class="card-instagram__img has-blurry-placeholder w-full transition-opacity group-hocus:opacity-50"
+            class="card-instagram__img w-full transition-opacity group-hocus:opacity-50"
             loading="lazy"
             decoding="async"
             crossorigin="anonymous"
-            :data-placeholder-style='`background-image:url(&quot;${post.svgPlaceholder}&quot;)`'
+            onLoad="this.previousElementSibling.remove()"
           />
-          <div class="no-js:hidden w-full h-full flex items-center justify-center">
-            <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
-            <svg x-ignore width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
-              <g fill="none" fill-rule="evenodd">
-                <g transform="translate(1 1)" stroke-width="2">
-                  <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
-                  <path d="M36 18c0-9.94-8.06-18-18-18">
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      from="0 18 18"
-                      to="360 18 18"
-                      dur="1s"
-                      repeatCount="indefinite"
-                    />
-                  </path>
-                </g>
-              </g>
-            </svg>
-          </div>
         </div>
       </template>
       <figcaption

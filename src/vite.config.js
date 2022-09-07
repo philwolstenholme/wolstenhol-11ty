@@ -1,7 +1,6 @@
 const { defineConfig } = require('vite');
 const { splitVendorChunkPlugin } = require('vite');
 import htmlMinimize from '@sergeymakinen/vite-plugin-html-minimize';
-import inspect from 'vite-plugin-inspect';
 // import sri from '@small-tech/vite-plugin-sri';
 
 const addNoscriptCss = () => {
@@ -47,7 +46,6 @@ const workaroundForUsingAlpineAndVueBindingTogether = () => {
 module.exports = defineConfig({
   plugins: [
     splitVendorChunkPlugin(),
-    inspect(),
     // sri(),
     addNoscriptCss(),
     workaroundForUsingAlpineAndVueBindingTogether(),
@@ -55,7 +53,7 @@ module.exports = defineConfig({
       collapseWhitespace: true,
       conservativeCollapse: true,
       html5: true,
-      keepClosingSlash: true,
+      keepClosingSlash: false,
       minifyCSS: true,
       minifyJS: true,
       removeAttributeQuotes: false,
@@ -67,7 +65,7 @@ module.exports = defineConfig({
       decodeEntities: false,
       sortAttributes: true,
       sortClassName: true,
-      customAttrCollapse: /x-bind\:class|x-init|x-style/,
+      customAttrCollapse: /x-.*/,
     }),
   ],
   build: {
