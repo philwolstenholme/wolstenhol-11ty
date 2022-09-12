@@ -14,17 +14,18 @@
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-regular.woff2" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" as="font" href="/assets/fonts/roboto-slab-v12-latin-700.woff2" type="font/woff2" crossorigin="anonymous" />
     {% include "meta.njk" %}
-  </head>
-  <body class="text-gray-900 leading-normal">
     <style>
       /*
        * https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
        */
       body main section + section {
         content-visibility: auto;
+        /* Add vertical space for each "phantom" */
         contain-intrinsic-size: 10px 500px;
       }
     </style>
+  </head>
+  <body class="text-gray-900 leading-normal">
     <style>
       [data-frivolous-grunge] {
         display: none !important;
