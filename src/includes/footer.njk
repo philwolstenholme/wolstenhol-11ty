@@ -65,7 +65,9 @@
       </ul>
 
       <div class="flex flex-wrap items-center gap-2">
-        <p id="homepage-lighthouse-scores">Homepage Lighthouse scores (%):</p>
+        <a href="https://pagespeed.web.dev/report?url=https%3A%2F%2Fwolstenhol.me%2F" class="underline" id="homepage-lighthouse-scores"
+          >Homepage Lighthouse scores (%):</a
+        >
         <ul role="list" class="flex items-center space-x-1" aria-labelledby="homepage-lighthouse-scores">
           {% for key, result in lighthouse.categories %}
           <li
