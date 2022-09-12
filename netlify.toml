@@ -76,6 +76,12 @@
   [headers.values]
     Content-Type = "application/manifest+json"
 
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=60"
+    CDN-Cache-Control = "max-age=86400"
+
 [[plugins]]
   package = "netlify-plugin-image-optim"
 [[plugins]]
