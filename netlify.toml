@@ -53,7 +53,7 @@
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    cache-control = '''
+    Cache-Control = '''
       public,
       max-age=31536000,
       immutable'''
@@ -61,7 +61,7 @@
 [[headers]]
   for = "/favicon/*"
   [headers.values]
-    cache-control = '''
+    Cache-Control = '''
       public,
       max-age=31536000,
       immutable'''
@@ -102,3 +102,7 @@
   package = "netlify-plugin-cache"
   [plugins.inputs]
     paths = [".cache", "node_modules/.vite", "node_modules/.cache"]
+
+[[edge_functions]]
+  path = "/api/fake-edge-messages-endpoint"
+  function = "fake-edge-messages-endpoint"
