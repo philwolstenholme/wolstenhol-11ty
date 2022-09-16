@@ -30,7 +30,7 @@ export default {
         Read more tweets
       </button>
     </li>
-    <li v-for="(tweet, index) in this.twitter.slice(5)" :key="index" class="tweets-grid__item">
+    <li v-for="(tweet, index) in this.twitter.slice(5, 9)" :key="index" class="tweets-grid__item">
       <pw-card-twitter :tweet="tweet" />
     </li>
   </div>
