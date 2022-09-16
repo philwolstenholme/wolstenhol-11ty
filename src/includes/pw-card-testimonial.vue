@@ -2,7 +2,7 @@
 export default {
   computed: {
     randomOpacity: function () {
-      return Math.round(Math.random() * 100) / 100;
+      return Math.round((Math.random() / 1.5) * 100) / 100;
     },
   },
 };

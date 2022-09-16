@@ -19,7 +19,7 @@ export default {
       return format(new Date(this.place.ratedAt * 1000), 'en_GB');
     },
     randomOpacity: function () {
-      return Math.round((Math.random() / 2.5) * 100) / 100;
+      return Math.round((Math.random() / 3) * 100) / 100;
     },
   },
 
