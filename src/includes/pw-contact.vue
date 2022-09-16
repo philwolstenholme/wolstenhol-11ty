@@ -1,11 +1,13 @@
 <script>
 import PwLede from './pw-lede.vue';
 import PwSectionHeading from './pw-section-heading.vue';
+import PwSection from './pw-section.vue';
 import icon from './icon.vue';
 
 export default {
   components: {
     PwLede,
+    PwSection,
     PwSectionHeading,
     icon,
   },
@@ -22,8 +24,9 @@ export default {
 </script>
 
 <template>
-  <section data-section="contact">
+  <pw-section section-key="contact">
     <pw-section-heading title="Contact" icon="envelope" section="contact" />
+
     <pw-lede class="mt-3">Get in touch</pw-lede>
     <p class="mt-3">
       You can send me a
@@ -212,5 +215,5 @@ export default {
         <p class="text-base">Your message has been sent.</p>
       </div>
     </div>
-  </section>
+  </pw-section>
 </template>
