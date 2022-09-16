@@ -41,7 +41,7 @@ export default {
     <pw-section-heading title="Reading" icon="bookmark" section="reading" />
 
     <div class="mt-3 flex justify-between">
-      <pw-lede>Some things I've been reading recently:</pw-lede>
+      <pw-lede>Some things I've been reading recently and some random items from the vaults:</pw-lede>
     </div>
 
     <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8">

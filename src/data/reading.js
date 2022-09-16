@@ -5,6 +5,8 @@ const { orderBy } = require('natural-orderby');
 const { getHostname } = require('tldts');
 const metascraper = require('metascraper')([require('metascraper-description')()]);
 const got = require('got');
+const _ = require('lodash');
+const { sampleSize } = require('lodash');
 
 module.exports = async function () {
   let mediumReadingListHtml = await Cache('https://philwolstenholme.medium.com/list/reading-list', {
@@ -146,10 +148,10 @@ module.exports = async function () {
     airtableReadingList: airtableReadingList.length,
   });
 
-  const prepareItemPromises = orderBy([...mediumReadingList, ...devToReadingList, ...airtableReadingList], 'date', 'desc')
-    .slice(0, 12)
-    .map(prepareItem);
-  const sortedItems = await Promise.all(prepareItemPromises);
+  const sortedItems = orderBy([...mediumReadingList, ...devToReadingList, ...airtableReadingList], 'date', 'desc');
+  const recentItems = sortedItems.slice(0, 9);
+  const olderItems = sortedItems.slice(12, sortedItems.length);
+  const items = await Promise.all([...recentItems, ...sampleSize(olderItems, 6)].map(prepareItem));
 
-  return sortedItems;
+  return items;
 };
