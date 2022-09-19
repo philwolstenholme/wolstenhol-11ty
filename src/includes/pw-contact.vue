@@ -2,14 +2,12 @@
 import PwLede from './pw-lede.vue';
 import PwSectionHeading from './pw-section-heading.vue';
 import PwSection from './pw-section.vue';
-import icon from './icon.vue';
 
 export default {
   components: {
     PwLede,
     PwSection,
     PwSectionHeading,
-    icon,
   },
   data: function () {
     return {
@@ -188,8 +186,12 @@ export default {
             type="submit"
             class="border-2 border-black mb-0.5 flex items-center bg-yellow-300 hocus:bg-yellow-400 px-4 py-2 rounded shadow-hard font-bold space-x-2 select-none"
           >
-            <icon name="paperPlane"></icon>
-            <span>Send</span>
+            <svg role="presentation" aria-hidden="true" class="w-20 m-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515.9 107.5">
+              <path
+                d="M56 0c-6 0-13 1-18 5-10 5-21 10-28 19-2 6 2 12 5 17 6 10 15 19 25 25l15 7c4 2 9 5 10 10-1 5-7 8-12 9l-28 5-20 1c-7 2-5 11 1 9h19l28-2c11-1 21-6 25-16 2-5 3-10 1-15-2-4-6-6-10-8-8-5-18-8-27-14L28 37c-2-3-4-8 0-11 4-4 10-7 16-10l12-5c6 0 10 7 15 7 7-2 1-10-3-12-3-2-7-6-12-6Zm265 1c-13 2-22 12-27 24 0 5-1 12-7 14-3 4-1 10-1 15l12 30c2 4 3 9 7 10l13-4c16-4 28-18 33-33 2-10 2-20-3-29-3-11-10-23-22-26l-5-1Zm144 1c-6 0-13 5-11 12 2 6 10 3 15 5 4 3 12 3 14 9-4 3-9 3-13 4l-19 2c-18 2-37 0-55 2-4 1-9 4-7 8 2 5 8 6 13 6 19 0 38 0 57-2 6-1 13 0 19-2 4-2 11-1 8 5l-6 14c-4 10-11 19-16 29-2 5 2 12 7 10 5-1 9-5 9-9 4-8 10-15 13-24l8-12c3-5 5-12 10-17 3-4 7-9 4-15-2-5-7-6-12-9a460 460 0 0 0-38-16ZM256 5c-7 3-4 11-5 16-2 6-1 11-2 16-3 10-3 21-8 30-6 1-7-7-11-10l-7-15c-3-8-7-15-14-20-3-2-7-6-12-4-5 3-6 10-8 15 1 4-2 12-5 5-3-5-11 0-9 5 0 5 3 9 4 14l9 31c2 4 2 10 8 10 5-1 7-7 7-12l-2-28 1-18c3-6 7 4 8 7l8 17c3 5 6 11 11 15 4 4 8 8 13 9 8 0 13-7 15-14 2-5 2-12 3-18l4-32c-1-5 2-12-2-16l-6-3zM138 5c-6 0-10 3-15 4-7 3-15 8-16 17 0 5-4 9-4 14 0 6-2 10-4 15 1 5 3 10 2 15-1 7-2 16 3 22 5 4 12 5 18 5 11-1 23-2 33-6 6-1 11-6 15-10 5-4-1-12-6-8-6 3-11 5-17 6l-16 3c-6 0-12 1-16-3-4-5-1-14 4-16l17-2 18-2c4-1 11-8 4-10s-14 0-20 0h-18c-3-5 2-11-1-15 1-5 6-8 9-12 5-3 11-4 17-4 4 0 8 2 12 4 6 0 6-8 3-11-4-3-8-5-14-6h-8Zm182 11c6-1 11 6 13 11 5 9 7 20 3 30-3 8-10 13-17 18-4 3-10 0-10-5-3-11-3-22-2-32 1-8 3-16 10-21l3-1z"
+              />
+            </svg>
+            <span class="sr-only">Send</span>
           </button>
         </p>
         <div hidden x-bind:hidden="!submissionError" x-cloak class="font-bold text-red-800 lg:ml-32 space-y-2">
