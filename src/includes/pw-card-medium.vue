@@ -31,7 +31,7 @@ export default {
           https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill%2Cg_north%2Cw_730%2Ch_398%2Cf_auto%2Cq_70%2Cfl_progressive/v1661284312/one-offs/white-grungy-wall-textured-background.jpg 2x
         "
         data-frivolous-grunge
-        class="opacity-grunge mix-blend-multiply block w-full h-full object-cover"
+        class="opacity-grunge mix-blend-multiply absolute block w-full h-full object-cover"
         :style="`--opacity: ${this.randomOpacity}`"
       />
       <div class="isolate p-5">
