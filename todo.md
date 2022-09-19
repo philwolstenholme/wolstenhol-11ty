@@ -2,14 +2,11 @@
 
 ## Vite migration
 
-- [x] Tailwind purging
 - [ ] Serviceworker
-- [x] How to lazyload main.js
-- [ ] Allow custom inputs alongside Eleventy's [although this is less important now]
-- [½] HTML minification but also blurry Instagram placeholders
-- [x] Get back `<noscript><link rel="stylesheet" href="/assets/main.css" /></noscript>` for no-JS users (needed due to Critical CSS)
 - [ ] Move build dependencies to devDependencies
 - [ ] Review dependencies and remove unused
+- [ ] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
+- [ ] Make the 'read X more' code DRY/componentised
 
 ## CSS
 
