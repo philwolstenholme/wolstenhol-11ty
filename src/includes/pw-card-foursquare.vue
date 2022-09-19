@@ -1,5 +1,4 @@
 <script>
-import icon from './icon.vue';
 import spriteIcon from './sprite-icon.vue';
 import { format } from 'timeago.js';
 
@@ -24,7 +23,6 @@ export default {
   },
 
   components: {
-    icon,
     spriteIcon,
   },
 };
@@ -69,7 +67,13 @@ export default {
           :style="`--opacity: ${this.randomOpacity}`"
         />
         <div class="isolate flex items-center justify-center">
-          <icon name="mapMarkerAlt" class="w-8 h-8 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1"></icon>
+          <sprite-icon
+            role="presentation"
+            aria-hidden="true"
+            hash="asterisk"
+            class="icon w-8 h-8 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1"
+            :style="`--tw-rotate: ${Math.floor(Math.random() * 360) + 1}deg !important;`"
+          />
         </div>
         <div class="isolate foursquare-card__map-scrim"></div>
         <p class="absolute isolate left-4 text-white text-xs top-4 uppercase">{{ timeAgo }}</p>
