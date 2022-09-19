@@ -126,7 +126,7 @@ export default {
       </video>
     </a>
 
-    <div class="absolute z-10 font-bold text-xs p-2 bottom-0 left-0">
+    <div hidden class="absolute block z-10 font-bold text-xs p-2 bottom-0 left-0">
       <div
         class="card-music__caption relative inline-block p-1 px-2 text-yellow-300 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1 focus:underline"
       >
