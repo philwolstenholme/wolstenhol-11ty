@@ -476,7 +476,7 @@ document.addEventListener('alpine:init', () => {
             // jumping in once timeago has been loaded and applied to the element.
             this.timeagoVisible = true;
 
-            if (data?.name) {
+            if (this.data && this.data?.name) {
               // Now timeagoVisible the x-show display none will be removed and we can safely set
               // a CSS display property.
               this.$root.style.display = '';
