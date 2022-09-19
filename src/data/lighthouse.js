@@ -1,7 +1,8 @@
 require('dotenv').config();
 const Cache = require('@11ty/eleventy-cache-assets');
+const tryForCache = require('../../cache');
 
-module.exports = async function () {
+const getData = async function () {
   const params = new URLSearchParams();
   params.append('url', 'https://wolstenhol.me');
   params.append('key', process.env.PAGESPEED_API_KEY);
@@ -44,4 +45,8 @@ module.exports = async function () {
   return {
     categories: data,
   };
+};
+
+module.exports = async () => {
+  return tryForCache('lighthouse', getData);
 };

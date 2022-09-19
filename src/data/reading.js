@@ -7,8 +7,9 @@ const metascraper = require('metascraper')([require('metascraper-description')()
 const got = require('got');
 const _ = require('lodash');
 const { sampleSize } = require('lodash');
+const tryForCache = require('../../cache');
 
-module.exports = async function () {
+const getData = async function () {
   let mediumReadingListHtml = await Cache('https://philwolstenholme.medium.com/list/reading-list', {
     duration: '30m',
     type: 'text',
@@ -154,4 +155,8 @@ module.exports = async function () {
   const items = await Promise.all([...recentItems, ...sampleSize(olderItems, 6)].map(prepareItem));
 
   return items;
+};
+
+module.exports = async function () {
+  return tryForCache('reading', getData);
 };

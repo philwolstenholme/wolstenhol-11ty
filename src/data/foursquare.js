@@ -2,8 +2,9 @@ require('dotenv').config();
 const Cache = require('@11ty/eleventy-cache-assets');
 const _ = require('lodash');
 const urlSigner = require('gmaps-url-signer');
+const tryForCache = require('../../cache');
 
-module.exports = async function () {
+const getData = async function () {
   let json = await Cache(
     `https://api.foursquare.com/v2/users/81013017/venuelikes?oauth_token=${process.env.FOURSQUARE_OAUTH_TOKEN}&v=20151227&limit=100`,
     {
@@ -22,4 +23,8 @@ module.exports = async function () {
   });
 
   return _.sampleSize(places, 9);
+};
+
+module.exports = async () => {
+  return tryForCache('foursquare', getData);
 };

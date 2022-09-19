@@ -2,8 +2,9 @@ const Cache = require('@11ty/eleventy-cache-assets');
 const Parser = require('rss-parser');
 const truncate = require('node-truncate-string');
 const cheerio = require('cheerio');
+const tryForCache = require('../../cache');
 
-module.exports = async function () {
+const getData = async function () {
   const posts = [];
 
   // Load newer posts from dev.to.
@@ -48,4 +49,8 @@ module.exports = async function () {
   // });
 
   return posts;
+};
+
+module.exports = async () => {
+  return tryForCache('posts', getData);
 };

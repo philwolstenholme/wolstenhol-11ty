@@ -3,8 +3,9 @@ const Cache = require('@11ty/eleventy-cache-assets');
 const cloudinary = require('cloudinary').v2;
 const fetchBase64 = require('fetch-base64');
 const svgToMiniDataURI = require('mini-svg-data-uri');
+const tryForCache = require('../../cache');
 
-module.exports = async function () {
+const getData = async function () {
   let response = await Cache(
     'https://www.instagram.com/graphql/query/?query_hash=003056d32c2554def87228bc3fd9668a&variables={%22id%22:%2233932705%22,%22first%22:12}',
     {
@@ -96,4 +97,8 @@ module.exports = async function () {
   });
 
   return await Promise.all(posts);
+};
+
+module.exports = async () => {
+  return tryForCache('instagram', getData);
 };

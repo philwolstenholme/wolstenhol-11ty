@@ -1,7 +1,8 @@
 const SpotifyWebApi = require('spotify-web-api-node');
 var _ = require('lodash');
+const tryForCache = require('../../cache');
 
-module.exports = async function () {
+const getData = async function () {
   var credentials = {
     clientId: process.env.SPOTIFY_CLIENT_ID,
     clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
@@ -34,7 +35,7 @@ module.exports = async function () {
         return data.body.items;
       },
       function (err) {
-        console.error('Something went wrong!', err.message);
+        console.error('getMyTopArtists', err.message);
       }
     );
 
@@ -50,7 +51,7 @@ module.exports = async function () {
           artists[artist.name]['top_tracks'] = data.body.tracks[0];
         },
         function (err) {
-          console.log('Something went wrong!', err.message);
+          console.log('getArtistTopTracks', JSON.stringify(err));
         }
       )
     );
@@ -67,7 +68,7 @@ module.exports = async function () {
           artists[artist.name]['top_tracks']['features'] = data.body;
         },
         function (err) {
-          console.error('Something went wrong!', err.message);
+          console.error('getAudioFeaturesForTrack', err.message);
         }
       )
     );
@@ -117,4 +118,8 @@ module.exports = async function () {
   console.table({ 'Artists: ': Object.keys(artists).length, 'Genres: ': randomGenres.length });
 
   return { artists, randomGenres };
+};
+
+module.exports = async () => {
+  return tryForCache('spotify', getData);
 };
