@@ -106,3 +106,12 @@
 [[edge_functions]]
   path = "/api/fake-edge-messages-endpoint"
   function = "fake-edge-messages-endpoint"
+
+[[edge_functions]]
+  path = "/examples/example-banner"
+  function = "example-banner"
+
+[[headers]]
+  for = "/examples/example-banner"
+  [headers.values]
+    X-Robots-Tag = "noindex"
