@@ -59,17 +59,21 @@ export default {
         :is="media.type == 'photo' ? 'a' : 'div'"
         v-for="(media, index) in tweetMedia"
         v-bind:key="index"
-        :href="media.expanded_url"
+        :href="media.type == 'photo' ? media.expanded_url : null"
         class="group block relative w-full focus:outline-none"
         :class="{
           'aspect-ratio aspect-w-4 aspect-h-3': Object.keys(tweetMedia).length > 1,
         }"
         :data-lightbox-image="media.type == 'photo' ? media.media_url_https : null"
         x-data
-        x-init="$root.setAttribute('role', 'button'); $root.firstChild.innerText = 'Open tweet media in modal'"
-        x-on:click.prevent="$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));"
-        x-on:keydown.enter.prevent="$root.click()"
-        x-on:keydown.space="$root.click()"
+        :x-init="
+          media.type == 'photo' ? `$root.setAttribute('role', 'button'); $root.firstChild.innerText = 'Open tweet media in modal'` : null
+        "
+        :x-on:click-alpine-prevent="
+          media.type == 'photo' ? `$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null
+        "
+        :x-on:keydown-alpine-enter-alpine-prevent="media.type == 'photo' ? `$root.click()` : null"
+        :x-on:keydown-alpine-space="media.type == 'photo' ? `$root.click()` : null"
       >
         <span class="sr-only">Tweet media</span>
         <br class="hidden" />
