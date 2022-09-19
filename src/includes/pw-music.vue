@@ -40,8 +40,7 @@ export default {
       >
         <span class="pulsating-circle h-3 inline-block rounded-full w-3 flex-shrink-0"></span>&nbsp;
         <p class="md:truncate">
-          <span class="spotify-live__label" x-bind:datetime="data.playedAt" x-ref="label"></span>
-          :
+          <span class="spotify-live__label" x-bind:datetime="data.playedAt" x-ref="label"></span>:
           <output>
             <span class="sr-only">I just finished listening to</span>
             <a x-bind:href="data.trackUrl" href="#" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"> </a>
