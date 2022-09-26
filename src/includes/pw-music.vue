@@ -34,8 +34,8 @@ export default {
         x-cloak
         class="spotify-live items-center mt-4 md:mt-0 md:pl-5 text-sm"
         x-bind:class="{ 
-          'flex': data?.name !== undefined || timeagoVisible,
-          'hidden': data?.name === undefined || !timeagoVisible
+          'flex': data?.name && timeagoVisible,
+          'hidden': !data?.name || !timeagoVisible
         }"
         style="display: none !important"
         x-data="PwSpotifyLive()"
