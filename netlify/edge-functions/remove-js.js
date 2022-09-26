@@ -1,5 +1,15 @@
 import { HTMLRewriter } from 'https://ghuc.cc/worker-tools/html-rewriter/index.ts';
 
+class HeadHandler {
+  constructor(data) {
+    this.urlToTransform = data.urlToTransform;
+  }
+
+  element(element) {
+    element.prepend(`<base href="${this.urlToTransform}" />`, { html: true });
+  }
+}
+
 class ScriptRemover {
   element(element) {
     element.remove();
@@ -116,10 +126,19 @@ class TitleRewriter {
 }
 
 class AnchorRewriter {
+  constructor(data) {
+    this.noJsUrl = data.noJsUrl;
+  }
+
   element(element) {
     if (element.hasAttribute('href') && element.getAttribute('href') === 'no-js') {
       // Prevent the no-JS page from linking to itself.
       element.setAttribute('href', '../no-js');
+    }
+
+    if (element.hasAttribute('href') && element.getAttribute('href').startsWith('#')) {
+      // Prevent in-page fragment anchors from reloading the page due to the <base> tag.
+      element.setAttribute('href', `${this.noJsUrl}${element.getAttribute('href')}`);
     }
   }
 }
@@ -137,11 +156,12 @@ export default async (request, context) => {
   const response = await fetch(urlToTransform);
 
   const transformedResponse = new HTMLRewriter()
+    .on('head', new HeadHandler({ urlToTransform }))
     .on('script', new ScriptRemover())
     .on('noscript', new NoScriptContentUnwrapper())
     .on('title', new TitleRewriter())
     .on('*', new JSAttributeRemover())
-    .on('a', new AnchorRewriter())
+    .on('a', new AnchorRewriter({ noJsUrl: request.url }))
     .transform(response);
 
   transformedResponse.headers.set('X-Robots-Tag', 'noindex');

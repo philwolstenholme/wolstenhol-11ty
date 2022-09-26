@@ -138,7 +138,7 @@ export default {
           <video
             x-ref="video"
             class="inset-0 w-full h-full object-cover transition-opacity group-hocus:opacity-50"
-            poster="cloudinaryUrl"
+            :poster="cloudinaryUrl"
             muted
             loop
             autoplay
