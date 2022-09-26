@@ -477,8 +477,8 @@ document.addEventListener('alpine:init', () => {
             this.timeagoVisible = true;
 
             if (this.data && this.data?.name) {
-              // Now timeagoVisible the x-show display none will be removed and we can safely set
-              // a CSS display property.
+              // Now the x-show display none will be removed and we can remove the
+              // display property so that the flex utility class kicks in
               this.$root.style.display = '';
             }
           });

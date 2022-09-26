@@ -37,6 +37,7 @@ export default {
         x-data="PwSpotifyLive()"
         x-intersect.margin.200px:enter="startInterval"
         x-intersect:leave="stopInterval"
+        x-show="!data || !data.name || !timeagoVisible"
       >
         <span class="pulsating-circle h-3 inline-block rounded-full w-3 flex-shrink-0"></span>&nbsp;
         <p class="md:truncate">
