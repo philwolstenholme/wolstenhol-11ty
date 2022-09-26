@@ -85,37 +85,37 @@
           const user = netlifyIdentity.currentUser();
           await netlifyIdentity.refresh();
 
-          const functionUrl = new URL(window.location.origin + '/api/submit-reading-item');
-          functionUrl.search = new URLSearchParams({ title, url, skipTweet }).toString();
-
-          fetch(functionUrl.toString(), {
-            method: 'GET',
+          const res = await fetch(window.location.origin + '/api/submit-reading-item', {
+            method: 'POST',
+            body: JSON.stringify({ title, url, skipTweet }),
             headers: {
               Authorization: `Bearer ${user.token.access_token}`,
             },
-          })
-            .then(response => {
-              if (!response.ok) {
-                alert('Failed with HTTP code ' + response.status);
-                throw new Error('Failed with HTTP code ' + response.status);
-              }
-              return response;
-            })
-            .then(response => response.json())
-            .then(data => {
-              alert(`Posted ${data.records[0].fields.title}!`);
+          });
 
-              try {
-                window.close();
-                window.close('','_parent','');
-              }
-              catch(error) {
-                form.target.reset();
-              }
-            })
-            .catch(() => {
-              alert('Ooops! Something went wrong!');
-            });
+          if (!res.ok) {
+            if (data.message) {
+              alert(`${res.status}: ${data.message}`);
+              throw new Error(`${res.status}: ${data.message}`);
+              return;
+            } else {
+              alert(`Failed with HTTP code ${res.status}`);
+              throw new Error(`Failed with HTTP code ${res.status}`);
+              return;
+            }
+          }
+
+          const data = await res.json();
+
+          alert(`Posted ${data.records[0].fields.title}!`);
+
+          try {
+            window.close();
+            window.close('','_parent','');
+          }
+          catch(error) {
+            form.target.reset();
+          }
         }"
       >
         <label for="title">

@@ -1,8 +1,16 @@
 const fetch = require('node-fetch');
 
 exports.handler = async function (event, context) {
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 501,
+      body: JSON.stringify({ message: 'Not Implemented' }),
+      headers: { 'content-type': 'application/json' },
+    };
+  }
+
   const { user } = context.clientContext;
-  const { title, url, skipTweet } = event.queryStringParameters;
+  const { title, url, skipTweet } = JSON.parse(event.body);
 
   if (!user) {
     console.error('No authentication details!');
@@ -37,6 +45,7 @@ exports.handler = async function (event, context) {
       },
       body: body,
     });
+
     const data = await response.json();
 
     console.log('coming back: ', JSON.stringify(data));
