@@ -111,6 +111,10 @@
   path = "/examples/example-banner"
   function = "example-banner"
 
+[[edge_functions]]
+  path = "/*"
+  function = "remove-js"
+
 [[headers]]
   for = "/examples/example-banner"
   [headers.values]
