@@ -51,7 +51,7 @@
   force = true
 
 [[headers]]
-  for = "/*" # This defines which paths this specific [[headers]] block will cover.
+  for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
@@ -125,3 +125,7 @@
   for = "/examples/example-banner"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+[[edge_functions]]
+  path = "/*"
+  function = "strip-non-html-headers"
