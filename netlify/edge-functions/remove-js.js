@@ -1,15 +1,5 @@
 import { HTMLRewriter } from 'https://ghuc.cc/worker-tools/html-rewriter/index.ts';
 
-class HeadHandler {
-  constructor(data) {
-    this.urlToTransform = data.urlToTransform;
-  }
-
-  element(element) {
-    element.prepend(`<base href="${this.urlToTransform}" />`, { html: true });
-  }
-}
-
 class ScriptRemover {
   element(element) {
     element.remove();
@@ -145,18 +135,15 @@ class AnchorRewriter {
 
 export default async (request, context) => {
   const url = new URL(request.url);
-
-  if (!url.pathname.endsWith('/no-js')) {
+  if (url.searchParams.get('noJs')) {
     return;
   }
 
-  const urlToTransform = request.url.replace('/no-js', '');
-  context.log('Rustling up a no-JS version of', urlToTransform);
+  context.log('Rustling up a no-JS version of', request.url);
 
-  const response = await fetch(urlToTransform);
+  const response = await context.next();
 
   const transformedResponse = new HTMLRewriter()
-    .on('head', new HeadHandler({ urlToTransform }))
     .on('script', new ScriptRemover())
     .on('noscript', new NoScriptContentUnwrapper())
     .on('title', new TitleRewriter())
@@ -165,7 +152,7 @@ export default async (request, context) => {
     .transform(response);
 
   transformedResponse.headers.set('X-Robots-Tag', 'noindex');
-  transformedResponse.headers.set('Link', `<${urlToTransform}>; rel="canonical"`);
+  transformedResponse.headers.set('Link', `<${url.href.replace(url.search, '')}>; rel="canonical"`);
 
   return transformedResponse;
 };
