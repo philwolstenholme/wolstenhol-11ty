@@ -115,27 +115,10 @@ class TitleRewriter {
   }
 }
 
-class AnchorRewriter {
-  constructor(data) {
-    this.noJsUrl = data.noJsUrl;
-  }
-
-  element(element) {
-    if (element.hasAttribute('href') && element.getAttribute('href') === 'no-js') {
-      // Prevent the no-JS page from linking to itself.
-      element.setAttribute('href', '../no-js');
-    }
-
-    if (element.hasAttribute('href') && element.getAttribute('href').startsWith('#')) {
-      // Prevent in-page fragment anchors from reloading the page due to the <base> tag.
-      element.setAttribute('href', `${this.noJsUrl}${element.getAttribute('href')}`);
-    }
-  }
-}
-
 export default async (request, context) => {
   const url = new URL(request.url);
-  if (url.searchParams.get('noJs')) {
+
+  if (!url.searchParams.has('no-js')) {
     return;
   }
 
@@ -148,7 +131,6 @@ export default async (request, context) => {
     .on('noscript', new NoScriptContentUnwrapper())
     .on('title', new TitleRewriter())
     .on('*', new JSAttributeRemover())
-    .on('a', new AnchorRewriter({ noJsUrl: request.url }))
     .transform(response);
 
   transformedResponse.headers.set('X-Robots-Tag', 'noindex');
