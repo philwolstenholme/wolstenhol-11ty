@@ -44,6 +44,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "https://wolstenhol.me/no-js"
+  to = "https://wolstenhol.me/?no-js"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*" # This defines which paths this specific [[headers]] block will cover.
   [headers.values]
