@@ -195,12 +195,6 @@ a.focus\:not-sr-only:focus[href='#content'] {
   padding: 0.5rem !important;
 }
 
-body main section + section:focus-within,
-.contact-form-container:focus-within {
-  /* Commenting this out for now as it causes Chrome to crash */
-  /* content-visibility: visible; */
-}
-
 .tweets-grid .scroll-saver ~ .tweets-grid__item,
 ul .scroll-saver ~ .reading-list__item {
   @media (max-width: 767px) {
