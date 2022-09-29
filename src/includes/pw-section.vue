@@ -4,13 +4,16 @@ export default {
     sectionKey: {
       type: String,
     },
+    sectionInnerClass: {
+      type: String,
+    },
   },
 };
 </script>
 
 <template>
   <section :data-section="sectionKey" class="breakout">
-    <div class="mx-auto section__inner">
+    <div class="mx-auto section__inner" :class="sectionInnerClass">
       <slot></slot>
     </div>
   </section>
