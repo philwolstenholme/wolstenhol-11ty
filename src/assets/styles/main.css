@@ -201,7 +201,7 @@ body main section + section:focus-within,
   /* content-visibility: visible; */
 }
 
-ul .scroll-saver ~ .tweets-grid__item,
+.tweets-grid .scroll-saver ~ .tweets-grid__item,
 ul .scroll-saver ~ .reading-list__item {
   @media (max-width: 767px) {
     display: none !important;
