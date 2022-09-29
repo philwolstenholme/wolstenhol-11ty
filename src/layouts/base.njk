@@ -25,12 +25,12 @@
       }
     </style>
   </head>
-  <body class="text-gray-900 leading-normal">
+  <body class="text-gray-900 leading-normal connection--unknown">
     <script>
-      function getConnection() {
-        return navigator.connection || navigator.mozConnection || navigator.webkitConnection || navigator.msConnection;
+      if (navigator.connection && navigator.connection.effectiveType) {
+        document.body.classList.remove('connection--unknown');
+        document.body.classList.add(`connection--${navigator.connection.effectiveType}`);
       }
-      document.body.classList.add(`connection--${getConnection().effectiveType ?? 'unknown'}`);
     </script>
     <script>
       let root = document.documentElement;

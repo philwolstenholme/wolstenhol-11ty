@@ -216,6 +216,6 @@ html.lightbox-open {
   opacity: var(--opacity, 0.3);
 }
 
-body:not(.connection--4g) [data-frivolous-grunge] {
+body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
   display: none !important;
 }
