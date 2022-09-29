@@ -20,10 +20,17 @@
        */
       body main section + section {
         content-visibility: auto;
-        /* Add vertical space for each "phantom" */
         contain-intrinsic-size: 10px 667px;
       }
     </style>
+    <noscript>
+      <style>
+        body main section + section {
+          contain-intrinsic-size: unset;
+          content-visibility: unset;
+        }
+      </style>
+    </noscript>
   </head>
   <body class="text-gray-900 leading-normal connection--unknown">
     <script>
