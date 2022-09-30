@@ -34,8 +34,8 @@ export default {
   margin-top: calc(var(--outline-offset, var(--outline-size)) * 2);
 }
 .scroller.scroller--no-interaction .scroller-item:not(:nth-child(-n + 3)) {
-  // Commenting this out for now as it causes jumpiness when cards don't
-  // have a fixed height, e.g. blog posts
-  // content-visibility: auto;
+  /* Commenting this out for now as it causes jumpiness when cards don't
+  have a fixed height, e.g. blog posts
+  content-visibility: auto; */
 }
 </style>
