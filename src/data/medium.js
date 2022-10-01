@@ -14,6 +14,10 @@ const getData = async function () {
   });
 
   devto.forEach(item => {
+    if (item.title.startsWih(`What I've been reading`)) {
+      return;
+    }
+
     posts.push({
       title: item.title,
       url: item.url,
