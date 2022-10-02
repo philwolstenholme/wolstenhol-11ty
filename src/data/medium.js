@@ -14,7 +14,7 @@ const getData = async function () {
   });
 
   devto.forEach(item => {
-    if (item.title.startsWih(`What I've been reading`)) {
+    if (item.title.startsWith(`What I've been reading`)) {
       return;
     }
 
