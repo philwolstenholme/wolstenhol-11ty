@@ -10,6 +10,9 @@ exports.handler = async function (event, context) {
   }
 
   const { user } = context.clientContext;
+
+  console.log('event body', event.body);
+
   const { title, url, skipTweet } = JSON.parse(event.body);
 
   if (!user) {
