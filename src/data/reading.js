@@ -157,6 +157,4 @@ const getData = async function () {
   return items;
 };
 
-module.exports = async function () {
-  return tryForCache('reading', getData);
-};
+module.exports = tryForCache('reading', getData);

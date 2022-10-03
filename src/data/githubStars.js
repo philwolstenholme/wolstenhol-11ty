@@ -16,6 +16,4 @@ const getData = async function () {
   return _.shuffle(response).slice(0, 12);
 };
 
-module.exports = async () => {
-  return tryForCache('github-stars', getData);
-};
+module.exports = tryForCache('github-stars', getData);

@@ -99,6 +99,4 @@ const getData = async function () {
   return await Promise.all(posts);
 };
 
-module.exports = async () => {
-  return tryForCache('instagram', getData);
-};
+module.exports = tryForCache('instagram', getData);

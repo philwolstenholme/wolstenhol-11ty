@@ -19,6 +19,4 @@ const getData = async function () {
   return response.filter(entry => !entry.full_text.startsWith('📚 Added'));
 };
 
-module.exports = async () => {
-  return tryForCache('twitter', getData);
-};
+module.exports = tryForCache('twitter', getData);

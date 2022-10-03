@@ -120,6 +120,4 @@ const getData = async function () {
   return { artists, randomGenres };
 };
 
-module.exports = async () => {
-  return tryForCache('spotify', getData);
-};
+module.exports = tryForCache('spotify', getData);

@@ -55,6 +55,4 @@ const getData = async function () {
   return posts;
 };
 
-module.exports = async () => {
-  return tryForCache('posts', getData);
-};
+module.exports = tryForCache('posts', getData);

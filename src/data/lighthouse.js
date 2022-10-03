@@ -47,6 +47,4 @@ const getData = async function () {
   };
 };
 
-module.exports = async () => {
-  return tryForCache('lighthouse', getData);
-};
+module.exports = tryForCache('lighthouse', getData);

@@ -25,6 +25,4 @@ const getData = async function () {
   return _.sampleSize(places, 9);
 };
 
-module.exports = async () => {
-  return tryForCache('foursquare', getData);
-};
+module.exports = tryForCache('foursquare', getData);
