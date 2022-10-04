@@ -623,9 +623,9 @@ console.info(
 `
 );
 
-loadjs('//instant.page/5.1.1', 'instantPage', {
+loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/instant.page@5.1.1/instantpage.js', 'instantPage', {
   before: (path, el) => {
-    el.integrity = 'sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq';
+    el.integrity = 'sha256-aHQ9cMB6I1ChFkcoMA56Loxh9OHORS98dK/iLbGzGmU=';
     el.type = 'module';
     el.crossOrigin = 'anonymous';
   },
