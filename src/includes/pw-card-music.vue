@@ -98,6 +98,7 @@ export default {
       x-on:click.prevent="musicCardButtonPress($dispatch)"
       x-on:keydown.space.prevent="musicCardButtonPress($dispatch)"
       x-on:keydown.enter.prevent="musicCardButtonPress($dispatch)"
+      data-instant
     >
       <div class="absolute z-10 p-2 top-0 left-0">
         <span class="sr-only">Play 30 second preview of {{ music.name }}</span>
