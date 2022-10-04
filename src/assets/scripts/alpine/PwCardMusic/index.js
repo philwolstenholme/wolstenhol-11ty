@@ -4,6 +4,8 @@ document.addEventListener('alpine:init', () => {
     progress: 0,
     previewUrl: $root.dataset.previewUrl,
     index: $root.dataset.index,
+    artist: $root.dataset.artist,
+    track: $root.dataset.track,
     init() {
       this.$nextTick(() => {
         if (this.$refs['playButton']) {
@@ -19,6 +21,8 @@ document.addEventListener('alpine:init', () => {
         $dispatch('play-preview', {
           src: this.previewUrl,
           index: this.index,
+          artist: this.artist,
+          track: this.track,
         });
       } else {
         $dispatch('stop-preview', {

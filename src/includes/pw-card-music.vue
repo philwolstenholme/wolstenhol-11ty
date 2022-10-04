@@ -60,6 +60,8 @@ export default {
   <article
     :data-index="index"
     :data-preview-url="previewUrl"
+    :data-artist="music.name"
+    :data-track="music.top_tracks.name"
     x-data="PwCardMusic($root)"
     x-bind:class="{ isPlaying: isPlaying }"
     x-on:playing-preview.window="playingPreview($event)"
