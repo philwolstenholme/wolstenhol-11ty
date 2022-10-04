@@ -13,7 +13,7 @@ exports.handler = async function (event, context) {
 
   console.log('event body', event.body);
 
-  const { title, url, skipTweet } = JSON.parse(event.body);
+  const { title, url, skipTweet, commentary } = JSON.parse(event.body);
 
   if (!user) {
     console.error('No authentication details!');
@@ -33,6 +33,7 @@ exports.handler = async function (event, context) {
             title,
             url,
             skipTweet,
+            commentary,
           },
         },
       ],
@@ -71,6 +72,8 @@ exports.handler = async function (event, context) {
     body: JSON.stringify({
       title,
       url,
+      skipTweet,
+      commentary,
     }),
   };
 };

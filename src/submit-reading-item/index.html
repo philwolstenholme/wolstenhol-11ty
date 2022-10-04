@@ -39,6 +39,7 @@
         url: '',
         text: '',
         skipTweet: false,
+        commentary: '',
         currentUser: {}
       }"
       x-init="() => {
@@ -87,7 +88,7 @@
 
           const res = await fetch(window.location.origin + '/api/submit-reading-item', {
             method: 'POST',
-            body: JSON.stringify({ title, url, skipTweet }),
+            body: JSON.stringify({ title, url, skipTweet, commentary }),
             headers: {
               Authorization: `Bearer ${user.token.access_token}`,
             },
@@ -131,6 +132,11 @@
         <label for="skipTweet">
           Skip tweeting about this one
           <input x-model="skipTweet" type="checkbox" id="skipTweet" name="skipTweet" />
+        </label>
+
+        <label for="commentary">
+          Commentary
+          <textarea x-model="commentary" id="commentary" name="commentary" rows="5"></textarea>
         </label>
 
         <button type="submit" :disabled="!currentUser">Submit</button>
