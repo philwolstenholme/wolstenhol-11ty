@@ -175,7 +175,7 @@ export default {
       <template v-if="!post.videos">
         <div class="grid grid-stack">
           <div class="no-js:hidden w-full h-full grid grid-stack">
-            <img alt="" :src="post.svgPlaceholder" class="block w-full h-full" />
+            <img alt="" :src="post.svgPlaceholder" class="block w-full h-full" width="368" height="368" />
             <div class="flex items-center justify-center">
               <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
               <svg x-ignore width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">

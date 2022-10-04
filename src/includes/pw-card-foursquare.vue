@@ -68,6 +68,7 @@ export default {
         />
         <div class="isolate flex items-center justify-center">
           <sprite-icon
+            display="none"
             role="presentation"
             aria-hidden="true"
             hash="asterisk"
