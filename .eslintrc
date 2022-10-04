@@ -3,7 +3,7 @@
     "node": true
   },
   "extends": ["plugin:prettier/recommended", "prettier"],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": ["babel", "prettier"],
   "rules": {
     "prettier/prettier": "error"
