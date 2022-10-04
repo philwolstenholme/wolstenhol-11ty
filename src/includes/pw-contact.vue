@@ -201,15 +201,22 @@ export default {
             <span class="sr-only">Send</span>
           </button>
         </p>
-        <div hidden x-bind:hidden="!submissionError" x-cloak class="font-bold text-red-800 lg:ml-32 space-y-2">
+        <div
+          x-ref="submissionError"
+          tabindex="-1"
+          hidden
+          x-bind:hidden="!submissionError"
+          x-cloak
+          class="font-bold text-red-800 lg:ml-32 space-y-2"
+        >
           <p>Oops, it looks like there's been some sort of error:</p>
           <div
             x-text="submissionError"
             class="bg-black block text-base font-mono p-5 rounded shadow-hard text-green-300 w-full"
             rows="5"
             readonly
-            x-ref="error"
-            x-on:click="window.getSelection().selectAllChildren($refs.error);"
+            x-ref="submissionError"
+            x-on:click="window.getSelection().selectAllChildren($refs.submissionError);"
           ></div>
         </div>
         <div hidden aria-hidden="true">
@@ -219,7 +226,7 @@ export default {
           </label>
         </div>
       </form>
-      <div hidden x-bind:hidden="!submitted" x-cloak class="space-y-4 text-xl max-w-3xl">
+      <div x-ref="submitted" tabindex="-1" hidden x-bind:hidden="!submitted" x-cloak class="space-y-4 text-xl max-w-3xl">
         <p class="text-3xl font-bold font-serif text-green-700"><span aria-hidden="true">✅&nbsp;</span>Thanks!</p>
         <p class="text-base">Your message has been sent.</p>
       </div>

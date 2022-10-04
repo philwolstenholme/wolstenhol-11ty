@@ -171,10 +171,17 @@ document.addEventListener('alpine:init', () => {
         .then(() => {
           this.submitted = true;
           this.submissionError = null;
+          this.$nextTick(() => {
+            this.$refs.submitted.focus();
+          });
         })
         .catch(error => {
           this.submissionError = JSON.stringify(error, null, 2);
           console.error('Contact form error: ', error);
+
+          this.$nextTick(() => {
+            this.$refs.submissionError.focus();
+          });
         });
     },
   }));
