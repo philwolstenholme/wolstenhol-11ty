@@ -77,6 +77,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/typography": "^0.3.1",
     "alpinejs": "^3.10.3",
+    "async-alpine": "^0.5.3",
     "cheerio": "^1.0.0-rc.12",
     "cloudinary": "^1.31.0",
     "fetch-base64": "^2.1.2",

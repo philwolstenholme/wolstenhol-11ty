@@ -31,7 +31,13 @@ export default {
       <a href="https://twitter.com/messages/compose?recipient_id=38276082" class="underline">direct message on Twitter</a> or drop me an
       email via this contact form (all fields are required).
     </p>
-    <div x-data="PwContact" id="contact-form-component" class="contact-form-container contain-content mt-12 space-y-8">
+    <div
+      x-ignore
+      ax-load="visible"
+      x-data="PwContact"
+      id="contact-form-component"
+      class="contact-form-container contain-content mt-12 space-y-8"
+    >
       <div
         role="alert"
         aria-labelledby="contact-form-validation-problems"

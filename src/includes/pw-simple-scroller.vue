@@ -1,5 +1,5 @@
 <template>
-  <div data-scroller role="group" class="relative" :data-scroll-full="scrollFull" x-data="PwSimpleScroller($root)">
+  <div data-scroller role="group" class="relative" :data-scroll-full="scrollFull" x-ignore ax-load="idle" x-data="PwSimpleScroller($root)">
     <button
       hidden
       type="button"

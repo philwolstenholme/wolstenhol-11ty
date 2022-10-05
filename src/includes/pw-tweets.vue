@@ -22,6 +22,8 @@ export default {
 <template>
   <pw-section
     section-key="tweets"
+    x-ignore
+    ax-load="visible"
     x-data="PwTweets"
     x-intersect.margin.200px.once="colcade(); loadMore(); twitterIntents()"
     x-on:resize.window.debounce="colcade()"

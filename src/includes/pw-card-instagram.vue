@@ -115,6 +115,8 @@ export default {
 <template comments>
   <figure
     tabindex="0"
+    x-ignore
+    ax-load="visible"
     x-data="PwCardInstagram($root)"
     v-bind:x-on:mouseenter="onMousenterEvents"
     v-bind:x-on:mouseenter-alpine-once="onMousenterOnceEvents"

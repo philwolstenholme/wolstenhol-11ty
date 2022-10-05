@@ -38,6 +38,8 @@ export default {
           'hidden': !data?.name || !timeagoVisible
         }"
         style="display: none !important"
+        x-ignore
+        ax-load="visible"
         x-data="PwSpotifyLive()"
         x-intersect.margin.200px:enter="startInterval"
         x-intersect:leave="stopInterval"
@@ -57,7 +59,7 @@ export default {
       >According to the Spotify API, I've been listening to a bit of
       <template v-for="(genre, index) in genres">
         <template v-if="index + 1 == genres.length"> and </template
-        ><mark v-bind:key="index" class="group cursor-help" tabindex="0" x-data="PwGenre" x-on:click="toggle()"
+        ><mark v-bind:key="index" class="group cursor-help" tabindex="0" x-ignore ax-load="visible" x-data="PwGenre" x-on:click="toggle()"
           >{{ genre.genre }}<span class="hidden group-focus:inline"> ({{ genre.artist }})</span></mark
         ><template v-if="index < genres.length - 2">, </template></template
       >
@@ -93,6 +95,8 @@ export default {
       class="inline sr-only"
       x-init="$root.classList.remove('inline')"
       x-bind:src="src"
+      x-ignore
+      ax-load="idle"
       x-data="PwMusic($store)"
       x-on:play-preview.window="play($event.detail, $root)"
       x-on:stop-preview.window="pause($root)"

@@ -1,19 +1,9 @@
 import 'wicg-inert';
+import AsyncAlpine from 'async-alpine';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
 import lozad from 'lozad';
 import loadjs from 'loadjs';
-
-import './alpine/PwSimpleScroller';
-import './alpine/PwHeader';
-import './alpine/PwCardMusic';
-import './alpine/PwMusic';
-import './alpine/PwLightbox';
-import './alpine/PwTweets';
-import './alpine/PwGenre';
-import './alpine/PwCardInstagram';
-import './alpine/PwContact';
-import './alpine/PwSpotifyLive';
 
 // import CssNakedDay from './css-naked-day.js';
 // CssNakedDay();
@@ -37,6 +27,19 @@ document.addEventListener('alpine:init', () => {
     isPlaying: false,
   });
 });
+
+AsyncAlpine.init(Alpine)
+  .data('PwCardInstagram', () => import('./alpine/PwCardInstagram'))
+  .data('PwCardMusic', () => import('./alpine/PwCardMusic'))
+  .data('PwContact', () => import('./alpine/PwContact'))
+  .data('PwGenre', () => import('./alpine/PwGenre'))
+  .data('PwHeader', () => import('./alpine/PwHeader'))
+  .data('PwLightbox', () => import('./alpine/PwLightbox'))
+  .data('PwMusic', () => import('./alpine/PwMusic'))
+  .data('PwSimpleScroller', () => import('./alpine/PwSimpleScroller'))
+  .data('PwSpotifyLive', () => import('./alpine/PwSpotifyLive'))
+  .data('PwTweets', () => import('./alpine/PwTweets'))
+  .start();
 
 Alpine.start();
 

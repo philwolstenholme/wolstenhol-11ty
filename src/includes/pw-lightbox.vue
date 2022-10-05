@@ -1,6 +1,8 @@
 <template>
   <dialog
     class="bg-black p-4 transform shadow-2xl select-none"
+    x-ignore
+    ax-load="idle"
     x-data="PwLightbox"
     x-on:pw-lightbox-open.window="onOpen($event)"
     x-on:close="onClose()"
