@@ -163,18 +163,7 @@
         });
       });
     </script>
-    <script type="module">
-      window.addEventListener('scroll', loadJsOnInteraction, { passive: true, once: true });
-      window.addEventListener('touchstart', loadJsOnInteraction, { passive: true, once: true });
-      window.addEventListener('mousemove', loadJsOnInteraction, { passive: true, once: true });
-
-      async function loadJsOnInteraction() {
-        await import('/assets/scripts/main.js');
-        window.removeEventListener('scroll', loadJsOnInteraction);
-        window.removeEventListener('touchstart', loadJsOnInteraction);
-        window.removeEventListener('mousemove', loadJsOnInteraction);
-      }
-    </script>
+    <script type="module" src="/assets/scripts/main.js"></script>
     <script>
       if (
         document.location.hash.includes('access_token') &&
