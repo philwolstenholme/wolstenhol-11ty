@@ -56,6 +56,10 @@ export default {
         attributes.push('$refs.video.pause()');
       }
 
+      if (this.post.images) {
+        attributes.push('preloadImage($el.dataset.lightboxImage)');
+      }
+
       return attributes.length ? attributes.join(';') : null;
     },
 
@@ -86,6 +90,10 @@ export default {
         attributes.push('$refs.video.pause()');
       }
 
+      if (this.post.images) {
+        attributes.push('preloadImage($el.dataset.lightboxImage)');
+      }
+
       return attributes.length ? attributes.join(';') : null;
     },
 
@@ -108,6 +116,16 @@ export default {
 
       return attributes.length ? attributes.join(';') : null;
     },
+
+    onTouchstartEvents() {
+      const attributes = [];
+
+      if (this.post.images) {
+        attributes.push('preloadImage($el.dataset.lightboxImage)');
+      }
+
+      return attributes.length ? attributes.join(';') : null;
+    },
   },
 };
 </script>
@@ -124,6 +142,7 @@ export default {
     v-bind:x-on:focus="onFocusEvents"
     v-bind:x-on:focus-alpine-once="onFocusOnceEvents"
     v-bind:x-on:blur="onBlurEvents"
+    v-bind:x-on:touchstart="onTouchstartEvents"
     class="contain-content group relative flex rounded overflow-hidden card-instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
     v-bind:class="{ 'card-instagram--party': isParty }"
     v-bind:data-lightbox-image="
