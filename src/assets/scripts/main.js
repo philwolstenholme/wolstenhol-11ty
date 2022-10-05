@@ -2,18 +2,13 @@ import 'wicg-inert';
 import AsyncAlpine from 'async-alpine';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
-import lozad from 'lozad';
 import loadjs from 'loadjs';
+import './utils/request-idle-callback.js';
 
 // import CssNakedDay from './css-naked-day.js';
 // CssNakedDay();
 
 window.Alpine = Alpine;
-
-window.lozad = lozad('[data-lozad]', {
-  enableAutoReload: true,
-});
-window.lozad.observe();
 
 Alpine.plugin(intersect);
 Alpine.plugin(focus);
@@ -59,10 +54,20 @@ console.info(
 `
 );
 
-loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/instant.page@5.1.1/instantpage.js', 'instantPage', {
-  before: (path, el) => {
-    el.integrity = 'sha256-aHQ9cMB6I1ChFkcoMA56Loxh9OHORS98dK/iLbGzGmU=';
-    el.type = 'module';
-    el.crossOrigin = 'anonymous';
-  },
+requestIdleCallback(async () => {
+  const { default: lozad } = await import('lozad');
+  window.lozad = lozad('[data-lozad]', {
+    enableAutoReload: true,
+  });
+  window.lozad.observe();
+});
+
+requestIdleCallback(() => {
+  loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/instant.page@5.1.1/instantpage.js', 'instantPage', {
+    before: (path, el) => {
+      el.integrity = 'sha256-aHQ9cMB6I1ChFkcoMA56Loxh9OHORS98dK/iLbGzGmU=';
+      el.type = 'module';
+      el.crossOrigin = 'anonymous';
+    },
+  });
 });
