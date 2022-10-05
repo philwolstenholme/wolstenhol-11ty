@@ -142,7 +142,7 @@ export default {
     v-bind:x-on:focus="onFocusEvents"
     v-bind:x-on:focus-alpine-once="onFocusOnceEvents"
     v-bind:x-on:blur="onBlurEvents"
-    v-bind:x-on:touchstart="onTouchstartEvents"
+    v-bind:x-on:touchstart-alpine-passive="onTouchstartEvents"
     class="contain-content group relative flex rounded overflow-hidden card-instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
     v-bind:class="{ 'card-instagram--party': isParty }"
     v-bind:data-lightbox-image="
