@@ -73,7 +73,7 @@
         hidden
         x-id="['theres-more']"
         x-bind:inert="!overflowing.right"
-        class="no-js:hidden js:inline-block lg:float-right font-bold mt-3 ml-3 rounded text-gray-500 text-sm transition-all transform-gpu duration-300"
+        class="no-js:hidden js:inline-block lg:float-right font-bold mt-3 ml-3 rounded text-gray-600 text-sm transition-all transform-gpu duration-300"
         x-bind:class="{
         'opacity-0 translate-y-4': !overflowing.right
       }"
