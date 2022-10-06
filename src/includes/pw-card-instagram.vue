@@ -67,7 +67,7 @@ export default {
       const attributes = [];
 
       if (this.isParty) {
-        attributes.push('confetti($root)');
+        attributes.push('confetti()');
       }
 
       return attributes.length ? attributes.join(';') : null;
@@ -101,7 +101,7 @@ export default {
       const attributes = [];
 
       if (this.isParty) {
-        attributes.push('confetti($root)');
+        attributes.push('confetti()');
       }
 
       return attributes.length ? attributes.join(';') : null;
