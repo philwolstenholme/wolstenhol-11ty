@@ -1,6 +1,8 @@
 import AsyncAlpine from 'async-alpine';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
+import loadjs from 'loadjs';
+
 import './utils/request-idle-callback.js';
 
 // import CssNakedDay from './css-naked-day.js';
@@ -61,7 +63,6 @@ requestIdleCallback(async () => {
 });
 
 requestIdleCallback(async () => {
-  const { default: loadjs } = await import('loadjs');
   loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/instant.page@5.1.1/instantpage.js', 'instantPage', {
     before: (path, el) => {
       el.integrity = 'sha256-aHQ9cMB6I1ChFkcoMA56Loxh9OHORS98dK/iLbGzGmU=';
