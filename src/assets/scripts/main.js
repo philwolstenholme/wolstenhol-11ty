@@ -1,4 +1,3 @@
-import 'wicg-inert';
 import AsyncAlpine from 'async-alpine';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
@@ -70,4 +69,8 @@ requestIdleCallback(() => {
       el.crossOrigin = 'anonymous';
     },
   });
+});
+
+requestIdleCallback(() => {
+  import('wicg-inert');
 });
