@@ -40,7 +40,8 @@
         text: '',
         skipTweet: false,
         commentary: '',
-        currentUser: {}
+        currentUser: {},
+        commentaryCharacterCount: 0
       }"
       x-init="() => {
         setInterval(() => { currentUser = netlifyIdentity.currentUser(); }, 250);
@@ -69,6 +70,8 @@
         if (text && (text.includes('https://') || text.includes('http://')) && !url) {
           url = text;
         }
+
+        commentaryCharacterCount = $refs.commentary.value.length;
       }"
     >
       <h1>Submit a reading list item</h1>
@@ -135,8 +138,8 @@
         </label>
 
         <label for="commentary">
-          Commentary
-          <textarea x-model="commentary" id="commentary" name="commentary" rows="5"></textarea>
+          Commentary (<span x-html="commentaryCharacterCount"></span>/280 if you want it in a tweet reply)
+          <textarea x-model="commentary" x-ref="commentary" x-on:keyup="commentaryCharacterCount = $refs.commentary.value.length" id="commentary" name="commentary" rows="5"></textarea>
         </label>
 
         <button type="submit" :disabled="!currentUser">Submit</button>
