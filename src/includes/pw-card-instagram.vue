@@ -56,7 +56,7 @@ export default {
         attributes.push('$refs.video.pause()');
       }
 
-      if (this.post.images) {
+      if (!this.post.videos) {
         attributes.push('preloadImage($el.dataset.lightboxImage)');
       }
 
@@ -90,7 +90,7 @@ export default {
         attributes.push('$refs.video.pause()');
       }
 
-      if (this.post.images) {
+      if (!this.post.videos) {
         attributes.push('preloadImage($el.dataset.lightboxImage)');
       }
 
@@ -120,7 +120,7 @@ export default {
     onTouchstartEvents() {
       const attributes = [];
 
-      if (this.post.images) {
+      if (!this.post.videos) {
         attributes.push('preloadImage($el.dataset.lightboxImage)');
       }
 
