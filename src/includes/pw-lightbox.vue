@@ -32,7 +32,6 @@
         x-bind:style="style"
         x-on:load="showLoadingSpinner=false"
         x-on:error="$root.close()"
-        crossorigin="anonymous"
       />
     </div>
     <button
