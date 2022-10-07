@@ -53,7 +53,7 @@ export default {
         >
           <img
             :src="item.favicon"
-            :srcset="`${item.favicon.replace(/16/gi, 32)} 2x`"
+            :srcset="!item.favicon.startsWith('data:') ? `${item.favicon.replace(/16/gi, 32)} 2x` : null"
             class="flex-shrink-0 rounded isolate"
             alt=""
             width="16"
