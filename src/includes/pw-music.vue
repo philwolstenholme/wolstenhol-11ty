@@ -31,6 +31,7 @@ export default {
   <pw-section section-key="music" sectionInnerClass="relative" v-if="Object.keys(artists).length && genres.length">
     <pw-section-heading title="Music" icon="headphones" section="music">
       <div
+        hidden
         x-cloak
         class="spotify-live items-center mt-4 md:mt-0 md:pl-5 text-sm"
         x-bind:class="{ 
