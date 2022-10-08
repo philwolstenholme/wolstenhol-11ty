@@ -1,6 +1,6 @@
 let interval;
 
-export function rotateTitle(text = document.title, separator = `-`, speed = 300, prefix) {
+export function rotateTitle(text = document.title, separator = `-`, speed = 300, prefix = '') {
   // MarqueeTitle v4.0 | MIT License | git.io/vQZbs
   let title = text + ' ' + separator + ' ';
   interval = setInterval(() => {
