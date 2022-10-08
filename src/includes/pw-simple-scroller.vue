@@ -61,7 +61,7 @@
         focusable="false"
         role="presentation"
         class="transform-gpu translate-transform"
-        :class="randomRotationClass"
+        v-bind:class="randomRotationClass"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 84.663887 42.437332"
       >
@@ -106,6 +106,8 @@
 </style>
 
 <script>
+import { sample } from 'lodash';
+
 export default {
   props: {
     theme: {
@@ -129,7 +131,8 @@ export default {
         'group-hocus:rotate-12',
         'group-hocus:-rotate-12',
       ];
-      return [classes[Math.floor(Math.random() * classes.length)], hocusClasses[Math.floor(Math.random() * hocusClasses.length)]];
+
+      return [sample(classes), sample(hocusClasses)];
     },
     themeTextClasses() {
       return {
