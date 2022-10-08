@@ -8,9 +8,14 @@ const getData = async function () {
   const posts = [];
 
   // Load newer posts from dev.to.
-  let devto = await Cache('https://dev.to/api/articles?username=philw_', {
+  let devto = await Cache('https://dev.to/api/articles/me', {
     duration: '1h',
     type: 'json',
+    fetchOptions: {
+      headers: {
+        'api-key': process.env.DEV_TO_API_KEY,
+      },
+    },
   });
 
   devto.forEach(item => {
@@ -23,6 +28,7 @@ const getData = async function () {
       url: item.url,
       categories: item.tag_list,
       content: truncate(item.description, 130),
+      page_views_count: item.page_views_count,
     });
   });
 

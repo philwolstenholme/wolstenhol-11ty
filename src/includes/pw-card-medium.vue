@@ -35,11 +35,14 @@ export default {
         class="opacity-grunge mix-blend-multiply absolute block w-full h-full object-cover"
         :style="`--opacity: ${this.randomOpacity}`"
       />
-      <div class="isolate p-5">
+      <div class="flex flex-col isolate p-5">
         <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
           {{ post.title }}
         </h3>
-        <p class="font-bold text-sm leading-tight">{{ post.content }}</p>
+        <p class="flex-grow font-bold text-sm leading-tight">{{ post.content }}</p>
+        <p v-if="post.page_views_count > 900" class="mt-3 font-bold text-sm leading-tight tracking-tight">
+          🔥 {{ Intl.NumberFormat('en-GB').format(post.page_views_count) }} views
+        </p>
       </div>
     </a>
   </article>
