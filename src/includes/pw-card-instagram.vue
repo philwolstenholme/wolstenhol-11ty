@@ -57,7 +57,7 @@ export default {
       }
 
       if (!this.post.videos) {
-        attributes.push('preloadImage($el.dataset.lightboxImage)');
+        attributes.push('prefetchImage($el.dataset.lightboxImage)');
       }
 
       return attributes.length ? attributes.join(';') : null;
@@ -91,7 +91,7 @@ export default {
       }
 
       if (!this.post.videos) {
-        attributes.push('preloadImage($el.dataset.lightboxImage)');
+        attributes.push('prefetchImage($el.dataset.lightboxImage)');
       }
 
       return attributes.length ? attributes.join(';') : null;
@@ -121,7 +121,7 @@ export default {
       const attributes = [];
 
       if (!this.post.videos) {
-        attributes.push('preloadImage($el.dataset.lightboxImage)');
+        attributes.push('prefetchImage($el.dataset.lightboxImage)');
       }
 
       return attributes.length ? attributes.join(';') : null;

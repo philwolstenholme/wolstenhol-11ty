@@ -4,8 +4,8 @@ import addPrefetch from '../../utils/add-prefetch';
 export default function PwCardInstagram() {
   return {
     playing: false,
-    preloadImage: function (url) {
-      addPrefetch(url);
+    prefetchImage: function (url) {
+      addPrefetch(url, 'image');
     },
     confetti() {
       loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/canvas-confetti@1.5.1/dist/confetti.browser.js', 'canvas-confetti', {
