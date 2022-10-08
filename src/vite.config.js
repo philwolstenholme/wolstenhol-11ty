@@ -44,6 +44,9 @@ const workaroundForUsingAlpineAndVueBindingTogether = () => {
 };
 
 module.exports = defineConfig({
+  test: {
+    environment: 'happy-dom',
+  },
   plugins: [
     splitVendorChunkPlugin(),
     // sri(),
