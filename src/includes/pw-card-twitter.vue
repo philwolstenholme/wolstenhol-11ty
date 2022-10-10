@@ -54,7 +54,10 @@ export default {
 
 <template>
   <article class="card-twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold">
-    <div class="card-twitter__gallery grid bg-black border border-gray-300 border-b-0" v-if="tweetMedia">
+    <div
+      class="card-twitter__gallery grid bg-black border border-gray-300 rounded-tl rounded-tr overflow-hidden border-b-0"
+      v-if="tweetMedia"
+    >
       <a
         :is="media.type == 'photo' ? 'a' : 'div'"
         v-for="(media, index) in tweetMedia"
