@@ -1,20 +1,21 @@
 <header
   role="banner"
-  class="w-full h-12 sticky top-0 z-20 bg-binding-dark text-white py-2 px-5 sm:px-2"
+  class="pw-header w-full h-12 sticky top-0 z-20 bg-binding-dark text-white py-2 px-5 sm:px-2"
+  x-bind:class="{ 'pw-header--obscured': obscured }"
   x-ignore
   ax-load="idle"
   x-data="PwHeader"
   x-bind:inert="obscured"
   x-on:pw-header-active-section-id.window="activeSection = $event.detail"
-  x-on:scroll.window.debounce="handleScroll()"
+  x-on:scroll.window.debounce.passive="handleScroll()"
 >
   <div class="section__inner mx-auto flex space-x-4">
-    <a href="#content" rel="home" class="block flex-shrink-0">
+    <a href="#content" rel="home" class="block flex-shrink-0 w-8 h-8">
       <span class="sr-only">Home</span>
       <img
         hidden
         alt="Phil Wolstenholme"
-        class="inline-block bg-yellow-300 rounded-full"
+        class="inline-block w-8 h-8 bg-yellow-300 rounded-full"
         src="https://wolstenhol.me/proxy/cloudinary/image/upload/c_scale,f_auto,w_32,q_auto:eco/v1545084898/avatar_egzcjk.png"
         srcset="https://wolstenhol.me/proxy/cloudinary/image/upload/c_scale,f_auto,w_64,q_auto:eco/v1545084898/avatar_egzcjk.png 2x"
         width="32"

@@ -219,3 +219,12 @@ html.lightbox-open {
 body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
   display: none !important;
 }
+
+.pw-header {
+  content-visibility: visible;
+  contain-intrinsic-size: 48px;
+}
+
+.pw-header--obscured {
+  content-visibility: hidden;
+}
