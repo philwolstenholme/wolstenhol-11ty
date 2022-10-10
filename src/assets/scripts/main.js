@@ -2,19 +2,17 @@ import AsyncAlpine from 'async-alpine';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
 import loadjs from 'loadjs';
+import lozad from 'lozad';
+
+window.lozad = lozad('[data-lozad]', {
+  enableAutoReload: true,
+});
+window.lozad.observe();
 
 import './utils/request-idle-callback.js';
 
 // import CssNakedDay from './css-naked-day.js';
 // CssNakedDay();
-
-requestIdleCallback(async () => {
-  const { default: lozad } = await import('lozad');
-  window.lozad = lozad('[data-lozad]', {
-    enableAutoReload: true,
-  });
-  window.lozad.observe();
-});
 
 window.Alpine = Alpine;
 
