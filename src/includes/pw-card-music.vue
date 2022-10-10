@@ -70,7 +70,7 @@ export default {
     x-on:stopped-preview.window="stoppedPreview($event)"
     x-on:preview-progress.window="previewProgress($event)"
     x-on:keydown.escape.window="if (isPlaying) { musicCardButtonPress($dispatch) }"
-    x-intersect.once="window?.lozad?.triggerLoad($refs.static)"
+    x-intersect.once="window?.lozad?.triggerLoad && window.lozad.triggerLoad($refs.static)"
     x-init="init()"
     v-bind:style="`animation-duration: ${tempoAnimationDuration}s;`"
     class="contain-content relative group flex overflow-hidden card-music from-spotify to-black bg-gradient-to-b shadow-hard w-full rounded select-none"
