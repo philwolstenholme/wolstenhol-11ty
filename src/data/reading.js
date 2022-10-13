@@ -150,11 +150,13 @@ const getData = async function () {
   });
 
   const sortedItems = orderBy([...mediumReadingList, ...devToReadingList, ...airtableReadingList], 'date', 'desc');
-  const recentItems = sortedItems.slice(0, 9);
-  const olderItems = sortedItems.slice(12, sortedItems.length);
+  const uniqueItems = _.uniqBy(sortedItems, 'url');
+  const recentItems = uniqueItems.slice(0, 9);
+  const olderItems = uniqueItems.slice(12, uniqueItems.length);
   const items = await Promise.all([...recentItems, ...sampleSize(olderItems, 6)].map(prepareItem));
 
   return items;
 };
 
 module.exports = tryForCache('reading', getData);
+module.exports = getData();
