@@ -40,12 +40,6 @@
   status = 200
 
 [[redirects]]
-  from = "https://cranky-mcnulty-01683e.netlify.app/*"
-  to = "https://wolstenhol.me/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "https://wolstenhol.me/no-js"
   to = "https://wolstenhol.me/?no-js"
   status = 301
