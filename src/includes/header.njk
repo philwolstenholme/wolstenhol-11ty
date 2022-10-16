@@ -1,13 +1,13 @@
 <header
   role="banner"
   class="pw-header w-full h-12 sticky top-0 z-20 bg-binding-dark text-white py-2 px-5 sm:px-2"
-  x-bind:class="{ 'pw-header--obscured': obscured }"
   x-ignore
   ax-load="idle"
   x-data="PwHeader"
   x-bind:inert="obscured"
   x-on:pw-header-active-section-id.window="activeSection = $event.detail"
   x-on:scroll.window.debounce.passive="handleScroll()"
+  style="content-visibility: hidden; contain-intrinsic-height: 48px"
 >
   <div class="section__inner mx-auto flex space-x-4">
     <a href="#content" rel="home" class="block flex-shrink-0 w-8 h-8">

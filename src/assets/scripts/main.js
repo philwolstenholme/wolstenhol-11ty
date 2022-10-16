@@ -73,3 +73,13 @@ requestIdleCallback(async () => {
 requestIdleCallback(() => {
   import('wicg-inert');
 });
+
+function undoHeaderContentInvisibility() {
+  document.querySelector('.pw-header').style.contentVisibility = 'visible';
+}
+
+window.addEventListener('scroll', undoHeaderContentInvisibility, { once: true });
+
+if (window.scrollY > 0) {
+  undoHeaderContentInvisibility();
+}
