@@ -30,12 +30,10 @@ export default {
 </script>
 
 <style>
-.scroller-item {
-  margin-top: calc(var(--outline-offset, var(--outline-size)) * 2);
+.scroller--no-interaction.scroller--all-elements-equal-height .scroller-item:not(:nth-child(-n + 3)) {
+  content-visibility: auto;
 }
-.scroller.scroller--no-interaction .scroller-item:not(:nth-child(-n + 3)) {
-  /* Commenting this out for now as it causes jumpiness when cards don't
-  have a fixed height, e.g. blog posts
-  content-visibility: auto; */
+.scroller-item--fit-to-grid {
+  width: calc((100% - (1.25rem * (var(--items) - 1))) / var(--items));
 }
 </style>
