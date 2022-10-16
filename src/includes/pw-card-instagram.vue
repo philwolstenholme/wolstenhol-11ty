@@ -146,7 +146,7 @@ export default {
     class="contain-content group relative flex rounded overflow-hidden card-instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
     v-bind:class="{ 'card-instagram--party': isParty }"
     v-bind:data-lightbox-image="
-      !post.videos ? `https://wolstenhol.me/instagram-proxy/${post.display_url.replace('https://', 'https:/')}` : null
+      !post.videos ? `https://instagram-proxy.philgw.workers.dev/${post.display_url.replace('https://', 'https:/')}` : null
     "
     v-bind:x-init="!post.videos ? `$root.setAttribute('role', 'button');` : null"
     v-bind:x-on:click-alpine-prevent="!post.videos ? `$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null"
@@ -169,7 +169,7 @@ export default {
             preload="none"
           >
             <source
-              :src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
+              :src="`https://instagram-proxy.philgw.workers.dev/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
               type="video/mp4"
             />
           </video>
@@ -188,7 +188,7 @@ export default {
           preload="none"
         >
           <source
-            :data-src="`https://wolstenhol.me/instagram-proxy/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
+            :data-src="`https://instagram-proxy.philgw.workers.dev/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
             type="video/mp4"
           />
         </video>
