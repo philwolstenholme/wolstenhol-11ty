@@ -64,20 +64,33 @@
         </li>
       </ul>
 
-      <div class="flex flex-wrap items-center gap-2">
-        <a href="https://googlechrome.github.io/lighthouse/viewer/?psiurl=https://wolstenhol.me&strategy=mobile&category=performance&category=accessibility&category=bestpractices&category=seo" class="underline" id="homepage-lighthouse-scores"
-          >Homepage Lighthouse scores (%):</a
-        >
-        <ul role="list" class="flex items-center space-x-1" aria-labelledby="homepage-lighthouse-scores">
-          {% for key, result in lighthouse.categories %}
-          <li
-            class="flex items-center justify-center cursor-help rounded-full h-8 w-8 border-2 {{ 'border-green-300' if result.grade === 'good' else 'border-yellow-400' }}"
-            title="{{ result.title }}"
+      <div class="space-y-3">
+        <div class="flex flex-wrap items-center gap-2">
+          <a
+            href="https://googlechrome.github.io/lighthouse/viewer/?psiurl=https://wolstenhol.me&strategy=mobile&category=performance&category=accessibility&category=bestpractices&category=seo"
+            class="underline"
+            id="homepage-lighthouse-scores"
+            >Homepage Lighthouse scores (%):</a
           >
-            <span class="sr-only">{{ result.title }}: </span>{{ result.score }}
-          </li>
-          {% endfor %}
-        </ul>
+          <ul role="list" class="flex items-center space-x-1" aria-labelledby="homepage-lighthouse-scores">
+            {% for key, result in lighthouse.categories %}
+            <li
+              class="flex items-center justify-center cursor-help rounded-full h-8 w-8 border-2 {{ 'border-green-300' if result.grade === 'good' else 'border-yellow-400' }}"
+              title="{{ result.title }}"
+            >
+              <span class="sr-only">{{ result.title }}: </span>{{ result.score }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <p>
+          Note that
+          <a href="https://github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md" class="underline"
+            >Lighthouse's high variability</a
+          >
+          means that the performance score above changes each time my site rebuilds itself. I've seen the score go as low as 70 (😳) on one
+          occasion, but it also hits 100 quite often!
+        </p>
       </div>
     </div>
   </div>
