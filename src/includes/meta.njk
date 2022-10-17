@@ -10,10 +10,8 @@
 <meta property="og:locale" content="{{ meta.locale }}" />
 <meta name="twitter:site" content="@philw_">
 <meta name="twitter:creator" content="@philw_">
-<meta name="twitter:card" content="{% if seo.image or meta.image %}summary_large_image{% else %}summary{% endif %}" />
-{% if seo.image or meta.image %}
-<meta property="og:image" content="{{ seo.image or meta.image | url | absoluteUrl(build.url) }}" />
-{% endif %}
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:image" content="https://res.cloudinary.com/wolstenh/image/upload/c_fit,f_auto,q_auto,h_630,w_1200/v1666029920/one-offs/og.jpg" />
 <link rel="alternate" type="application/rss+xml" title="My psots on dev.to" href="https://dev.to/feed/philw_" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png?v=lkvRGjnrz8">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png?v=lkvRGjnrz8">
