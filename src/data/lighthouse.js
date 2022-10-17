@@ -1,6 +1,32 @@
 require('dotenv').config();
 const Cache = require('@11ty/eleventy-cache-assets');
+const airtable = require('airtable');
 const tryForCache = require('../../cache');
+
+const postDataToAirtable = data => {
+  const base = new airtable({ apiKey: process.env.AIRTABLE_KEY }).base('appS1ETOTlKcAY8z4');
+  const table = base('tbla7A58tptxJznEL');
+
+  const record = {
+    fields: {
+      URL: 'https://wolstenhol.me',
+      Performance: parseInt(data['performance'].score, 10),
+      Accessibility: parseInt(data['accessibility'].score, 10),
+      'Best Practices': parseInt(data['best-practices'].score, 10),
+      SEO: parseInt(data['seo'].score, 10),
+    },
+  };
+
+  table.create([record], function (err, records) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    records.forEach(function (record) {
+      console.log(record.getId());
+    });
+  });
+};
 
 const getData = async function () {
   const params = new URLSearchParams();
@@ -41,6 +67,8 @@ const getData = async function () {
     data[key].score = (data[key].score * 100).toFixed();
     data[key].grade = getGrade(data[key].score);
   });
+
+  postDataToAirtable(data);
 
   return {
     categories: data,
