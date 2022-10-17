@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style>
-.scroller--no-interaction.scroller--all-elements-equal-height .scroller-item:not(:nth-child(-n + 3)) {
+.scroller--no-interaction.scroller--all-elements-equal-height .scroller-item:not(:nth-child(-n + 4)) {
   content-visibility: auto;
 }
 .scroller-item--fit-to-grid {
