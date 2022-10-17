@@ -25,7 +25,7 @@ const getData = async function () {
 
     posts.push({
       title: item.title,
-      url: item.url,
+      url: item.canonical_url,
       categories: item.tag_list,
       content: truncate(item.description, 130),
       page_views_count: item.page_views_count,
