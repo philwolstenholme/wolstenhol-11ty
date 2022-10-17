@@ -72,11 +72,11 @@ export default {
         :x-init="
           media.type == 'photo' ? `$root.setAttribute('role', 'button'); $root.firstChild.innerText = 'Open tweet media in modal'` : null
         "
-        :x-on:click-alpine-prevent="
+        :x-on:click{dot}prevent="
           media.type == 'photo' ? `$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null
         "
-        :x-on:keydown-alpine-enter-alpine-prevent="media.type == 'photo' ? `$root.click()` : null"
-        :x-on:keydown-alpine-space="media.type == 'photo' ? `$root.click()` : null"
+        :x-on:keydown{dot}enter{dot}prevent="media.type == 'photo' ? `$root.click()` : null"
+        :x-on:keydown{dot}space="media.type == 'photo' ? `$root.click()` : null"
       >
         <span class="sr-only">Tweet media</span>
         <br class="hidden" />

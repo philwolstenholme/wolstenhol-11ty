@@ -137,21 +137,21 @@ export default {
     ax-load="visible"
     x-data="PwCardInstagram($root)"
     v-bind:x-on:mouseenter="onMousenterEvents"
-    v-bind:x-on:mouseenter-alpine-once="onMousenterOnceEvents"
+    v-bind:x-on:mouseenter{dot}once="onMousenterOnceEvents"
     v-bind:x-on:mouseleave="onMouseleaveEvents"
     v-bind:x-on:focus="onFocusEvents"
-    v-bind:x-on:focus-alpine-once="onFocusOnceEvents"
+    v-bind:x-on:focus{dot}once="onFocusOnceEvents"
     v-bind:x-on:blur="onBlurEvents"
-    v-bind:x-on:touchstart-alpine-passive="onTouchstartEvents"
+    v-bind:x-on:touchstart{dot}passive="onTouchstartEvents"
     class="contain-content group relative flex rounded overflow-hidden card-instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
     v-bind:class="{ 'card-instagram--party': isParty }"
     v-bind:data-lightbox-image="
       !post.videos ? `https://instagram-proxy.philgw.workers.dev/${post.display_url.replace('https://', 'https:/')}` : null
     "
     v-bind:x-init="!post.videos ? `$root.setAttribute('role', 'button');` : null"
-    v-bind:x-on:click-alpine-prevent="!post.videos ? `$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null"
-    v-bind:x-on:keydown-alpine-enter-alpine-prevent="!post.videos ? `$root.click()` : null"
-    v-bind:x-on:keydown-alpine-space="!post.videos ? `$root.click()` : null"
+    v-bind:x-on:click{dot}prevent="!post.videos ? `$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null"
+    v-bind:x-on:keydown{dot}enter{dot}prevent="!post.videos ? `$root.click()` : null"
+    v-bind:x-on:keydown{dot}space="!post.videos ? `$root.click()` : null"
   >
     <div class="flex-col justify-center shadow-hard">
       <template v-if="post.videos">

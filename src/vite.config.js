@@ -36,9 +36,9 @@ const addNoscriptCss = () => {
 const workaroundForUsingAlpineAndVueBindingTogether = () => {
   // Only works in build.
   return {
-    name: 'workaround-for-using-alpine-and-vue-binding-together',
+    name: 'workaround-for-using{dot}and-vue-binding-together',
     transformIndexHtml(html) {
-      return html.replace(/-alpine-/gm, '.');
+      return html.replace(/{dot}/gm, '.');
     },
   };
 };
