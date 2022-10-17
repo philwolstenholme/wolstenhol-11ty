@@ -10,6 +10,7 @@ const postDataToAirtable = data => {
   const record = {
     fields: {
       URL: 'https://wolstenhol.me',
+      Date: new Date().toISOString(),
       Performance: parseInt(data['performance'].score, 10),
       Accessibility: parseInt(data['accessibility'].score, 10),
       'Best Practices': parseInt(data['best-practices'].score, 10),
