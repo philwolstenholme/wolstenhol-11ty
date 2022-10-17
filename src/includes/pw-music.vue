@@ -67,13 +67,7 @@ export default {
       over the last few weeks (their genre names, not mine!)</pw-lede
     >
 
-    <pw-simple-scroller
-      class="mt-12"
-      :scroll-full="true"
-      theme="spotify"
-      label="What I've been listening to"
-      :allElementsEqualHeight="true"
-    >
+    <pw-simple-scroller class="mt-12" :scroll-full="true" theme="spotify" label="What I've been listening to">
       <pw-simple-scroller-item v-for="(artist, index) in artists" :key="index">
         <pw-card-music :music="artist" :index="index"></pw-card-music>
       </pw-simple-scroller-item>
