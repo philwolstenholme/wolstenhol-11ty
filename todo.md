@@ -1,5 +1,13 @@
 # Todos
 
+## General
+
+- [ ] Basic OG image
+
+## Alpine
+
+- [ ] Use `x-spread` to avoid Alpine/Vue conflict and remove need for Vite rewrite workaround
+
 ## Vite migration
 
 - [ ] Serviceworker
