@@ -26,7 +26,7 @@ const getData = async function () {
           if (err) {
             reject(err);
           } else {
-            resolve(allScores.join(','));
+            resolve(allScores.reverse().join(','));
           }
         }
       );
