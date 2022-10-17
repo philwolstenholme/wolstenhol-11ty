@@ -40,7 +40,7 @@ export default {
         }"
         style="display: none !important"
         x-ignore
-        ax-load="visible"
+        ax-load="idle"
         x-data="PwSpotifyLive()"
         x-intersect.margin.200px:enter="startInterval"
         x-intersect:leave="stopInterval"
