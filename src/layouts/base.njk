@@ -43,7 +43,6 @@
       let root = document.documentElement;
       let scrollbarWidth = window.innerWidth - document.body.offsetWidth;
       root.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-      window.pw = window.pw || {};
     </script>
     <a
       href="#content"
@@ -65,6 +64,7 @@
             data-frivolous-grunge
             class="absolute inline opacity-40 mix-blend-multiply"
             loading="eager"
+            fetchpriority="high"
             alt=""
             width="500"
             height="451"
