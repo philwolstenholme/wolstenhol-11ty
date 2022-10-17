@@ -89,8 +89,16 @@
             >Lighthouse's high variability</a
           >
           means that the performance score above changes each time my site rebuilds itself. I've seen the score go as low as 70 (😳) on one
-          occasion, but it also hits 100 sometimes.
+          occasion, but it also hits 100 sometimes. I've included a totally superfluous sparkline below:
         </p>
+        <img
+          src="https://v1.sparkline.11ty.dev/120x30/{{ lighthouseSparkline }}/%23ffd600/"
+          width="120"
+          height="30"
+          alt="Sparkline representing Lighthouse performance scores over time"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
     </div>
   </div>
