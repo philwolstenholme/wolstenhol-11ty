@@ -158,7 +158,7 @@ export default {
             name="message"
             minlength="8"
             placeholder="Your unconditional offer of that six-figure, four-days-a-week job, perhaps a typo correction, or some other message."
-            class="w-full bg-white border-2 border-gray-800 font-serif p-4 rounded text-black shadow-hard lg:flex-1"
+            class="w-full min-h-24 bg-white border-2 border-gray-800 font-serif p-4 rounded text-black shadow-hard lg:flex-1"
             x-bind:class="{ 'border-red-800': isInvalid('contact-message') }"
             rows="6"
             cols="50"
