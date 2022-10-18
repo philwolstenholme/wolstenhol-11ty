@@ -112,7 +112,7 @@
     ]
     # Whether to remove the inlined styles from any stylesheet referenced in the HTML.
     # Revisit when I have more than one page. Removing the critical CSS per page results in a unique async loaded CSS file for every page, meaning you can’t rely on cache across multiple pages.
-    extract = true
+    extract = false
 
 [[plugins]]
   package = "netlify-plugin-cache"
