@@ -85,10 +85,22 @@
 
 [[plugins]]
   package = "netlify-plugin-image-optim"
+
 [[plugins]]
   package = "netlify-purge-cloudflare-on-deploy"
+
 [[plugins]]
   package = "netlify-plugin-subfont"
+  [plugins.inputs]
+    entryPoints = [
+      "*.html",
+    ]
+    recursive = false
+    fontDisplay = "swap"
+    inlineCss = false
+    inlineFonts = false
+    fallbacks = true
+
 [[plugins]]
   package = "netlify-plugin-inline-critical-css"
   [plugins.inputs]
@@ -99,6 +111,7 @@
       { width = 1280, height = 800 },
       { width = 1536, height = 2048 }
     ]
+
 [[plugins]]
   package = "netlify-plugin-cache"
   [plugins.inputs]
