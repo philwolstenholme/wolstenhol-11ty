@@ -47,6 +47,9 @@ module.exports = {
       maxWidth: {
         container: '71rem',
       },
+      minHeight: {
+        24: defaultTheme.spacing[24],
+      },
       typography: theme => ({
         DEFAULT: {
           css: {
