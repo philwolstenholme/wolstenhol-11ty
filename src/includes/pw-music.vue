@@ -50,7 +50,7 @@ export default {
           <span class="spotify-live__label" x-bind:datetime="data.playedAt" x-ref="label"></span>:
           <output>
             <span class="sr-only">I just finished listening to</span>
-            <a x-show="data.trackUrl" x-bind:href="data.trackUrl" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"> </a>
+            <a x-bind:href="data.trackUrl ?? '#'" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"> </a>
           </output>
         </p>
       </div>
