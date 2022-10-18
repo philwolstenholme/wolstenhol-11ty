@@ -90,6 +90,17 @@
   package = "netlify-purge-cloudflare-on-deploy"
 
 [[plugins]]
+  package = "netlify-plugin-inline-critical-css"
+  [plugins.inputs]
+    dimensions = [
+      { width = 640, height = 1136 },
+      { width = 768, height = 1280 },
+      { width = 1024, height = 600 },
+      { width = 1280, height = 800 },
+      { width = 1536, height = 2048 }
+    ]
+
+[[plugins]]
   package = "netlify-plugin-subfont"
   [plugins.inputs]
     entryPoints = [
@@ -100,17 +111,6 @@
     inlineCss = false
     inlineFonts = false
     fallbacks = true
-
-[[plugins]]
-  package = "netlify-plugin-inline-critical-css"
-  [plugins.inputs]
-    dimensions = [
-      { width = 640, height = 1136 },
-      { width = 768, height = 1280 },
-      { width = 1024, height = 600 },
-      { width = 1280, height = 800 },
-      { width = 1536, height = 2048 }
-    ]
 
 [[plugins]]
   package = "netlify-plugin-cache"
