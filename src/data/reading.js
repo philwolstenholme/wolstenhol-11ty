@@ -159,4 +159,3 @@ const getData = async function () {
 };
 
 module.exports = tryForCache('reading', getData);
-module.exports = getData();
