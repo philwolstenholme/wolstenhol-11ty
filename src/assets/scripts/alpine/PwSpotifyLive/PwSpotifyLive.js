@@ -5,47 +5,61 @@ const SECONDS_IN_A_MINUTE = 60;
 
 export default function PwSpotifyLive() {
   return {
-    data: {},
-    timeagoVisible: false,
+    initialData: {
+      playedAt: null,
+      name: null,
+      artistList: null,
+      trackUrl: null,
+    },
+    data: {
+      ...this.initialData,
+    },
+    timeagoLoaded: false,
     queryInterval: null,
     queryTimeout: null,
-    queryApi() {
+    queryApi: async function queryApi() {
       if (document.visibilityState !== 'visible') {
         console.log(`🔕 Tab not visible so we didn't query Spotify`);
         return;
       }
 
       console.log(`🎵 Checking the Spotify API via Pipedream…`);
-      fetch('https://wolstenhol.me/api/recently-played-spotify')
-        .then(res => res.json())
-        .then(res => (this.data = res))
-        .then(() => {
-          // If loadjs has't previously loaded timeago then let's load it.
-          if (!loadjs.isDefined('timeago')) {
-            loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
-              before: (path, el) => {
-                // We add a SRI hash to make up for the security risk of loading JS from a third-party.
-                el.integrity = 'sha256-sTurDi2etLN9CpnUIoCC9y5iynb2qr/uo6QJqzoO7mA=';
-                el.crossOrigin = 'anonymous';
-              },
-            });
-          }
 
-          loadjs.ready('timeago', () => {
-            // Apply timeago against the DOM node for our 'x minutes ago' label.
-            timeago.render(this.$refs.label);
-            // Set a boolean so we can display our component. We do this to avoid a flash of content
-            // jumping in once timeago has been loaded and applied to the element.
-            this.timeagoVisible = true;
+      const response = await fetch('https://wolstenhol.me/api/recently-played-spotify');
+      const data = await response.json();
 
-            if (this.data && this.data?.name) {
-              // Now the x-show display none will be removed and we can remove the
-              // display property so that the flex utility class kicks in
-              this.$root.style.display = '';
-            }
-          });
-        })
-        .catch(err => console.error(err));
+      if (Object.keys(data).length === 0) {
+        this.data = {
+          ...this.initialData,
+        };
+
+        if (window.timeago) {
+          window.timeago.cancel(this.$refs.label);
+        }
+
+        return;
+      }
+
+      this.data = data;
+
+      // If loadjs has't previously loaded timeago then let's load it.
+      if (!loadjs.isDefined('timeago')) {
+        loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/timeago.js@4.0.2/dist/timeago.min.js', 'timeago', {
+          before: (path, el) => {
+            // We add a SRI hash to make up for the security risk of loading JS from a third-party.
+            el.integrity = 'sha256-sTurDi2etLN9CpnUIoCC9y5iynb2qr/uo6QJqzoO7mA=';
+            el.crossOrigin = 'anonymous';
+          },
+        });
+      }
+
+      loadjs.ready('timeago', () => {
+        // Apply timeago against the DOM node for our 'x minutes ago' label.
+        window.timeago.render(this.$refs.label);
+        // Set a boolean so we can display our component. We do this to avoid a flash of content
+        // jumping in once timeago has been loaded and applied to the element.
+        this.timeagoLoaded = true;
+      });
     },
     startInterval() {
       const timeoutInMinutes = 15;
@@ -82,10 +96,12 @@ export default function PwSpotifyLive() {
           const labelEl = this.$refs.label;
 
           if (labelEl.getAttribute('timeago-id')) {
-            timeago.cancel(labelEl);
+            window.timeago.cancel(labelEl);
           }
 
-          timeago.render(labelEl);
+          if (this.data.playedAt) {
+            window.timeago.render(labelEl);
+          }
         });
       });
 

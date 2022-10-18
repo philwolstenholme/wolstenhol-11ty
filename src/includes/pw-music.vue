@@ -33,26 +33,24 @@ export default {
       <div
         hidden
         x-cloak
-        class="spotify-live items-center mt-4 md:mt-0 md:pl-5 text-sm"
-        x-bind:class="{ 
-          'flex': data?.name && timeagoVisible,
-          'hidden': !data?.name || !timeagoVisible
-        }"
-        style="display: none !important"
         x-ignore
         ax-load="idle"
+        class="spotify-live mt-4 md:mt-0 md:pl-5 text-sm"
+        x-bind:hidden="!data.name || !timeagoLoaded"
         x-data="PwSpotifyLive()"
         x-intersect.margin.200px:enter="startInterval"
         x-intersect:leave="stopInterval"
       >
-        <span class="pulsating-circle h-3 inline-block rounded-full w-3 flex-shrink-0"></span>&nbsp;
-        <p class="md:truncate">
-          <span class="spotify-live__label" x-bind:datetime="data.playedAt" x-ref="label"></span>:
-          <output>
-            <span class="sr-only">I just finished listening to</span>
-            <a x-bind:href="data.trackUrl ?? '#'" x-text="`${data.name} — ${data.artistList}`" class="font-semibold"> </a>
-          </output>
-        </p>
+        <div class="flex items-center">
+          <span class="pulsating-circle h-3 inline-block rounded-full w-3 flex-shrink-0"></span>&nbsp;
+          <p class="md:truncate">
+            <span class="spotify-live__label" x-bind:datetime="data?.playedAt" x-ref="label"></span>:
+            <output>
+              <span class="sr-only">I just finished listening to</span>
+              <a x-bind:href="data?.trackUrl ?? '#'" x-text="`${data?.name} — ${data?.artistList}`" class="font-semibold"> </a>
+            </output>
+          </p>
+        </div>
       </div>
     </pw-section-heading>
 
