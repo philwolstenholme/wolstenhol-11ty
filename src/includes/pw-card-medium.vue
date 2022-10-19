@@ -17,7 +17,6 @@ export default {
 <template>
   <article class="card-blog contain-content relative flex overflow-hidden w-full rounded shadow-hard" x-ignore>
     <a
-      data-instant
       :href="`${post.url}`"
       class="grid grid-stack text-white bg-medium hover:bg-medium-dark focus:bg-black outline-offset-invert no-underline w-full"
     >

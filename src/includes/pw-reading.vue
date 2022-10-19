@@ -47,7 +47,6 @@ export default {
     <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8">
       <li class="reading-list__item flex min-w-0" v-for="(item, index) in reading.slice(0, 5)" :key="index" :style="getRandomRotationVar()">
         <a
-          data-instant
           :href="item.url"
           class="reading-list-link relative flex min-w-0 group items-baseline space-x-3 flex-1 border border-gray-300 rounded shadow-hard bg-oc-yellow-2 hocus:bg-oc-yellow-3 p-4 font-serif"
         >
@@ -100,7 +99,6 @@ export default {
           ></path>
         </svg>
         <a
-          data-instant
           :href="item.url"
           class="reading-list-link relative flex min-w-0 group items-baseline space-x-3 flex-1 border border-gray-300 rounded shadow-hard bg-oc-yellow-2 hocus:bg-oc-yellow-3 p-4 font-serif"
         >
