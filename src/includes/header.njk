@@ -4,9 +4,7 @@
   x-ignore
   ax-load="idle"
   x-data="PwHeader"
-  x-bind:inert="obscured"
   x-on:pw-header-active-section-id.window="activeSection = $event.detail"
-  x-on:scroll.window.debounce.passive="handleScroll()"
   style="content-visibility: hidden; contain-intrinsic-height: 48px"
 >
   <div class="section__inner mx-auto flex space-x-4">
