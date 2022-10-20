@@ -48,7 +48,7 @@ const getData = async function () {
   params.append('category', 'SEO');
 
   let data = await Cache(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?${params.toString()}`, {
-    duration: '1h',
+    duration: '10m',
     type: 'json',
   });
 
