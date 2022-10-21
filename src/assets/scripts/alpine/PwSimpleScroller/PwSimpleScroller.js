@@ -39,7 +39,7 @@ export default function PwSimpleScroller() {
       }
 
       var inertObserver = new IntersectionObserver(
-        (entries, observer) => {
+        entries => {
           Array.prototype.forEach.call(entries, function (entry) {
             if (entry.intersectionRatio > 0.5) {
               entry.target.removeAttribute('inert');

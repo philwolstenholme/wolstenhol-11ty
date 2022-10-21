@@ -2,7 +2,10 @@
 
 ## General
 
-- [ ] Basic OG image
+- [x] Basic OG image
+- [ ] Per-page bundles for unique JS
+- [ ] Per-page bundles for unique CSS _that isn't inlined_ (should be handled via Vue plugin)
+- [ ] Remove duplication when the scroll saver thing is used
 
 ## Alpine
 

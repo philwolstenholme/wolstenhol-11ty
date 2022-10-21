@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <article>
     <div class="space-y-14">
       <div class="space-y-3">
         <h2 class="font-serif font-bold text-4xl">Meanwhile, elsewhere on the internet…</h2>
@@ -28,7 +28,7 @@
 
     <pw-lightbox></pw-lightbox>
     <style v-html="this.getVueComponentCssForPage(this.page.url)"></style>
-  </div>
+  </article>
 </template>
 
 <script>

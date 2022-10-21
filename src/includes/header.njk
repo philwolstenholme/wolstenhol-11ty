@@ -1,3 +1,4 @@
+{{ data.page }}
 <header
   role="banner"
   class="pw-header w-full h-12 sticky top-0 z-20 bg-binding-dark text-white py-2 px-5 sm:px-2"
@@ -5,10 +6,10 @@
   ax-load="idle"
   x-data="PwHeader"
   x-on:pw-header-active-section-id.window="activeSection = $event.detail"
-  style="content-visibility: hidden; contain-intrinsic-height: 48px"
+  style="{% if page.url == '/' %}  content-visibility: hidden; contain-intrinsic-height: 48px{% endif %}"
 >
   <div class="section__inner mx-auto flex space-x-4">
-    <a href="#content" rel="home" class="block flex-shrink-0 w-8 h-8">
+    <a href="/#content" rel="home" class="block flex-shrink-0 w-8 h-8">
       <span class="sr-only">Home</span>
       <img
         hidden

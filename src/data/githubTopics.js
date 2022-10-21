@@ -1,9 +1,8 @@
 const Cache = require('@11ty/eleventy-cache-assets');
 const _ = require('lodash');
-const tryForCache = require('../../cache');
 
 const getData = async function () {
-  let response = await Cache('https://api.github.com/users/philwolstenholme/starred?per_page=99', {
+  let response = await Cache('https://api.github.com/users/philwolstenholme/starred?per_page=50', {
     duration: '1h',
     type: 'json',
     fetchOptions: {
@@ -16,4 +15,4 @@ const getData = async function () {
   return response;
 };
 
-module.exports = tryForCache('github-stars', getData);
+module.exports = getData();

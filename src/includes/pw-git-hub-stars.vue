@@ -28,54 +28,12 @@ export default {
 
 <template>
   <pw-section section-key="stars">
-    <pw-section-heading title="Stars" icon="star" section="stars" />
-
-    <div class="mt-3 flex justify-between">
-      <pw-lede
-        >A randomised selection of projects that I've recently
-        <a href="https://github.com/philwolstenholme?tab=stars" class="underline">starred on GitHub</a>.</pw-lede
-      >
-    </div>
-
-    <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8">
+    <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3">
       <li class="stars-list__item flex min-w-0" v-for="(item, index) in stars.slice(0, 5)" :key="index">
         <a
           :href="item.html_url"
           class="stars-list-link relative min-w-0 group items-baseline flex-1 border border-gray-300 rounded shadow-hard text-white bg-gray-900 border-black hocus:bg-black p-4 font-serif"
         >
-          <video
-            hidden
-            data-lozad
-            data-frivolous-grunge
-            aria-hidden="true"
-            loop="loop"
-            autoplay="autoplay"
-            muted="muted"
-            playsinline
-            disablepictureinpicture
-            disableremoteplayback
-            preload="none"
-            class="no-js:hidden absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
-          >
-            <source data-src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
-          </video>
-          <noscript>
-            <video
-              hidden
-              aria-hidden="true"
-              data-frivolous-grunge
-              loop="loop"
-              autoplay="autoplay"
-              muted="muted"
-              playsinline
-              disablepictureinpicture
-              disableremoteplayback
-              preload="none"
-              class="absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
-            >
-              <source src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
-            </video>
-          </noscript>
           <div class="flex flex-col h-full isolate">
             <div class="flex-1">
               <img
@@ -83,13 +41,13 @@ export default {
                 :srcset="`https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_100,w_100,q_auto/${item.owner.avatar_url} 2x`"
                 :alt="item.owner.login"
                 class="float-right w-15 h-15 block rounded-full bg-white ml-3 mb-3"
-                loading="lazy"
+                :loading="index > 7 ? 'lazy' : null"
                 width="50"
                 height="50"
               />
-              <h3 class="leading-tight text-lg group-hocus:underline">
+              <h2 class="leading-tight text-lg group-hocus:underline">
                 {{ item.owner.login }}/<span class="font-bold">{{ item.name }}</span>
-              </h3>
+              </h2>
               <p class="stars-list-link__description mt-3 no-underline font-sans text-sm leading-tight" v-if="item.description">
                 {{ item.description }}
               </p>
@@ -129,37 +87,6 @@ export default {
           :href="item.html_url"
           class="stars-list-link relative min-w-0 group items-baseline flex-1 border border-gray-300 rounded shadow-hard text-white bg-gray-900 border-black hocus:bg-black p-4 font-serif"
         >
-          <video
-            hidden
-            data-lozad
-            aria-hidden="true"
-            loop="loop"
-            autoplay="autoplay"
-            muted="muted"
-            playsinline
-            disablepictureinpicture
-            disableremoteplayback
-            preload="none"
-            class="no-js:hidden absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
-          >
-            <source data-src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
-          </video>
-          <noscript>
-            <video
-              hidden
-              aria-hidden="true"
-              loop="loop"
-              autoplay="autoplay"
-              muted="muted"
-              playsinline
-              disablepictureinpicture
-              disableremoteplayback
-              preload="none"
-              class="absolute block h-full inset-0 motion-reduce:hidden object-fill opacity-10 pointer-events-none w-full"
-            >
-              <source src="https://wolstenhol.me/proxy/cloudinary/video/upload/v1650231745/11ty/static.mp4" type="video/mp4" />
-            </video>
-          </noscript>
           <div class="flex flex-col h-full isolate">
             <div class="flex-1">
               <img
@@ -200,6 +127,11 @@ export default {
 </template>
 
 <style scoped>
+.stars-list-link {
+  content-visibility: auto;
+  contain-intrinsic-height: 185px;
+}
+
 .stars-list-link__description {
   display: -webkit-box;
   -webkit-line-clamp: 3;
