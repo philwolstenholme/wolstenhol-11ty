@@ -130,6 +130,10 @@ mark,
   box-decoration-break: clone;
 }
 
+h2[tabindex='-1']:target {
+  outline: none;
+}
+
 .breakout {
   width: calc(100vw - var(--scrollbar-width, 15px));
   margin-left: calc(50% - (50vw - (var(--scrollbar-width, 15px) / 2)));
