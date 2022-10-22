@@ -1,7 +1,7 @@
 <template>
   <article>
-    <h1 class="text-8xl bg-clip-text text-fill-transparent bg-binding-dark tracking-tight font-serif font-bold">{{ title }}</h1>
-    <div class="font-serif my-10 space-y-5 text-2xl leading-normal">
+    <h1 class="text-5xl xl:text-8xl bg-clip-text text-fill-transparent bg-binding-dark tracking-tight font-serif font-bold">{{ title }}</h1>
+    <div class="font-serif mt-5 xl:mt-10 mb-10 xl:mb-12 space-y-5 text-xl xl:text-2xl leading-normal">
       <p>
         A recent selection of projects that I've
         <a href="https://github.com/philwolstenholme?tab=stars" class="underline">starred on GitHub</a>.
