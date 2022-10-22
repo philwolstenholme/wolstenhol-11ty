@@ -54,13 +54,23 @@
   <div class="-mx-5 sm:-mx-2 bg-binding-dark h-3 transform shadow-hard" style="--tw-skew-y: -0.3deg !important"></div>
 </header>
 <script>
-  if (sessionStorage.getItem("PwHeader.scrollLeft")) {
-    const clickTime = +sessionStorage.getItem("PwHeader.clickTime");
-    const nowTime = new Date().getTime();
+  const clickTime = +sessionStorage.getItem("PwHeader.clickTime");
+  const nowTime = new Date().getTime();
 
+  if (sessionStorage.getItem("PwHeader.scrollLeft")) {
     if (nowTime - clickTime < 3000) {
       document.getElementById("PwHeaderList").scrollLeft = +sessionStorage.getItem("PwHeader.scrollLeft");
     }
   }
+
+  if (nowTime - clickTime < 3000 && window.location.hash && window.location.hash !== '#content') {
+    const header = document.querySelector('header');
+    header.classList.add('z-50');
+    setTimeout(() => {
+      // The class only neees to be there long enough to scroll down to an anchor.
+      header.classList.remove('z-50');
+    }, 5 * 1000);
+  }
+
   document.querySelector(`a[href*="${CSS.escape(window.location.hash)}"]`)?.classList.add('text-yellow-300');
 </script>
