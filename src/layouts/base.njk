@@ -30,7 +30,11 @@
       </style>
     </noscript>
   </head>
-  <body class="text-gray-900 bg-subtle-grunge leading-normal connection--unknown">
+  <body
+    class="text-gray-900 bg-subtle-grunge leading-normal connection--unknown"
+    data-url="{{ page.url }}"
+    data-file-path-stem="{{ page.filePathStem }}"
+  >
     <script>
       document.querySelector('html').classList.remove('no-js');
       document.querySelector('html').classList.add('js');

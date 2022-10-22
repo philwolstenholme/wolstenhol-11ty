@@ -37,8 +37,8 @@ export default {
           <div class="flex flex-col h-full isolate">
             <div class="flex-1">
               <img
-                :src="`https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_50,w_50,q_auto/${item.owner.avatar_url}`"
-                :srcset="`https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_100,w_100,q_auto/${item.owner.avatar_url} 2x`"
+                :src="`https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_50,w_50,q_auto,fl_progressive/${item.owner.avatar_url}`"
+                :srcset="`https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_100,w_100,q_auto,fl_progressive/${item.owner.avatar_url} 2x`"
                 :alt="item.owner.login"
                 class="float-right w-15 h-15 block rounded-full bg-white ml-3 mb-3"
                 :loading="index > 7 ? 'lazy' : null"

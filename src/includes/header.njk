@@ -26,15 +26,20 @@
     <nav class="flex flex-1 items-center overflow-hidden" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
       <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
       <ul role="list" class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars">
-        {%- for item in headerLinks.items -%} {% set id = item.href.replace('/#', '') %}
+        {%- for item in headerLinks.items -%} {% set id = item.href.replace('/#', '').replace('#', '') %}
         <li>
+          {% set linkFirstChar = item.href.slice(0, 1) %}
+          {% set linkSecondChars = item.href.slice(0, 2) %}
           <a
             href="{{ item.href }}"
             class="font-bold font-serif underline hocus:text-yellow-300 {% if page.filePathStem == item.href %}text-yellow-300{% endif %}"
-            x-bind:class="{'text-yellow-300': activeSection === '{{ id }}' || window.location.pathname === '/{{ id }}'}"
+            x-bind:class="{
+              {% if linkFirstChar == '#' or linkSecondChars == '/#' %}'text-yellow-300': activeSection === '{{ id }}'{% endif %}
+              {% if linkFirstChar != '#' and linkSecondChars != '/#' %}'text-yellow-300': window.location.pathname === '{{ item.href }}'{% endif %}
+            }" 
             x-on:click="activeSection = '{{ id }}'"
           >
-            {{ item.title }}
+            {{ item.title }} 
           </a>
         </li>
         {%- endfor -%}
