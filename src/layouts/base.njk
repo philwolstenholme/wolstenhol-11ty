@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}" class="no-js bg-binding-dark antialiased overflow-y-scroll overflow-x-hidden">
+<html lang="{{ meta.lang }}" class="no-js antialiased overflow-y-scroll overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,7 +30,7 @@
       </style>
     </noscript>
   </head>
-  <body class="text-gray-900 leading-normal connection--unknown">
+  <body class="text-gray-900 bg-subtle-grunge leading-normal connection--unknown">
     <script>
       if (navigator.connection && navigator.connection.effectiveType) {
         document.body.classList.remove('connection--unknown');
@@ -49,7 +49,7 @@
     >
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %}
-      <main class="flex-grow w-full bg-subtle-grunge outline-none" id="content" tabindex="-1">
+      <main class="flex-grow w-full outline-none" id="content" tabindex="-1">
         {% if (page.url == '/') %} {% include "homepage/homepage-header.njk" %}
         <div class="-mb-6 -mt-6 -skew-y-1 transform z-10">
           <div class="bg-binding-dark h-12"></div>
