@@ -37,6 +37,22 @@ export default {
     >
       <pw-simple-scroller-item>
         <pw-card-talk
+          event="McrFRED"
+          talk="Performance tips, tricks, and hacks I learnt from my over-engineered personal site"
+          image="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,f_auto,g_center,w_272,h_153,q_auto,y_0/v1666475523/one-offs/1666298366856.jpg"
+          srcset="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,f_auto,g_center,w_544,h_306,q_auto,y_0/v1666475523/one-offs/1666298366856.jpg 2x"
+        ></pw-card-talk>
+      </pw-simple-scroller-item>
+      <pw-simple-scroller-item fit-to-grid>
+        <pw-card-testimonial class="h-full">
+          <template v-slot:blockquote>Honestly fantastic! It has really inspired me to work on my personal site again</template>
+          <template v-slot:figcaption>
+            <a href="https://twitter.com/KatieARaby" class="hocus:underline">Katie Raby</a>
+          </template>
+        </pw-card-testimonial>
+      </pw-simple-scroller-item>
+      <pw-simple-scroller-item>
+        <pw-card-talk
           href="https://www.youtube.com/watch?v=MYY1teFZ_Fk"
           event="DrupalCon Europe 2020"
           talk="Write Better CSS by Stopping Writing Any More CSS! Utility-first with Tailwind"
