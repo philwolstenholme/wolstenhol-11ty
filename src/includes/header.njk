@@ -25,7 +25,12 @@
     </a>
     <nav class="flex flex-1 items-center overflow-hidden" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
       <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
-      <ul role="list" class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars">
+      <ul
+        id="PwHeaderList"
+        role="list"
+        class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars"
+        x-on:scroll.debounce="sessionStorage.setItem('PwHeader.scrollLeft', $el.scrollLeft)"
+      >
         {%- for item in headerLinks.items -%} {% set id = item.href.replace('/#', '').replace('#', '') %}
         <li>
           {% set linkFirstChar = item.href.slice(0, 1) %}
@@ -37,7 +42,7 @@
               {% if linkFirstChar == '#' or linkSecondChars == '/#' %}'text-yellow-300': activeSection === '{{ id }}'{% endif %}
               {% if linkFirstChar != '#' and linkSecondChars != '/#' %}'text-yellow-300': window.location.pathname === '{{ item.href }}'{% endif %}
             }" 
-            x-on:click="activeSection = '{{ id }}'"
+            x-on:click="activeSection = '{{ id }}'; sessionStorage.setItem('PwHeader.clickTime', new Date().getTime());"
           >
             {{ item.title }} 
           </a>
@@ -48,3 +53,14 @@
   </div>
   <div class="-mx-5 sm:-mx-2 bg-binding-dark h-3 transform shadow-hard" style="--tw-skew-y: -0.3deg !important"></div>
 </header>
+<script>
+  if (sessionStorage.getItem("PwHeader.scrollLeft")) {
+    const clickTime = +sessionStorage.getItem("PwHeader.clickTime");
+    const nowTime = new Date().getTime();
+
+    if (nowTime - clickTime < 3000) {
+      document.getElementById("PwHeaderList").scrollLeft = +sessionStorage.getItem("PwHeader.scrollLeft");
+    }
+  }
+  document.querySelector(`a[href*="${CSS.escape(window.location.hash)}"]`)?.classList.add('text-yellow-300');
+</script>
