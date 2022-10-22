@@ -56,3 +56,7 @@ window.addEventListener('scroll', undoHeaderContentInvisibility, { once: true })
 if (window.scrollY > 0) {
   undoHeaderContentInvisibility();
 }
+
+if (window.location.hash === '#stars') {
+  window.location.replace('/github-stars');
+}
