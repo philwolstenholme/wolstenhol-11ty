@@ -6,7 +6,7 @@
   ax-load="idle"
   x-data="PwHeader"
   x-on:pw-header-active-section-id.window="activeSection = $event.detail"
-  style="{% if page.url == '/' %}  content-visibility: hidden; contain-intrinsic-height: 48px{% endif %}"
+ {% if page.filePathStem == '/' %}style="content-visibility: hidden; contain-intrinsic-height: 48px"{% endif %}
 >
   <div class="section__inner mx-auto flex space-x-4">
     <a href="/#content" rel="home" class="block flex-shrink-0 w-8 h-8">
@@ -26,12 +26,12 @@
     <nav class="flex flex-1 items-center overflow-hidden" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
       <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
       <ul role="list" class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars">
-        {%- for item in headerLinks.items -%} {% set id = item.href.replace('#', '') %}
+        {%- for item in headerLinks.items -%} {% set id = item.href.replace('/#', '') %}
         <li>
           <a
             href="{{ item.href }}"
-            class="font-bold font-serif underline hocus:text-yellow-300"
-            x-bind:class="{'text-yellow-300': activeSection === '{{ id }}'}"
+            class="font-bold font-serif underline hocus:text-yellow-300 {% if page.filePathStem == item.href %}text-yellow-300{% endif %}"
+            x-bind:class="{'text-yellow-300': activeSection === '{{ id }}' || window.location.pathname === '/{{ id }}'}"
             x-on:click="activeSection = '{{ id }}'"
           >
             {{ item.title }}

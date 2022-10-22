@@ -32,6 +32,9 @@
   </head>
   <body class="text-gray-900 bg-subtle-grunge leading-normal connection--unknown">
     <script>
+      document.querySelector('html').classList.remove('no-js');
+      document.querySelector('html').classList.add('js');
+
       if (navigator.connection && navigator.connection.effectiveType) {
         document.body.classList.remove('connection--unknown');
         document.body.classList.add(`connection--${navigator.connection.effectiveType}`);
@@ -50,7 +53,7 @@
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %}
       <main class="flex-grow w-full outline-none" id="content" tabindex="-1">
-        {% if (page.url == '/') %} {% include "homepage/homepage-header.njk" %}
+        {% if page.url == '/' %} {% include "homepage/homepage-header.njk" %}
         <div class="-mb-6 -mt-6 -skew-y-1 transform z-10">
           <div class="bg-binding-dark h-12"></div>
           <div class="bg-subtle-grunge h-12"></div>
@@ -161,7 +164,13 @@
         });
       });
     </script>
-    <script type="module" src="/assets/scripts/main.js"></script>
+    <script type="module" src="/assets/scripts/global.js"></script>
+    {% if (page.url == '/') %}
+    <script type="module" src="/assets/scripts/homepage.js"></script>
+    {% endif %}{% if (page.filePathStem == '/github-stars') %}
+    <script type="module" src="/assets/scripts/github-stars.js"></script>
+    {% endif %}
+
     <script>
       if (
         document.location.hash.includes('access_token') &&
@@ -174,10 +183,12 @@
       }
     </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
+    {% if build.env == 'production' %}
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon='{"token": "7210db6185e14990ba2dc29243b3e1ef"}'
     ></script>
+    {% endif %}
   </body>
 </html>

@@ -1,8 +1,14 @@
+import lozad from 'lozad';
 import AsyncAlpine from 'async-alpine';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
 
 import './utils/request-idle-callback.js';
+
+window.lozad = lozad('[data-lozad]', {
+  enableAutoReload: true,
+});
+window.lozad.observe();
 
 // import CssNakedDay from './css-naked-day.js';
 // CssNakedDay();
@@ -35,4 +41,18 @@ Alpine.start();
 
 if (navigator?.connection?.effectiveType != '4g' || navigator?.connection?.saveData) {
   document.querySelectorAll('[data-section="photos"] video source').forEach(source => source.remove());
+}
+
+requestIdleCallback(() => {
+  import('wicg-inert');
+});
+
+function undoHeaderContentInvisibility() {
+  document.querySelector('.pw-header').style.contentVisibility = 'visible';
+}
+
+window.addEventListener('scroll', undoHeaderContentInvisibility, { once: true });
+
+if (window.scrollY > 0) {
+  undoHeaderContentInvisibility();
 }
