@@ -117,6 +117,47 @@
           </div>
         </div>
       </main>
+      <dialog id="pwa-update-dialog" x-data class="w-11/12 max-w-3xl bg-black text-white p-4 transform shadow-2xl select-none">
+        <button
+          type="button"
+          class="absolute text-lg font-bold bg-black px-3 py-2 right-3 rounded-bl-lg text-white top-3"
+          x-on:click="$root.close();"
+        >
+          <span class="sr-only">Close</span>
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <form method="dialog" class="leading-snug bg-binding-dark p-4 xl:p-8 pr-14">
+          <div class="space-y-3">
+            <h2 class="font-serif font-bold text-2xl">Updated content available!</h2>
+            <p class="font-bold text-xl">
+              If you're not in the middle of anything, click 'Update now' to reload the page with the newest content.
+            </p>
+            <p>If you don't update now and you have not interacted with my contact form then the page will refresh when you change tabs.</p>
+          </div>
+          <div class="mt-5 flex gap-3">
+            <button
+              value="refresh"
+              type="submit"
+              class="text-black border-2 border-black flex items-center bg-yellow-300 hocus:bg-yellow-400 px-4 py-2 rounded shadow-hard font-bold space-x-2 select-none"
+            >
+              Update now
+            </button>
+          </div>
+        </form>
+      </dialog>
       {% include "footer.njk" %}
     </div>
     <div hidden>{% include "src/assets/sprite.svg" %} {% include "src/assets/design-elements.svg" %}</div>

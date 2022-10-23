@@ -14,6 +14,7 @@
 ## Alpine
 
 - [ ] Use `x-spread` to avoid Alpine/Vue conflict and remove need for Vite rewrite workaround
+- [ ] Or use https://github.com/rollup/plugins/tree/master/packages/replace
 - [ ] break scroll shadow into a mixin, use for scroller and header
 - [ ] vibrate when end of scroller/header reached
 
@@ -24,6 +25,10 @@
 - [ ] Review dependencies and remove unused
 - [ ] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
 - [ ] Make the 'read X more' code DRY/componentised
+
+## Service worker
+
+- [ ] https://developer.chrome.com/docs/workbox/serving-cached-audio-and-video/
 
 ## CSS
 

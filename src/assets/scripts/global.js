@@ -1,4 +1,5 @@
-import './utils/request-idle-callback.js';
+import './service-worker-management';
+import './utils/request-idle-callback';
 import loadjs from 'loadjs';
 
 requestIdleCallback(async () => {
