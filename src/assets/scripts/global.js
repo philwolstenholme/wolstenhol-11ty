@@ -1,4 +1,5 @@
 import ric from './utils/request-idle-callback.js';
+import './service-worker-management';
 import loadjs from 'loadjs';
 
 ric(async () => {

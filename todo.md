@@ -26,6 +26,10 @@
 - [ ] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
 - [ ] Make the 'read X more' code DRY/componentised
 
+## Service worker
+
+- [ ] https://developer.chrome.com/docs/workbox/serving-cached-audio-and-video/
+
 ## CSS
 
 - Go through old Vue templates and replace scoped CSS with utilities or custom CSS
