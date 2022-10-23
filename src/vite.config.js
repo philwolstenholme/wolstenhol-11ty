@@ -73,5 +73,7 @@ module.exports = defineConfig({
   ],
   build: {
     emptyOutDir: true,
+    sourcemap: true,
+    assetsInlineLimit: 0,
   },
 });
