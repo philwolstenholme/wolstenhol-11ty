@@ -14,10 +14,12 @@
 ## Alpine
 
 - [ ] Use `x-spread` to avoid Alpine/Vue conflict and remove need for Vite rewrite workaround
+- [ ] break scroll shadow into a mixin, use for scroller and header
+- [ ] vibrate when end of scroller/header reached
 
 ## Vite migration
 
-- [ ] Serviceworker
+- [ ] Service worker
 - [ ] Move build dependencies to devDependencies
 - [ ] Review dependencies and remove unused
 - [ ] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
