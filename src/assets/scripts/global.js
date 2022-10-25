@@ -1,7 +1,7 @@
 import './utils/request-idle-callback.js';
 import loadjs from 'loadjs';
 
-requestIdleCallback(async () => {
+ric(async () => {
   loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/instant.page@5.1.1/instantpage.js', 'instantPage', {
     before: (path, el) => {
       el.integrity = 'sha256-aHQ9cMB6I1ChFkcoMA56Loxh9OHORS98dK/iLbGzGmU=';

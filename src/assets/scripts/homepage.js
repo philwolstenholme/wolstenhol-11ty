@@ -43,7 +43,7 @@ if (navigator?.connection?.effectiveType != '4g' || navigator?.connection?.saveD
   document.querySelectorAll('[data-section="photos"] video source').forEach(source => source.remove());
 }
 
-requestIdleCallback(() => {
+ric(() => {
   import('wicg-inert');
 });
 
