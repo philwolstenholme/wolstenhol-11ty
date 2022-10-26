@@ -1,4 +1,4 @@
-import './utils/request-idle-callback.js';
+import ric from './utils/request-idle-callback.js';
 import loadjs from 'loadjs';
 
 ric(async () => {

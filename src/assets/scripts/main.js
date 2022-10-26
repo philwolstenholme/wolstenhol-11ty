@@ -2,7 +2,7 @@ import AsyncAlpine from 'async-alpine';
 import Alpine from 'alpinejs';
 import intersect from '@alpinejs/intersect';
 
-import './utils/request-idle-callback.js';
+import ric from './utils/request-idle-callback.js';
 
 // import CssNakedDay from './css-naked-day.js';
 // CssNakedDay();
