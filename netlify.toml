@@ -131,3 +131,7 @@
   for = "/examples/example-banner"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+[[edge_functions]]
+  path = "/og" 
+  function = "og"
