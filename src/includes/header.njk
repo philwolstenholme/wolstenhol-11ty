@@ -29,7 +29,7 @@
         id="PwHeaderList"
         role="list"
         class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars"
-        x-on:scroll.debounce="sessionStorage.setItem('PwHeader.scrollLeft', $el.scrollLeft)"
+        x-ref="list"
       >
         {%- for item in headerLinks.items -%} {% set id = item.href.replace('/#', '').replace('#', '') %}
         <li>
@@ -42,7 +42,8 @@
               {% if linkFirstChar == '#' or linkSecondChars == '/#' %}'text-yellow-300': activeSection === '{{ id }}'{% endif %}
               {% if linkFirstChar != '#' and linkSecondChars != '/#' %}'text-yellow-300': window.location.pathname === '{{ item.href }}'{% endif %}
             }" 
-            x-on:click="activeSection = '{{ id }}'; sessionStorage.setItem('PwHeader.clickTime', new Date().getTime());"
+            x-on:click.prevent="activeSection = '{{ id }}'; onLinkActivate($event)"
+            x-on:keydown.enter.prevent="activeSection = '{{ id }}'; onLinkActivate($event)"
           >
             {{ item.title }} 
           </a>
@@ -53,23 +54,36 @@
   </div>
   <div class="-mx-5 sm:-mx-2 bg-binding-dark h-3 transform shadow-hard" style="--tw-skew-y: -0.3deg !important"></div>
 </header>
-<script>
-  const clickTime = +sessionStorage.getItem("PwHeader.clickTime");
-  const nowTime = new Date().getTime();
 
-  if (sessionStorage.getItem("PwHeader.scrollLeft")) {
-    if (nowTime - clickTime < 3000) {
-      document.getElementById("PwHeaderList").scrollLeft = +sessionStorage.getItem("PwHeader.scrollLeft");
-    }
+<script>
+  let url = new URL(window.location.href);
+  let params = new URLSearchParams(url.search);
+
+  if (window.location.search.includes('hsp')) {
+    const scrollLeft = params.get('hsp');
+    document.getElementById("PwHeaderList").scrollLeft = scrollLeft;
+
+    params.delete('hsp');
+    url.search = params.toString();
+    history.replaceState({}, '', url.toString());
   }
 
-  if (nowTime - clickTime < 3000 && window.location.hash && window.location.hash !== '#content') {
-    const header = document.querySelector('header');
-    header.classList.add('z-50');
-    setTimeout(() => {
-      // The class only neees to be there long enough to scroll down to an anchor.
-      header.classList.remove('z-50');
-    }, 5 * 1000);
+  if (window.location.search.includes('hct')) {
+    const hct = +new URLSearchParams(window.location.search).get('hct');
+    const nowTime = new Date().getTime();
+
+    if (hct && nowTime - hct < 3000 && window.location.hash && window.location.hash !== '#content') {
+      const header = document.querySelector('header');
+      header.classList.add('z-50');
+      setTimeout(() => {
+        // The class only neees to be there long enough to scroll down to an anchor.
+        header.classList.remove('z-50');
+      }, 5 * 1000);
+    }
+
+    params.delete('hct');
+    url.search = params.toString();
+    history.replaceState({}, '', url.toString());
   }
 
   document.querySelector(`a[href*="${CSS.escape(window.location.hash)}"]`)?.classList.add('text-yellow-300');

@@ -20,5 +20,15 @@ export default function PwHeader() {
       );
       document.querySelectorAll('h2').forEach(heading => observer.observe(heading));
     },
+    onLinkActivate($event) {
+      const url = new URL($event.target.href);
+      const params = new URLSearchParams(url.search);
+      if (this.$refs.list.scrollLeft) {
+        params.set('hsp', this.$refs.list.scrollLeft);
+      }
+      params.set('hct', new Date().getTime());
+      url.search = params.toString();
+      window.location = url.toString();
+    },
   };
 }
