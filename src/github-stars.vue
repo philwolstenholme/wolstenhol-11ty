@@ -20,10 +20,7 @@
 import PwGitHubStars from './includes/pw-git-hub-stars.vue';
 export default {
   data: {
-    permalink(data) {
-      const parts = [data.page.filePathStem];
-      return `${parts.join('.')}.html`;
-    },
+    permalink: '/github-stars/',
     layout: 'page',
     title: 'Github stars',
     seo: {
