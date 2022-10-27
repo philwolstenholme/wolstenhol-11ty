@@ -15,10 +15,7 @@ export default async function handler(req) {
   const robotoSlabBoldData = await robotoSlabBold;
 
   const { searchParams } = new URL(req.url);
-  const title = decodeURI(searchParams.get('title') || `Phil Wolstenholme's personal website, blog and portfolio`);
-  const url = decodeURI(searchParams.get('url') || 'https://wolstenhol.me');
-
-  console.log({ title, url });
+  const title = decodeURI(searchParams.get('title'));
 
   return new ImageResponse(
     (
@@ -27,6 +24,8 @@ export default async function handler(req) {
           height: '100%',
           width: '100%',
           fontFamily: '"Roboto Slab", serif',
+          //   backgroundImage:
+          //     'url(https://wolstenhol.me/proxy/cloudinary/image/upload/c_crop,f_auto,h_200,w_200,q_auto:eco/v1473712910/subtle_grunge_ux3r0f.png)',
         }}
         tw="relative flex justify-center w-full h-full relative flex-col overflow-hidden bg-yellow-300"
       >
@@ -37,7 +36,7 @@ export default async function handler(req) {
             alt=""
           />
           <img
-            tw="absolute left-0 right-0 top-0 bottom-0 opacity-5 w-full h-full"
+            tw="absolute left-0 right-0 top-0 bottom-0 opacity-5 w-full h-full object-cover"
             src="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,g_north,w_1200,h_630/v1661284312/one-offs/9-soft-grunge-texture-4-1.png"
             alt=""
           />
@@ -58,7 +57,7 @@ export default async function handler(req) {
           </div>
           <img
             tw="h-80 mt-4 rounded-tl-xl rounded-tr-xl shadow-2xl z-10"
-            src={`https://res.cloudinary.com/wolstenh/image/fetch/https://image.thum.io/get/maxAge/12/width/2400/crop/600/allowJPG/noanimate/${url}`}
+            src="https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png"
             alt=""
           />
         </div>
