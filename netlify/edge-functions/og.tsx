@@ -1,6 +1,7 @@
 import React from 'https://esm.sh/react@18.2.0';
 import { ImageResponse } from 'https://deno.land/x/og_edge/mod.ts';
 import classnames from 'https://deno.land/x/classnames@0.1.1/index.ts';
+import { unescape } from 'https://deno.land/x/html_escape/unescape.ts';
 
 const robotoSlabRegular = fetch(
   'https://github.com/google/fonts/raw/5c3d8ef085f3084db38936d0dcd39a567dbc1e01/apache/robotoslab/static/RobotoSlab-Regular.ttf'
@@ -14,7 +15,7 @@ export default async function handler(req) {
   const robotoSlabRegularData = await robotoSlabRegular;
   const robotoSlabBoldData = await robotoSlabBold;
 
-  const { searchParams } = new URL(req.url);
+  const searchParams = new URLSearchParams(unescape(req.url.split('?')[1]));
   const title = decodeURI(searchParams.get('title') || `Phil Wolstenholme's personal website, blog and portfolio`);
   const url = decodeURI(searchParams.get('url') || 'https://wolstenhol.me');
 
