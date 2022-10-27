@@ -36,7 +36,7 @@ export default async function handler(req) {
             alt=""
           />
           <img
-            tw="absolute left-0 right-0 top-0 bottom-0 opacity-5 w-full h-full object-cover"
+            tw="absolute left-0 right-0 top-0 bottom-0 opacity-5 w-full h-full"
             src="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,g_north,w_1200,h_630/v1661284312/one-offs/9-soft-grunge-texture-4-1.png"
             alt=""
           />
