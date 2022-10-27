@@ -94,6 +94,7 @@
   [plugins.inputs]
     entryPoints = [
       "*.html",
+      "**/*.html",
     ]
     recursive = false
     fontDisplay = "swap"
