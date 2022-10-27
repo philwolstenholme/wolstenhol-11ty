@@ -55,10 +55,10 @@ const getData = async function () {
   data = data.lighthouseResult.categories;
 
   const getGrade = function (score) {
-    if (score < 0.5) {
+    if (score < 50) {
       return 'bad';
     }
-    if (score < 0.9) {
+    if (score < 90) {
       return 'ok';
     }
     return 'good';
