@@ -146,3 +146,7 @@
 [[edge_functions]]
   path = "/og" 
   function = "og"
+
+[[edge_functions]]
+  path = "/*"
+  function = "strip-non-html-headers"
