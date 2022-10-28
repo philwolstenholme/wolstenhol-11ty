@@ -126,7 +126,7 @@ module.exports = defineConfig({
             type: 'image/png',
           },
         ],
-        theme_color: '#fbbf24',
+        theme_color: '#1B1B1B',
         background_color: '#fbbf24',
         display: 'minimal-ui',
         orientation: 'natural',

@@ -38,16 +38,6 @@ html {
   @apply hidden;
 }
 
-/**
- * Selectively disable the default focus style by selecting for the case when the polyfill
- * is loaded and [data-focus-visible-added] attribute is not applied to the element:
- *
- * @link https://github.com/WICG/focus-visible#2-update-your-css
- */
-.js-focus-visible :focus:not([data-focus-visible-added]) {
-  @apply outline-none;
-}
-
 .hue-rotate,
 .hue-rotate-links a {
   animation: hue-rotate 30s infinite;
