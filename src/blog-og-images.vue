@@ -5,9 +5,12 @@
     <div class="mt-5 xl:mt-10 mb-10 xl:mb-12">
       <ul class="grid grid-cols-3 gap-5">
         <li v-for="(post, key) in this.medium" :key="key">
-          <a :href="`http://localhost:8888/og?title=${post.title}&url=${post.url}&type=blog%20post`" download>
+          <a
+            :href="`http://localhost:8888/og?title=${encodeURIComponent(post.title)}&url=${encodeURIComponent(post.url)}&type=blog%20post`"
+            download
+          >
             <img
-              :src="`http://localhost:8888/og?title=${post.title}&url=${post.url}&type=blog%20post`"
+              :src="`http://localhost:8888/og?title=${encodeURIComponent(post.title)}&url=${encodeURIComponent(post.url)}&type=blog%20post`"
               alt=""
               loading="lazy"
               width="1200"
