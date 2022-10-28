@@ -111,6 +111,7 @@ module.exports = defineConfig({
           },
         ],
         ignoreURLParametersMatching: [/^hsp/, /^hc/],
+        navigateFallback: null,
       },
       manifest: {
         lang: 'en',
