@@ -23,10 +23,16 @@ export default function PwHeader() {
     onLinkActivate($event) {
       const url = new URL($event.target.href);
       const params = new URLSearchParams(url.search);
+
       if (this.$refs.list.scrollLeft) {
         params.set('hsp', this.$refs.list.scrollLeft);
       }
-      params.set('hc', 1);
+
+      if (url.hash) {
+        // We only need this if there's an anchor link involved.
+        params.set('hc', 1);
+      }
+
       url.search = params.toString();
       window.location = url.toString();
     },
