@@ -26,7 +26,7 @@ export default function PwHeader() {
       if (this.$refs.list.scrollLeft) {
         params.set('hsp', this.$refs.list.scrollLeft);
       }
-      params.set('hct', new Date().getTime());
+      params.set('hc', 1);
       url.search = params.toString();
       window.location = url.toString();
     },

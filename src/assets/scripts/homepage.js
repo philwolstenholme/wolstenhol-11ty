@@ -25,16 +25,16 @@ document.addEventListener('alpine:init', () => {
 });
 
 AsyncAlpine.init(Alpine)
+  .data('PwHeader', () => import('./alpine/PwHeader'))
   .data('PwCardInstagram', () => import('./alpine/PwCardInstagram'))
   .data('PwCardMusic', () => import('./alpine/PwCardMusic'))
-  .data('PwContact', () => import('./alpine/PwContact'))
   .data('PwGenre', () => import('./alpine/PwGenre'))
-  .data('PwHeader', () => import('./alpine/PwHeader'))
   .data('PwLightbox', () => import('./alpine/PwLightbox'))
   .data('PwMusic', () => import('./alpine/PwMusic'))
   .data('PwSimpleScroller', () => import('./alpine/PwSimpleScroller'))
   .data('PwSpotifyLive', () => import('./alpine/PwSpotifyLive'))
   .data('PwTweets', () => import('./alpine/PwTweets'))
+  .data('PwContact', () => import('./alpine/PwContact'))
   .start();
 
 Alpine.start();

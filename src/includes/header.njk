@@ -56,35 +56,32 @@
 </header>
 
 <script>
-  let url = new URL(window.location.href);
-  let params = new URLSearchParams(url.search);
+  (() => {
+    let url = new URL(window.location.href);
+    let params = new URLSearchParams(url.search);
 
-  if (window.location.search.includes('hsp')) {
-    const scrollLeft = params.get('hsp');
-    document.getElementById("PwHeaderList").scrollLeft = scrollLeft;
+    if (window.location.search.includes('hsp=')) {
+      const scrollLeft = params.get('hsp');
+      document.getElementById("PwHeaderList").scrollLeft = scrollLeft;
 
-    params.delete('hsp');
-    url.search = params.toString();
-    history.replaceState({}, '', url.toString());
-  }
+      params.delete('hsp');
+      url.search = params.toString();
+      history.replaceState({}, '', url.toString());
+    }
 
-  if (window.location.search.includes('hct')) {
-    const hct = +new URLSearchParams(window.location.search).get('hct');
-    const nowTime = new Date().getTime();
-
-    if (hct && nowTime - hct < 3000 && window.location.hash && window.location.hash !== '#content') {
+    if (window.location.search.includes('hc=')) {
       const header = document.querySelector('header');
       header.classList.add('z-50');
       setTimeout(() => {
         // The class only neees to be there long enough to scroll down to an anchor.
         header.classList.remove('z-50');
       }, 5 * 1000);
+
+      params.delete('hc');
+      url.search = params.toString();
+      history.replaceState({}, '', url.toString());
     }
 
-    params.delete('hct');
-    url.search = params.toString();
-    history.replaceState({}, '', url.toString());
-  }
-
-  document.querySelector(`a[href*="${CSS.escape(window.location.hash)}"]`)?.classList.add('text-yellow-300');
+    document.querySelector(`a[href*="${CSS.escape(window.location.hash)}"]`)?.classList.add('text-yellow-300');
+  })();
 </script>
