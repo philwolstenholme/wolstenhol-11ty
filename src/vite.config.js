@@ -7,10 +7,13 @@ import { VitePWA } from 'vite-plugin-pwa';
 const addNoscriptCss = () => {
   return {
     name: 'add-noscript-css',
-    transformIndexHtml(html, { chunk }) {
+    enforce: 'post',
+    transformIndexHtml(html, { bundle, chunk }) {
       const tags = [];
+      const cssBundleKeys = Object.keys(bundle).filter(key => key.endsWith('.css'));
+      cssBundleKeys.forEach(key => {
+        const cssBundle = bundle[key];
 
-      Array.from(chunk.viteMetadata.importedCss, assetUrl => {
         tags.push({
           tag: 'noscript',
           children: [
@@ -18,7 +21,7 @@ const addNoscriptCss = () => {
               tag: 'link',
               attrs: {
                 rel: 'stylesheet',
-                href: `/${assetUrl}`,
+                href: `/${cssBundle.fileName}`,
               },
             },
           ],
@@ -49,9 +52,9 @@ module.exports = defineConfig({
     environment: 'happy-dom',
   },
   plugins: [
+    addNoscriptCss(),
     splitVendorChunkPlugin(),
     // sri(),
-    addNoscriptCss(),
     workaroundForUsingAlpineAndVueBindingTogether(),
     htmlMinimize({
       collapseWhitespace: true,
