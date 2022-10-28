@@ -107,6 +107,7 @@ module.exports = defineConfig({
             },
           },
         ],
+        ignoreURLParametersMatching: [/^hsp/, /^hc/],
       },
       manifest: {
         lang: 'en',
