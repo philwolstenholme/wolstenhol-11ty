@@ -56,14 +56,14 @@
     >
     <div role="document" class="min-h-screen flex flex-col">
       {% include "header.njk" %}
-      <main class="flex-grow w-full outline-none" id="content" tabindex="-1">
+      <main class="relative flex-grow w-full outline-none" id="content" tabindex="-1">
         {% if page.url == '/' %} {% include "homepage/homepage-header.njk" %}
         <div class="-mb-6 -mt-6 -skew-y-1 transform z-10">
           <div class="bg-binding-dark h-12"></div>
           <div class="bg-subtle-grunge h-12"></div>
         </div>
         {% endif %}
-        <div class="mx-auto section__inner py-10 lg:pb-28">
+        <div class="absolute inset-0 overflow-hidden">
           <img
             hidden
             data-frivolous-grunge
@@ -112,6 +112,8 @@
             "
             style="left: -230px; top: 2900px"
           />
+        </div>
+        <div class="mx-auto section__inner py-10 lg:pb-28">
           <div class="transform">
             {{ content | safe }}
           </div>
@@ -169,10 +171,13 @@
       });
     </script>
     <script type="module" src="/assets/scripts/global.js"></script>
+
     {% if (page.url == '/') %}
     <script type="module" src="/assets/scripts/homepage.js"></script>
-    {% endif %}{% if (page.filePathStem == '/github-stars') %}
+    {% endif %} {% if (page.filePathStem == '/github-stars') %}
     <script type="module" src="/assets/scripts/github-stars.js"></script>
+    {% endif %} {% if (page.filePathStem == '/contact') %}
+    <script type="module" src="/assets/scripts/contact.js"></script>
     {% endif %}
 
     <script>

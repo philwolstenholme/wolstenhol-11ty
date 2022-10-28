@@ -34,7 +34,6 @@ AsyncAlpine.init(Alpine)
   .data('PwSimpleScroller', () => import('./alpine/PwSimpleScroller'))
   .data('PwSpotifyLive', () => import('./alpine/PwSpotifyLive'))
   .data('PwTweets', () => import('./alpine/PwTweets'))
-  .data('PwContact', () => import('./alpine/PwContact'))
   .start();
 
 Alpine.start();
@@ -59,4 +58,8 @@ if (window.scrollY > 0) {
 
 if (window.location.hash === '#stars') {
   window.location.replace('/github-stars');
+}
+
+if (window.location.hash === '#contact') {
+  window.location.replace('/contact');
 }

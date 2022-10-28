@@ -22,8 +22,6 @@
       <pw-tweets v-if="this.twitter" :tweets="this.twitter"></pw-tweets>
 
       <pw-places v-if="this.foursquare" :places="this.foursquare"></pw-places>
-
-      <pw-contact></pw-contact>
     </div>
 
     <pw-lightbox></pw-lightbox>
@@ -41,7 +39,6 @@ import PwCardTalk from './includes/pw-card-talk.vue';
 import Icon from './includes/icon.vue';
 import PwPlaces from './includes/pw-places.vue';
 import PwTweets from './includes/pw-tweets.vue';
-import PwContact from './includes/pw-contact.vue';
 import PwMusic from './includes/pw-music.vue';
 import PwPhotos from './includes/pw-photos.vue';
 import PwReading from './includes/pw-reading.vue';
@@ -71,7 +68,6 @@ export default {
     Icon,
     PwPlaces,
     PwTweets,
-    PwContact,
     PwMusic,
     PwPhotos,
     PwReading,
