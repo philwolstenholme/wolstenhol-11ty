@@ -6,7 +6,13 @@
       <ul class="grid grid-cols-3 gap-5">
         <li v-for="(post, key) in this.medium" :key="key">
           <a :href="`http://localhost:8888/og?title=${post.title}&url=${post.url}&type=blog%20post`" download>
-            <img :src="`http://localhost:8888/og?title=${post.title}&url=${post.url}&type=blog%20post`" alt="" />
+            <img
+              :src="`http://localhost:8888/og?title=${post.title}&url=${post.url}&type=blog%20post`"
+              alt=""
+              loading="lazy"
+              width="1200"
+              height="630"
+            />
           </a>
         </li>
       </ul>
