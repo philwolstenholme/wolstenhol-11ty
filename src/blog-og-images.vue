@@ -1,0 +1,35 @@
+<template>
+  <article>
+    <h1 class="text-5xl xl:text-8xl bg-clip-text text-fill-transparent bg-binding-dark tracking-tight font-serif font-bold">{{ title }}</h1>
+
+    <div class="mt-5 xl:mt-10 mb-10 xl:mb-12">
+      <ul class="grid grid-cols-3 gap-5">
+        <li v-for="(post, key) in this.medium" :key="key">
+          <a :href="`http://localhost:8888/og?title=${post.title}&url=${post.url}&type=blog%20post`" download>
+            <img :src="`http://localhost:8888/og?title=${post.title}&url=${post.url}&type=blog%20post`" alt="" />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <style v-html="this.getVueComponentCssForPage(this.page.url)"></style>
+  </article>
+</template>
+
+<script>
+export default {
+  data: {
+    permalink(data) {
+      const parts = [data.page.filePathStem];
+      return `${parts.join('.')}.html`;
+    },
+    layout: 'page',
+    title: 'Blog post OG images',
+    seo: {
+      description: `What are you doing here?! Shoo!`,
+    },
+  },
+};
+</script>
+
+<style scoped></style>

@@ -6,6 +6,7 @@
 - [x] Per-page bundles for unique JS
 - [ ] Per-page bundles for unique CSS _that isn't inlined_ (should be handled via Vue plugin)
 - [ ] Remove duplication when the scroll saver thing is used
+- [ ] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
 
 ## Github stars
 
@@ -20,11 +21,9 @@
 
 ## Vite migration
 
-- [ ] Service worker
 - [ ] Move build dependencies to devDependencies
 - [ ] Review dependencies and remove unused
-- [ ] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
-- [ ] Make the 'read X more' code DRY/componentised
+- [ ] Noscript for CSS not working any more
 
 ## Service worker
 

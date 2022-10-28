@@ -18,6 +18,16 @@ export default async function handler(req) {
   const searchParams = new URLSearchParams(unescape(req.url.split('?')[1]));
   const title = decodeURI(searchParams.get('title') || `Phil Wolstenholme's personal website, blog and portfolio`);
   const url = decodeURI(searchParams.get('url') || 'https://wolstenhol.me');
+  const type = decodeURI(searchParams.get('type') || 'webpage');
+
+  const allowedTypes = ['webpage', 'blog post'];
+  if (!allowedTypes.includes(type)) {
+    return new Response('Invalid type', { status: 400 });
+  }
+
+  if (!url.startsWith('https://wolstenhol.me') && !url.startsWith('https://dev.to/philw_/')) {
+    return new Response('Invalid URL', { status: 400 });
+  }
 
   console.log({ title, url });
 
@@ -86,7 +96,7 @@ export default async function handler(req) {
             </div>
             <div tw="flex flex-grow justify-between font-bold text-2xl">
               <p>
-                A webpage by{' '}
+                A {type} by{' '}
                 <svg xmlns="http://www.w3.org/2000/svg" height="30" tw="ml-3 h-7" viewBox="0 0 612.53101 73.130898">
                   <path
                     fill="#fcd34d"
