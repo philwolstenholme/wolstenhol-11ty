@@ -68,11 +68,11 @@ export default async function handler(req) {
                 {title || `Phil Wolstenholme's personal website, blog and portfolio`}
               </h1>
             </div>
-            {/* <img
+            <img
               tw="h-80 mt-4 rounded-tl-xl rounded-tr-xl shadow-2xl z-10"
-              src={`https://res.cloudinary.com/wolstenh/image/fetch/https://image.thum.io/get/maxAge/12/width/2400/crop/600/allowJPG/noanimate/${url}`}
+              src="https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png"
               alt=""
-            /> */}
+            />
           </div>
           <div
             tw="flex text-white py-2 px-4 w-full"
