@@ -13,7 +13,9 @@ const robotoSlabBold = fetch(
 
 const tryAndGetImageBlobUrl = async (url: string) => {
   try {
+    console.log('trying to get image blob url', url);
     const res = await fetch(url);
+    console.log('res status', res.status);
 
     if (res.status !== 200) {
       throw new Error('Failed to fetch image');
@@ -34,53 +36,50 @@ export default async function handler(req) {
   const THUM_API_KEY = Deno.env.get('THUM_API_KEY');
   const searchParams = new URLSearchParams(unescape(req.url.split('?')[1]));
   const title = decodeURI(searchParams.get('title') || `Phil Wolstenholme's personal website, blog and portfolio`);
-  let url = decodeURI(searchParams.get('url') || 'https://wolstenhol.me');
+  const url = decodeURI(searchParams.get('url') || 'https://wolstenhol.me');
   const type = decodeURI(searchParams.get('type') || 'webpage');
 
   const allowedTypes = ['webpage', 'blog post'];
   if (!allowedTypes.includes(type)) {
+    console.error(`Invalid type: ${type}`);
     return new Response('Invalid type', { status: 400 });
   }
 
   if (!url.startsWith('https://wolstenhol.me') && !url.startsWith('https://dev.to/philw_/')) {
+    console.error(`Invalid url: ${url}`);
     return new Response('Invalid URL', { status: 400 });
   }
 
   if (!THUM_API_KEY) {
+    console.error('THUM_API_KEY not set');
     return new Response('Missing THUM_API_KEY', { status: 500 });
   }
 
   console.log({ title, url, type });
 
-  const headRes = await fetch(url, { method: 'HEAD' });
-  if (headRes.status !== 200) {
-    console.warn('Invalid URL, using fallback');
-    url = 'https://wolstenhol.me';
-  }
-
   try {
     const cloudinaryPrefix = 'https://res.cloudinary.com/wolstenh/image/fetch/';
     let imgSrc = `${cloudinaryPrefix}https://image.thum.io/get/auth/${THUM_API_KEY}/maxAge/24/crop/600/allowJPG/noanimate/${url}`;
 
-    console.log(imgSrc);
+    console.log('original imgSrc', imgSrc);
 
     const imageBlobUrl = await tryAndGetImageBlobUrl(imgSrc);
 
     if (imageBlobUrl) {
       imgSrc = imageBlobUrl;
     } else {
+      console.log('Trying to get image without going via Cloudinary');
       const uncachedImageBlobUrl = await tryAndGetImageBlobUrl(imgSrc.replace(cloudinaryPrefix, ''));
 
       if (uncachedImageBlobUrl) {
         imgSrc = uncachedImageBlobUrl;
+
+        console.log('new imgSrc', imgSrc);
       } else {
         imgSrc = 'https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png';
+        console.log('using default image', imgSrc);
       }
     }
-
-    imgSrc = 'https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png';
-
-    console.log(imgSrc);
 
     return new ImageResponse(
       (
@@ -100,7 +99,7 @@ export default async function handler(req) {
             />
             <img
               tw="absolute left-0 right-0 top-0 bottom-0 opacity-5 w-full h-full"
-              src="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,g_north,w_1200,h_630/v1661284312/one-offs/9-soft-grunge-texture-4-1.png"
+              src="https://res.cloudinary.com/wolstenh/image/upload/c_fill,g_north,w_1200,h_630/v1661284312/one-offs/9-soft-grunge-texture-4-1.png"
               alt=""
             />
             <div tw="flex flex-1 items-center px-30 z-10">
@@ -125,7 +124,7 @@ export default async function handler(req) {
             style={{
               transform: 'rotate(-0.5deg) scale(1.2)',
               backgroundImage:
-                'url(https://wolstenhol.me/proxy/cloudinary/image/upload/c_crop,f_png,h_200,w_200,q_auto:eco/v1473712910/binding_dark_im2rpa.png)',
+                'url(https://res.cloudinary.com/wolstenh/image/upload/c_crop,f_png,h_200,w_200,q_auto:eco/v1473712910/binding_dark_im2rpa.png)',
             }}
           >
             <div
@@ -136,7 +135,7 @@ export default async function handler(req) {
             >
               <div tw="flex bg-yellow-300 rounded-full overflow-hidden mr-5">
                 <img
-                  src="https://wolstenhol.me/proxy/cloudinary/image/upload/c_scale,f_auto,q_auto,w_192/v1545084898/avatar_egzcjk.png"
+                  src="https://res.cloudinary.com/wolstenh/image/upload/c_scale,f_auto,q_auto,w_192/v1545084898/avatar_egzcjk.png"
                   alt=""
                   tw="w-12 h-12"
                 />
