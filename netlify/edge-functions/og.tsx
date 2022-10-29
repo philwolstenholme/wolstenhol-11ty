@@ -15,6 +15,7 @@ export default async function handler(req) {
   const robotoSlabRegularData = await robotoSlabRegular;
   const robotoSlabBoldData = await robotoSlabBold;
 
+  const THUM_API_KEY = Deno.env.get('THUM_API_KEY');
   const searchParams = new URLSearchParams(unescape(req.url.split('?')[1]));
   const title = decodeURI(searchParams.get('title') || `Phil Wolstenholme's personal website, blog and portfolio`);
   const url = decodeURI(searchParams.get('url') || 'https://wolstenhol.me');
@@ -32,6 +33,19 @@ export default async function handler(req) {
   console.log({ title, url });
 
   try {
+    let imgSrc = `https://res.cloudinary.com/wolstenh/image/fetch/https://image.thum.io/get/auth/${THUM_API_KEY}/maxAge/24/width/2400/crop/600/allowJPG/noanimate/${encodeURIComponent(
+      url
+    )}`;
+
+    const imageHead = fetch(imgSrc, { method: 'HEAD' });
+    const imageHeadResponse = await imageHead;
+
+    // If the image head response is not ok, then we'll use the default image
+    if (!imageHeadResponse.ok) {
+      console.log('Image head response not ok for', imgSrc);
+      imgSrc = 'https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png';
+    }
+
     return new ImageResponse(
       (
         <div
@@ -68,11 +82,7 @@ export default async function handler(req) {
                 {title || `Phil Wolstenholme's personal website, blog and portfolio`}
               </h1>
             </div>
-            <img
-              tw="h-80 mt-4 rounded-tl-xl rounded-tr-xl shadow-2xl z-10"
-              src="https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png"
-              alt=""
-            />
+            <img tw="h-80 mt-4 rounded-tl-xl rounded-tr-xl shadow-2xl z-10" src={imgSrc} alt="" />
           </div>
           <div
             tw="flex text-white py-2 px-4 w-full"
