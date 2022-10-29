@@ -11,6 +11,22 @@ const robotoSlabBold = fetch(
   'https://github.com/google/fonts/raw/5c3d8ef085f3084db38936d0dcd39a567dbc1e01/apache/robotoslab/static/RobotoSlab-Bold.ttf'
 ).then(res => res.arrayBuffer());
 
+const tryAndGetImageBlobUrl = async (url: string) => {
+  try {
+    const res = await fetch(url);
+
+    if (res.status !== 200) {
+      throw new Error('Failed to fetch image');
+    }
+
+    const blob = await res.blob();
+    return URL.createObjectURL(blob);
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+};
+
 export default async function handler(req) {
   const robotoSlabRegularData = await robotoSlabRegular;
   const robotoSlabBoldData = await robotoSlabBold;
@@ -18,7 +34,7 @@ export default async function handler(req) {
   const THUM_API_KEY = Deno.env.get('THUM_API_KEY');
   const searchParams = new URLSearchParams(unescape(req.url.split('?')[1]));
   const title = decodeURI(searchParams.get('title') || `Phil Wolstenholme's personal website, blog and portfolio`);
-  const url = decodeURI(searchParams.get('url') || 'https://wolstenhol.me');
+  let url = decodeURI(searchParams.get('url') || 'https://wolstenhol.me');
   const type = decodeURI(searchParams.get('type') || 'webpage');
 
   const allowedTypes = ['webpage', 'blog post'];
@@ -30,21 +46,41 @@ export default async function handler(req) {
     return new Response('Invalid URL', { status: 400 });
   }
 
-  console.log({ title, url });
+  if (!THUM_API_KEY) {
+    return new Response('Missing THUM_API_KEY', { status: 500 });
+  }
+
+  console.log({ title, url, type });
+
+  const headRes = await fetch(url, { method: 'HEAD' });
+  if (headRes.status !== 200) {
+    console.warn('Invalid URL, using fallback');
+    url = 'https://wolstenhol.me';
+  }
 
   try {
-    let imgSrc = `https://res.cloudinary.com/wolstenh/image/fetch/https://image.thum.io/get/auth/${THUM_API_KEY}/maxAge/24/width/2400/crop/600/allowJPG/noanimate/${encodeURIComponent(
-      url
-    )}`;
+    const cloudinaryPrefix = 'https://res.cloudinary.com/wolstenh/image/fetch/';
+    let imgSrc = `${cloudinaryPrefix}https://image.thum.io/get/auth/${THUM_API_KEY}/maxAge/24/crop/600/allowJPG/noanimate/${url}`;
 
-    const imageHead = fetch(imgSrc, { method: 'HEAD' });
-    const imageHeadResponse = await imageHead;
+    console.log(imgSrc);
 
-    // If the image head response is not ok, then we'll use the default image
-    if (!imageHeadResponse.ok) {
-      console.log('Image head response not ok for', imgSrc);
-      imgSrc = 'https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png';
+    const imageBlobUrl = await tryAndGetImageBlobUrl(imgSrc);
+
+    if (imageBlobUrl) {
+      imgSrc = imageBlobUrl;
+    } else {
+      const uncachedImageBlobUrl = await tryAndGetImageBlobUrl(imgSrc.replace(cloudinaryPrefix, ''));
+
+      if (uncachedImageBlobUrl) {
+        imgSrc = uncachedImageBlobUrl;
+      } else {
+        imgSrc = 'https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png';
+      }
     }
+
+    imgSrc = 'https://res.cloudinary.com/wolstenh/image/upload/v1666814388/one-offs/website.png';
+
+    console.log(imgSrc);
 
     return new ImageResponse(
       (
