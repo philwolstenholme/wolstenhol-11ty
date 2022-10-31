@@ -41,7 +41,7 @@ html {
 .hue-rotate,
 .hue-rotate-links a {
   animation: hue-rotate 30s infinite;
-  animation-delay: 5s;
+  animation-delay: 10s;
 }
 
 @keyframes hue-rotate {
