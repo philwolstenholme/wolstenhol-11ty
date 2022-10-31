@@ -58,6 +58,7 @@ export default {
             width="16"
             height="16"
             loading="lazy"
+            fetchpriority="low"
           />
           <div class="isolate min-w-0">
             <h3 class="font-bold leading-tight group-hocus:underline">{{ item.title }}</h3>
