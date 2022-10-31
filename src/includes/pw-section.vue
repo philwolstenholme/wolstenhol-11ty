@@ -13,7 +13,7 @@ export default {
 
 <template>
   <section :data-section="sectionKey" class="breakout">
-    <div class="mx-auto section__inner" :class="sectionInnerClass">
+    <div :class="`mx-auto section__inner section--${sectionKey}`" :class="sectionInnerClass">
       <slot></slot>
     </div>
   </section>
