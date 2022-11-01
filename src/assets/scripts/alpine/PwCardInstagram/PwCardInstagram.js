@@ -4,8 +4,16 @@ import addPrefetch from '../../utils/add-prefetch';
 export default function PwCardInstagram() {
   return {
     playing: false,
+    useLightbox: window.matchMedia('(hover: hover)').matches,
     prefetchImage: function (url) {
-      addPrefetch(url, 'image');
+      if (this.useLightbox) {
+        addPrefetch(url, 'image');
+      }
+    },
+    init() {
+      window.matchMedia('(hover: hover)').addEventListener('change', e => {
+        this.useLightbox = e.matches;
+      });
     },
     confetti() {
       loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/canvas-confetti@1.5.1/dist/confetti.browser.js', 'canvas-confetti', {

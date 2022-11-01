@@ -149,7 +149,9 @@ export default {
       !post.videos ? `https://instagram-proxy.philgw.workers.dev/${post.display_url.replace('https://', 'https:/')}` : null
     "
     v-bind:x-init="!post.videos ? `$root.setAttribute('role', 'button');` : null"
-    v-bind:x-on:click{dot}prevent="!post.videos ? `$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null"
+    v-bind:x-on:click{dot}prevent="
+      !post.videos ? `if (useLightbox) $root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null
+    "
     v-bind:x-on:keydown{dot}enter{dot}prevent="!post.videos ? `$root.click()` : null"
     v-bind:x-on:keydown{dot}space="!post.videos ? `$root.click()` : null"
   >
