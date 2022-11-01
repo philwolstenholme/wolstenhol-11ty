@@ -112,6 +112,9 @@ module.exports = defineConfig({
         ],
         ignoreURLParametersMatching: [/^hsp/, /^hc/],
         navigateFallback: null,
+        templatedURLs: {
+          '/': ['index.html'],
+        },
       },
       manifest: {
         lang: 'en',
