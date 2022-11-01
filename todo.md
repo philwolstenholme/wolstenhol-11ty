@@ -35,9 +35,10 @@
 
 ## Eleventy
 
-- Move speaking data to a collection?
-- Sort out page templates for homepage vs other pages
-- FINISH portfolio section from local feature branch
+- [ ] Move speaking data to a collection?
+- [x] Sort out page templates for homepage vs other pages
+- [ ] Use navigation plugin to do active link classes in top nav with HTML not JS
+- [ ] FINISH portfolio section from local feature branch
 
 ## Accessibility
 
