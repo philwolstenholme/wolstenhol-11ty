@@ -111,6 +111,10 @@
     "vite-plugin-pwa": "^0.13.1",
     "wicg-inert": "^3.1.2"
   },
+  "overrides": {
+    "workbox-build": "^6.5.4",
+    "workbox-window": "^6.5.4"
+  },
   "browserslist": [
     "defaults"
   ]
