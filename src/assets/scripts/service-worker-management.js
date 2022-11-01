@@ -38,7 +38,6 @@ const updateSW = registerSW({
   onNeedRefresh() {
     if (canReloadImmediately()) {
       updateSW(true);
-      window.location.reload();
       console.log('⚙️ Service worker updated (automatically)');
       return;
     }
@@ -48,7 +47,6 @@ const updateSW = registerSW({
     dialog.addEventListener('close', async () => {
       if (dialog.returnValue === 'refresh') {
         updateSW(true);
-        window.location.reload();
         console.log('⚙️ Service worker updated (form)');
       }
     });
