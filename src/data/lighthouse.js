@@ -53,6 +53,7 @@ const getData = async function () {
   });
 
   data = data.lighthouseResult.categories;
+  console.table(data);
 
   const getGrade = function (score) {
     if (score < 50) {
