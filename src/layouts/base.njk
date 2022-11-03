@@ -144,18 +144,20 @@
         <form method="dialog" class="leading-snug bg-binding-dark p-4 xl:p-8 pr-14">
           <div class="space-y-3">
             <h2 class="font-serif font-bold text-2xl">Updated content available!</h2>
-            <p class="font-bold text-xl">
+            <p id="service-worker-update-desc" class="font-bold text-xl">
               If you're not in the middle of anything, click 'Update now' to reload the page with the newest content.
             </p>
             <p>If you don't update now and you have not interacted with my contact form then the page will refresh when you change tabs.</p>
           </div>
           <div class="mt-5 flex gap-3">
             <button
+              aria-describedby="service-worker-update-desc"
+              autofocus
               value="refresh"
               type="submit"
               class="text-black border-2 border-black flex items-center bg-yellow-300 hocus:bg-yellow-400 px-4 py-2 rounded shadow-hard font-bold space-x-2 select-none"
             >
-              Update now
+              Update now to see the newer content
             </button>
           </div>
         </form>
