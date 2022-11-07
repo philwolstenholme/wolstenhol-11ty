@@ -21,15 +21,15 @@ export default {
   methods: {
     getRandomRotationVar: function () {
       return uniqueRandomArray([
-        '--r: -1.2deg',
-        '--r: -1.1deg',
-        '--r: -1deg',
-        '--r: -0.5deg',
+        '--tw-rotate: -1.2deg !important;',
+        '--tw-rotate: -1.1deg !important;',
+        '--tw-rotate: -1deg !important;',
+        '--tw-rotate: -0.5deg !important;',
         null,
-        '--r: 0.5deg',
-        '--r: 1deg',
-        '--r: 1.1deg',
-        '--r: 1.2deg',
+        '--tw-rotate: 0.5deg !important;',
+        '--tw-rotate: 1deg !important;',
+        '--tw-rotate: 1.1deg !important;',
+        '--tw-rotate: 1.2deg !important;',
       ])();
     },
   },
@@ -45,7 +45,12 @@ export default {
     </div>
 
     <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8">
-      <li class="reading-list__item flex min-w-0" v-for="(item, index) in reading.slice(0, 5)" :key="index" :style="getRandomRotationVar()">
+      <li
+        class="flex transform min-w-0 hover:scale-105 hover:shadow-lg focus-within:scale-105 focus-within:shadow-lg min-w-0 transform transition-all duration-75"
+        :style="getRandomRotationVar()"
+        v-for="(item, index) in reading.slice(0, 5)"
+        :key="index"
+      >
         <a
           :href="item.url"
           class="reading-list-link relative flex min-w-0 group items-baseline space-x-3 flex-1 border border-gray-300 rounded shadow-hard bg-oc-yellow-2 hocus:bg-oc-yellow-3 p-4 font-serif"
@@ -80,11 +85,11 @@ export default {
         </button>
       </li>
       <li
-        class="reading-list__item flex min-w-0"
+        class="flex transform min-w-0 hover:scale-105 hover:shadow-lg focus-within:scale-105 focus-within:shadow-lg min-w-0 transform transition-all duration-75"
+        :style="getRandomRotationVar()"
         :class="{ relative: index === 4 }"
         v-for="(item, index) in reading.slice(5, reading.length + 1)"
         :key="index"
-        :style="getRandomRotationVar()"
       >
         <svg
           v-if="index === 4"
@@ -115,10 +120,6 @@ export default {
 </template>
 
 <style>
-.reading-list__item {
-  transform: rotate(var(--r));
-}
-
 .reading-list-link {
   background-image: url('https://wolstenhol.me/proxy/cloudinary/image/upload/c_crop,f_auto,h_200,w_200,q_auto:eco/v1473712910/subtle_grunge_ux3r0f.png');
   background-blend-mode: luminosity;
