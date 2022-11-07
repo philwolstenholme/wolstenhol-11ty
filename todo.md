@@ -7,6 +7,8 @@
 - [ ] Per-page bundles for unique CSS _that isn't inlined_ (should be handled via Vue plugin)
 - [ ] Remove duplication when the scroll saver thing is used
 - [x] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
+- [x] Remove Twitter lazyloading as it causes CLS
+- [ ] Fix issue of Twitter scrollsaver appearing at top when going from desktop to mobile
 
 ## Github stars
 

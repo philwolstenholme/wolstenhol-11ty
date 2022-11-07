@@ -4,9 +4,9 @@ const tryForCache = require('../../cache');
 
 const getData = async function () {
   let response = await Cache(
-    'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=philw_&include_rts=true&exclude_replies=true&tweet_mode=extended&count=40&include_ext_alt_text=true',
+    'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=philw_&include_rts=true&exclude_replies=true&tweet_mode=extended&count=60&include_ext_alt_text=true',
     {
-      duration: '1h',
+      duration: '30m',
       type: 'json',
       fetchOptions: {
         headers: {

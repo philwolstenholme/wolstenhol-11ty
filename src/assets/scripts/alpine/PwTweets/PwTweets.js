@@ -25,43 +25,6 @@ export default function PwTweets() {
         });
       }
     },
-    loadMore() {
-      fetch('/partial-tweets.html')
-        .then(response => {
-          return response.text();
-        })
-        .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          const tweets = doc.getElementById('results').children;
-
-          if (window.innerWidth > 767) {
-            if (this.colcadeInstance) {
-              this.colcadeInstance.append(tweets);
-            }
-          } else {
-            // Add the new tweets (not using Colcade) as the items only need to be stacked.
-            const tweetsFragment = document.createDocumentFragment();
-            [...tweets].forEach(tweet => {
-              tweetsFragment.appendChild(tweet);
-            });
-            this.$refs.container.appendChild(tweetsFragment);
-
-            // Move columns to the bottom of the list so that they don't interfere with owl classes.
-            const cols = this.$root.querySelectorAll('.tweets-grid__col');
-            const colsFragment = document.createDocumentFragment();
-            [...cols].forEach(col => {
-              colsFragment.appendChild(col);
-            });
-            this.$refs.container.appendChild(colsFragment);
-          }
-
-          window.lozad.observe();
-        })
-        .catch(err => {
-          console.error('Something went wrong.', err);
-        });
-    },
     twitterIntents() {
       loadjs('https://wolstenhol.me/proxy/jsdelivr/gh/BrandwatchLtd/twitter-intents@1.0.0/twitter-intents.js', 'twitter-intents', {
         success: () => {
