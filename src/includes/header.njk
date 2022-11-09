@@ -57,6 +57,7 @@
 
 <script>
   (() => {
+    performance.mark('starting_header_inline_js');
     let url = new URL(window.location.href);
     let params = new URLSearchParams(url.search);
 
@@ -83,5 +84,7 @@
     }
 
     document.querySelector(`a[href*="${CSS.escape(window.location.hash)}"]`)?.classList.add('text-yellow-300');
+    performance.mark('ending_header_inline_js');
+    performance.measure('header_inline_js', 'starting_header_inline_js', 'ending_header_inline_js');
   })();
 </script>
