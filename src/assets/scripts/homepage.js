@@ -42,9 +42,11 @@ if (navigator?.connection?.effectiveType != '4g' || navigator?.connection?.saveD
   document.querySelectorAll('[data-section="photos"] video source').forEach(source => source.remove());
 }
 
-ric(() => {
-  import('wicg-inert');
-});
+if (!HTMLElement.prototype.hasOwnProperty('inert')) {
+  ric(() => {
+    import('wicg-inert');
+  });
+}
 
 function undoHeaderContentInvisibility() {
   document.querySelector('.pw-header').style.contentVisibility = 'visible';
