@@ -116,20 +116,18 @@ class TitleRewriter {
 }
 
 export default async (request, context) => {
+  const response = await context.next();
   const contentType = response.headers.get('content-type');
   if (!contentType || contentType.startsWith('text/html')) {
     return response;
   }
 
   const url = new URL(request.url);
-
   if (!url.searchParams.has('no-js')) {
-    return;
+    return response;
   }
 
   context.log('Rustling up a no-JS version of', request.url);
-
-  const response = await context.next();
 
   const transformedResponse = new HTMLRewriter()
     .on('script', new ScriptRemover())
