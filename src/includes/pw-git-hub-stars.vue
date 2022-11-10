@@ -32,7 +32,7 @@ export default {
       <li class="stars-list__item flex min-w-0" v-for="(item, index) in stars" :key="index">
         <a
           :href="item.html_url"
-          class="stars-list-link relative min-w-0 group items-baseline flex-1 border border-gray-300 rounded shadow-hard text-white bg-gray-900 border-black hocus:bg-black p-4 font-serif"
+          class="stars-list-link relative contain-content min-w-0 group items-baseline flex-1 border border-gray-300 rounded shadow-hard text-white bg-gray-900 border-black hocus:bg-black p-4 font-serif"
         >
           <div class="flex flex-col h-full isolate">
             <div class="flex-1">
