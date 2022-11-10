@@ -116,6 +116,11 @@ class TitleRewriter {
 }
 
 export default async (request, context) => {
+  const contentType = response.headers.get('content-type');
+  if (!contentType || contentType.startsWith('text/html')) {
+    return response;
+  }
+
   const url = new URL(request.url);
 
   if (!url.searchParams.has('no-js')) {
