@@ -73,6 +73,7 @@ module.exports = defineConfig({
       preventAttributesEscaping: true,
       sortAttributes: true,
       sortClassName: true,
+      collapseBooleanAttributes: true,
       customAttrCollapse: /x-.*/,
     }),
     VitePWA({
