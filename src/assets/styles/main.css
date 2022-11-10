@@ -116,7 +116,10 @@
 }
 
 /* https://max.hn/thoughts/how-to-create-a-highlighter-marker-effect-in-css */
-:where(::target-text, h2:target, mark, .highlight, .highlight-links a) {
+h2:target,
+mark,
+.highlight,
+.highlight-links a {
   margin: -0.1em -0.4em;
   padding: 0.1em 0.4em;
   border-radius: 0.8em 0.3em;
