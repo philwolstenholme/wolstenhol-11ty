@@ -25,7 +25,7 @@
 
 - [ ] Move build dependencies to devDependencies
 - [ ] Review dependencies and remove unused
-- [ ] Noscript for CSS not working any more
+- [x] Noscript for CSS not working any more
 
 ## Service worker
 
