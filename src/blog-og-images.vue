@@ -25,6 +25,7 @@
 <script>
 export default {
   data: {
+    eleventyExcludeFromCollections: true,
     permalink(data) {
       const parts = [data.page.filePathStem];
       return `${parts.join('.')}.html`;

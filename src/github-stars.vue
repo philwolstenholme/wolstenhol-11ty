@@ -28,6 +28,7 @@ export default {
     title: 'Github stars',
     seo: {
       description: `Partly for me to big up great projects, and partly as a set of things to check out later.`,
+      changeFreq: 'weekly',
     },
     eleventyNavigation: { key: 'github-stars' },
   },

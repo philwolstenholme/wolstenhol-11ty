@@ -55,6 +55,7 @@ export default {
     title: 'Phil Wolstenholme',
     seo: {
       title: `Phil Wolstenholme's personal website, blog and portfolio`,
+      changeFreq: 'daily',
     },
     eleventyNavigation: { key: 'Home' },
   },
