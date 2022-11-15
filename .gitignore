@@ -7,3 +7,4 @@ npm-debug.log*
 /dist
 .netlify
 cache-output.json
+.wireit

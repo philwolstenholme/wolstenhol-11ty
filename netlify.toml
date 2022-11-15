@@ -124,7 +124,11 @@
 [[plugins]]
   package = "netlify-plugin-cache"
   [plugins.inputs]
-    paths = [".cache", "node_modules/.vite", "node_modules/.cache"]
+    paths = [
+      ".cache", 
+      "node_modules/.vite",
+      "node_modules/.cache", 
+    ]
 
 [[edge_functions]]
   path = "/api/fake-edge-messages-endpoint"

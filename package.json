@@ -12,19 +12,94 @@
     "@config": ".config.js"
   },
   "scripts": {
-    "clean": "rimraf '{dist,.11ty-vite}'",
-    "dev:eleventy": "ELEVENTY_ENV=development ELEVENTY_EXPERIMENTAL=true eleventy",
-    "dev": "NODE_ENV=development npm-run-all clean --parallel dev:* --print-label",
-    "build:eleventy": "ELEVENTY_ENV=production ELEVENTY_EXPERIMENTAL=true eleventy",
-    "build:reading-list": "cp -R src/submit-reading-item dist",
-    "sprite": "svg-sprite-generate -d src/assets/images/icons -o src/assets/sprite.svg; sed -i.bak '1d' src/assets/sprite.svg; rm src/assets/sprite.svg.bak",
-    "build": "NODE_ENV=production run-s clean sprite build:* --print-label",
-    "watch:eleventy": "ELEVENTY_ENV=development ELEVENTY_EXPERIMENTAL=true eleventy --serve",
-    "watch": "npm-run-all clean --parallel watch:*",
-    "start": "npm run watch",
+    "dev:eleventy": "wireit",
+    "dev": "wireit",
+    "build:eleventy": "wireit",
+    "build:reading-list": "wireit",
+    "sprite": "wireit",
+    "build": "wireit",
+    "watch:eleventy": "wireit",
+    "watch": "wireit",
+    "start": "wireit",
     "postinstall": "patch-package",
     "test": "vitest --config src/vite.config.js",
     "coverage": "vitest run --coverage --config src/vite.config.js"
+  },
+  "wireit": {
+    "dev:eleventy": {
+      "command": "ELEVENTY_ENV=development ELEVENTY_EXPERIMENTAL=true eleventy"
+    },
+    "dev": {
+      "command": "NODE_ENV=development npm-run-all --parallel dev:* --print-label",
+      "files": [
+        "src/**/*",
+        ".eleventy.js",
+        ".config.js",
+        "tailwind.config.js"
+      ],
+      "output": [
+        "dist/**/*",
+        ".11ty-vite/**/*"
+      ]
+    },
+    "build:eleventy": {
+      "command": "ELEVENTY_ENV=production ELEVENTY_EXPERIMENTAL=true eleventy",
+      "files": [
+        "src/**/*",
+        ".eleventy.js",
+        ".config.js"
+      ],
+      "output": [
+        "dist/**/*",
+        ".11ty-vite/**/*"
+      ]
+    },
+    "build:reading-list": {
+      "command": "cp -R src/submit-reading-item dist",
+      "files": [
+        "src/submit-reading-item/**/*"
+      ],
+      "output": [
+        "dist/submit-reading-item/**/*"
+      ]
+    },
+    "sprite": {
+      "command": "svg-sprite-generate -d src/assets/images/icons -o src/assets/sprite.svg; sed -i.bak '1d' src/assets/sprite.svg; rm src/assets/sprite.svg.bak",
+      "files": [
+        "src/assets/images/icons/*.svg"
+      ],
+      "output": [
+        "src/assets/sprite.svg"
+      ]
+    },
+    "build": {
+      "command": "NODE_ENV=production npm-run-all --parallel build:* --print-label",
+      "dependencies": [
+        "sprite"
+      ],
+      "files": [
+        "src/**/*",
+        ".eleventy.js",
+        ".config.js",
+        "tailwind.config.js"
+      ],
+      "output": [
+        "dist/**/*",
+        ".11ty-vite/**/*"
+      ]
+    },
+    "watch:eleventy": {
+      "command": "ELEVENTY_ENV=development ELEVENTY_EXPERIMENTAL=true eleventy --serve",
+      "service": true
+    },
+    "watch": {
+      "dependencies": [
+        "watch:eleventy"
+      ]
+    },
+    "start": {
+      "command": "npm run watch"
+    }
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-canary.14",
@@ -71,7 +146,8 @@
     "prettier": "^2.7.1",
     "tailwindcss": "^2.2.19",
     "vite-plugin-inspect": "^0.7.7",
-    "vitest": "^0.25.0"
+    "vitest": "^0.25.0",
+    "wireit": "^0.7.3"
   },
   "dependencies": {
     "@alpinejs/intersect": "^3.10.5",
