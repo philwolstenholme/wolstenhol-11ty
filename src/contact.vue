@@ -31,5 +31,3 @@ export default {
   components: { PwContact },
 };
 </script>
-
-<style scoped></style>

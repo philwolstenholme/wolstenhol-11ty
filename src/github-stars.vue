@@ -35,5 +35,3 @@ export default {
   components: { PwGitHubStars },
 };
 </script>
-
-<style scoped></style>
