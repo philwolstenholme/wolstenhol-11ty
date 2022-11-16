@@ -15,7 +15,6 @@
     "dev:eleventy": "wireit",
     "dev": "wireit",
     "build:eleventy": "wireit",
-    "build:reading-list": "wireit",
     "sprite": "wireit",
     "build": "wireit",
     "watch:eleventy": "wireit",
@@ -54,15 +53,6 @@
         ".11ty-vite/**/*"
       ]
     },
-    "build:reading-list": {
-      "command": "cp -R src/submit-reading-item dist",
-      "files": [
-        "src/submit-reading-item/**/*"
-      ],
-      "output": [
-        "dist/submit-reading-item/**/*"
-      ]
-    },
     "sprite": {
       "command": "svg-sprite-generate -d src/assets/images/icons -o src/assets/sprite.svg; sed -i.bak '1d' src/assets/sprite.svg; rm src/assets/sprite.svg.bak",
       "files": [
@@ -81,8 +71,10 @@
         "src/**/*",
         ".eleventy.js",
         ".config.js",
-        "tailwind.config.js"
+        "tailwind.config.js",
+        "package.json"
       ],
+      "clean": false,
       "output": [
         "dist/**/*",
         ".11ty-vite/**/*"
