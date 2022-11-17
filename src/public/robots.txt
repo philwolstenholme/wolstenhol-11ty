@@ -3,3 +3,5 @@ Sitemap: https://wolstenhol.me/sitemap.xml
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /submit-reading-item/
+Disallow: /examples/
