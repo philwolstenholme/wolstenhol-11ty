@@ -7,7 +7,7 @@ work_tags:
   - GDS
   - Node
 happyWithScreenshot: true
-cloudinarySuffix: 'v1668726981/portfolio/ctidigital.com-our-clients-nelson-royal-navy.png'
+cloudinarySuffix: '/v1668726980/portfolio/report-wreck-material.service.gov.uk-report-removed-property-check.png'
 ---
 
 - Working with the Maritime and Coastguard Agency to prototype a GDS app for reporting wreck material
