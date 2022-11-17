@@ -125,6 +125,7 @@ export default {
         <pw-card-talk
           event="VueJS Manchester Community"
           talk="Vue at the Royal Navy"
+          href="https://twitter.com/vuejsmcr/status/1037036688491638784"
           image="https://wolstenhol.me/proxy/cloudinary/image/upload/c_scale,f_auto,w_272,h_153,q_auto/v1609271232/one-offs/vuejs-manchester-navy.jpg"
           srcset="https://wolstenhol.me/proxy/cloudinary/image/upload/c_scale,f_auto,w_544,h_306,q_auto/v1609271232/one-offs/vuejs-manchester-navy.jpg"
         ></pw-card-talk>
