@@ -3,6 +3,7 @@ name: 'CTI Voyager'
 url: 'https://www.ctidigital.com/drupal/drupal-consultancy-and-development-agency'
 prevent_link: true
 tags: work
+color: '#27CFED'
 work_tags:
   - Drupal
   - Tailwind

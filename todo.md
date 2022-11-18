@@ -9,6 +9,9 @@
 - [x] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
 - [x] Remove Twitter lazyloading as it causes CLS
 - [ ] Fix issue of Twitter scrollsaver appearing at top when going from desktop to mobile
+- [ ] Connect work screenshots script to Cloudinary uploader
+- [ ] Make components for non-homepage header and lede
+- [ ] Do some fancy CSS clipping and animating to make a full-page screenshot 'scroll' on hover on portfolio
 
 ## Github stars
 
