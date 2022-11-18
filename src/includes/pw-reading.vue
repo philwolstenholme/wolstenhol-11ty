@@ -46,7 +46,7 @@ export default {
 
     <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3 mt-8">
       <li
-        class="flex transform min-w-0 hover:scale-105 hover:shadow-lg focus-within:scale-105 focus-within:shadow-lg min-w-0 transform transition-all duration-75"
+        class="reading-list__item flex transform min-w-0 hover:scale-105 hover:shadow-lg focus-within:scale-105 focus-within:shadow-lg min-w-0 transform transition-all duration-75"
         :style="getRandomRotationVar()"
         v-for="(item, index) in reading.slice(0, 5)"
         :key="index"
@@ -85,7 +85,7 @@ export default {
         </button>
       </li>
       <li
-        class="flex transform min-w-0 hover:scale-105 hover:shadow-lg focus-within:scale-105 focus-within:shadow-lg min-w-0 transform transition-all duration-75"
+        class="reading-list__item flex transform min-w-0 hover:scale-105 hover:shadow-lg focus-within:scale-105 focus-within:shadow-lg min-w-0 transform transition-all duration-75"
         :style="getRandomRotationVar()"
         :class="{ relative: index === 4 }"
         v-for="(item, index) in reading.slice(5, reading.length + 1)"
