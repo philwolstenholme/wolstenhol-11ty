@@ -8,6 +8,7 @@ work_tags:
   - Serverless
 happyWithScreenshot: true
 cloudinarySuffix: 'v1668726981/portfolio/lasttramfrom.com.png'
+permalink: false
 ---
 
 - Screen-scrapes (via a Netlify function) the Transport for Greater Mancnester to show you the time of the last Manchester Metrolink tram home

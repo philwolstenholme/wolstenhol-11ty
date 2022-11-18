@@ -9,6 +9,7 @@ work_tags:
   - Alpine
 happyWithScreenshot: true
 cloudinarySuffix: 'v1668726981/portfolio/ctidigital.com-drupal-drupal-consultancy-and-development-agency.png'
+permalink: false
 ---
 
 - Largely created and led the development of Voyager, an internal Drupal distribution, theme, Composer template and set of custom modules that helps CTI deliver fantastic Drupal sites

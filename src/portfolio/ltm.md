@@ -10,6 +10,7 @@ work_tags:
   - WCAG 2.1
 happyWithScreenshot: false
 cloudinarySuffix: 'v1668726981/portfolio/ltmuseum.co.uk.png'
+permalink: false
 ---
 
 - This was a fantastic project working with a great team at LTM

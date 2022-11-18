@@ -8,6 +8,7 @@ work_tags:
   - Node
 happyWithScreenshot: true
 cloudinarySuffix: '/v1668726980/portfolio/report-wreck-material.service.gov.uk-report-removed-property-check.png'
+permalink: false
 ---
 
 - Working with the Maritime and Coastguard Agency to prototype a GDS app for reporting wreck material

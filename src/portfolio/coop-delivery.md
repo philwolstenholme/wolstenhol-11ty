@@ -8,6 +8,7 @@ work_tags:
   - React
 happyWithScreenshot: true
 cloudinarySuffix: 'v1668726981/portfolio/shop.coop.co.uk.png'
+permalink: false
 ---
 
 - Working on [shop.coop.co.uk](https://shop.coop.co.uk), Co-op's delivery and click and collect service, using React, Redux, React Query, Azure functions, Imperva, Helm, Docker, GraphQL

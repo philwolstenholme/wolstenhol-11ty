@@ -8,6 +8,7 @@ work_tags:
   - Prototyping
 happyWithScreenshot: true
 cloudinarySuffix: 'v1668726981/portfolio/durham.ac.uk.png'
+permalink: false
 ---
 
 - Designing and building an HTML prototype of a complete website overhaul

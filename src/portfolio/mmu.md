@@ -8,6 +8,7 @@ tags:
   - Tailwind
 happyWithScreenshot: true
 cloudinarySuffix: 'v1668726981/portfolio/mmu.ac.uk.png'
+permalink: false
 ---
 
 - Used Drupal to deliver designs produced by MMU's own designers

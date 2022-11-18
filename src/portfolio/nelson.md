@@ -8,6 +8,7 @@ work_tags:
   - Torpedos!
 happyWithScreenshot: true
 cloudinarySuffix: 'v1668726981/portfolio/ctidigital.com-our-clients-nelson-royal-navy.png'
+permalink: false
 ---
 
 - Prototyping a Vue.js inventory tracking app to be used by the Royal Navy onboard aircraft carriers

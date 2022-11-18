@@ -9,6 +9,7 @@ tags:
   - Tailwind
 happyWithScreenshot: true
 cloudinarySuffix: 'v1668726981/portfolio/uwl.ac.uk.png'
+permalink: false
 ---
 
 - Developed a new Drupal theme that incorporated Atomic Design, Pattern Lab, utility-first/atomic CSS (Tailwind), a more modern build process, standardised typographic and spacing scales, and provided (for the first time) a set of reusable components for CTI’s Drupal team. I named the theme after the Manchester-based atomic scientist Ernest Rutherford

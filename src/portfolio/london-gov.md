@@ -8,6 +8,7 @@ work_tags:
   - APIs
 happyWithScreenshot: true
 cloudinarySuffix: 'v1668726981/portfolio/london.gov.uk.png'
+permalink: false
 ---
 
 - Worked with the Greater London Authority on everything from their Drupal 7 site, follow up microsites, and their current Drupal 9 site
