@@ -7,6 +7,7 @@
     { "title": "Photos", "href": "/#photos" },
     { "title": "Tweets", "href": "/#tweets" },
     { "title": "Places", "href": "/#places" },
+    { "title": "Work", "href": "/work" },
     { "title": "Contact", "href": "/contact" },
     { "title": "Starred", "href": "/github-stars" }
   ]
