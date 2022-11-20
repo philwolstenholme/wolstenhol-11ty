@@ -16,5 +16,5 @@ permalink: false
 - This was a fantastic project working with a great team at LTM
 - I led a large part in avoiding and remediating accessibility issues on the site, and working with an external auditor
 - I led the development of various components that would feed back into CTI's Voyager product, including search, news, blogs, gated content and more
-- As a team we helped develop a web interface for the museum's collection, which saw a 33% increase in visits after our work
-- I worked on the frontend for a new donations system which led to a 20x increase in donations
+- As a team we helped develop a web interface for the museum's collection, which saw a **33% increase** in visits after our work
+- I worked on the frontend for a new donations system which led to a **20x increase** in donations
