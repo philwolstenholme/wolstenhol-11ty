@@ -7,7 +7,7 @@ work_tags:
   - Coop
   - React
 happyWithScreenshot: true
-cloudinarySuffix: 'v1668726981/portfolio/shop.coop.co.uk.png'
+cloudinarySuffix: 'v1668726981/portfolio/shop.coop.co.uk.png?v=1'
 permalink: false
 ---
 

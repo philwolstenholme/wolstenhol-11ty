@@ -12,6 +12,6 @@ permalink: false
 ---
 
 - Designing and building an HTML prototype of a complete website overhaul
-- The actual development was carried out by Terminal Four
-- This introduced an interesting limitation – we wanted to build as fast and accessible a website as possible, but had to work within the constraints of T4's templating approach
-- I presented a section detailing our development approach as part of a team of around five in the pitch for this large contract
+- The actual development was carried out by Terminal Four within their CMS platform
+- This introduced an interesting limitation – we had switched to a very declarative, markup-centric approach (Vue, Tailwind etc) but T4's templating system was much more set up for a _'here are some very specific CSS classes and some nested `<ul>` elements, now turn it into a megamenu'_ approach
+- I presented a section detailing our development approach as part of a team of around five in the succesful pitch for this large contract
