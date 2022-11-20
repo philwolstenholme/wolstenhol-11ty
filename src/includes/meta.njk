@@ -14,6 +14,7 @@
 <meta name="twitter:creator" content="@philw_">
 <meta name="twitter:card" content="summary_large_image" /> 
 <meta name="image" property="og:image" content="https://wolstenhol.me/og?title={% if seo.title %}{{ seo.title | urlencode | safe }}{% else %}{{ title | urlencode | safe }}{% endif %}&url={{ absolutePageUrl | urlencode | safe }}&v=1.5.0" />
+<meta property="og:image:alt" content="{% if seo.title %}{{ seo.title }}{% else %}{{ title }}{% endif %}, a webpage by Phil Wolstenholme, @philw_" />
 <link rel="alternate" type="application/rss+xml" title="My posts on dev.to" href="https://dev.to/feed/philw_" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png?v=lkvRGjnrz8">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png?v=lkvRGjnrz8">
