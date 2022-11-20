@@ -9,10 +9,11 @@
 <meta property="og:description" content="{{ seo.description or meta.description }}" />
 <meta property="og:url" content="{{ absolutePageUrl }}" />
 <meta property="og:locale" content="{{ meta.locale }}" />
+<meta property="og:type" content="website" />
 <meta name="twitter:site" content="@philw_">
 <meta name="twitter:creator" content="@philw_">
 <meta name="twitter:card" content="summary_large_image" /> 
-<meta property="og:image" content="https://wolstenhol.me/og?title={% if seo.title %}{{ seo.title | urlencode | safe }}{% else %}{{ title | urlencode | safe }}{% endif %}&url={{ absolutePageUrl | urlencode | safe }}&v=1.5.0" />
+<meta name="image" property="og:image" content="https://wolstenhol.me/og?title={% if seo.title %}{{ seo.title | urlencode | safe }}{% else %}{{ title | urlencode | safe }}{% endif %}&url={{ absolutePageUrl | urlencode | safe }}&v=1.5.0" />
 <link rel="alternate" type="application/rss+xml" title="My posts on dev.to" href="https://dev.to/feed/philw_" />
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png?v=lkvRGjnrz8">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png?v=lkvRGjnrz8">
