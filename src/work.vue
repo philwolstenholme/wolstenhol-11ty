@@ -1,5 +1,5 @@
 <script>
-import shuffle from 'lodash/shuffle';
+import sortBy from 'lodash/sortBy';
 const cloudinary = require('cloudinary').v2;
 
 export default {
@@ -22,8 +22,8 @@ export default {
     },
   },
   computed: {
-    shuffledItems() {
-      return shuffle(this.collections.work);
+    sortedItems() {
+      return sortBy(this.collections.work, ['data.weight', 'data.name']);
     },
   },
 };
@@ -48,7 +48,7 @@ export default {
       <li
         tabindex="-1"
         class="card--portfolio transition-transform"
-        v-for="(item, index) in this.shuffledItems"
+        v-for="(item, index) in this.sortedItems"
         :id="slug(item.data.name)"
         v-bind:key="index"
       >
