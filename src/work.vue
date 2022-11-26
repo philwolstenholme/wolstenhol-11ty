@@ -9,7 +9,7 @@ export default {
       return `${parts.join('.')}.html`;
     },
     layout: 'page',
-    title: 'Work',
+    title: 'Work/Portfolio',
     seo: {
       description: `A portfolio of things that I've created or contributed to over the years`,
       changeFreq: 'monthly',
@@ -31,7 +31,7 @@ export default {
 
 <template>
   <article>
-    <h1 class="text-5xl xl:text-8xl bg-clip-text text-fill-transparent bg-binding-dark tracking-tight font-serif font-bold">{{ title }}</h1>
+    <h1 class="text-5xl xl:text-8xl bg-clip-text text-fill-transparent bg-binding-dark tracking-tight font-serif font-bold">Work</h1>
     <div class="font-serif mt-5 xl:mt-10 mb-10 xl:mb-12 space-y-5 text-xl xl:text-2xl leading-normal">
       <p class="highlight-links links-underline">
         I've helped design and build websites for <a href="#london-transport-museum">museums</a>, a
@@ -42,8 +42,8 @@ export default {
       </p>
       <p>I enjoy producing modern, fast-performing sites that don't lose sight of the importance of accessibility and maintainability.</p>
     </div>
-    <h2 class="font-serif font-bold text-3xl xl:text-5xl mb-4 xl:mb-5">Some things I've contributed to</h2>
-    <p class="mt-3 xl:mt-6 mb-8 xl:mb-10">A randomised/shuffled list of things I've worked on either currently, or in the past.</p>
+    <h2 class="font-serif font-bold text-3xl xl:text-5xl mb-4 xl:mb-5">Some things I created or contributed to</h2>
+    <p class="mt-3 xl:mt-6 mb-8 xl:mb-10">A portfolio of websites/web applications that I've worked on over the years.</p>
     <ul class="space-y-14 md:space-y-20">
       <li
         tabindex="-1"
