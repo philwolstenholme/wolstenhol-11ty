@@ -11,6 +11,7 @@
       {%- endif -%}
     </title>
     <link rel="stylesheet" href="/assets/styles/main.css" />
+    <meta name="view-transition" content="same-origin" />
     {% include "meta.njk" %}
     <style>
       /*
@@ -109,7 +110,7 @@
             style="left: -230px; top: 2900px"
           />
         </div>
-        <div class="mx-auto section__inner py-10 lg:pb-28">
+        <div class="view-transition--fade mx-auto section__inner py-10 lg:pb-28">
           <div class="transform">
             {{ content | safe }}
           </div>
