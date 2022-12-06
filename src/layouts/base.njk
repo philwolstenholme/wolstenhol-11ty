@@ -209,16 +209,18 @@
 
       let sections = document.querySelectorAll('body main section');
 
-      sections.forEach(el => {
-        iObs.observe(el);
-        rObs.observe(el);
-      });
-
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          sections[0].style.setProperty('contain-intrinsic-size', 'auto');
+      if (sections.length) {
+        sections.forEach(el => {
+          iObs.observe(el);
+          rObs.observe(el);
         });
-      });
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            sections[0].style.setProperty('contain-intrinsic-size', 'auto');
+          });
+        });
+      }
     </script>
     <script type="module" src="/assets/scripts/global.js"></script>
 
