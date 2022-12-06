@@ -1,4 +1,5 @@
-import ric from './utils/request-idle-callback.js';
+import ric from './utils/request-idle-callback';
+import './utils/speculation-rules-observer';
 import './service-worker-management';
 import loadjs from 'loadjs';
 
