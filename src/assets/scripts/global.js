@@ -3,13 +3,22 @@ import './service-worker-management';
 import loadjs from 'loadjs';
 
 ric(async () => {
-  loadjs('https://cdn.jsdelivr.net/gh/kurtextrem/instant.page@2f30ca8b9e2de960bc909e66a88c7d5476e7dcee/instantpage.js', 'instantPage', {
-    before: (path, el) => {
-      el.integrity = 'sha256-8lBFh/8ENvDuX0u+7Col4fJHcxN5KHZEkUjFLhurycA=';
-      el.type = 'module';
-      el.crossOrigin = 'anonymous';
-    },
-  });
+  loadjs(
+    'https://cdn.statically.io/gist/philwolstenholme/5edef5f487142c0ab214b3d565d663cb/raw/c50b82053fef5aa8a55af50c49ab5a4d3429295e/quicklink-fork-to-allow-multiple-prerenders.js',
+    'quickLink',
+    {
+      before: (path, el) => {
+        // el.integrity = 'sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=';
+        el.crossOrigin = 'anonymous';
+      },
+      success: () => {
+        quicklink.listen({
+          prerender: true,
+          ignores: [uri => uri.includes('/#'), uri => uri.endsWith('#content')],
+        });
+      },
+    }
+  );
 });
 
 console.info(
