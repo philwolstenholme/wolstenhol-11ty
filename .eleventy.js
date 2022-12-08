@@ -65,6 +65,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setServerPassthroughCopyBehavior('copy');
 
+  eleventyConfig.addFilter('removeSelfByUrl', function (collection, url) {
+    return collection.filter(item => item.url !== url);
+  });
+
   return {
     dir: config.dir,
     passthroughFileCopy: true,
