@@ -261,5 +261,19 @@
       })();
     </script>
     {% endif %}
+    <script type="speculationrules">
+      {
+        "prerender": [
+          {
+            "source": "list",
+            "urls": [
+              {%- for item in collections.all | selectattr('url') | removeSelfByUrl(page.url) %}
+              "{{ item.url | url | replace(".html", "") }}"{% if loop.last === false %},{% endif %}
+              {%- endfor %}
+            ]
+          }
+        ]
+      }
+    </script>
   </body>
 </html>
