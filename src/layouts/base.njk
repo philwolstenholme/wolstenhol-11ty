@@ -255,19 +255,5 @@
       data-cf-beacon='{"token": "7210db6185e14990ba2dc29243b3e1ef"}'
     ></script>
     {% endif %}
-    <script type="speculationrules">
-      {
-        "prerender": [
-          {
-            "source": "list",
-            "urls": [
-              {%- for item in collections.all | selectattr('url') | removeSelfByUrl(page.url) %}
-              "{{ build.url }}{{ item.url | url | replace(".html", "") }}"{% if loop.last === false %},{% endif %}
-              {%- endfor %}
-            ]
-          }
-        ]
-      }
-    </script>
   </body>
 </html>

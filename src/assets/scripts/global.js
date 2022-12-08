@@ -3,9 +3,9 @@ import './service-worker-management';
 import loadjs from 'loadjs';
 
 ric(async () => {
-  loadjs('https://cdn.jsdelivr.net/gh/kurtextrem/instant.page@2f30ca8b9e2de960bc909e66a88c7d5476e7dcee/instantpage.js', 'instantPage', {
+  loadjs('https://wolstenhol.me/proxy/jsdelivr/npm/instant.page@5.1.1/instantpage.js', 'instantPage', {
     before: (path, el) => {
-      el.integrity = 'sha256-8lBFh/8ENvDuX0u+7Col4fJHcxN5KHZEkUjFLhurycA=';
+      el.integrity = 'sha256-aHQ9cMB6I1ChFkcoMA56Loxh9OHORS98dK/iLbGzGmU=';
       el.type = 'module';
       el.crossOrigin = 'anonymous';
     },
