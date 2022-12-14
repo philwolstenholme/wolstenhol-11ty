@@ -11,7 +11,28 @@
         and might want to check out or use later.
       </p>
     </div>
-    <PwGitHubStars :stars="this.githubStars"></PwGitHubStars>
+    <!-- <PwGitHubStars :stars="pagination.items"></PwGitHubStars> -->
+
+    <p>This is page {{ pagination.pageNumber }}</p>
+
+    <nav aria-labelledby="pagination-desc">
+      <h2 id="pagination-desc" class="sr-only">Pagination</h2>
+      <ul class="flex flex-wrap justify-center highlight-links gap-8 text-3xl font-bold mt-8 xl:mt-12">
+        <li v-if="pagination.href.first">
+          <a class="underline p-4" :href="pagination.href.first.replace(/\.html$/, '')">First</a>
+        </li>
+        <li v-if="pagination.href.previous">
+          <a class="underline p-4" :href="pagination.href.previous.replace(/\.html$/, '')">Previous</a>
+        </li>
+        <li v-if="pagination.href.next"><a class="underline p-4" :href="pagination.href.next.replace(/\.html$/, '')">Next</a></li>
+        <li v-if="pagination.href.last">
+          <a class="underline p-4" :href="pagination.href.last.replace(/\.html$/, '')">Last</a>
+        </li>
+      </ul>
+    </nav>
+
+    <pre>{{ JSON.stringify(pagination.href, null, 2) }}</pre>
+
     <style v-html="this.getVueComponentCssForPage(this.page.url)"></style>
   </article>
 </template>
@@ -20,17 +41,27 @@
 import PwGitHubStars from './includes/pw-git-hub-stars.vue';
 export default {
   data: {
-    permalink(data) {
-      const parts = [data.page.filePathStem];
-      return `${parts.join('.')}.html`;
-    },
     layout: 'page',
     title: 'Github stars',
     seo: {
       description: `Partly for me to big up great projects, and partly as a set of things to check out later.`,
       changeFreq: 'weekly',
     },
-    eleventyNavigation: { key: 'github-stars' },
+    // eleventyNavigation: { key: 'github-stars' },
+    pagination: {
+      data: 'githubStars',
+      size: 15,
+    },
+    permalink(data) {
+      const parts = [data.page.filePathStem];
+      const pageNumber = data.pagination.pageNumber + 1;
+
+      if (pageNumber === 1) {
+        return `${parts.join('.')}/index.html`;
+      }
+
+      return `${parts.join('.')}/${pageNumber}.html`;
+    },
   },
   components: { PwGitHubStars },
 };
