@@ -79,6 +79,11 @@
     X-Robots-Tag = "noindex"
 
 [[headers]]
+  for = "/reports/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
   for = "/*.webmanifest"
   [headers.values]
     Content-Type = "application/manifest+json"
@@ -163,3 +168,12 @@
 [[edge_functions]]
   path = "/*"
   function = "stop-long-running-animations"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs]
+    output_path = "reports/lighthouse.json"
+  
+  [plugins.inputs.audits]
+    url = "https://wolstenhol.me"

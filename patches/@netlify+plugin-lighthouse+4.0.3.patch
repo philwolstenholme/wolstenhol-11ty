@@ -1,0 +1,130 @@
+diff --git a/node_modules/@netlify/plugin-lighthouse/src/format.js b/node_modules/@netlify/plugin-lighthouse/src/format.js
+index 36ec7b8..70cc0ec 100644
+--- a/node_modules/@netlify/plugin-lighthouse/src/format.js
++++ b/node_modules/@netlify/plugin-lighthouse/src/format.js
+@@ -1,6 +1,4 @@
+ const chalk = require('chalk');
+-const { minify } = require('html-minifier');
+-const { makeReplacements } = require('./replacements');
+ 
+ const belowThreshold = (id, expected, categories) => {
+   const category = categories.find((c) => c.id === id);
+@@ -63,22 +61,18 @@ const formatResults = ({ results, thresholds }) => {
+ 
+   const shortSummary = formatShortSummary(categories);
+ 
+-  const formattedReport = makeReplacements(results.report);
+-
+   // Pull some additional details to pass to App
+   const { formFactor, locale } = results.lhr.configSettings;
+   const installable = results.lhr.audits['installable-manifest']?.score === 1;
+   const details = { installable, formFactor, locale };
+ 
+-  const report = minify(formattedReport, {
+-    removeAttributeQuotes: true,
+-    collapseWhitespace: true,
+-    removeRedundantAttributes: true,
+-    removeOptionalTags: true,
+-    removeEmptyElements: true,
+-    minifyCSS: true,
+-    minifyJS: true,
+-  });
++  const report = JSON.stringify({
++    performance: results.lhr.categories.performance.score,
++    accessibility: results.lhr.categories.accessibility.score,
++    bestPractices: results.lhr.categories['best-practices'].score,
++    seo: results.lhr.categories.seo.score,
++    pwa: results.lhr.categories.pwa.score,
++  }, null, 2);
+ 
+   return { summary, shortSummary, details, report, errors, runtimeError };
+ };
+diff --git a/node_modules/@netlify/plugin-lighthouse/src/lighthouse.js b/node_modules/@netlify/plugin-lighthouse/src/lighthouse.js
+index e009fd8..e7f6504 100644
+--- a/node_modules/@netlify/plugin-lighthouse/src/lighthouse.js
++++ b/node_modules/@netlify/plugin-lighthouse/src/lighthouse.js
+@@ -49,7 +49,6 @@ const runLighthouse = async (browserPath, url, settings) => {
+       url,
+       {
+         port: chrome.port,
+-        output: 'html',
+         logLevel,
+       },
+       settings,
+diff --git a/node_modules/@netlify/plugin-lighthouse/src/replacements.js b/node_modules/@netlify/plugin-lighthouse/src/replacements.js
+deleted file mode 100644
+index 120f34b..0000000
+--- a/node_modules/@netlify/plugin-lighthouse/src/replacements.js
++++ /dev/null
+@@ -1,55 +0,0 @@
+-/*
+- * Adds postMessage functionality for iframe communication
+- * 1. We first check if the message origin is on our expected list.
+- * 2. Next we listen for a message to tell us which theme the user is using in
+- *    the Netlify UI, and we toggle classes so the report matches.
+- * 3. Finally we set up an intersection observer to send a message to the parent
+- *    window when the report footer is in view (triggers an Amplitude event to
+- *    log the report as been "viewed in full").
+- */
+-const enablePostMessageCommunication = {
+-  source: `</body>`,
+-  replacement: `<script>
+-    const handlePostMessageData = (event) => {
+-      const validOrigins = [
+-        'http://localhost',
+-        '--app.netlify.app',
+-        'https://app.netlify.com',
+-      ];
+-      const isValidOrigin = validOrigins.some((origin) =>
+-        event.origin.includes(origin)
+-      );
+-      if (!isValidOrigin) return;
+-
+-      const theme = event.data;
+-      const rootEl = document.querySelector('.lh-root');
+-      if (rootEl && (theme === 'dark' || theme === 'light')) {
+-        document
+-          .querySelector('.lh-root')
+-          ?.classList.toggle('lh-dark', theme === 'dark');
+-      }
+-
+-      const observer = new IntersectionObserver((matches) => {
+-        if (matches[0].isIntersecting) {
+-          event.source.postMessage(
+-            'appLighthouseReportFullyScrolled',
+-            event.origin
+-          );
+-        }
+-      });
+-      const footerEl = document.querySelector('.lh-footer');
+-      if (footerEl) observer.observe(footerEl);
+-    };
+-    window.addEventListener('message', handlePostMessageData);
+-  </script></body>`,
+-};
+-
+-const replacements = [enablePostMessageCommunication];
+-
+-const makeReplacements = (str) => {
+-  return replacements.reduce((acc, { source, replacement }) => {
+-    return acc.replace(source, replacement);
+-  }, str);
+-};
+-
+-module.exports = { makeReplacements };
+diff --git a/node_modules/@netlify/plugin-lighthouse/src/replacements.test.js b/node_modules/@netlify/plugin-lighthouse/src/replacements.test.js
+deleted file mode 100644
+index 0b05052..0000000
+--- a/node_modules/@netlify/plugin-lighthouse/src/replacements.test.js
++++ /dev/null
+@@ -1,10 +0,0 @@
+-const { makeReplacements } = require('./replacements');
+-
+-describe('replacements', () => {
+-  it('should make enablePostMessageCommunication replacement', () => {
+-    const data = '</div></body></html>';
+-    const replacedContent = makeReplacements(data);
+-    expect(replacedContent).toContain('</div><script>');
+-    expect(replacedContent).toContain('</script></body></html>');
+-  });
+-});
