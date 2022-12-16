@@ -249,11 +249,17 @@
     </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
     {% if build.env == 'production' %}
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "7210db6185e14990ba2dc29243b3e1ef"}'
-    ></script>
+    <script>
+      (() => {
+        if (window.location.hostname !== 'localhost') {
+          const script = document.createElement('script');
+          script.defer = true;
+          script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+          script.setAttribute('data-cf-beacon', '{"token": "7210db6185e14990ba2dc29243b3e1ef"}');
+          document.body.appendChild(script);
+        }
+      })();
+    </script>
     {% endif %}
   </body>
 </html>
