@@ -115,20 +115,6 @@ class TitleRewriter {
   }
 }
 
-const hasSaveDataOn = request => {
-  const saveData = request.headers.get('Save-Data');
-  return saveData && saveData === 'on';
-};
-
-const hasQueryString = request => {
-  const url = new URL(request.url);
-  return url.searchParams.has('no-js');
-};
-
-const shouldRemoveJavascript = request => {
-  return [hasSaveDataOn(request), hasQueryString(request)].some(Boolean);
-};
-
 export default async (request, context) => {
   const response = await context.next();
   const contentType = response.headers.get('content-type');
@@ -136,7 +122,8 @@ export default async (request, context) => {
     return response;
   }
 
-  if (!shouldRemoveJavascript(request)) {
+  const url = new URL(request.url);
+  if (!url.searchParams.has('no-js')) {
     return response;
   }
 
