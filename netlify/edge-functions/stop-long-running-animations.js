@@ -1,19 +1,15 @@
 export default async (request, context) => {
   const response = await context.next();
-  const page = await response.text();
 
   const contentType = response.headers.get('content-type');
   if (!contentType || !contentType.startsWith('text/html')) {
     return response;
   }
 
-  const userAgent = response.headers.get('user-agent');
+  let page = await response.text();
+  const userAgent = request.headers.get('user-agent');
 
-  if (
-    userAgent.includes("DebugBear") ||
-    userAgent.includes("PTST") ||
-    userAgent.includes("Lighthouse")
-  ) {
+  if ((userAgent && userAgent.includes('DebugBear')) || userAgent.includes('PTST') || userAgent.includes('Lighthouse')) {
     const removeAnimationCSS = `
       <style>
         *, ::before, ::after {
@@ -23,7 +19,7 @@ export default async (request, context) => {
         }
       </style> 
     `;
-    const page = page.replace("</body>", removeAnimationCSS + "</body>");
+    page = page.replace('</body>', removeAnimationCSS + '</body>');
   }
 
   return new Response(page, response);
