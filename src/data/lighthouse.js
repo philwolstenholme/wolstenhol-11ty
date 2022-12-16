@@ -11,10 +11,10 @@ const postDataToAirtable = data => {
     fields: {
       URL: 'https://wolstenhol.me',
       Date: new Date().toISOString(),
-      Performance: parseInt(data['performance'].score, 10),
-      Accessibility: parseInt(data['accessibility'].score, 10),
-      'Best Practices': parseInt(data['best-practices'].score, 10),
-      SEO: parseInt(data['seo'].score, 10),
+      Performance: data['performance'].score,
+      Accessibility: data['accessibility'].score,
+      'Best Practices': data['bestPractices'].score,
+      SEO: data['seo'].score,
     },
   };
 
@@ -30,30 +30,10 @@ const postDataToAirtable = data => {
 };
 
 const getData = async function () {
-  const params = new URLSearchParams();
-  params.append('url', 'https://wolstenhol.me');
-  params.append('key', process.env.PAGESPEED_API_KEY);
-  // We use the fields query string param to ask the Google API to only
-  // return the data we need - a score and title for each category in the
-  // Lighthouse test. Without this, the API returns a *lot* of data, which
-  // isn't the end of the world but is also unnecessary.
-  params.append('fields', 'lighthouseResult.categories.*.score,lighthouseResult.categories.*.title');
-  params.append('prettyPrint', false);
-  // I use the mobile strategy, but `desktop` is a valid value too.
-  params.append('strategy', 'mobile');
-  // I've not used the PWA category, but you could if it is relevant to your site.
-  params.append('category', 'PERFORMANCE');
-  params.append('category', 'ACCESSIBILITY');
-  params.append('category', 'BEST-PRACTICES');
-  params.append('category', 'SEO');
-
-  let data = await Cache(`https://www.googleapis.com/pagespeedonline/v5/runPagespeed?${params.toString()}`, {
-    duration: '10m',
+  let data = await Cache(`https://wolstenhol.me/reports/lighthouse.json`, {
+    duration: '0m',
     type: 'json',
   });
-
-  data = data.lighthouseResult.categories;
-  console.table(data);
 
   const getGrade = function (score) {
     if (score < 50) {
@@ -65,10 +45,31 @@ const getData = async function () {
     return 'good';
   };
 
+  const getTitle = function (key) {
+    switch (key) {
+      case 'performance':
+        return 'Performance';
+      case 'accessibility':
+        return 'Accessibility';
+      case 'bestPractices':
+        return 'Best Practices';
+      case 'seo':
+        return 'SEO';
+      default:
+        return key;
+    }
+  };
+
   Object.keys(data).map(function (key) {
-    data[key].score = (data[key].score * 100).toFixed();
-    data[key].grade = getGrade(data[key].score);
+    const score = Number(data[key]) * 100;
+
+    data[key] = {};
+    data[key].score = score;
+    data[key].grade = getGrade(score);
+    data[key].title = getTitle(key);
   });
+
+  delete data['pwa'];
 
   postDataToAirtable(data);
 
