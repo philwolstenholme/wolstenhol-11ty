@@ -1,13 +1,17 @@
 export default async (request, context) => {
-  const requestHeaders = Object.fromEntries(request.headers);
-  const userAgent = requestHeaders["user-agent"];
-
   const response = await context.next();
   const page = await response.text();
 
+  const contentType = response.headers.get('content-type');
+  if (!contentType || !contentType.startsWith('text/html')) {
+    return response;
+  }
+
+  const userAgent = response.headers.get('user-agent');
+
   if (
     userAgent.includes("DebugBear") ||
-    userAgent.includes("WebPageTest") ||
+    userAgent.includes("PTST") ||
     userAgent.includes("Lighthouse")
   ) {
     const removeAnimationCSS = `
