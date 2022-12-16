@@ -1,4 +1,4 @@
-import { HTMLRewriter } from 'https://ghuc.cc/worker-tools/html-rewriter/index.ts';
+import { HTMLRewriter } from 'https://ghuc.cc/worker-tools/html-rewriter@v0.1.0-pre.17/index.ts';
 
 class ScriptRemover {
   element(element) {

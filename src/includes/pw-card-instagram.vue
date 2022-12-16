@@ -171,6 +171,7 @@ export default {
             preload="none"
           >
             <source
+              data-remove-if-save-data="true"
               :src="`https://instagram-proxy.philgw.workers.dev/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
               type="video/mp4"
             />

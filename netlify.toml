@@ -157,6 +157,9 @@
   path = "/*"
   function = "stop-long-running-animations"
 
+[[edge_functions]]
+  path = "/*"
+  function = "save-data"
 
 [[plugins]]
   package = "netlify-plugin-inline-critical-css"

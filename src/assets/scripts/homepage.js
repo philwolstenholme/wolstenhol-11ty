@@ -38,10 +38,7 @@ AsyncAlpine.init(Alpine)
 
 Alpine.start();
 
-if (
-  (navigator.connection && navigator.connection.effectiveType && navigator.connection.effectiveType != '4g') ||
-  navigator?.connection?.saveData
-) {
+if (navigator.connection && navigator.connection.effectiveType && navigator.connection.effectiveType != '4g') {
   document.querySelectorAll('[data-section="photos"] video source').forEach(source => source.remove());
 }
 

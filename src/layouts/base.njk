@@ -249,7 +249,7 @@
     </script>
     <!-- LAST BUILD: {{ build.env}} {{ build.timestamp | dateToISO }} -->
     {% if build.env == 'production' %}
-    <script>
+    <script data-keep-even-if-save-data>
       (() => {
         if (window.location.hostname !== 'localhost') {
           const script = document.createElement('script');
