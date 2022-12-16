@@ -159,3 +159,7 @@
 [[edge_functions]]
   path = "/*"
   function = "strip-non-html-headers"
+
+[[edge_functions]]
+  path = "/*"
+  function = "stop-long-running-animations"
