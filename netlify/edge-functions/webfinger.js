@@ -38,5 +38,7 @@ export default async (request, context) => {
     href: 'https://wolstenhol.me',
   });
 
+  json.aliases.push('https://wolstenhol.me');
+
   return new Response(JSON.stringify(json), webfingerResponse);
 };
