@@ -118,7 +118,7 @@ class TitleRewriter {
 export default async (request, context) => {
   const response = await context.next();
   const contentType = response.headers.get('content-type');
-  if (!contentType || contentType.startsWith('text/html')) {
+  if (!contentType || !contentType.startsWith('text/html')) {
     return response;
   }
 
