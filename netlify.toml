@@ -181,7 +181,6 @@
   [plugins.inputs]
     output_path = "reports/lighthouse.json"
 
-[[redirects]]
-  from = "/.well-known/webfinger"
-  to = "https://hachyderm.io/.well-known/webfinger?resource=acct:philw_@hachyderm.io"
-  status = 200
+[[edge_functions]]
+  function = "webfinger"
+  path = "/.well-known/webfinger"

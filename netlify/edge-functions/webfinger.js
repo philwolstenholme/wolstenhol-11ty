@@ -1,0 +1,42 @@
+import { Status } from 'https://deno.land/std@0.136.0/http/http_status.ts';
+
+export default async (request, context) => {
+  const url = new URL(request.url);
+  const resourceParam = url.searchParams.get('resource');
+
+  const host = 'https://hachyderm.io';
+  const accountOnHost = 'philw_@hachyderm.io';
+
+  if (resourceParam === null) {
+    return context.json(
+      {
+        error: "No 'resource' query parameter was provided",
+      },
+      {
+        status: Status.BadRequest,
+      }
+    );
+  }
+
+  if (resourceParam !== 'acct:phil@wolstenhol.me') {
+    return context.json(
+      {
+        error: 'An invalid identity was requested',
+      },
+      {
+        status: Status.BadRequest,
+      }
+    );
+  }
+
+  const webfingerResponse = await fetch(host + '/.well-known/webfinger?resource=acct:' + accountOnHost);
+  const json = await webfingerResponse.json();
+
+  json.links.push({
+    rel: 'http://webfinger.net/rel/profile-page',
+    type: 'text/html',
+    href: 'https://wolstenhol.me',
+  });
+
+  return new Response(JSON.stringify(json), webfingerResponse);
+};
