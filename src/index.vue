@@ -19,7 +19,7 @@
 
       <pw-photos v-if="this.instagram" :photos="this.instagram"></pw-photos>
 
-      <pw-tweets v-if="this.twitter" :tweets="this.twitter"></pw-tweets>
+      <pw-tweets v-if="this.twitter" :tweets="this.twitter" :webfinger="this.webfinger"></pw-tweets>
 
       <pw-places v-if="this.foursquare" :places="this.foursquare"></pw-places>
     </div>

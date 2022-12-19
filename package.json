@@ -168,6 +168,7 @@
     "metascraper-description": "^5.32.3",
     "mini-svg-data-uri": "^1.4.4",
     "natural-orderby": "^3.0.1",
+    "node-fetch": "^2.6.7",
     "node-truncate-string": "0.0.2",
     "pluralize": "^8.0.0",
     "rss-parser": "^3.12.0",

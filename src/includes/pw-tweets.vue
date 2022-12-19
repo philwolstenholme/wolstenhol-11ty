@@ -9,6 +9,9 @@ export default {
     tweets: {
       type: Array,
     },
+    webfinger: {
+      type: Object,
+    },
   },
   data() {
     return {
@@ -44,7 +47,8 @@ export default {
     <pw-lede class="mt-3 links-underline">
       Tweets and toots (*I know they're not meant to be called that anymore) by me,
       <a href="https://twitter.com/intent/user?user_id=38276082">@philw_</a> and/or
-      <a rel="me" href="https://hachyderm.io/@philw_">@philw_@hachyderm.io</a>.</pw-lede
+      <a rel="me" :href="webfinger.aliases[0]">{{ webfinger.subject.replace('acct:', '') }}</a
+      >.</pw-lede
     >
     <div role="list" x-ref="container" class="tweets-grid mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
       <div role="listitem" class="tweets-grid__item" v-for="(tweet, index) in tweetsToShow.slice(0, itemsBeforeScrollSaver)" :key="index">
