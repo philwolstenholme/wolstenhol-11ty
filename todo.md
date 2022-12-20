@@ -8,10 +8,22 @@
 - [ ] Remove duplication when the scroll saver thing is used
 - [x] use something like !window.matchMedia('(hover: hover)').matches to turn off Instagram lightbox on 'mobile'
 - [x] Remove Twitter lazyloading as it causes CLS
-- [ ] Fix issue of Twitter scrollsaver appearing at top when going from desktop to mobile
+- [x] Fix issue of Twitter scrollsaver appearing at top when going from desktop to mobile
 - [ ] Connect work screenshots script to Cloudinary uploader
 - [ ] Make components for non-homepage header and lede
 - [ ] Do some fancy CSS clipping and animating to make a full-page screenshot 'scroll' on hover on portfolio
+
+## Integrations
+
+- [ ] Pull in toots and boosted toots
+- [ ] Design new card for Mastodon posts, like Twitter one but different colour scheme
+
+## Testing
+
+- [ ] Add Playwright test for audio player, Spotify now playing etc
+- [ ] Use MSW for mocking in Playwright
+- [ ] Also use MSW for mocking in Vitest
+- [ ] Give talk on the above!
 
 ## Github stars
 
@@ -43,8 +55,8 @@
 - [ ] Move speaking data to a collection?
 - [x] Sort out page templates for homepage vs other pages
 - [ ] Use navigation plugin to do active link classes in top nav with HTML not JS
-- [ ] FINISH portfolio section from local feature branch
+- [x] FINISH portfolio section from local feature branch
 
 ## Accessibility
 
-- Review how linked cards work, e.g. have only the heading be a link and handle clicks elsewhere via JS (to reduce SR verbosity)
+- [ ] Review how linked cards work, e.g. have only the heading be a link and handle clicks elsewhere via JS (to reduce SR verbosity)
