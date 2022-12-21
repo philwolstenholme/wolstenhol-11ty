@@ -32,7 +32,7 @@
         x-ref="list"
       >
         {%- for item in headerLinks.items -%} {% set id = item.href.replace('/#', '').replace('#', '') %}
-        <li>
+        <li class="flex-shrink-0">
           {% set linkFirstChar = item.href.slice(0, 1) %}
           {% set linkSecondChars = item.href.slice(0, 2) %}
           <a

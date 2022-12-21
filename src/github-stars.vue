@@ -11,7 +11,12 @@
         and might want to check out or use later.
       </p>
     </div>
-    <PwGitHubStars :stars="this.githubStars"></PwGitHubStars>
+    <!-- <PwGitHubStars :stars="this.posts"></PwGitHubStars> -->
+    <ul>
+      <li v-for="post in this.posts" :key="post.url">
+        <a :href="post.url" class="underline">{{ post.name }}</a>
+      </li>
+    </ul>
     <style v-html="this.getVueComponentCssForPage(this.page.url)"></style>
   </article>
 </template>
@@ -20,9 +25,14 @@
 import PwGitHubStars from './includes/pw-git-hub-stars.vue';
 export default {
   data: {
-    permalink(data) {
-      const parts = [data.page.filePathStem];
-      return `${parts.join('.')}.html`;
+    // permalink(data) {
+    //   const parts = [data.page.filePathStem];
+    //   return `${parts.join('.')}.html`;
+    // },
+    pagination: {
+      data: 'githubStars',
+      size: 12,
+      alias: 'posts',
     },
     layout: 'page',
     title: 'Github stars',
