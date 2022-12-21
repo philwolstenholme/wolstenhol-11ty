@@ -65,3 +65,7 @@ if (window.location.hash === '#stars') {
 if (window.location.hash === '#contact') {
   window.location.replace('/contact');
 }
+
+if (window.location.hash === '#tweets') {
+  window.location.hash = '#tweetsAndToots';
+}

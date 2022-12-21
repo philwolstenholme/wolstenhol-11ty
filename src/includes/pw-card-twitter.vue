@@ -189,7 +189,8 @@ export default {
         <span class="sr-only">Like</span>
         <template v-if="originalTweet.favorite_count">&nbsp;{{ originalTweet.favorite_count.toLocaleString() }}</template>
       </a>
-      <a :href="tweetURL" class="twitter-intent float-right">
+      <a :href="tweetURL" class="twitter-intent float-right space-x-0.5">
+        <icon name="twitter" />
         <icon name="link" />
         <span class="sr-only">Permalink to Tweet</span>
       </a>

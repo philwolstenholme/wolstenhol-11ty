@@ -31,6 +31,10 @@ module.exports = {
           DEFAULT: '#E0294C',
           dark: '#b91a39',
         },
+        mastodon: {
+          DEFAULT: '#563ACB',
+          dark: '#2F0C79',
+        },
         'oc-yellow': {
           0: '#fff9db',
           1: '#fff3bf',

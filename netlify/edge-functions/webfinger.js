@@ -4,8 +4,8 @@ export default async (request, context) => {
   const url = new URL(request.url);
   const resourceParam = url.searchParams.get('resource');
 
-  const host = 'https://hachyderm.io';
-  const accountOnHost = 'philw_@hachyderm.io';
+  const host = Deno.env.get('MASTODON_INSTANCE');
+  const accountOnHost = Deno.env.get('MASTONDON_USER_NAME') + '@' + Deno.env.get('MASTODON_INSTANCE');
 
   if (resourceParam === null) {
     return context.json(

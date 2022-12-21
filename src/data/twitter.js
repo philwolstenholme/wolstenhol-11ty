@@ -16,7 +16,20 @@ const getData = async function () {
     }
   );
 
-  return response.filter(entry => !entry.full_text.startsWith('📚 Added'));
+  response = response.filter(entry => !entry.full_text.startsWith('📚 Added'));
+
+  response = response.filter(entry => {
+    return !entry.source.includes('Moa') && !entry.source.includes('Mastodon-Twitter Crossposter');
+  });
+
+  response = response.map(entry => {
+    entry.pw = {
+      source: 'twitter',
+    };
+    return entry;
+  });
+
+  return response;
 };
 
 module.exports = tryForCache('twitter', getData);
