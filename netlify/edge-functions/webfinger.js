@@ -29,7 +29,7 @@ export default async (request, context) => {
     );
   }
 
-  const webfingerResponse = await fetch(host + '/.well-known/webfinger?resource=acct:' + accountOnHost);
+  const webfingerResponse = await fetch('https://' + host + '/.well-known/webfinger?resource=acct:' + accountOnHost);
   const json = await webfingerResponse.json();
 
   json.links.push({
