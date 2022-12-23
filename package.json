@@ -21,7 +21,7 @@
     "watch": "wireit",
     "start": "wireit",
     "postinstall": "patch-package",
-    "test:unit": "vitest --config src/vite.config.js",
+    "test:unit": "vitest --config src/vite.config.js --dir src",
     "test:e2e": "playwright test",
     "coverage": "vitest run --coverage --config src/vite.config.js"
   },
