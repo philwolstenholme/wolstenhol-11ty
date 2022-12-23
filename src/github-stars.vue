@@ -11,12 +11,8 @@
         and might want to check out or use later.
       </p>
     </div>
-    <!-- <PwGitHubStars :stars="this.posts"></PwGitHubStars> -->
-    <ul>
-      <li v-for="post in this.posts" :key="post.url">
-        <a :href="post.url" class="underline">{{ post.name }}</a>
-      </li>
-    </ul>
+    <PwGitHubStars :stars="this.posts"></PwGitHubStars>
+
     <style v-html="this.getVueComponentCssForPage(this.page.url)"></style>
   </article>
 </template>
