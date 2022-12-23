@@ -23,6 +23,7 @@
     "postinstall": "patch-package",
     "test:unit": "vitest --config src/vite.config.js --dir src",
     "test:e2e": "playwright test",
+    "test:e2e:debug": "PWDEBUG=1 npx playwright test",
     "coverage": "vitest run --coverage --config src/vite.config.js"
   },
   "wireit": {
