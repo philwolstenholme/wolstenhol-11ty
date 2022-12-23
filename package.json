@@ -21,7 +21,8 @@
     "watch": "wireit",
     "start": "wireit",
     "postinstall": "patch-package",
-    "test": "vitest --config src/vite.config.js",
+    "test:unit": "vitest --config src/vite.config.js",
+    "test:e2e": "playwright test",
     "coverage": "vitest run --coverage --config src/vite.config.js"
   },
   "wireit": {
@@ -103,6 +104,7 @@
     "@babel/preset-env": "^7.20.2",
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "@netlify/plugin-lighthouse": "^4.0.3",
+    "@playwright/test": "^1.29.1",
     "@sergeymakinen/vite-plugin-html-minimize": "^1.0.4",
     "@testing-library/dom": "^8.19.0",
     "airtable": "^0.11.6",

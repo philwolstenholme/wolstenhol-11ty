@@ -12,14 +12,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Use Node.js 16.x
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: "npm"
-          
+          cache: 'npm'
+
       - uses: bahmutov/npm-install@v1
-      
-      - name: Run tests 
-        run: npm run test
+
+      - name: Run tests
+        run: npm run test:unit

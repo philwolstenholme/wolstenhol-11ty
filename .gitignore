@@ -8,3 +8,6 @@ npm-debug.log*
 .netlify
 cache-output.json
 .wireit
+/test-results/
+/playwright-report/
+/playwright/.cache/
