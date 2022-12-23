@@ -15,8 +15,8 @@
 
 ## Integrations
 
-- [ ] Pull in toots and boosted toots
-- [ ] Design new card for Mastodon posts, like Twitter one but different colour scheme
+- [x] Pull in toots and boosted toots
+- [x] Design new card for Mastodon posts, like Twitter one but different colour scheme
 
 ## Testing
 
