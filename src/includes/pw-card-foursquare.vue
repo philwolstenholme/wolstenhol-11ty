@@ -30,20 +30,17 @@ export default {
 
 <template>
   <article class="foursquare-card contain-content relative flex overflow-hidden w-full rounded shadow-hard" x-ignore>
-    <component
-      :is="place.url ? 'a' : 'div'"
-      :href="place.url"
+    <div
       class="text-white bg-foursquare outline-offset-invert no-underline w-full flex flex-col-reverse"
-      style="--outline-color: black"
       :class="{
         group: place.url,
-        'hocus:bg-foursquare-dark': place.url,
+        'hover:bg-foursquare-dark focus-within:bg-foursquare-dark': place.url,
       }"
     >
       <div class="foursquare-card__body flex-grow p-5">
         <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
           <span aria-hidden="true"><sprite-icon hash="heart"></sprite-icon>'d </span>
-          <span class="group-hocus:underline">{{ place.name }}</span>
+          <component :href="place.url" :is="place.url ? 'a' : 'span'" class="group-hocus:underline">{{ place.name }}</component>
         </h3>
         <div class="space-y-1 text-xs font-bold">
           <p v-text="place.tipHint" />
@@ -79,13 +76,18 @@ export default {
         <div class="isolate foursquare-card__map-scrim"></div>
         <p class="absolute isolate left-4 text-white text-xs top-4 uppercase">{{ timeAgo }}</p>
       </div>
-    </component>
+    </div>
   </article>
 </template>
 
-<style>
+<style lang="scss">
 .foursquare-card {
   max-width: min(365px, calc(100vw - 2.5rem));
+
+  :focus {
+    --outline-color: black;
+    --outline-offset: 4px;
+  }
 }
 
 .foursquare-card__map-scrim {

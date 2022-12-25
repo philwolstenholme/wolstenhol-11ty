@@ -69,3 +69,27 @@ if (window.location.hash === '#contact') {
 if (window.location.hash === '#tweets') {
   window.location.hash = '#tweetsAndToots';
 }
+
+const clickableCards = ['.foursquare-card'];
+
+clickableCards.forEach(card => {
+  const cards = document.querySelectorAll(card);
+  if (cards && cards.length) {
+    cards.forEach(card => {
+      const link = card.querySelector('a');
+
+      if (link) {
+        card.classList.add('cursor-pointer');
+        let down, up;
+
+        card.onmousedown = () => (down = +new Date());
+        card.onmouseup = e => {
+          up = +new Date();
+          if (e.target !== link && up - down < 200) {
+            link.click();
+          }
+        };
+      }
+    });
+  }
+});
