@@ -40,7 +40,7 @@ export default {
       <div class="foursquare-card__body flex-grow p-5">
         <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
           <span aria-hidden="true"><sprite-icon hash="heart"></sprite-icon>'d </span>
-          <component :href="place.url" :is="place.url ? 'a' : 'span'" class="group-hocus:underline">{{ place.name }}</component>
+          <component :href="place.url" :is="place.url ? 'a' : 'span'" class="group-hover:underline">{{ place.name }}</component>
         </h3>
         <div class="space-y-1 text-xs font-bold">
           <p v-text="place.tipHint" />
