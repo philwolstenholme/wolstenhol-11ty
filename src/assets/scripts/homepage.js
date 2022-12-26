@@ -70,7 +70,7 @@ if (window.location.hash === '#tweets') {
   window.location.hash = '#tweetsAndToots';
 }
 
-const clickableCards = ['.foursquare-card', '.card-blog'];
+const clickableCards = ['.foursquare-card', '.card-blog', '.reading-list-link'];
 const clickableCardEls = document.querySelectorAll(clickableCards.join(','));
 if (clickableCardEls && clickableCardEls.length) {
   clickableCardEls.forEach(card => {
