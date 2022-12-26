@@ -86,7 +86,7 @@
 [[headers]]
   for = "/*.webmanifest"
   [headers.values]
-    Content-Type = "application/manifest+json"
+    Content-Type = "application/manifest+json; charset=utf-8"
 
 [[headers]]
   for = "/"
