@@ -12,6 +12,7 @@
 - [ ] Connect work screenshots script to Cloudinary uploader
 - [ ] Make components for non-homepage header and lede
 - [ ] Do some fancy CSS clipping and animating to make a full-page screenshot 'scroll' on hover on portfolio
+- [ ] Look at cards that have been de-wrapped up in one big link and see if we can simplify the DOM
 
 ## Integrations
 
@@ -34,7 +35,7 @@
 - [ ] Use `x-spread` to avoid Alpine/Vue conflict and remove need for Vite rewrite workaround
 - [ ] Or use https://github.com/rollup/plugins/tree/master/packages/replace
 - [ ] break scroll shadow into a mixin, use for scroller and header
-- [ ] vibrate when end of scroller/header reached
+- [ ] vibrate when end of scroller/header reached?
 
 ## Vite migration
 
@@ -59,4 +60,4 @@
 
 ## Accessibility
 
-- [ ] Review how linked cards work, e.g. have only the heading be a link and handle clicks elsewhere via JS (to reduce SR verbosity)
+- [x] Review how linked cards work, e.g. have only the heading be a link and handle clicks elsewhere via JS (to reduce SR verbosity)
