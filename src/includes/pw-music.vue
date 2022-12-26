@@ -41,7 +41,7 @@ export default {
         x-intersect.margin.200px:enter="startInterval"
         x-intersect:leave="stopInterval"
       >
-        <div class="flex items-center">
+        <div class="flex gap-1 md:gap-0 items-center">
           <span class="pulsating-circle h-3 inline-block rounded-full w-3 flex-shrink-0"></span>&nbsp;
           <p class="md:truncate">
             <span class="spotify-live__label" x-bind:datetime="data?.playedAt" x-ref="label"></span>:

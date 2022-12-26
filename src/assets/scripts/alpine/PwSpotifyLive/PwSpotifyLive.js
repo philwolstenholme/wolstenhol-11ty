@@ -19,16 +19,22 @@ export default function PwSpotifyLive() {
     queryTimeout: null,
     queryApi: async function queryApi() {
       if (document.visibilityState !== 'visible') {
-        console.log(`🔕 Tab not visible so we didn't query Spotify`);
         return;
       }
 
-      console.log(`🎵 Checking the Spotify API via Pipedream…`);
+      let apiData;
+      try {
+        const response = await fetch('https://wolstenhol.me/api/recently-played-spotify');
+        apiData = await response.json();
 
-      const response = await fetch('https://wolstenhol.me/api/recently-played-spotify');
-      const data = await response.json();
+        if (response.status !== 200) {
+          throw new Error(`recently-played-spotify responded with ${response.status} status code`);
+        }
+      } catch (error) {
+        console.error(error);
+      }
 
-      if (Object.keys(data).length === 0) {
+      if (typeof apiData === 'object' && Object.keys(apiData).length === 0) {
         this.data = {
           ...this.initialData,
         };
@@ -40,7 +46,9 @@ export default function PwSpotifyLive() {
         return;
       }
 
-      this.data = data;
+      if (typeof apiData === 'object' && Object.keys(apiData).length > 0) {
+        this.data = apiData;
+      }
 
       // If loadjs has't previously loaded timeago then let's load it.
       if (!loadjs.isDefined('timeago')) {
@@ -63,7 +71,6 @@ export default function PwSpotifyLive() {
     },
     startInterval() {
       const timeoutInMinutes = 15;
-      console.log(`🔈 Starting to check the Spotify API every so often to see what I might be listening to`);
       // Create an interval to check the API every-so-often.
       this.queryInterval = setInterval(this.queryApi.bind(this), MILLISECONDS_IN_A_SECOND * 30);
       // Create a timeout to eventually clear the interval so we don't hit the API infinitely if someone
@@ -73,9 +80,6 @@ export default function PwSpotifyLive() {
       }, MILLISECONDS_IN_A_SECOND * SECONDS_IN_A_MINUTE * timeoutInMinutes);
     },
     stopInterval() {
-      console.log(
-        `🔇 Stopping checking the Spotify API as you've not got the music section visible. Gotta save those Pipedream invocation credits!`
-      );
       clearInterval(this.queryInterval);
       clearTimeout(this.queryTimeout);
     },
