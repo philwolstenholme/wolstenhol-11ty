@@ -10,19 +10,19 @@ const getISOTime = (timeAgo = 10) => {
 
 const handlers = [
   rest.get('https://wolstenhol.me/api/recently-played-spotify', (req, res, ctx) => {
-    const status = pageParams.get('recently-played-spotify--status');
+    const scenario = pageParams.get('recently-played-spotify--scenario');
     const timeAgo = pageParams.get('recently-played-spotify--timeago');
     const name = pageParams.get('recently-played-spotify--name');
 
-    if (status === 'error') {
+    if (scenario === 'error') {
       return res(ctx.status(500));
     }
 
-    if (status === 'empty') {
+    if (scenario === 'empty') {
       return res(ctx.status(200), ctx.json({}));
     }
 
-    // Default status is the happy path:
+    // Default scenario is the happy path:
     return res(
       ctx.status(200),
       ctx.json({
