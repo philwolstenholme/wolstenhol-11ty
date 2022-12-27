@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <pw-section section-key="music" sectionInnerClass="relative" v-if="Object.keys(artists).length && genres.length">
+  <pw-section section-key="music" sectionInnerClass="relative" v-if="artists && Object.keys(artists).length && genres.length">
     <pw-section-heading title="Music" icon="headphones" section="music">
       <div
         hidden

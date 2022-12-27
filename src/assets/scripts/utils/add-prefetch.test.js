@@ -33,7 +33,7 @@ describe('addPrefetch', () => {
 
       expect(document.createElement).toHaveBeenCalledWith('link');
       expect(document.head.appendChild).toHaveBeenCalledWith(linkElement);
-      expect(linkElement.href).toEqual('http://example.com');
+      expect(linkElement.href).toEqual('http://example.com/');
       expect(linkElement.rel).toEqual('prefetch');
     });
 
@@ -64,7 +64,7 @@ describe('addPrefetch', () => {
       const { linkElement } = setUpSpys();
       addPrefetch('http://example.com');
 
-      expect(linkElement.as).toEqual('');
+      expect(linkElement.as).toEqual(undefined);
     });
   });
 });

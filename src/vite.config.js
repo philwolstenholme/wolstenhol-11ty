@@ -3,6 +3,7 @@ const { splitVendorChunkPlugin } = require('vite');
 import htmlMinimize from '@sergeymakinen/vite-plugin-html-minimize';
 import { VitePWA } from 'vite-plugin-pwa';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
+import vue from '@vitejs/plugin-vue2';
 // import sri from '@small-tech/vite-plugin-sri';
 
 const addNoscriptCss = () => {
@@ -50,9 +51,12 @@ const workaroundForUsingAlpineAndVueBindingTogether = () => {
 
 module.exports = defineConfig({
   test: {
-    environment: 'happy-dom',
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: ['src/vitest-setup.js'],
   },
   plugins: [
+    vue(),
     addNoscriptCss(),
     splitVendorChunkPlugin(),
     // sri(),

@@ -25,6 +25,7 @@
 - [ ] Use MSW for mocking in Playwright
 - [ ] Also use MSW for mocking in Vitest
 - [ ] Give talk on the above!
+- [ ] Can I use MSW's node server before running Eleventy to get predictable test content every time, and maybe replace my local caching approach? Or use the local caching approach as the source of test data?
 
 ## Github stars
 
