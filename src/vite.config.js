@@ -2,6 +2,7 @@ const { defineConfig } = require('vite');
 const { splitVendorChunkPlugin } = require('vite');
 import htmlMinimize from '@sergeymakinen/vite-plugin-html-minimize';
 import { VitePWA } from 'vite-plugin-pwa';
+import browserslistToEsbuild from 'browserslist-to-esbuild';
 // import sri from '@small-tech/vite-plugin-sri';
 
 const addNoscriptCss = () => {
@@ -156,5 +157,6 @@ module.exports = defineConfig({
     emptyOutDir: true,
     sourcemap: true,
     assetsInlineLimit: 0,
+    target: browserslistToEsbuild(),
   },
 });

@@ -49,7 +49,8 @@
       "files": [
         "src/**/*",
         ".eleventy.js",
-        ".config.js"
+        ".config.js",
+        "package.json"
       ],
       "output": [
         "dist/**/*",
@@ -115,6 +116,7 @@
     "airtable": "^0.11.6",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.2.5",
+    "browserslist-to-esbuild": "^1.2.0",
     "capture-website": "^3.2.0",
     "cross-env": "^7.0.3",
     "crypto": "^1.0.1",
@@ -197,7 +199,7 @@
     "workbox-window": "^6.5.4"
   },
   "browserslist": [
-    "defaults"
+    ">= 1.5% in GB, not dead, last 3 chrome versions, last 3 ios versions, last 2 chromeandroid versions, last 2 edge versions, last 2 samsung versions, last 2 firefox versions, last 2 safari versions"
   ],
   "msw": {
     "workerDirectory": "src/public"
