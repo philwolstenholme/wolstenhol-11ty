@@ -142,7 +142,10 @@ export default {
       </a>
     </div>
 
-    <div class="m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3" v-html="originalToot.content"></div>
+    <div
+      class="card-mastodon__text overflow-hidden m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3"
+      v-html="originalToot.content"
+    ></div>
 
     <p class="bg-mastodon-dark px-4 py-3 text-sm space-x-3">
       <span>
@@ -203,5 +206,11 @@ export default {
 
 .card-mastodon .ellipsis::after {
   content: '…';
+}
+
+.card-mastodon__text {
+  display: -webkit-box;
+  -webkit-line-clamp: 15;
+  -webkit-box-orient: vertical;
 }
 </style>
