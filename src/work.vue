@@ -67,6 +67,7 @@ export default {
                   width="548"
                   height="344"
                   :loading="index > 0 ? 'lazy' : 'eager'"
+                  :fetchpriority="index > 0 ? 'low' : 'high'"
                   :alt="`${urlToHostname(item.data.url)} screenshot`"
                   class="screenshot rounded-2xl border-2 border-white bg-white object-cover object-top shadow-hard"
                 />
