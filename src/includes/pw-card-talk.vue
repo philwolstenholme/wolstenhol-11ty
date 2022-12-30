@@ -16,19 +16,19 @@ export default {
 
 <template>
   <article
-    class="contain-content overflow-hidden rounded shadow-hard bg-purple-700 focus-within:bg-purple-900"
+    class="contain-content overflow-hidden rounded bg-purple-700 shadow-hard focus-within:bg-purple-900"
     style="min-width: 272px"
     x-ignore
   >
     <component
       :is="href ? 'a' : 'div'"
       :href="href"
-      class="block group aspect-h-9 aspect-w-16 w-full overflow-hidden outline-offset-invert"
+      class="outline-offset-invert group aspect-h-9 aspect-w-16 block w-full overflow-hidden"
     >
       <h3 class="sr-only">{{ talk }}</h3>
       <img
         v-if="image"
-        class="mix-blend-luminosity object-cover transition-opacity"
+        class="object-cover mix-blend-luminosity transition-opacity"
         :class="{
           'group-hocus:opacity-10': href,
         }"
@@ -41,11 +41,11 @@ export default {
         decoding="async"
         crossorigin="anonymous"
       />
-      <div class="flex flex-col justify-end p-4 bg-gradient-to-t from-black text-white uppercase font-serif text-xs h-full">
+      <div class="flex h-full flex-col justify-end bg-gradient-to-t from-black p-4 font-serif text-xs uppercase text-white">
         <dl
           class="flex flex-col justify-end"
           :class="{
-            'transition-transform group-hocus:transform-gpu group-hocus:-translate-y-1': href,
+            'transition-transform group-hocus:-translate-y-1 group-hocus:transform-gpu': href,
           }"
         >
           <dt class="sr-only">Event</dt>
@@ -54,7 +54,7 @@ export default {
           <dd v-text="talk"></dd>
         </dl>
       </div>
-      <icon :name="iconName" v-if="href" class="absolute text-white text-xl top-4 left-4 opacity-80 group-hocus:opacity-100" />
+      <icon :name="iconName" v-if="href" class="absolute top-4 left-4 text-xl text-white opacity-80 group-hocus:opacity-100" />
     </component>
   </article>
 </template>

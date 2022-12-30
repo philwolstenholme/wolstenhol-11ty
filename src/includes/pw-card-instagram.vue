@@ -143,7 +143,7 @@ export default {
     v-bind:x-on:focus{dot}once="onFocusOnceEvents"
     v-bind:x-on:blur="onBlurEvents"
     v-bind:x-on:touchstart{dot}passive="onTouchstartEvents"
-    class="contain-content group relative flex rounded overflow-hidden card-instagram bg-gradient-to-t from-black to-gray-900 shadow-hard aspect-h-1 aspect-w-1 select-none"
+    class="contain-content card-instagram group aspect-h-1 aspect-w-1 relative flex select-none overflow-hidden rounded bg-gradient-to-t from-black to-gray-900 shadow-hard"
     v-bind:class="{ 'card-instagram--party': isParty }"
     v-bind:data-lightbox-image="
       !post.videos ? `https://instagram-proxy.philgw.workers.dev/${post.display_url.replace('https://', 'https:/')}` : null
@@ -160,7 +160,7 @@ export default {
         <noscript>
           <video
             x-ref="video"
-            class="inset-0 w-full h-full object-cover transition-opacity group-hocus:opacity-50"
+            class="inset-0 h-full w-full object-cover transition-opacity group-hocus:opacity-50"
             :poster="cloudinaryUrl"
             muted
             loop
@@ -180,7 +180,7 @@ export default {
         <video
           x-ref="video"
           data-lozad
-          class="no-js:hidden inset-0 w-full h-full object-cover transition-opacity group-hocus:opacity-50"
+          class="inset-0 h-full w-full object-cover transition-opacity group-hocus:opacity-50 no-js:hidden"
           :data-poster="cloudinaryUrl"
           muted
           loop
@@ -197,9 +197,9 @@ export default {
         </video>
       </template>
       <template v-if="!post.videos">
-        <div class="grid grid-stack">
-          <div class="no-js:hidden w-full h-full grid grid-stack">
-            <img alt="" :src="post.svgPlaceholder" class="block w-full h-full" width="368" height="368" />
+        <div class="grid-stack grid">
+          <div class="grid-stack grid h-full w-full no-js:hidden">
+            <img alt="" :src="post.svgPlaceholder" class="block h-full w-full" width="368" height="368" />
             <div class="flex items-center justify-center">
               <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
               <svg x-ignore width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
@@ -239,14 +239,14 @@ export default {
         </div>
       </template>
       <figcaption
-        class="absolute pointer-events-none space-y-3 transform-gpu transition-transform translate-y-full max-h-full group-hocus:translate-y-0 bg-gradient-to-t from-black to-grey-900 bottom-0 font-bold p-5 text-white text-xs w-full z-1"
+        class="to-grey-900 z-1 pointer-events-none absolute bottom-0 max-h-full w-full translate-y-full transform-gpu space-y-3 bg-gradient-to-t from-black p-5 text-xs font-bold text-white transition-transform group-hocus:translate-y-0"
       >
         <div v-if="post.likes.count > 0 || post.comments.count > 0 || post.location.name" class="space-y-2">
           <p v-if="post.likes.count > 0 || post.comments.count > 0">
             <template v-if="post.likes.count > 0">
               <sprite-icon hash="heart" class="text-red-600"></sprite-icon>
               <span class="sr-only">Likes: </span>
-              <span class="inline-block mr-2" v-text="post.likes.count" />
+              <span class="mr-2 inline-block" v-text="post.likes.count" />
             </template>
             <template v-if="post.comments.count > 0">
               <sprite-icon hash="speech"></sprite-icon>
@@ -255,7 +255,7 @@ export default {
             </template>
           </p>
           <p v-if="post.location.name">
-            <icon name="mapMarkerAlt" class="inline-block mr-1" />
+            <icon name="mapMarkerAlt" class="mr-1 inline-block" />
             <span class="sr-only">Tagged location: </span>
             <span v-text="post.location.name" />
           </p>
@@ -263,7 +263,7 @@ export default {
         <p v-if="post.caption.text" class="card-instagram__caption-text">
           {{ post.caption.text }}
         </p>
-        <span v-if="isParty" class="-top-8 absolute lg:inline-block lg:text-4xl right-8 sm:hidden text-6xl xl:text-6xl" aria-hidden="true"
+        <span v-if="isParty" class="absolute -top-8 right-8 text-6xl sm:hidden lg:inline-block lg:text-4xl xl:text-6xl" aria-hidden="true"
           >🥳</span
         >
       </figcaption>

@@ -2,7 +2,7 @@
   <li
     tabindex="-1"
     data-pw-scroller-item
-    class="scroller-item relative snap-center flex-grow-0 flex-shrink-0 mb-3"
+    class="scroller-item relative mb-3 flex-shrink-0 flex-grow-0 snap-center"
     :class="{
       'scroller-item--fit-to-grid': fitToGrid,
     }"

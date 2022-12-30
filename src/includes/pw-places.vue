@@ -36,7 +36,7 @@ export default {
       random bar in Manchester that closed three years ago…</pw-lede
     >
 
-    <pw-simple-scroller class="mt-12 items-1 sm:items-2 lg:items-3" :scroll-full="true" theme="foursquare" label="Foursquare places">
+    <pw-simple-scroller class="items-1 sm:items-2 lg:items-3 mt-12" :scroll-full="true" theme="foursquare" label="Foursquare places">
       <pw-simple-scroller-item v-for="(place, index) in places" :key="index">
         <pw-card-foursquare class="h-full" :place="place" />
       </pw-simple-scroller-item>

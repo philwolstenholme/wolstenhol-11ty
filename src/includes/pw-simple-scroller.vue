@@ -4,7 +4,7 @@
       hidden
       type="button"
       x-bind:inert="!overflowing.left"
-      class="hidden md:block md:no-js:hidden group -left-12 absolute bottom-5 top-0 w-8 transform-gpu transition-all translate-x-12"
+      class="group absolute -left-12 bottom-5 top-0 hidden w-8 translate-x-12 transform-gpu transition-all md:block md:no-js:hidden"
       x-bind:class="{ 'opacity-0 translate-x-12': !overflowing.left }"
       v-bind:class="themeTextClasses"
       x-on:click="scrollLeft()"
@@ -14,7 +14,7 @@
         x-ignore
         focusable="false"
         role="presentation"
-        class="transform-gpu translate-transform"
+        class="translate-transform transform-gpu"
         v-bind:class="randomRotationClass"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 84.663887 42.437332"
@@ -25,7 +25,7 @@
     <div class="relative overflow-x-hidden">
       <div
         x-cloak
-        class="absolute bottom-5 left-0 pointer-events-none rotate-180 scroller-affordance top-0 transform-gpu transition-transform w-3 z-10"
+        class="scroller-affordance pointer-events-none absolute bottom-5 left-0 top-0 z-10 w-3 rotate-180 transform-gpu transition-transform"
         x-bind:class="{ '-translate-x-3': !overflowing.left }"
       ></div>
       <ul
@@ -36,7 +36,7 @@
         data-pw-scroller-list
         x-on:scroll.passive.debounce.once="$refs.scroller.classList.remove('scroller--no-interaction')"
         x-on:mouseenter.once="$refs.scroller.classList.remove('scroller--no-interaction')"
-        class="scroller scroller--no-interaction relative flex space-x-5 overscroll-x-none overflow-x-auto overflow-y-auto custom-scrollbars scroll-smooth scrolling-touch snap snap-x snap-mandatory"
+        class="scroller scroller--no-interaction custom-scrollbars scroll-smooth scrolling-touch relative flex space-x-5 overflow-x-auto overflow-y-auto overscroll-x-none snap snap-x snap-mandatory"
         :class="{
           'scroller--all-elements-equal-height': allElementsEqualHeight,
         }"
@@ -45,7 +45,7 @@
       </ul>
       <div
         x-cloak
-        class="absolute bottom-5 right-0 pointer-events-none scroller-affordance top-0 transform-gpu transition-transform w-3 z-10"
+        class="scroller-affordance pointer-events-none absolute bottom-5 right-0 top-0 z-10 w-3 transform-gpu transition-transform"
         x-bind:class="{ 'translate-x-3': !overflowing.right }"
       ></div>
     </div>
@@ -53,7 +53,7 @@
       hidden
       type="button"
       x-bind:inert="!overflowing.right"
-      class="hidden md:block md:no-js:hidden group -right-12 absolute bottom-5 top-0 w-8 transform-gpu transition-all -translate-x-12"
+      class="group absolute -right-12 bottom-5 top-0 hidden w-8 -translate-x-12 transform-gpu transition-all md:block md:no-js:hidden"
       x-bind:class="{ 'opacity-0 -translate-x-12': !overflowing.right }"
       v-bind:class="themeTextClasses"
       x-on:click="scrollRight()"
@@ -63,7 +63,7 @@
         x-ignore
         focusable="false"
         role="presentation"
-        class="transform-gpu translate-transform"
+        class="translate-transform transform-gpu"
         v-bind:class="randomRotationClass"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 84.663887 42.437332"
@@ -71,12 +71,12 @@
         <use href="#arrow-right" />
       </svg>
     </button>
-    <div class="flex justify-end h-10">
+    <div class="flex h-10 justify-end">
       <div
         hidden
         x-id="['theres-more']"
         x-bind:inert="!overflowing.right"
-        class="no-js:hidden js:inline-block lg:float-right font-bold mt-3 ml-3 rounded text-gray-600 text-sm transition-all transform-gpu duration-300"
+        class="mt-3 ml-3 transform-gpu rounded text-sm font-bold text-gray-600 transition-all duration-300 js:inline-block no-js:hidden lg:float-right"
         x-bind:class="{
         'opacity-0 translate-y-4': !overflowing.right
       }"
@@ -84,7 +84,7 @@
         <span x-bind:id="$id('theres-more')">There's more!</span>
         <button
           type="button"
-          class="transition-colors font-bold ml-1 px-2 py-1 rounded shadow-hard text-white"
+          class="ml-1 rounded px-2 py-1 font-bold text-white shadow-hard transition-colors"
           v-bind:class="{
             'bg-medium hocus:bg-medium-dark': theme === 'medium',
             'bg-purple-700 hocus:bg-purple-800': theme === 'speaking',

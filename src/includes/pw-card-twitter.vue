@@ -53,9 +53,9 @@ export default {
 </script>
 
 <template>
-  <article class="card-twitter contain-content shadow-hard rounded overflow-hidden text-white font-bold">
+  <article class="card-twitter contain-content overflow-hidden rounded font-bold text-white shadow-hard">
     <div
-      class="card-twitter__gallery grid bg-black border border-gray-300 rounded-tl rounded-tr overflow-hidden border-b-0"
+      class="card-twitter__gallery grid overflow-hidden rounded-tl rounded-tr border border-b-0 border-gray-300 bg-black"
       v-if="tweetMedia"
     >
       <a
@@ -63,7 +63,7 @@ export default {
         v-for="(media, index) in tweetMedia"
         v-bind:key="index"
         :href="media.type == 'photo' ? media.expanded_url : null"
-        class="group block relative w-full focus:outline-none"
+        class="focus:outline-none group relative block w-full"
         :class="{
           'aspect-ratio aspect-w-4 aspect-h-3': Object.keys(tweetMedia).length > 1,
         }"
@@ -87,19 +87,19 @@ export default {
           sizes="368px"
           :width="media.sizes.small.w"
           :height="media.sizes.small.h"
-          class="w-full h-full object-cover group-focus:outline outline-offset-invert"
+          class="group-focus:outline outline-offset-invert h-full w-full object-cover"
           loading="lazy"
           crossorigin="anonymous"
           :alt="media.ext_alt_text || ''"
         />
         <div
           v-if="['video', 'animated_gif'].includes(media.type)"
-          class="relative aspect-ratio"
+          class="aspect-ratio relative"
           :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
         >
           <noscript>
             <video
-              class="aspect-ratio absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
+              class="aspect-ratio absolute inset-0 w-full bg-gradient-to-t from-black to-gray-900"
               :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
               :poster="media.media_url_https"
               muted
@@ -115,7 +115,7 @@ export default {
           </noscript>
           <video
             data-lozad
-            class="no-js:hidden aspect-ratio lozad absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
+            class="aspect-ratio lozad absolute inset-0 w-full bg-gradient-to-t from-black to-gray-900 no-js:hidden"
             :style="`--aspect-ratio: ${media.video_info.aspect_ratio[0]}/${media.video_info.aspect_ratio[1]};`"
             :data-poster="media.media_url_https"
             muted
@@ -133,7 +133,7 @@ export default {
               :type="variant.content_type"
             />
           </video>
-          <div hidden class="play-button-container no-js:hidden absolute inset-0 flex items-center justify-center grow">
+          <div hidden class="play-button-container absolute inset-0 flex grow items-center justify-center no-js:hidden">
             <button
               type="button"
               aria-label="Play video"
@@ -148,11 +148,11 @@ export default {
     </div>
 
     <div>
-      <a :href="`https://twitter.com/intent/user?user_id=${originalTweet.user.id_str}`" class="flex space-x-3 m-4 mb-2 text-sm">
+      <a :href="`https://twitter.com/intent/user?user_id=${originalTweet.user.id_str}`" class="m-4 mb-2 flex space-x-3 text-sm">
         <img
           :src="cloudinaryProfileImage"
           :srcset="`${cloudinaryProfileImage.replace(/32/gi, 64)} 2x`"
-          class="rounded w-8 h-8"
+          class="h-8 w-8 rounded"
           width="32"
           height="32"
           alt=""
@@ -166,9 +166,9 @@ export default {
       </a>
     </div>
 
-    <p class="m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3" v-html="linkedText"></p>
+    <p class="links-underline lists-decorated m-4 mt-0 space-y-3 font-serif leading-snug" v-html="linkedText"></p>
 
-    <p class="card-twitter__tweet-actions px-4 py-3 text-sm space-x-3">
+    <p class="card-twitter__tweet-actions space-x-3 px-4 py-3 text-sm">
       <a :href="`https://twitter.com/intent/tweet?in_reply_to=${originalTweet.id_str}&related=philw_`" class="twitter-intent">
         <sprite-icon hash="twitter-reply"></sprite-icon>
         <span class="sr-only">Reply</span>

@@ -50,6 +50,7 @@
 ## CSS
 
 - Go through old Vue templates and replace scoped CSS with utilities or custom CSS
+- `eslint-plugin-tailwind`
 
 ## Eleventy
 

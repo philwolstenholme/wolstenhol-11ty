@@ -145,6 +145,7 @@
     "postcss-nested": "^5.0.6",
     "postcss-pxtorem": "^6.0.0",
     "prettier": "^2.8.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
     "tailwindcss": "^2.2.19",
     "vite-plugin-inspect": "^0.7.10",
     "vitest": "^0.26.2",

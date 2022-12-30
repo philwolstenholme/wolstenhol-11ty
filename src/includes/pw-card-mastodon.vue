@@ -34,9 +34,9 @@ export default {
 </script>
 
 <template>
-  <article class="card-mastodon bg-mastodon contain-content shadow-hard rounded overflow-hidden text-white font-bold">
+  <article class="card-mastodon contain-content overflow-hidden rounded bg-mastodon font-bold text-white shadow-hard">
     <div
-      class="card-mastodon__gallery grid bg-black border border-gray-300 rounded-tl rounded-tr overflow-hidden border-b-0"
+      class="card-mastodon__gallery grid overflow-hidden rounded-tl rounded-tr border border-b-0 border-gray-300 bg-black"
       v-if="this.originalToot.media_attachments"
     >
       <a
@@ -44,7 +44,7 @@ export default {
         :is="media.type == 'image' ? 'a' : 'div'"
         v-bind:key="index"
         :href="media.type == 'image' ? media.url : null"
-        class="group block relative w-full focus:outline-none"
+        class="focus:outline-none group relative block w-full"
         :class="{
           'aspect-ratio aspect-w-4 aspect-h-3': originalToot.media_attachments.length > 1,
         }"
@@ -68,19 +68,19 @@ export default {
           sizes="368px"
           :width="media.meta.small.width"
           :height="media.meta.small.height"
-          class="w-full h-full object-cover group-focus:outline outline-offset-invert"
+          class="group-focus:outline outline-offset-invert h-full w-full object-cover"
           loading="lazy"
           crossorigin="anonymous"
           :alt="media.description || ''"
         />
         <div
           v-if="['video', 'gifv'].includes(media.type)"
-          class="relative aspect-ratio"
+          class="aspect-ratio relative"
           :style="`--aspect-ratio: ${media.meta.small.aspect};`"
         >
           <noscript>
             <video
-              class="aspect-ratio absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
+              class="aspect-ratio absolute inset-0 w-full bg-gradient-to-t from-black to-gray-900"
               :style="`--aspect-ratio: ${media.meta.small.aspect};`"
               :poster="media.preview_url"
               muted
@@ -96,7 +96,7 @@ export default {
           </noscript>
           <video
             data-lozad
-            class="no-js:hidden aspect-ratio lozad absolute inset-0 bg-gradient-to-t from-black to-gray-900 w-full"
+            class="aspect-ratio lozad absolute inset-0 w-full bg-gradient-to-t from-black to-gray-900 no-js:hidden"
             :style="`--aspect-ratio: ${media.meta.aspect};`"
             :data-poster="media.preview_url"
             muted
@@ -109,7 +109,7 @@ export default {
           >
             <source :data-src="media.url" type="video/mp4" />
           </video>
-          <div hidden class="play-button-container no-js:hidden absolute inset-0 flex items-center justify-center grow">
+          <div hidden class="play-button-container absolute inset-0 flex grow items-center justify-center no-js:hidden">
             <button
               type="button"
               aria-label="Play video"
@@ -124,11 +124,11 @@ export default {
     </div>
 
     <div>
-      <a :href="originalToot.account.url" class="flex space-x-3 m-4 mb-2 text-sm">
+      <a :href="originalToot.account.url" class="m-4 mb-2 flex space-x-3 text-sm">
         <img
           :src="cloudinaryProfileImage"
           :srcset="`${cloudinaryProfileImage.replace(/32(?=.*32)/g, 64)} 2x`"
-          class="rounded w-8 h-8"
+          class="h-8 w-8 rounded"
           width="32"
           height="32"
           alt=""
@@ -143,11 +143,11 @@ export default {
     </div>
 
     <div
-      class="card-mastodon__text overflow-hidden m-4 mt-0 font-serif leading-snug links-underline lists-decorated space-y-3"
+      class="card-mastodon__text links-underline lists-decorated m-4 mt-0 space-y-3 overflow-hidden font-serif leading-snug"
       v-html="originalToot.content"
     ></div>
 
-    <p class="bg-mastodon-dark px-4 py-3 text-sm space-x-3">
+    <p class="space-x-3 bg-mastodon-dark px-4 py-3 text-sm">
       <span>
         <sprite-icon hash="twitter-retweet"></sprite-icon>
         <span class="sr-only">Boost</span>

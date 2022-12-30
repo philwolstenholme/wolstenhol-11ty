@@ -30,7 +30,7 @@ export default {
     <pw-lede class="mt-3">Photos and videos from Instagram.</pw-lede>
 
     <pw-simple-scroller
-      class="mt-12 items-1 sm:items-2 md:items-3"
+      class="items-1 sm:items-2 md:items-3 mt-12"
       :scroll-full="true"
       theme="instagram"
       label="Instagram posts"

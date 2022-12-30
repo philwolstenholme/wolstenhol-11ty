@@ -1,7 +1,7 @@
 <template>
   <article>
-    <h1 class="text-5xl xl:text-8xl bg-clip-text text-fill-transparent bg-binding-dark tracking-tight font-serif font-bold">{{ title }}</h1>
-    <div class="font-serif mt-5 xl:mt-10 mb-10 xl:mb-12 space-y-5 text-xl xl:text-2xl leading-normal">
+    <h1 class="text-fill-transparent bg-binding-dark bg-clip-text font-serif text-5xl font-bold tracking-tight xl:text-8xl">{{ title }}</h1>
+    <div class="mt-5 mb-10 space-y-5 font-serif text-xl leading-normal xl:mt-10 xl:mb-12 xl:text-2xl">
       <p class="mt-3">
         You can send me a
         <a href="https://twitter.com/messages/compose?recipient_id=38276082" class="underline">direct message on Twitter</a> or drop me an

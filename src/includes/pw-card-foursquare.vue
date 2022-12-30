@@ -29,16 +29,16 @@ export default {
 </script>
 
 <template>
-  <article class="foursquare-card contain-content relative flex overflow-hidden w-full rounded shadow-hard" x-ignore>
+  <article class="foursquare-card contain-content relative flex w-full overflow-hidden rounded shadow-hard" x-ignore>
     <div
-      class="text-white bg-foursquare outline-offset-invert no-underline w-full flex flex-col-reverse"
+      class="outline-offset-invert flex w-full flex-col-reverse bg-foursquare text-white no-underline"
       :class="{
         group: place.url,
-        'hover:bg-foursquare-dark focus-within:bg-foursquare-dark': place.url,
+        'focus-within:bg-foursquare-dark hover:bg-foursquare-dark': place.url,
       }"
     >
       <div class="foursquare-card__body flex-grow p-5">
-        <h3 class="text-lg mb-4 font-serif font-bold leading-tight">
+        <h3 class="mb-4 font-serif text-lg font-bold leading-tight">
           <span aria-hidden="true"><sprite-icon hash="heart"></sprite-icon>'d </span>
           <component :href="place.url" :is="place.url ? 'a' : 'span'" class="group-hover:underline">{{ place.name }}</component>
         </h3>
@@ -47,8 +47,8 @@ export default {
           <p v-text="formattedAddress" />
         </div>
       </div>
-      <div class="grid grid-stack shadow-inner overflow-hidden">
-        <img alt="" loading="lazy" width="365" height="182" :src="place.map" class="mix-blend-multiply foursquare-card__img" />
+      <div class="grid-stack grid overflow-hidden shadow-inner">
+        <img alt="" loading="lazy" width="365" height="182" :src="place.map" class="foursquare-card__img mix-blend-multiply" />
         <img
           hidden
           alt=""
@@ -60,7 +60,7 @@ export default {
             https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill%2Cg_north%2Cw_730%2Ch_364%2Cf_auto%2Cq_auto%3Alow%2Fv1661284312%2Fone-offs%2F9-soft-grunge-texture-4-1.png 2x
           "
           data-frivolous-grunge
-          class="foursquare-card__img opacity-grunge block w-full h-full"
+          class="foursquare-card__img opacity-grunge block h-full w-full"
           :style="`--opacity: ${this.randomOpacity}`"
         />
         <div class="isolate flex items-center justify-center">
@@ -69,12 +69,12 @@ export default {
             role="presentation"
             aria-hidden="true"
             hash="asterisk"
-            class="icon w-8 h-8 duration-75 transform-gpu transition-transform group-hocus:-translate-y-1"
+            class="icon h-8 w-8 transform-gpu transition-transform duration-75 group-hocus:-translate-y-1"
             :style="`--tw-rotate: ${Math.floor(Math.random() * 360) + 1}deg !important;`"
           />
         </div>
-        <div class="isolate foursquare-card__map-scrim"></div>
-        <p class="absolute isolate left-4 text-white text-xs top-4 uppercase">{{ timeAgo }}</p>
+        <div class="foursquare-card__map-scrim isolate"></div>
+        <p class="absolute left-4 top-4 isolate text-xs uppercase text-white">{{ timeAgo }}</p>
       </div>
     </div>
   </article>

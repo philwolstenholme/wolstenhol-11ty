@@ -1,7 +1,7 @@
 <template>
   <article>
-    <h1 class="text-5xl xl:text-8xl bg-clip-text text-fill-transparent bg-binding-dark tracking-tight font-serif font-bold">{{ title }}</h1>
-    <div class="font-serif links-underline mt-5 xl:mt-10 mb-10 xl:mb-12 space-y-5 text-xl xl:text-2xl leading-normal">
+    <h1 class="text-fill-transparent bg-binding-dark bg-clip-text font-serif text-5xl font-bold tracking-tight xl:text-8xl">{{ title }}</h1>
+    <div class="links-underline mt-5 mb-10 space-y-5 font-serif text-xl leading-normal xl:mt-10 xl:mb-12 xl:text-2xl">
       <p>Looks like someone got a link wrong somewhere, or you got a URL wrong. Sorry about that.</p>
       <p>
         If it looks like I broke something and you'd like to let me know about it then you can get in touch on my

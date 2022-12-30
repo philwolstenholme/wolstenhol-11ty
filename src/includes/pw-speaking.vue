@@ -30,7 +30,7 @@ export default {
     <pw-section-heading title="Speaking" icon="chalkboardTeacher" section="speaking" />
     <pw-lede class="mt-3">Talks I've given at conferences or other events. I'll link to slides or videos where they are available.</pw-lede>
     <pw-simple-scroller
-      class="mt-12 items-1 md:items-2 xl:items-3"
+      class="items-1 md:items-2 xl:items-3 mt-12"
       theme="speaking"
       label="Public speaking that I've done"
       :allElementsEqualHeight="true"

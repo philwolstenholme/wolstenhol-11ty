@@ -23,13 +23,13 @@ export default {
     <div
       role="alert"
       aria-labelledby="contact-form-validation-problems"
-      class="border-l-4 border-red-800 pl-4 rounded space-y-3"
+      class="space-y-3 rounded border-l-4 border-red-800 pl-4"
       x-ref="errors"
       tabindex="-1"
       hidden
       x-bind:hidden="invalidFormIds.length === 0"
     >
-      <h3 class="font-bold font-serif text-2xl" id="contact-form-validation-problems">
+      <h3 class="font-serif text-2xl font-bold" id="contact-form-validation-problems">
         <span aria-hidden="true">😔&nbsp;</span>There were some problems with the form:
       </h3>
       <ul role="list" class="links-underline highlight-links list-disc pl-5" v-html="errorTemplateString"></ul>
@@ -39,17 +39,17 @@ export default {
       netlify
       netlify-honeypot="message_1"
       x-ref="form"
-      class="space-y-4 text-xl max-w-3xl"
+      class="max-w-3xl space-y-4 text-xl"
       name="contact"
       method="POST"
       x-bind:hidden="submitted"
       x-on:submit.prevent="submitForm()"
     >
       <input type="hidden" name="form-name" value="contact" />
-      <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
+      <p class="space-y-2 lg:flex lg:space-y-0 lg:space-x-5">
         <label
           for="contact-name"
-          class="font-bold lg:pt-4 lg:text-right lg:w-28"
+          class="font-bold lg:w-28 lg:pt-4 lg:text-right"
           x-bind:class="{ 'text-red-800': isInvalid('contact-name') }"
           >Name:<sup class="text-red-800"
             ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
@@ -66,16 +66,16 @@ export default {
           minlength="2"
           autocomplete="name"
           placeholder="What should I call you?"
-          class="w-full bg-white border-2 border-gray-800 font-serif p-4 rounded text-black shadow-hard lg:flex-1"
+          class="w-full rounded border-2 border-gray-800 bg-white p-4 font-serif text-black shadow-hard lg:flex-1"
           x-bind:class="{ 'border-red-800': isInvalid('contact-name') }"
           size="45"
           x-on:invalid="setAsInvalid(event.target.id)"
         />
       </p>
-      <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
+      <p class="space-y-2 lg:flex lg:space-y-0 lg:space-x-5">
         <label
           for="contact-email"
-          class="lg:pt-4 font-bold lg:text-right lg:w-28"
+          class="font-bold lg:w-28 lg:pt-4 lg:text-right"
           x-bind:class="{ 'text-red-800': isInvalid('contact-email') }"
           >Email:<sup class="text-red-800"
             ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
@@ -91,16 +91,16 @@ export default {
           name="email"
           autocomplete="email"
           placeholder="How can I get back to you?"
-          class="w-full bg-white border-2 border-gray-800 font-serif p-4 rounded text-black shadow-hard lg:flex-1"
+          class="w-full rounded border-2 border-gray-800 bg-white p-4 font-serif text-black shadow-hard lg:flex-1"
           x-bind:class="{ 'border-red-800': isInvalid('contact-email') }"
           size="45"
           x-on:invalid="setAsInvalid(event.target.id)"
         />
       </p>
-      <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
+      <p class="space-y-2 lg:flex lg:space-y-0 lg:space-x-5">
         <label
           for="contact-subject"
-          class="lg:pt-4 font-bold lg:text-right lg:w-28"
+          class="font-bold lg:w-28 lg:pt-4 lg:text-right"
           x-bind:class="{ 'text-red-800': isInvalid('contact-subject') }"
           >Subject:<sup class="text-red-800"
             ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
@@ -116,16 +116,16 @@ export default {
           name="subject"
           minlength="8"
           placeholder="What's this all about then?"
-          class="w-full bg-white border-2 border-gray-800 font-serif p-4 rounded text-black shadow-hard lg:flex-1"
+          class="w-full rounded border-2 border-gray-800 bg-white p-4 font-serif text-black shadow-hard lg:flex-1"
           x-bind:class="{ 'border-red-800': isInvalid('contact-subject') }"
           size="45"
           x-on:invalid="setAsInvalid(event.target.id)"
         />
       </p>
-      <p class="space-y-2 lg:space-y-0 lg:flex lg:space-x-5">
+      <p class="space-y-2 lg:flex lg:space-y-0 lg:space-x-5">
         <label
           for="contact-message"
-          class="lg:pt-4 font-bold lg:text-right lg:w-28"
+          class="font-bold lg:w-28 lg:pt-4 lg:text-right"
           x-bind:class="{ 'text-red-800': isInvalid('contact-message') }"
           >Message:<sup class="text-red-800"
             ><span aria-hidden="true">*</span><span class="sr-only">(this field is required)</span></sup
@@ -140,7 +140,7 @@ export default {
           name="message"
           minlength="8"
           placeholder="Your unconditional offer of that six-figure, four-days-a-week job, perhaps a typo correction, or some other message."
-          class="w-full min-h-24 bg-white border-2 border-gray-800 font-serif p-4 rounded text-black shadow-hard lg:flex-1"
+          class="min-h-24 w-full rounded border-2 border-gray-800 bg-white p-4 font-serif text-black shadow-hard lg:flex-1"
           x-bind:class="{ 'border-red-800': isInvalid('contact-message') }"
           rows="6"
           cols="50"
@@ -172,13 +172,13 @@ export default {
         <span class="lg:block lg:w-28"></span>
         <button
           type="submit"
-          class="border-2 border-black mb-0.5 flex items-center bg-yellow-300 hocus:bg-yellow-400 px-4 py-2 rounded shadow-hard font-bold space-x-2 select-none"
+          class="mb-0.5 flex select-none items-center space-x-2 rounded border-2 border-black bg-yellow-300 px-4 py-2 font-bold shadow-hard hocus:bg-yellow-400"
         >
           <svg
             hidden
             role="presentation"
             aria-hidden="true"
-            class="block w-20 m-2"
+            class="m-2 block w-20"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 515.9 107.5"
           >
@@ -195,12 +195,12 @@ export default {
         hidden
         x-bind:hidden="!submissionError"
         x-cloak
-        class="font-bold text-red-800 lg:ml-32 space-y-2"
+        class="space-y-2 font-bold text-red-800 lg:ml-32"
       >
         <p>Oops, it looks like there's been some sort of error:</p>
         <div
           x-text="submissionError"
-          class="bg-black block text-base font-mono p-5 rounded shadow-hard text-green-300 w-full"
+          class="block w-full rounded bg-black p-5 font-mono text-base text-green-300 shadow-hard"
           rows="5"
           readonly
           x-ref="submissionError"
@@ -214,8 +214,8 @@ export default {
         </label>
       </div>
     </form>
-    <div x-ref="submitted" tabindex="-1" hidden x-bind:hidden="!submitted" x-cloak class="space-y-4 text-xl max-w-3xl">
-      <p class="text-3xl font-bold font-serif text-green-700"><span aria-hidden="true">✅&nbsp;</span>Thanks!</p>
+    <div x-ref="submitted" tabindex="-1" hidden x-bind:hidden="!submitted" x-cloak class="max-w-3xl space-y-4 text-xl">
+      <p class="font-serif text-3xl font-bold text-green-700"><span aria-hidden="true">✅&nbsp;</span>Thanks!</p>
       <p class="text-base">Your message has been sent.</p>
     </div>
   </div>

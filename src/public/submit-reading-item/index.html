@@ -139,7 +139,14 @@
 
         <label for="commentary">
           Commentary (<span x-html="commentaryCharacterCount"></span>/280 if you want it in a tweet reply)
-          <textarea x-model="commentary" x-ref="commentary" x-on:keyup="commentaryCharacterCount = $refs.commentary.value.length" id="commentary" name="commentary" rows="5"></textarea>
+          <textarea
+            x-model="commentary"
+            x-ref="commentary"
+            x-on:keyup="commentaryCharacterCount = $refs.commentary.value.length"
+            id="commentary"
+            name="commentary"
+            rows="5"
+          ></textarea>
         </label>
 
         <button type="submit" :disabled="!currentUser">Submit</button>

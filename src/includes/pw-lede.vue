@@ -1,5 +1,5 @@
 <template>
-  <p class="font-serif tracking-widest leading-relaxed max-w-3xl">
+  <p class="max-w-3xl font-serif leading-relaxed tracking-widest">
     <slot />
   </p>
 </template>

@@ -28,41 +28,41 @@ export default {
 
 <template>
   <pw-section section-key="stars">
-    <ul role="list" class="pb-2 gap-5 grid md:grid-cols-2 xl:grid-cols-3">
+    <ul role="list" class="grid gap-5 pb-2 md:grid-cols-2 xl:grid-cols-3">
       <li class="stars-list__item flex min-w-0" v-for="(item, index) in stars" :key="index">
         <a
           :href="item.html_url"
-          class="stars-list-link relative contain-content min-w-0 group items-baseline flex-1 border border-gray-300 rounded shadow-hard text-white bg-gray-900 border-black hocus:bg-black p-4 font-serif"
+          class="stars-list-link contain-content group relative min-w-0 flex-1 items-baseline rounded border border-gray-300 border-black bg-gray-900 p-4 font-serif text-white shadow-hard hocus:bg-black"
         >
-          <div class="flex flex-col h-full isolate">
+          <div class="isolate flex h-full flex-col">
             <div class="flex-1">
               <img
                 :src="`https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_50,w_50,q_auto,fl_progressive/${item.owner.avatar_url}`"
                 :srcset="`https://wolstenhol.me/proxy/cloudinary/image/fetch/c_lfill,f_auto,g_face,h_100,w_100,q_auto,fl_progressive/${item.owner.avatar_url} 2x`"
                 :alt="item.owner.login"
-                class="float-right w-15 h-15 block rounded-full bg-white ml-3 mb-3"
+                class="w-15 h-15 float-right ml-3 mb-3 block rounded-full bg-white"
                 :loading="index > 7 ? 'lazy' : null"
                 width="50"
                 height="50"
               />
-              <h2 class="leading-tight text-lg group-hocus:underline">
+              <h2 class="text-lg leading-tight group-hocus:underline">
                 {{ item.owner.login }}/<span class="font-bold">{{ item.name }}</span>
               </h2>
-              <p class="stars-list-link__description mt-3 no-underline font-sans text-sm leading-tight" v-if="item.description">
+              <p class="stars-list-link__description mt-3 font-sans text-sm leading-tight no-underline" v-if="item.description">
                 {{ item.description }}
               </p>
             </div>
-            <dl class="flex gap-5 mt-5 no-underline">
+            <dl class="mt-5 flex gap-5 no-underline">
               <div class="flex flex-col-reverse">
-                <dt class="font-sans font-light text-sm">{{ pluralize('Issue', item.open_issues) }}</dt>
+                <dt class="font-sans text-sm font-light">{{ pluralize('Issue', item.open_issues) }}</dt>
                 <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.open_issues) }}</dd>
               </div>
               <div class="flex flex-col-reverse">
-                <dt class="font-sans font-light text-sm">{{ pluralize('Star', item.stargazers_count) }}</dt>
+                <dt class="font-sans text-sm font-light">{{ pluralize('Star', item.stargazers_count) }}</dt>
                 <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.stargazers_count) }}</dd>
               </div>
               <div class="flex flex-col-reverse">
-                <dt class="font-sans font-light text-sm">{{ pluralize('Fork', item.forks) }}</dt>
+                <dt class="font-sans text-sm font-light">{{ pluralize('Fork', item.forks) }}</dt>
                 <dd class="font-bold">{{ Intl.NumberFormat('en-GB').format(item.forks) }}</dd>
               </div>
             </dl>

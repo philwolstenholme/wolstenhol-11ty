@@ -1,6 +1,6 @@
 <template>
   <dialog
-    class="bg-black p-4 transform shadow-2xl select-none"
+    class="transform select-none bg-black p-4 shadow-2xl"
     x-ignore
     ax-load="idle"
     x-data="PwLightbox"
@@ -9,8 +9,8 @@
     x-on:click.self="$el.close()"
     x-bind:class="className"
   >
-    <div class="grid grid-stack bg-black">
-      <div x-show="showLoadingSpinner" class="w-full h-full flex items-center justify-center">
+    <div class="grid-stack grid bg-black">
+      <div x-show="showLoadingSpinner" class="flex h-full w-full items-center justify-center">
         <svg x-ignore width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
           <g fill="none" fill-rule="evenodd">
             <g transform="translate(1 1)" stroke-width="2">
@@ -24,7 +24,7 @@
       </div>
       <button
         type="button"
-        class="absolute text-lg font-bold bg-black px-3 py-2 right-3 rounded-bl-lg text-white top-3"
+        class="absolute right-3 top-3 rounded-bl-lg bg-black px-3 py-2 text-lg font-bold text-white"
         x-on:click="$root.close();"
       >
         <span class="sr-only">Close</span>

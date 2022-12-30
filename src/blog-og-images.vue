@@ -1,8 +1,8 @@
 <template>
   <article>
-    <h1 class="text-5xl xl:text-8xl bg-clip-text text-fill-transparent bg-binding-dark tracking-tight font-serif font-bold">{{ title }}</h1>
+    <h1 class="text-fill-transparent bg-binding-dark bg-clip-text font-serif text-5xl font-bold tracking-tight xl:text-8xl">{{ title }}</h1>
 
-    <div class="mt-5 xl:mt-10 mb-10 xl:mb-12">
+    <div class="mt-5 mb-10 xl:mt-10 xl:mb-12">
       <ul class="grid grid-cols-3 gap-5">
         <li v-for="(post, key) in this.medium" :key="key">
           <a :href="`/og?title=${encodeURIComponent(post.title)}&url=${encodeURIComponent(post.url)}&type=blog%20post`" download>

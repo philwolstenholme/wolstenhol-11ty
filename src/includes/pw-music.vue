@@ -35,14 +35,14 @@ export default {
         x-cloak
         x-ignore
         ax-load="idle"
-        class="spotify-live mt-4 md:mt-0 md:pl-5 text-sm"
+        class="spotify-live mt-4 text-sm md:mt-0 md:pl-5"
         x-bind:hidden="!data.name || !timeagoLoaded"
         x-data="PwSpotifyLive()"
         x-intersect.margin.200px:enter="startInterval"
         x-intersect:leave="stopInterval"
       >
-        <div class="flex gap-1 md:gap-0 items-center">
-          <span class="pulsating-circle h-3 inline-block rounded-full w-3 flex-shrink-0"></span>&nbsp;
+        <div class="flex items-center gap-1 md:gap-0">
+          <span class="pulsating-circle inline-block h-3 w-3 flex-shrink-0 rounded-full"></span>&nbsp;
           <p class="md:truncate">
             <span class="spotify-live__label" x-bind:datetime="data?.playedAt" x-ref="label"></span>:
             <output>
@@ -74,14 +74,14 @@ export default {
     <p
       x-data
       x-intersect.once="() => { var l = document.createElement('link'); l.rel = 'preconnect'; l.href = 'https://p.scdn.co'; document.head.appendChild(l);}"
-      class="pointer-events-none font-bold max-w-prose mt-4 lg:mt-0 opacity-90 text-xs"
+      class="pointer-events-none mt-4 max-w-prose text-xs font-bold opacity-90 lg:mt-0"
     >
       You can click the cards above to play a little preview of the artist, courtesy of the Spotify API. I also use the Spotify API to get
       the tempo/BPM of the preview song, and I use this to influence the speed that a card bops at while its playing.
     </p>
-    <p class="pointer-events-none pb-0.5 max-w-prose mt-2 opacity-90 text-xs">
+    <p class="pointer-events-none mt-2 max-w-prose pb-0.5 text-xs opacity-90">
       <span class="no-js:hidden">
-        Press the pause icon or the <kbd class="rounded border border-gray-300 p-0.5 bg-white">esc</kbd> key on your keyboard to stop the
+        Press the pause icon or the <kbd class="rounded border border-gray-300 bg-white p-0.5">esc</kbd> key on your keyboard to stop the
         previews.
       </span>
       &nbsp;
@@ -91,7 +91,7 @@ export default {
       controls
       autoplay
       hidden
-      class="inline sr-only"
+      class="sr-only inline"
       x-init="$root.classList.remove('inline')"
       x-bind:src="src"
       x-ignore
@@ -107,7 +107,7 @@ export default {
     <iframe
       x-data="{}"
       x-init="$root.remove()"
-      class="js:hidden absolute bottom-0 h-20 js:hidden right-0 w-36"
+      class="absolute bottom-0 right-0 h-20 w-36 js:hidden js:hidden"
       name="spotify-preview"
       title="Spotify preview"
     ></iframe>
