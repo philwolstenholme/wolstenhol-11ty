@@ -223,3 +223,8 @@ body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
+
+h1,
+h2 {
+  filter: url(#heading-distort);
+}
