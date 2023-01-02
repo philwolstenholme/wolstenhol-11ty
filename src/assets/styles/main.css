@@ -226,5 +226,5 @@ body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
 }
