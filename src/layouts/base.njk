@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ meta.lang }}" class="no-js antialiased overflow-y-scroll overflow-x-hidden">
+<html lang="{{ meta.lang }}" class="no-js overflow-x-hidden overflow-y-scroll antialiased">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,7 +31,7 @@
       </style>
     </noscript>
   </head>
-  <body class="text-gray-900 bg-subtle-grunge leading-normal connection--unknown">
+  <body class="bg-subtle-grunge connection--unknown leading-normal text-gray-900">
     <script>
       document.querySelector('html').classList.remove('no-js');
       document.querySelector('html').classList.add('js');
@@ -48,14 +48,14 @@
     </script>
     <a
       href="#content"
-      class="bg-binding-dark block border border-yellow-500 focus:not-sr-only left-3 p-5 sr-only text-yellow-500 top-3 z-50"
+      class="bg-binding-dark sr-only left-3 top-3 z-50 block border border-yellow-500 p-5 text-yellow-500 focus:not-sr-only"
       >Skip to main content</a
     >
-    <div role="document" class="min-h-screen flex flex-col">
+    <div role="document" class="flex min-h-screen flex-col">
       {% include "header.njk" %}
-      <main class="relative flex-grow w-full outline-none" id="content" tabindex="-1">
+      <main class="outline-none relative w-full flex-grow" id="content" tabindex="-1">
         {% if page.url == '/' %} {% include "homepage/homepage-header.njk" %}
-        <div class="-mb-6 -mt-6 -skew-y-1 transform z-10">
+        <div class="z-10 -mb-6 -mt-6 -skew-y-1 transform">
           <div class="bg-binding-dark h-12"></div>
           <div class="bg-subtle-grunge h-12"></div>
         </div>
@@ -80,7 +80,7 @@
           <img
             hidden
             data-frivolous-grunge
-            class="absolute mix-blend-multiply inline opacity-40 transform object-cover object-left"
+            class="absolute inline transform object-cover object-left opacity-40 mix-blend-multiply"
             loading="lazy"
             decoding="async"
             alt=""
@@ -96,7 +96,7 @@
           <img
             hidden
             data-frivolous-grunge
-            class="absolute inline opacity-40 mix-blend-multiply transform -rotate-45"
+            class="absolute inline -rotate-45 transform opacity-40 mix-blend-multiply"
             loading="lazy"
             decoding="async"
             alt=""
@@ -110,27 +110,27 @@
             style="left: -230px; top: 2900px"
           />
         </div>
-        <div class="view-transition--fade mx-auto section__inner py-10 lg:pb-28">
+        <div class="section__inner mx-auto py-10 lg:pb-28">
           <div class="transform">
             {{ content | safe }}
           </div>
         </div>
         {% if (page.filePathStem == '/work') %}
         <div
-          class="sticky hidden xl:inline-block left-0 bottom-0 p-5"
+          class="sticky left-0 bottom-0 hidden p-5 xl:inline-block"
           x-data="{ show: false }"
           x-on:scroll.window.debounce.passive.once="show=true"
         >
-          <a x-show="show" x-transition.opacity class="font-bold highlight px-4 py-2 underline" href="#content" style="display: none"
+          <a x-show="show" x-transition.opacity class="highlight px-4 py-2 font-bold underline" href="#content" style="display: none"
             >Back to top</a
           >
         </div>
         {% endif %}
       </main>
-      <dialog id="pwa-update-dialog" x-data class="w-11/12 max-w-3xl bg-black text-white p-4 transform shadow-2xl select-none">
+      <dialog id="pwa-update-dialog" x-data class="w-11/12 max-w-3xl transform select-none bg-black p-4 text-white shadow-2xl">
         <button
           type="button"
-          class="absolute text-lg font-bold bg-black px-3 py-2 right-3 rounded-bl-lg text-white top-3"
+          class="absolute right-3 top-3 rounded-bl-lg bg-black px-3 py-2 text-lg font-bold text-white"
           x-on:click="$root.close();"
         >
           <span class="sr-only">Close</span>
@@ -149,10 +149,10 @@
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
-        <form method="dialog" class="leading-snug bg-binding-dark p-4 xl:p-8 pr-14">
+        <form method="dialog" class="bg-binding-dark p-4 pr-14 leading-snug xl:p-8">
           <div class="space-y-3">
-            <h2 class="font-serif font-bold text-2xl">Updated content available!</h2>
-            <p id="service-worker-update-desc" class="font-bold text-xl">
+            <h2 class="font-serif text-2xl font-bold">Updated content available!</h2>
+            <p id="service-worker-update-desc" class="text-xl font-bold">
               If you're not in the middle of anything, click 'Update now' to reload the page with the newest content.
             </p>
             <p>If you don't update now and you have not interacted with my contact form then the page will refresh when you change tabs.</p>
@@ -163,7 +163,7 @@
               autofocus
               value="refresh"
               type="submit"
-              class="text-black border-2 border-black flex items-center bg-yellow-300 hocus:bg-yellow-400 px-4 py-2 rounded shadow-hard font-bold space-x-2 select-none"
+              class="flex select-none items-center space-x-2 rounded border-2 border-black bg-yellow-300 px-4 py-2 font-bold text-black shadow-hard hocus:bg-yellow-400"
             >
               Update now to see the newer content
             </button>
