@@ -255,8 +255,7 @@ main {
   animation: 110ms cubic-bezier(0, 0, 0.2, 1) 50ms both fade-in;
 }
 
-::view-transition-old(root),
-::view-transition-new(root) {
+::view-transition-group(root) {
   /* Remove the root transition that is added by the meta tag. */
-  animation: none;
+  display: none;
 }
