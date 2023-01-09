@@ -27,7 +27,7 @@ export default {
     // },
     pagination: {
       data: 'githubStars',
-      size: 12,
+      size: 30,
       alias: 'posts',
     },
     layout: 'page',
