@@ -1,4 +1,9 @@
-const fetch = require('node-fetch');
+import wretch from 'wretch';
+import fetch from 'node-fetch';
+
+wretch.polyfills({
+  fetch,
+});
 
 exports.handler = async function (event, context) {
   if (event.httpMethod !== 'POST') {
@@ -10,8 +15,6 @@ exports.handler = async function (event, context) {
   }
 
   const { user } = context.clientContext;
-
-  console.log('event body', event.body);
 
   const { title, url, skipTweet, commentary } = JSON.parse(event.body);
 
@@ -26,7 +29,7 @@ exports.handler = async function (event, context) {
   const itsMe = user.email === 'philgw@gmail.com';
 
   if (itsMe) {
-    const body = JSON.stringify({
+    const body = {
       records: [
         {
           fields: {
@@ -37,27 +40,19 @@ exports.handler = async function (event, context) {
           },
         },
       ],
-    });
+    };
 
-    console.log('going out: ', body);
+    console.log('going out: ', JSON.stringify(body, null, 2));
 
-    const response = await fetch('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.AIRTABLE_KEY}`,
-      },
-      body: body,
-    });
-
-    const data = await response.json();
+    const data = await wretch('https://api.airtable.com/v0/appT2NMQ7UD8T2smq/List')
+      .auth(`Bearer ${process.env.AIRTABLE_KEY}`)
+      .post(body)
+      .json();
 
     console.log('coming back: ', JSON.stringify(data));
 
     // Trigger a build.
-    await fetch(`https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK_KEY}`, {
-      method: 'post',
-    });
+    await wretch(`https://api.netlify.com/build_hooks/${process.env.BUILD_HOOK_KEY}`).post();
 
     return {
       statusCode: 200,

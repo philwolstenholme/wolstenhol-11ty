@@ -14,6 +14,12 @@
       crossorigin="anonymous"
     />
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/wretch@2.3.1/dist/bundle/wretch.min.js"
+      integrity="sha256-42xWqbeV0DPZSNBzJC7XoUzoSFOgn+mle1wxf369hT8="
+      crossorigin="anonymous"
+    ></script>
+
     <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <script
@@ -88,36 +94,24 @@
         @submit.prevent="async (form) => {
           const user = netlifyIdentity.currentUser();
           await netlifyIdentity.refresh();
-
-          const res = await fetch(window.location.origin + '/api/submit-reading-item', {
-            method: 'POST',
-            body: JSON.stringify({ title, url, skipTweet, commentary }),
-            headers: {
-              Authorization: `Bearer ${user.token.access_token}`,
-            },
-          });
-
-          if (!res.ok) {
-            if (data.message) {
-              alert(`${res.status}: ${data.message}`);
-              throw new Error(`${res.status}: ${data.message}`);
-              return;
-            } else {
-              alert(`Failed with HTTP code ${res.status}`);
-              throw new Error(`Failed with HTTP code ${res.status}`);
-              return;
-            }
-          }
-
-          const data = await res.json();
-
+        
+          const data = await window
+            .wretch(`${window.location.origin}/api/submit-reading-item`)
+            .auth(`Bearer ${user.token.access_token}`)
+            .post({
+              title,
+              url,
+              skipTweet,
+              commentary,
+            })
+            .json();
+        
           alert(`Posted ${data.records[0].fields.title}!`);
-
+        
           try {
             window.close();
-            window.close('','_parent','');
-          }
-          catch(error) {
+            window.close(``, `_parent`, ``);
+          } catch (error) {
             form.target.reset();
           }
         }"

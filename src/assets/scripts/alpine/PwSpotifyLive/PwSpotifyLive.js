@@ -1,4 +1,5 @@
 import loadjs from 'loadjs';
+import wretch from 'wretch';
 
 const MILLISECONDS_IN_A_SECOND = 1000;
 const SECONDS_IN_A_MINUTE = 60;
@@ -24,12 +25,7 @@ export default function PwSpotifyLive() {
 
       let apiData;
       try {
-        const response = await fetch('https://wolstenhol.me/api/recently-played-spotify');
-        apiData = await response.json();
-
-        if (response.status !== 200) {
-          throw new Error(`recently-played-spotify responded with ${response.status} status code`);
-        }
+        apiData = await wretch('https://wolstenhol.me/api/recently-played-spotify').get().json();
       } catch (error) {
         console.error(error);
       }

@@ -8,6 +8,9 @@
   command = "npm run start"
   publish = "dist"
 
+[functions]
+  node_bundler = "esbuild"
+
 [[redirects]]
   from = "/proxy/cloudinary/*"
   to = "https://res.cloudinary.com/wolstenh/:splat"

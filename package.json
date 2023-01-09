@@ -189,7 +189,8 @@
     "twitter-text": "^3.1.0",
     "unique-random-array": "^2.0.0",
     "vite-plugin-pwa": "^0.14.0",
-    "wicg-inert": "^3.1.2"
+    "wicg-inert": "^3.1.2",
+    "wretch": "^2.3.1"
   },
   "overrides": {
     "workbox-build": "^6.5.4",

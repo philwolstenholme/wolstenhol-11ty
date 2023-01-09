@@ -210,7 +210,7 @@ export default {
       <div hidden aria-hidden="true">
         <label>
           Please leave this empty:
-          <input name="message_1" />
+          <input aria-hidden="true" name="message_1" />
         </label>
       </div>
     </form>

@@ -1,3 +1,5 @@
+import wretch from 'wretch';
+
 export default function PwContact() {
   return {
     submitted: false,
@@ -24,7 +26,7 @@ export default function PwContact() {
       const form = this.$refs.form;
       form.setAttribute('novalidate', '');
     },
-    submitForm() {
+    async submitForm() {
       const form = this.$refs.form;
       const data = new FormData(form);
       this.invalidFormIds = [];
@@ -42,35 +44,21 @@ export default function PwContact() {
         return;
       }
 
-      fetch('/', {
-        method: 'POST',
-        body: data,
-      })
-        .then(response => {
-          if (!response.ok) {
-            return Promise.reject({
-              status: response.status,
-              statusText: response.statusText,
-              url: response.url,
-            });
-          }
-          return response;
-        })
-        .then(() => {
-          this.submitted = true;
-          this.submissionError = null;
-          this.$nextTick(() => {
-            this.$refs.submitted.focus();
-          });
-        })
-        .catch(error => {
-          this.submissionError = JSON.stringify(error, null, 2);
-          console.error('Contact form error: ', error);
-
-          this.$nextTick(() => {
-            this.$refs.submissionError.focus();
-          });
+      try {
+        await wretch('/').body(data).post();
+        this.submitted = true;
+        this.submissionError = null;
+        this.$nextTick(() => {
+          this.$refs.submitted.focus();
         });
+      } catch (error) {
+        this.submissionError = error.message;
+        console.error('Contact form error: ', error);
+
+        this.$nextTick(() => {
+          this.$refs.submissionError.focus();
+        });
+      }
     },
   };
 }
