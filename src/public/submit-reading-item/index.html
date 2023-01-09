@@ -108,12 +108,9 @@
         
           alert(`Posted ${data.records[0].fields.title}!`);
         
-          try {
-            window.close();
-            window.close(``, `_parent`, ``);
-          } catch (error) {
-            form.target.reset();
-          }
+          window.close();
+          window.close(``, `_parent`, ``);
+          form.target.reset();
         }"
       >
         <label for="title">
