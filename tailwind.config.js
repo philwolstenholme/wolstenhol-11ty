@@ -10,7 +10,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: [path.join(config.dir.viteTemp, '**/*.html'), path.join(config.dir.viteTemp, '*.html')],
+  purge: [path.join(config.dir.viteTemp, '**/*.html'), path.join(config.dir.viteTemp, '*.html'), path.join(config.dir.viteTemp, '**/*.js')],
   theme: {
     extend: {
       colors: {
