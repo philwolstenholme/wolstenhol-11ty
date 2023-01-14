@@ -32,22 +32,26 @@
         x-ref="list"
       >
         {%- for item in headerLinks.items -%} {% set id = item.href.replace('/#', '').replace('#', '') %}
-        <li class="flex-shrink-0">
-          {% set linkFirstChar = item.href.slice(0, 1) %}
-          {% set linkSecondChars = item.href.slice(0, 2) %}
-          <a
-            href="{{ item.href }}"
-            class="font-bold font-serif underline hocus:text-yellow-300 {% if page.filePathStem == item.href %}text-yellow-300{% endif %}"
-            x-bind:class="{
-              {% if linkFirstChar == '#' or linkSecondChars == '/#' %}'text-yellow-300': activeSection === '{{ id }}'{% endif %}
-              {% if linkFirstChar != '#' and linkSecondChars != '/#' %}'text-yellow-300': window.location.pathname === '{{ item.href }}'{% endif %}
-            }" 
-            x-on:click.prevent="activeSection = '{{ id }}'; onLinkActivate($event)"
-            x-on:keydown.enter.prevent="activeSection = '{{ id }}'; onLinkActivate($event)"
-          >
-            {{ item.title }} 
-          </a>
-        </li>
+          {% if item.href != '/#photos' or (item.href == '/#photos' and instagram) %}
+            <li class="flex-shrink-0">
+              {% set linkFirstChar = item.href.slice(0, 1) %}
+              {% set linkSecondChars = item.href.slice(0, 2) %}
+              <a
+                href="{{ item.href }}"
+                class="font-bold font-serif underline hocus:text-yellow-300 {% if page.filePathStem == item.href %}text-yellow-300{% endif %}"
+                x-bind:class="{
+                  {% if linkFirstChar == '#' or linkSecondChars == '/#' %}'text-yellow-300': activeSection === '{{ id }}'{% endif %}
+                  {% if linkFirstChar != '#' and linkSecondChars != '/#' %}'text-yellow-300': window.location.pathname === '{{ item.href }}'{% endif %}
+                }" 
+                x-on:click.prevent="activeSection = '{{ id }}'; onLinkActivate($event)"
+                x-on:keydown.enter.prevent="activeSection = '{{ id }}'; onLinkActivate($event)"
+              >
+                {{ item.title }} 
+              </a>
+            </li>
+          {% else %}
+        {% endif %}
+        
         {%- endfor -%}
       </ul>
     </nav>

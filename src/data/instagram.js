@@ -6,37 +6,46 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const tryForCache = require('../../cache');
 
 const getData = async function () {
-  let response = await Cache(
-    'https://www.instagram.com/graphql/query/?query_hash=003056d32c2554def87228bc3fd9668a&variables={%22id%22:%2233932705%22,%22first%22:12}',
-    {
-      duration: '1h',
-      type: 'json',
-      fetchOptions: {
-        headers: {
-          accept:
-            'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-          'accept-language': 'en-US,en-GB;q=0.9,en;q=0.8',
-          'cache-control': 'no-cache',
-          pragma: 'no-cache',
-          'sec-ch-prefers-color-scheme': 'light',
-          'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"',
-          'sec-ch-ua-mobile': '?0',
-          'sec-ch-ua-platform': '"macOS"',
-          'sec-fetch-dest': 'document',
-          'sec-fetch-mode': 'navigate',
-          'sec-fetch-site': 'none',
-          'sec-fetch-user': '?1',
-          'upgrade-insecure-requests': '1',
-          cookie: process.env.INSTAGRAM_COOKIE,
+  // Instagram isn't always fooled by the headers and cookie so will sometimes give
+  // us a 401. We don't want this to block the build so we use a try/cach and return
+  // null if it fails.
+  let response;
+  try {
+    response = await Cache(
+      'https://www.instagram.com/graphql/query/?query_hash=003056d32c2554def87228bc3fd9668a&variables={%22id%22:%2233932705%22,%22first%22:12}',
+      {
+        duration: '1h',
+        type: 'json',
+        fetchOptions: {
+          headers: {
+            accept:
+              'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'accept-language': 'en-US,en-GB;q=0.9,en;q=0.8,es;q=0.7',
+            'cache-control': 'max-age=0',
+            'sec-ch-prefers-color-scheme': 'light',
+            'sec-ch-ua': `"Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"`,
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': `"macOS"`,
+            'sec-fetch-dest': 'document',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-site': 'none',
+            'sec-fetch-user': '?1',
+            'upgrade-insecure-requests': '1',
+            'viewport-width': '840',
+            cookie: process.env.INSTAGRAM_COOKIE,
+          },
+          referrerPolicy: 'strict-origin-when-cross-origin',
+          body: null,
+          method: 'GET',
+          mode: 'cors',
+          credentials: 'include',
         },
-        referrerPolicy: 'strict-origin-when-cross-origin',
-        body: null,
-        method: 'GET',
-        mode: 'cors',
-        credentials: 'include',
-      },
-    }
-  );
+      }
+    );
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
 
   response.data.user.edge_owner_to_timeline_media.edges.map(edge =>
     cloudinary.uploader.upload(edge.node.thumbnail_src, { tags: 'instagram', public_id: `11ty/instagram/${edge.node.id}` })
