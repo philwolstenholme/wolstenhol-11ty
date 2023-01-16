@@ -1,31 +1,49 @@
-// node -r dotenv/config scripts/instagram.mjs
+// node scripts/instagram.mjs
 
-import { default as fetch } from 'node-fetch';
+import dotenv from 'dotenv';
+import fs from 'fs';
+import fetch from 'node-fetch';
+import path from 'path';
+import wretch from 'wretch';
 
-const instagramUrl = new URL('https://graph.instagram.com');
+dotenv.config();
 
-// Refresh token
-// {{ROOT_URL}}/refresh_access_token?grant_type=ig_refresh_token&access_token={{TOKEN}}
-const refreshTokenUrl = instagramUrl;
-refreshTokenUrl.pathname = 'refresh_access_token';
-refreshTokenUrl.searchParams.append('access_token', process.env.INSTAGRAM_TOKEN);
-refreshTokenUrl.searchParams.append('grant_type', 'ig_refresh_token');
+wretch.polyfills({
+  fetch,
+});
 
-await fetch(refreshTokenUrl.href)
-  .then(res => res.json())
-  .then(body => {
-    console.log(`Instagram token refreshed. Expires in ${body.expires_in / 86400} days`);
-  });
+let data = await wretch(
+  'https://www.instagram.com/graphql/query/?query_hash=003056d32c2554def87228bc3fd9668a&variables={%22id%22:%2233932705%22,%22first%22:12}',
+  {
+    headers: {
+      accept:
+        'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+      'accept-language': 'en-US,en-GB;q=0.9,en;q=0.8,es;q=0.7',
+      'cache-control': 'max-age=0',
+      'sec-ch-prefers-color-scheme': 'light',
+      'sec-ch-ua': '"Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"macOS"',
+      'sec-fetch-dest': 'document',
+      'sec-fetch-mode': 'navigate',
+      'sec-fetch-site': 'none',
+      'sec-fetch-user': '?1',
+      'upgrade-insecure-requests': '1',
+      'viewport-width': '840',
+    },
+    referrerPolicy: 'strict-origin-when-cross-origin',
+    body: null,
+    method: 'GET',
+  }
+)
+  .get()
+  .json();
 
-// Get own media
-// {{ROOT_URL}}/me?access_token={{TOKEN}}&fields=id,username,media
-const ownMediaUrl = instagramUrl;
-ownMediaUrl.pathname = 'me';
-ownMediaUrl.searchParams.append('access_token', process.env.INSTAGRAM_TOKEN);
-ownMediaUrl.searchParams.append('fields', 'id,username,media');
+data = data.data.user.edge_owner_to_timeline_media.edges;
 
-const ownMedia = await fetch(ownMediaUrl.href);
-const ownMediaJson = await ownMedia.json();
-
-const media = ownMediaJson.media.data;
-console.log(`Found ${media.length} media items`);
+try {
+  // Write as txt rather than JSON so that Eleventy doesn't try to add it to global data
+  fs.writeFileSync(path.join(process.cwd(), 'src', 'data', 'instagram.txt'), JSON.stringify(data, null, 2));
+} catch (e) {
+  console.log(e);
+}
