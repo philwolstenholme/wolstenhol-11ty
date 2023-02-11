@@ -6,21 +6,30 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const tryForCache = require('../../cache');
 
 const getData = async function () {
-  return null;
+  let response = await Cache('https://gist.githubusercontent.com/philwolstenholme/0d8f663f0d5857d1e5d43aad021d9c7e/raw/instagram.json', {
+    duration: '1h',
+    type: 'json',
+  });
 
-  let response = await Cache(
-    'https://gist.githubusercontent.com/philwolstenholme/0d8f663f0d5857d1e5d43aad021d9c7e/raw/fb7fad88d670d7fc86efbc798217492391127e97/instagram.json',
-    {
-      duration: '1h',
-      type: 'json',
-    }
-  );
+  let uploaded_files;
+  try {
+    uploaded_files = await Promise.all(
+      response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
+        return await cloudinary.uploader.upload(edge.node.thumbnail_src, {
+          tags: 'instagram',
+          public_id: `11ty/instagram/${edge.node.id}`,
+        });
+      })
+    );
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 
-  response.data.user.edge_owner_to_timeline_media.edges.map(edge =>
-    cloudinary.uploader.upload(edge.node.thumbnail_src, { tags: 'instagram', public_id: `11ty/instagram/${edge.node.id}` })
-  );
+  const posts = response.data.user.edge_owner_to_timeline_media.edges.map(async (edge, index) => {
+    const uploaded_file = uploaded_files[index];
+    const cloudinary_url = uploaded_file.secure_url;
 
-  const posts = response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
     const svgPlaceholder = await fetchBase64
       .remote(`https://res.cloudinary.com/wolstenh/image/upload/f_auto,q_20,w_20/v1/11ty/instagram/${edge.node.id}.jpg`)
       .then(data => {
@@ -44,7 +53,7 @@ const getData = async function () {
       id: edge.node.id,
       images: {
         standard_resolution: {
-          url: edge.node.thumbnail_src,
+          url: cloudinary_url,
         },
       },
       link: `https://instagram.com/p/${edge.node.shortcode}`,
@@ -69,7 +78,7 @@ const getData = async function () {
         : null,
       accessibilityCaption: edge.node.accessibility_caption,
       svgPlaceholder: svgPlaceholder,
-      display_url: edge.node.display_url,
+      display_url: cloudinary_url,
       dimensions: edge.node.dimensions,
     };
   });
