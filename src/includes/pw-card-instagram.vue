@@ -146,7 +146,7 @@ export default {
     class="contain-content card-instagram group aspect-h-1 aspect-w-1 relative flex select-none overflow-hidden rounded bg-gradient-to-t from-black to-gray-900 shadow-hard"
     v-bind:class="{ 'card-instagram--party': isParty }"
     v-bind:data-lightbox-image="
-      !post.videos ? `https://instagram-proxy.philgw.workers.dev/${post.display_url.replace('https://', 'https:/')}` : null
+      !post.videos ? post.display_url : null
     "
     v-bind:x-init="!post.videos ? `$root.setAttribute('role', 'button');` : null"
     v-bind:x-on:click{dot}prevent="
@@ -172,8 +172,7 @@ export default {
           >
             <source
               data-remove-if-save-data="true"
-              :src="`https://instagram-proxy.philgw.workers.dev/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
-              type="video/mp4"
+              :src="`${post.videos.standard_resolution.url.replace('upload/', 'upload/ac_none,f_auto/')}`"
             />
           </video>
         </noscript>
@@ -191,8 +190,8 @@ export default {
           preload="none"
         >
           <source
-            :data-src="`https://instagram-proxy.philgw.workers.dev/${post.videos.standard_resolution.url.replace('https://', 'https:/')}`"
-            type="video/mp4"
+            data-remove-if-save-data="true"
+            :data-src="`${post.videos.standard_resolution.url.replace('upload/', 'upload/ac_none,f_auto/')}`"
           />
         </video>
       </template>

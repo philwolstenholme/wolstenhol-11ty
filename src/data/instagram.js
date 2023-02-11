@@ -12,13 +12,37 @@ const getData = async function () {
   });
 
   let uploaded_files;
+  let uploaded_videos;
   try {
     uploaded_files = await Promise.all(
       response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
-        return await cloudinary.uploader.upload(edge.node.thumbnail_src, {
+        const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload' });
+        if (existingFile) {
+          return existingFile;
+        }
+
+        return await cloudinary.uploader.upload(edge.node.display_url, {
           tags: 'instagram',
           public_id: `11ty/instagram/${edge.node.id}`,
         });
+      })
+    );
+    uploaded_videos = await Promise.all(
+      response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
+        if (edge.node.is_video) {
+          const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload' });
+          if (existingFile) {
+            return existingFile;
+          }
+
+          return await cloudinary.uploader.upload(edge.node.video_url, {
+            tags: 'instagram',
+            public_id: `11ty/instagram/${edge.node.id}`,
+            resource_type: 'video',
+          });
+        } else {
+          return null;
+        }
       })
     );
   } catch (error) {
@@ -28,7 +52,7 @@ const getData = async function () {
 
   const posts = response.data.user.edge_owner_to_timeline_media.edges.map(async (edge, index) => {
     const uploaded_file = uploaded_files[index];
-    const cloudinary_url = uploaded_file.secure_url;
+    const uploaded_video = uploaded_videos[index];
 
     const svgPlaceholder = await fetchBase64
       .remote(`https://res.cloudinary.com/wolstenh/image/upload/f_auto,q_20,w_20/v1/11ty/instagram/${edge.node.id}.jpg`)
@@ -53,7 +77,7 @@ const getData = async function () {
       id: edge.node.id,
       images: {
         standard_resolution: {
-          url: cloudinary_url,
+          url: uploaded_file.secure_url,
         },
       },
       link: `https://instagram.com/p/${edge.node.shortcode}`,
@@ -72,13 +96,13 @@ const getData = async function () {
       videos: edge.node.is_video
         ? {
             standard_resolution: {
-              url: edge.node.video_url,
+              url: uploaded_video.secure_url,
             },
           }
         : null,
       accessibilityCaption: edge.node.accessibility_caption,
       svgPlaceholder: svgPlaceholder,
-      display_url: cloudinary_url,
+      display_url: uploaded_file.secure_url,
       dimensions: edge.node.dimensions,
     };
   });
