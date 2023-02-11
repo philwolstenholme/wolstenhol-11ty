@@ -16,7 +16,7 @@ const getData = async function () {
   try {
     uploaded_files = await Promise.all(
       response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
-        const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload', content_type: 'image' });
+        const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload', resource_type: 'image' });
         if (existingFile) {
           return existingFile;
         }
@@ -30,7 +30,7 @@ const getData = async function () {
     uploaded_videos = await Promise.all(
       response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
         if (edge.node.is_video) {
-          const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload', content_type: 'video' });
+          const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload', resource_type: 'video' });
           if (existingFile) {
             return existingFile;
           }
