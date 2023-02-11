@@ -1,15 +1,16 @@
 diff --git a/node_modules/@netlify/plugin-lighthouse/src/format.js b/node_modules/@netlify/plugin-lighthouse/src/format.js
-index 36ec7b8..70cc0ec 100644
+index fbb2436..bd4923c 100644
 --- a/node_modules/@netlify/plugin-lighthouse/src/format.js
 +++ b/node_modules/@netlify/plugin-lighthouse/src/format.js
-@@ -1,6 +1,4 @@
- const chalk = require('chalk');
--const { minify } = require('html-minifier');
--const { makeReplacements } = require('./replacements');
+@@ -1,7 +1,4 @@
+ import chalk from 'chalk';
+-import { minify } from 'html-minifier';
+-
+-import makeReplacements from './replacements.js';
  
- const belowThreshold = (id, expected, categories) => {
+ export const belowThreshold = (id, expected, categories) => {
    const category = categories.find((c) => c.id === id);
-@@ -63,22 +61,18 @@ const formatResults = ({ results, thresholds }) => {
+@@ -64,22 +61,18 @@ export const formatResults = ({ results, thresholds }) => {
  
    const shortSummary = formatShortSummary(categories);
  
@@ -40,10 +41,10 @@ index 36ec7b8..70cc0ec 100644
    return { summary, shortSummary, details, report, errors, runtimeError };
  };
 diff --git a/node_modules/@netlify/plugin-lighthouse/src/lighthouse.js b/node_modules/@netlify/plugin-lighthouse/src/lighthouse.js
-index e009fd8..e7f6504 100644
+index ed8e2c3..ada0872 100644
 --- a/node_modules/@netlify/plugin-lighthouse/src/lighthouse.js
 +++ b/node_modules/@netlify/plugin-lighthouse/src/lighthouse.js
-@@ -49,7 +49,6 @@ const runLighthouse = async (browserPath, url, settings) => {
+@@ -49,7 +49,6 @@ export const runLighthouse = async (browserPath, url, settings) => {
        url,
        {
          port: chrome.port,
@@ -53,7 +54,7 @@ index e009fd8..e7f6504 100644
        settings,
 diff --git a/node_modules/@netlify/plugin-lighthouse/src/replacements.js b/node_modules/@netlify/plugin-lighthouse/src/replacements.js
 deleted file mode 100644
-index 120f34b..0000000
+index 0239755..0000000
 --- a/node_modules/@netlify/plugin-lighthouse/src/replacements.js
 +++ /dev/null
 @@ -1,55 +0,0 @@
@@ -111,14 +112,14 @@ index 120f34b..0000000
 -  }, str);
 -};
 -
--module.exports = { makeReplacements };
+-export default makeReplacements;
 diff --git a/node_modules/@netlify/plugin-lighthouse/src/replacements.test.js b/node_modules/@netlify/plugin-lighthouse/src/replacements.test.js
 deleted file mode 100644
-index 0b05052..0000000
+index b5ac4e3..0000000
 --- a/node_modules/@netlify/plugin-lighthouse/src/replacements.test.js
 +++ /dev/null
 @@ -1,10 +0,0 @@
--const { makeReplacements } = require('./replacements');
+-import makeReplacements from './replacements.js';
 -
 -describe('replacements', () => {
 -  it('should make enablePostMessageCommunication replacement', () => {
