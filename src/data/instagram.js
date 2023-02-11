@@ -6,6 +6,8 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const tryForCache = require('../../cache');
 
 const getData = async function () {
+  return null;
+
   let response = await Cache(
     'https://gist.githubusercontent.com/philwolstenholme/0d8f663f0d5857d1e5d43aad021d9c7e/raw/fb7fad88d670d7fc86efbc798217492391127e97/instagram.json',
     {
