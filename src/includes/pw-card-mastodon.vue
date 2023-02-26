@@ -59,7 +59,7 @@ export default {
         :x-on:keydown{dot}enter{dot}prevent="media.type == 'image' ? `$root.click()` : null"
         :x-on:keydown{dot}space="media.type == 'image' ? `$root.click()` : null"
       >
-        <span class="sr-only">Tweet media</span>
+        <span class="sr-only">Toot media</span>
         <br class="hidden" />
         <img
           v-if="media.type == 'image'"
@@ -158,12 +158,12 @@ export default {
         <span class="sr-only">Favourite</span>
         <template v-if="originalToot.favourites_count">&nbsp;{{ originalToot.favourites_count.toLocaleString() }}</template>
       </span>
-      <a :href="this.originalToot.url" class="twitter-intent float-right space-x-0.5">
+      <a :href="this.originalToot.url.replace('https://', 'https://elk.zone/')" class="twitter-intent float-right space-x-0.5">
         <svg x-ignore xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="icon">
           <use href="#mastodon" />
         </svg>
         <icon name="link" />
-        <span class="sr-only">Permalink to Tweet</span>
+        <span class="sr-only">Permalink to Toot</span>
       </a>
     </p>
   </article>
