@@ -6,7 +6,9 @@
 {# Open Graph #}
 <meta property="og:site_name" content="{{ meta.title }}" />
 <meta property="og:title" content="{% if seo.title %}{{ seo.title }}{% else %}{{ title }} | {{ meta.title }}{% endif %}" />
+<meta property="twitter:title" content="{% if seo.title %}{{ seo.title }}{% else %}{{ title }} | {{ meta.title }}{% endif %}" />
 <meta property="og:description" content="{{ seo.description or meta.description }}" />
+<meta property="twitter:description" content="{{ seo.description or meta.description }}" />
 <meta property="og:url" content="{{ absolutePageUrl }}" />
 <meta property="og:locale" content="{{ meta.locale }}" />
 <meta property="og:type" content="website" />
