@@ -72,7 +72,7 @@ export default {
           </div>
         </div>
       </li>
-      <li class="scroll-saver space-y-3 no-js:hidden md:hidden" x-data>
+      <li class="scroll-saver block space-y-3 no-js:hidden md:hidden" x-data hidden>
         <p class="m-auto max-w-md text-center font-serif">
           There are <span class="font-bold">{{ reading.length - 5 }}</span> more of these. I thought I'd save you some scrolling, but if you
           want you can…

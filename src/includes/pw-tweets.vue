@@ -65,7 +65,7 @@ export default {
         <pw-card-twitter :tweet="post" v-if="post.pw.source === 'twitter'" />
         <pw-card-mastodon v-if="post.pw.source === 'mastodon'" :toot="post" />
       </div>
-      <div role="listitem" class="scroll-saver space-y-3 no-js:hidden md:hidden" x-data>
+      <div role="listitem" class="scroll-saver block space-y-3 no-js:hidden md:hidden" hidden x-data>
         <p class="m-auto max-w-md text-center font-serif">
           There are <span class="font-bold">{{ postsToShow.length - itemsBeforeScrollSaver }}</span> more of these (!) I thought I'd save
           you some scrolling, but if you want you can…
