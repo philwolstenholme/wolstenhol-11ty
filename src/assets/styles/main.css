@@ -224,11 +224,6 @@ body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
   -moz-text-fill-color: transparent;
 }
 
-h1,
-h2 {
-  filter: url(#heading-distort);
-}
-
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.5s;

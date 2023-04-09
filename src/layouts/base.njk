@@ -51,14 +51,6 @@
       class="bg-binding-dark sr-only left-3 top-3 z-50 block border border-yellow-500 p-5 text-yellow-500 focus:not-sr-only"
       >Skip to main content</a
     >
-    <svg aria-hidden="true" class="sr-only">
-      <defs>
-        <filter id="heading-distort">
-          <feTurbulence baseFrequency="0.04 0.04" numOctaves="1" result="noise" type="fractalNoise"></feTurbulence>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" yChannelSelector="G" xChannelSelector="R"></feDisplacementMap>
-        </filter>
-      </defs>
-    </svg>
     <div role="document" class="flex min-h-screen flex-col">
       {% include "header.njk" %}
       <main class="bg-subtle-grunge outline-none relative w-full flex-grow" id="content" tabindex="-1">
