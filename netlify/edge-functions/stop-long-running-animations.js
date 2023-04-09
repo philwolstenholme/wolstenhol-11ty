@@ -9,7 +9,7 @@ export default async (request, context) => {
   let page = await response.text();
   const userAgent = request.headers.get('user-agent');
 
-  if (userAgent && userAgent.includes('DebugBear') || userAgent.includes('PTST') || userAgent.includes('Lighthouse')) {
+  if (userAgent && (userAgent.includes('DebugBear') || userAgent.includes('PTST') || userAgent.includes('Lighthouse'))) {
     const removeAnimationCSS = `
       <style>
         *, ::before, ::after {
