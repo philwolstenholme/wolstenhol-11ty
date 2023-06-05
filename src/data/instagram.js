@@ -18,9 +18,11 @@ const getData = async function () {
       response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
         const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload', resource_type: 'image' });
         if (existingFile) {
+          console.log('existing file', edge.node.id);
           return existingFile;
         }
 
+        console.log('uploading file', edge.node.id);
         return await cloudinary.uploader.upload(edge.node.display_url, {
           tags: 'instagram',
           public_id: `11ty/instagram/${edge.node.id}`,
@@ -32,9 +34,11 @@ const getData = async function () {
         if (edge.node.is_video) {
           const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload', resource_type: 'video' });
           if (existingFile) {
+            console.log('existing video', edge.node.id);
             return existingFile;
           }
 
+          console.log('uploading video', edge.node.id);
           return await cloudinary.uploader.upload(edge.node.video_url, {
             tags: 'instagram',
             public_id: `11ty/instagram/${edge.node.id}`,
@@ -61,7 +65,9 @@ const getData = async function () {
 
         return svgToMiniDataURI(svg);
       })
-      .catch(reason => {});
+      .catch(reason => {
+        console.error(reason);
+      });
 
     if (edge.node.edge_sidecar_to_children) {
       const firstChild = edge.node.edge_sidecar_to_children.edges[0].node;
@@ -72,6 +78,12 @@ const getData = async function () {
         edge.node.video_url = firstChild.video_url;
       }
     }
+
+    console.table({
+      id: edge.node.id,
+      caption: edge.node.edge_media_to_caption.edges.length > 0 ? edge.node.edge_media_to_caption.edges[0].node.text : null,
+      display_url: uploaded_file.secure_url,
+    });
 
     return {
       id: edge.node.id,
