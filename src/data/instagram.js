@@ -16,17 +16,25 @@ const getData = async function () {
   try {
     uploaded_files = await Promise.all(
       response.data.user.edge_owner_to_timeline_media.edges.map(async edge => {
-        const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload', resource_type: 'image' });
-        if (existingFile) {
-          console.log('existing file', edge.node.id);
-          return existingFile;
-        }
+        try {
+          const existingFile = await cloudinary.api.resource(`11ty/instagram/${edge.node.id}`, { type: 'upload', resource_type: 'image' });
+          if (existingFile) {
+            console.log('existing file', edge.node.id);
+            return existingFile;
+          }
+        } catch (error) {
+          console.log('file not found', edge.node.id);
 
-        console.log('uploading file', edge.node.id);
-        return await cloudinary.uploader.upload(edge.node.display_url, {
-          tags: 'instagram',
-          public_id: `11ty/instagram/${edge.node.id}`,
-        });
+          try {
+            console.log('uploading file', edge.node.id);
+            return await cloudinary.uploader.upload(edge.node.display_url, {
+              tags: 'instagram',
+              public_id: `11ty/instagram/${edge.node.id}`,
+            });
+          } catch (error) {
+            console.error(error);
+          }
+        }
       })
     );
     uploaded_videos = await Promise.all(
@@ -62,7 +70,7 @@ const getData = async function () {
       .remote(`https://res.cloudinary.com/wolstenh/image/upload/f_auto,q_20,w_20/v1/11ty/instagram/${edge.node.id}.jpg`)
       .then(data => {
         let svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50"><filter id="b" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation=".9"></feGaussianBlur><feComponentTransfer><feFuncA type="discrete" tableValues="1 1"></feFuncA></feComponentTransfer></filter><image filter="url(#b)" preserveAspectRatio="none" height="100%" width="100%" xlink:href="${data[1]}"></image></svg>`;
-
+        ``;
         return svgToMiniDataURI(svg);
       })
       .catch(reason => {
@@ -81,8 +89,6 @@ const getData = async function () {
 
     console.table({
       id: edge.node.id,
-      caption: edge.node.edge_media_to_caption.edges.length > 0 ? edge.node.edge_media_to_caption.edges[0].node.text : null,
-      display_url: uploaded_file.secure_url,
     });
 
     return {
