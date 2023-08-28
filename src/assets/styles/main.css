@@ -228,3 +228,19 @@ body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
 ::view-transition-new(root) {
   animation-duration: 0.5s;
 }
+
+@keyframes slide-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(5vh);
+  }
+}
+
+.tweets-grid__item {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: slide-fade-in both;
+    animation-timeline: --item-timeline;
+    animation-range: contain 0% contain 50%;
+    view-timeline-name: --item-timeline;
+  }
+}
