@@ -239,7 +239,8 @@ body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
 .tweets-grid__item {
   @media (prefers-reduced-motion: no-preference) {
     animation: slide-fade-in both;
-    animation-timeline: --item-timeline;
+    /* We need an important on animation-timeline because an optimisation is moving animation below animation-timeline, which means the shorthand reset to 'auto' kicks in */
+    animation-timeline: --item-timeline !important;
     animation-range: contain 0% contain 50%;
     view-timeline-name: --item-timeline;
   }
