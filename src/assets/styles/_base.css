@@ -130,10 +130,10 @@ button {
 }
 
 @keyframes fade-in {
-  from {
+  0% {
     opacity: 1;
   }
-  to {
+  2% {
     opacity: 0;
   }
 }
@@ -152,7 +152,7 @@ button {
 .header-nav::before {
   background: #171717;
   content: '';
-  height: 32px;
+  height: 21px;
   width: 10vw;
   position: absolute;
   animation: fade-in auto linear both;
