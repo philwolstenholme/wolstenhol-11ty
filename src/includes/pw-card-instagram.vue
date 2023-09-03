@@ -13,6 +13,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    index: {
+      type: Number,
+      default: 0,
+    },
   },
 
   data: () => ({
@@ -145,9 +149,7 @@ export default {
     v-bind:x-on:touchstart{dot}passive="onTouchstartEvents"
     class="contain-content card-instagram group aspect-h-1 aspect-w-1 relative flex select-none overflow-hidden rounded bg-gradient-to-t from-black to-gray-900 shadow-hard"
     v-bind:class="{ 'card-instagram--party': isParty }"
-    v-bind:data-lightbox-image="
-      !post.videos ? post.display_url : null
-    "
+    v-bind:data-lightbox-image="!post.videos ? post.display_url : null"
     v-bind:x-init="!post.videos ? `$root.setAttribute('role', 'button');` : null"
     v-bind:x-on:click{dot}prevent="
       !post.videos ? `if (useLightbox) $root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }));` : null
@@ -197,7 +199,7 @@ export default {
       </template>
       <template v-if="!post.videos">
         <div class="grid-stack grid">
-          <div class="grid-stack grid h-full w-full no-js:hidden">
+          <div class="grid-stack grid h-full w-full transition-opacity no-js:hidden">
             <img alt="" :src="post.svgPlaceholder" class="block h-full w-full" width="368" height="368" />
             <div class="flex items-center justify-center">
               <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
@@ -233,7 +235,7 @@ export default {
             loading="lazy"
             decoding="async"
             crossorigin="anonymous"
-            onLoad="this.previousElementSibling.remove()"
+            onLoad="this.previousElementSibling.classList.add('opacity-0');setTimeout(()=>{this.previousElementSibling.remove();},150);"
           />
         </div>
       </template>
