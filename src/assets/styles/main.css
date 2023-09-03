@@ -236,11 +236,11 @@ body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
   }
 }
 
-.tweets-grid__item {
-  @media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
+  .tweets-grid__item {
     animation-name: slide-fade-in;
     animation-timing-function: linear;
-    animation-timeline: view(inline);
+    animation-timeline: view();
     animation-range: entry 0% entry 200px;
   }
 }
