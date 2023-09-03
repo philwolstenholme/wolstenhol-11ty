@@ -159,15 +159,17 @@ button {
   animation-timeline: --header-scroll !important;
 }
 
-.header-nav::after {
-  right: 0;
-  mask-image: linear-gradient(90deg, transparent, #171717);
-}
-
 .header-nav::before {
+  animation-range: 0 10px;
   animation-direction: reverse;
   left: 0;
   mask-image: linear-gradient(90deg, #171717, transparent);
+}
+
+.header-nav::after {
+  animation-range: calc(90% - 10px) 100%;
+  right: 0;
+  mask-image: linear-gradient(90deg, transparent, #171717);
 }
 
 @screen lg {
