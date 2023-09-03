@@ -128,3 +128,44 @@ button {
     background: transparent;
   }
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.header-nav__list {
+  scroll-timeline: --header-scroll inline;
+  overscroll-behavior: contain;
+}
+
+.header-nav {
+  timeline-scope: --header-scroll;
+  position: relative;
+}
+
+.header-nav::after,
+.header-nav::before {
+  background: black;
+  content: '';
+  height: 32px;
+  width: 10vw;
+  position: absolute;
+  animation: fade-in auto linear both;
+  animation-timeline: --header-scroll;
+}
+
+.header-nav::after {
+  right: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black);
+}
+
+.header-nav::before {
+  animation-direction: reverse;
+  left: 0;
+  -webkit-mask-image: linear-gradient(90deg, black, transparent);
+}

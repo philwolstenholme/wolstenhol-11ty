@@ -23,12 +23,12 @@
         loading="lazy"
       />
     </a>
-    <nav class="flex flex-1 items-center overflow-hidden" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
+    <nav class="header-nav flex flex-1 items-center overflow-hidden" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
       <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
       <ul
         id="PwHeaderList"
         role="list"
-        class="flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars"
+        class="header-nav__list overscroll-contain flex align-center space-x-3 overflow-hidden overflow-x-auto hide-scrollbars"
         x-ref="list"
       >
         {%- for item in headerLinks.items -%} {% set id = item.href.replace('/#', '').replace('#', '') %}
