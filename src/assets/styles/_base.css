@@ -150,7 +150,7 @@ button {
 
 .header-nav::after,
 .header-nav::before {
-  background: black;
+  background: #171717;
   content: '';
   height: 32px;
   width: 10vw;
@@ -161,11 +161,11 @@ button {
 
 .header-nav::after {
   right: 0;
-  -webkit-mask-image: linear-gradient(90deg, transparent, black);
+  mask-image: linear-gradient(90deg, transparent, #171717);
 }
 
 .header-nav::before {
   animation-direction: reverse;
   left: 0;
-  -webkit-mask-image: linear-gradient(90deg, black, transparent);
+  mask-image: linear-gradient(90deg, #171717, transparent);
 }
