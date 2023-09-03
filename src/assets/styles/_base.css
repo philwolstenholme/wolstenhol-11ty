@@ -169,3 +169,10 @@ button {
   left: 0;
   mask-image: linear-gradient(90deg, #171717, transparent);
 }
+
+@screen lg {
+  .header-nav::after,
+  .header-nav::before {
+    display: none;
+  }
+}
