@@ -156,7 +156,7 @@ button {
   width: 10vw;
   position: absolute;
   animation: fade-in auto linear both;
-  animation-timeline: --header-scroll;
+  animation-timeline: --header-scroll !important;
 }
 
 .header-nav::after {
