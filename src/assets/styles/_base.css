@@ -130,10 +130,10 @@ button {
 }
 
 @keyframes fade-in {
-  0% {
+  from {
     opacity: 1;
   }
-  2% {
+  to {
     opacity: 0;
   }
 }
