@@ -237,7 +237,10 @@ body:not(.connection--unknown):not(.connection--4g) [data-frivolous-grunge] {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .tweets-grid__item {
+  .tweets-grid__item,
+  .card--portfolio,
+  .stars-list__item,
+  .reading-list__item {
     animation-name: slide-fade-in;
     animation-timing-function: linear;
     animation-timeline: view();
