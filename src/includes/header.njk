@@ -23,11 +23,10 @@
         loading="lazy"
       />
     </a>
-    <nav class="header-nav relative flex flex-1 items-center overscroll-contain overflow-x-auto hide-scrollbars" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
+    <nav id="PwHeaderList" class="header-nav relative flex flex-1 items-center overscroll-contain overflow-x-auto hide-scrollbars" role="navigation" tabindex="-1" aria-labelledby="in-page-navigation">
       <h2 id="in-page-navigation" class="sr-only">In-page navigation</h2>
-      <div class="header-nav--indicator flex-shrink-0 bg-binding-dark header-nav--indicator__left sticky left-0 top-0 bottom-0"></div>
+      <div class="header-nav--indicator pointer-events-none flex-shrink-0 bg-binding-dark header-nav--indicator__left sticky left-0 top-0 bottom-0"></div>
       <ul
-        id="PwHeaderList"
         role="list"
         class="header-nav__list flex align-center space-x-3"
         x-ref="list"
@@ -55,7 +54,7 @@
         
         {%- endfor -%}
       </ul>
-      <div class="header-nav--indicator flex-shrink-0 bg-binding-dark header-nav--indicator__right sticky right-0 top-0 bottom-0"></div>
+      <div class="header-nav--indicator pointer-events-none flex-shrink-0 bg-binding-dark header-nav--indicator__right sticky right-0 top-0 bottom-0"></div>
     </nav>
   </div>
   <div class="-mx-5 sm:-mx-2 bg-binding-dark h-3 transform shadow-hard" style="--tw-skew-y: -0.3deg !important"></div>
