@@ -37,6 +37,22 @@ export default {
     >
       <pw-simple-scroller-item>
         <pw-card-talk
+          event="Next.js Conf London watch party"
+          talk="Time to First Bite: Co-op Food and the App Router"
+          image="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,f_auto,g_center,w_272,h_153,q_auto,y_0/v1666475523/one-offs/nextconf-london.jpg"
+          srcset="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,f_auto,g_center,w_544,h_306,q_auto,y_0/v1666475523/one-offs/nextconf-london.jpg 2x"
+        ></pw-card-talk>
+      </pw-simple-scroller-item>
+      <pw-simple-scroller-item fit-to-grid>
+        <pw-card-testimonial class="h-full">
+          <template v-slot:blockquote>I had the chance to interview the joyous Phil Wolstenholme after his superb talk</template>
+          <template v-slot:figcaption>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7257129800572579840/" class="hocus:underline">Matt Collier</a>
+          </template>
+        </pw-card-testimonial>
+      </pw-simple-scroller-item>
+      <pw-simple-scroller-item>
+        <pw-card-talk
           event="McrFRED"
           talk="Performance tips, tricks, and hacks I learnt from my over-engineered personal site"
           image="https://wolstenhol.me/proxy/cloudinary/image/upload/c_fill,f_auto,g_center,w_272,h_153,q_auto,y_0/v1666475523/one-offs/1666298366856.jpg"
