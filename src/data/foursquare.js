@@ -6,7 +6,7 @@ const tryForCache = require('../../cache');
 
 const getData = async function () {
   let json = await Cache(
-    `https://api.foursquare.com/v2/users/81013017/venuelikes?oauth_token=${process.env.FOURSQUARE_OAUTH_TOKEN}&v=20151227&limit=100`,
+    `https://api.foursquare.com/v2/users/81013017/venuelikes?oauth_token=${process.env.FOUR_TOKEN}&v=20151227&limit=100`,
     {
       duration: '1d',
       type: 'json',
