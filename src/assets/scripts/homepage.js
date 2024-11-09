@@ -33,7 +33,6 @@ AsyncAlpine.init(Alpine)
   .data('PwMusic', () => import('./alpine/PwMusic'))
   .data('PwSimpleScroller', () => import('./alpine/PwSimpleScroller'))
   .data('PwSpotifyLive', () => import('./alpine/PwSpotifyLive'))
-  .data('PwTweets', () => import('./alpine/PwTweets'))
   .start();
 
 Alpine.start();
