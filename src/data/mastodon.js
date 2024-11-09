@@ -11,7 +11,7 @@ const transfromEntry = function (entry) {
 };
 
 const getData = async function () {
-  let response = await Cache(`https://${process.env.MASTODON_INSTANCE}/api/v1/accounts/${process.env.MASTODON_USER_ID}/statuses?limit=60`, {
+  let response = await Cache(`https://${process.env.MAS_INSTANCE}/api/v1/accounts/${process.env.MAS_USER_ID}/statuses?limit=60`, {
     duration: '30m',
     type: 'json',
   });
@@ -30,8 +30,8 @@ const getData = async function () {
       source: 'mastodon',
     };
 
-    if (entry.account.acct === process.env.MASTONDON_USER_NAME) {
-      entry.account.acct = `${process.env.MASTONDON_USER_NAME}@${process.env.MASTODON_INSTANCE}`;
+    if (entry.account.acct === process.env.MAS_USER_NAME) {
+      entry.account.acct = `${process.env.MAS_USER_NAME}@${process.env.MAS_INSTANCE}`;
     }
 
     if (entry.reblog) {

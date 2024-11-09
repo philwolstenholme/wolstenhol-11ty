@@ -4,8 +4,8 @@ export default async (request, context) => {
   const url = new URL(request.url);
   const resourceParam = url.searchParams.get('resource');
 
-  const host = Deno.env.get('MASTODON_INSTANCE');
-  const accountOnHost = Deno.env.get('MASTONDON_USER_NAME') + '@' + Deno.env.get('MASTODON_INSTANCE');
+  const host = Deno.env.get('MAS_INSTANCE');
+  const accountOnHost = Deno.env.get('MAS_USER_NAME') + '@' + Deno.env.get('MAS_INSTANCE');
 
   if (resourceParam === null) {
     return context.json(
