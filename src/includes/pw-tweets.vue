@@ -38,15 +38,7 @@ export default {
 </script>
 
 <template>
-  <pw-section
-    section-key="tweets"
-    x-ignore
-    ax-load="idle"
-    x-data="PwTweets"
-    x-init="colcade()"
-    x-intersect.margin.200px.once="twitterIntents()"
-    x-on:resize.window.debounce="colcade()"
-  >
+  <pw-section section-key="tweets" x-ignore ax-load="idle" x-init="colcade()" x-on:resize.window.debounce="colcade()">
     <pw-section-heading title="Tweets and toots*" icon="twitter" section="tweets" />
     <pw-lede class="links-underline mt-3"> Tweets and toots by me</pw-lede>
     <div role="list" x-ref="container" class="tweets-grid mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
