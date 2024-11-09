@@ -12,9 +12,6 @@ export default {
     toots: {
       type: Array,
     },
-    webfinger: {
-      type: Object,
-    },
   },
   data() {
     return {
@@ -51,12 +48,7 @@ export default {
     x-on:resize.window.debounce="colcade()"
   >
     <pw-section-heading title="Tweets and toots*" icon="twitter" section="tweets" />
-    <pw-lede class="links-underline mt-3">
-      Tweets and toots by me,
-      <a href="https://twitter.com/intent/user?user_id=38276082">@philw_</a> and/or
-      <a rel="me" :href="webfinger.aliases[0]">{{ webfinger.subject.replace('acct:', '') }}</a
-      >.</pw-lede
-    >
+    <pw-lede class="links-underline mt-3"> Tweets and toots by me</pw-lede>
     <div role="list" x-ref="container" class="tweets-grid mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
       <div role="listitem" class="tweets-grid__item" v-for="(post, index) in postsToShow.slice(0, itemsBeforeScrollSaver)" :key="index">
         <pw-card-mastodon v-if="post.pw.source === 'mastodon'" :toot="post" />
