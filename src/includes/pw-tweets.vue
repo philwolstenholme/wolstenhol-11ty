@@ -51,7 +51,7 @@ export default {
     x-intersect.margin.200px.once="twitterIntents()"
     x-on:resize.window.debounce="colcade()"
   >
-    <pw-section-heading title="'Posts' (RIP Twitter)" icon="twitter" section="tweets" />
+    <pw-section-heading title="Posts" icon="twitter" section="posts" />
     <pw-lede class="links-underline mt-3">Bluesky and sometimes Mastodon posts by me</pw-lede>
     <div role="list" x-ref="container" class="tweets-grid mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
       <div role="listitem" class="tweets-grid__item" v-for="(post, index) in postsToShow.slice(0, itemsBeforeScrollSaver)" :key="index">
