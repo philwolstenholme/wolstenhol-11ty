@@ -4,13 +4,13 @@ const tryForCache = require('../../cache');
 
 const getData = async function () {
   var credentials = {
-    clientId: process.env.SPOTIFY_CLIENT_ID,
-    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+    clientId: process.env.SPOT_CLIENT_ID,
+    clientSecret: process.env.SPOT_CLIENT_SECRET,
   };
 
   const spotifyApi = new SpotifyWebApi(credentials);
 
-  spotifyApi.setRefreshToken(process.env.SPOTIFY_REFRESH_TOKEN);
+  spotifyApi.setRefreshToken(process.env.SPOT_REFRESH_TOKEN);
 
   // clientId, clientSecret and refreshToken has been set on the api object previous to this call.
   await spotifyApi.refreshAccessToken().then(
