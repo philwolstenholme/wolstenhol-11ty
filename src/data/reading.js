@@ -31,7 +31,7 @@ const getData = async function () {
         'sec-fetch-site': 'none',
         'sec-fetch-user': '?1',
         'upgrade-insecure-requests': '1',
-        cookie: process.env.MEDIUM_COOKIE,
+        cookie: process.env.MED_COOKIE,
       },
       referrerPolicy: 'strict-origin-when-cross-origin',
       body: null,
