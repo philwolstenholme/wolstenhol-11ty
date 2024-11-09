@@ -38,6 +38,7 @@ import PwCardTestimonial from './includes/pw-card-testimonial.vue';
 import PwCardTalk from './includes/pw-card-talk.vue';
 import Icon from './includes/icon.vue';
 import PwPlaces from './includes/pw-places.vue';
+import PwTweets from './includes/pw-tweets.vue';
 import PwMusic from './includes/pw-music.vue';
 import PwPhotos from './includes/pw-photos.vue';
 import PwReading from './includes/pw-reading.vue';
@@ -67,6 +68,7 @@ export default {
     PwCardTalk,
     Icon,
     PwPlaces,
+    PwTweets,
     PwMusic,
     PwPhotos,
     PwReading,
