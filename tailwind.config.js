@@ -35,6 +35,11 @@ module.exports = {
           DEFAULT: '#563ACB',
           dark: '#2F0C79',
         },
+        bluesky: {
+          // not the brand colours but this one has better contrast
+          DEFAULT: '#1A73CA',
+          dark: '#1869b9',
+        },
         'oc-yellow': {
           0: '#fff9db',
           1: '#fff3bf',

@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       itemsBeforeScrollSaver: 5,
-      itemsToShow: 9,
+      itemsToShow: 14,
     };
   },
   computed: {
@@ -43,7 +43,7 @@ export default {
 
 <template>
   <pw-section
-    section-key="tweets"
+    section-key="posts"
     x-ignore
     ax-load="idle"
     x-data="PwTweets"
@@ -51,8 +51,8 @@ export default {
     x-intersect.margin.200px.once="twitterIntents()"
     x-on:resize.window.debounce="colcade()"
   >
-    <pw-section-heading title="Tweets and toots*" icon="twitter" section="tweets" />
-    <pw-lede class="links-underline mt-3"> Tweets and toots by me</pw-lede>
+    <pw-section-heading title="'Posts' (RIP Twitter)" icon="twitter" section="tweets" />
+    <pw-lede class="links-underline mt-3">Bluesky and sometimes Mastodon posts by me</pw-lede>
     <div role="list" x-ref="container" class="tweets-grid mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
       <div role="listitem" class="tweets-grid__item" v-for="(post, index) in postsToShow.slice(0, itemsBeforeScrollSaver)" :key="index">
         <pw-card-mastodon v-if="post.pw.source === 'mastodon'" :toot="post" />
@@ -72,8 +72,8 @@ export default {
         </button>
       </div>
       <div role="listitem" v-for="(post, index) in postsToShow.slice(itemsBeforeScrollSaver)" :key="index" class="tweets-grid__item">
-        <pw-card-twitter :tweet="post" v-if="post.pw.source === 'twitter'" />
         <pw-card-mastodon v-if="post.pw.source === 'mastodon'" :toot="post" />
+        <pw-card-bluesky v-if="post.pw.source === 'bluesky'" :post="post" />
       </div>
       <div class="tweets-grid__col space-y-5"></div>
       <div class="tweets-grid__col hidden space-y-5 md:block"></div>

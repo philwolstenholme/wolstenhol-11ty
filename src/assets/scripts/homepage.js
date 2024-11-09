@@ -70,6 +70,10 @@ if (window.location.hash === '#tweets') {
   window.location.hash = '#tweetsAndToots';
 }
 
+if (window.location.hash === '#tweetsAndToots') {
+  window.location.hash = '#posts';
+}
+
 const clickableCards = ['.foursquare-card', '.card-blog', '.reading-list-link'];
 const clickableCardEls = document.querySelectorAll(clickableCards.join(','));
 if (clickableCardEls && clickableCardEls.length) {

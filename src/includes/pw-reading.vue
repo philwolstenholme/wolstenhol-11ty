@@ -86,7 +86,7 @@ export default {
         </button>
       </li>
       <li
-        class="reading-list__item flex min-w-0 min-w-0 transform transform transition-all duration-75 focus-within:scale-105 focus-within:shadow-lg hover:scale-105 hover:shadow-lg"
+        class="reading-list__item flex min-w-0 transform transition-all duration-75 focus-within:scale-105 focus-within:shadow-lg hover:scale-105 hover:shadow-lg"
         :style="getRandomRotationVar()"
         :class="{ relative: index === 4 }"
         v-for="(item, index) in reading.slice(5, reading.length + 1)"

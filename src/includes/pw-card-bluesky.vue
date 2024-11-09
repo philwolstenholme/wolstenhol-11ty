@@ -34,12 +34,9 @@ export default {
 </script>
 
 <template>
-  <article class="card-bluesky contain-content overflow-hidden rounded bg-blue-600 font-bold text-white shadow-hard">
+  <article class="card-bluesky contain-content overflow-hidden rounded bg-bluesky font-bold text-white shadow-hard">
     <!-- Media Gallery -->
-    <div
-      v-if="hasEmbeddedMedia"
-      class="card-bluesky__gallery grid overflow-hidden rounded-tl rounded-tr border border-b-0 border-gray-300 bg-black"
-    >
+    <div v-if="hasEmbeddedMedia" class="card-bluesky__gallery grid overflow-hidden rounded-tl rounded-tr bg-black">
       <a
         v-for="(media, index) in post.media_attachments"
         :key="index"
@@ -48,7 +45,7 @@ export default {
         :class="{
           'aspect-ratio aspect-w-4 aspect-h-3': post.media_attachments.length > 1,
         }"
-        data-lightbox-image="media.url"
+        :data-lightbox-image="media.url"
         x-data
         x-init="$root.setAttribute('role', 'button'); $root.firstChild.innerText = 'Open post media in modal'"
         @click.prevent="$root.dispatchEvent(new CustomEvent('pw-lightbox-open', { bubbles: true }))"
@@ -68,7 +65,7 @@ export default {
     </div>
 
     <!-- Link Card -->
-    <div v-if="hasCard && !hasEmbeddedMedia" class="border border-b-0 border-gray-300">
+    <div v-if="hasCard && !hasEmbeddedMedia">
       <a :href="post.card.url" class="block hover:bg-blue-700">
         <img
           v-if="post.card.image"
@@ -108,7 +105,7 @@ export default {
     ></div>
 
     <!-- Footer -->
-    <div class="flex justify-between space-x-3 bg-blue-700 px-4 py-3 text-sm">
+    <div class="flex justify-between space-x-3 bg-bluesky-dark px-4 py-3 text-sm">
       <div>
         <span v-if="post.repostCount">
           <sprite-icon hash="twitter-retweet"></sprite-icon>
@@ -140,23 +137,6 @@ export default {
 .card-bluesky__text {
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.card-bluesky__text > a {
-  color: white;
-  text-decoration: none;
-  text-shadow: 1px 1px 0 #2563eb, -1px 1px 0 #2563eb, 2px 0 0 #2563eb, -2px 0 0 #2563eb;
-  box-shadow: inset 0 -1px 0 0 #fff, inset 0 -3px 0 0 #2563eb;
-}
-
-.card-bluesky__gallery {
-  grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
-}
-
-.lists-decorated ul,
-.lists-decorated ol {
-  list-style-type: disc;
-  padding-left: 2em;
 }
 
 .card-bluesky .ellipsis::after {
