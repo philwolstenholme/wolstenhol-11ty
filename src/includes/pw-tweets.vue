@@ -1,6 +1,7 @@
 <script>
 import PwLede from './pw-lede.vue';
 import PwSectionHeading from './pw-section-heading.vue';
+import PwCardTwitter from './pw-card-twitter.vue';
 import PwSection from './pw-section.vue';
 import PwCardMastodon from './pw-card-mastodon.vue';
 
@@ -21,7 +22,8 @@ export default {
   },
   computed: {
     postsToShow() {
-      const posts = [...this.toots].sort((a, b) => {
+      // Combine this.tweets and this.mastodon and sort by created_at
+      const posts = [...this.tweets, ...this.toots].sort((a, b) => {
         return new Date(b.created_at) - new Date(a.created_at);
       });
 
@@ -31,6 +33,7 @@ export default {
   components: {
     PwLede,
     PwSectionHeading,
+    PwCardTwitter,
     PwSection,
     PwCardMastodon,
   },
@@ -43,6 +46,7 @@ export default {
     <pw-lede class="links-underline mt-3"> Tweets and toots by me</pw-lede>
     <div role="list" x-ref="container" class="tweets-grid mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
       <div role="listitem" class="tweets-grid__item" v-for="(post, index) in postsToShow.slice(0, itemsBeforeScrollSaver)" :key="index">
+        <pw-card-twitter :tweet="post" v-if="post.pw.source === 'twitter'" />
         <pw-card-mastodon v-if="post.pw.source === 'mastodon'" :toot="post" />
       </div>
       <div role="listitem" class="scroll-saver block space-y-3 no-js:hidden md:hidden" hidden x-data>
